@@ -1,0 +1,14 @@
+E:\Code\CSharp\c 语言参考\bin\Debug\net8.0\c 语言参考.exe
+E:\Code\CSharp\c 语言参考\bin\Debug\net8.0\c 语言参考.deps.json
+E:\Code\CSharp\c 语言参考\bin\Debug\net8.0\c 语言参考.runtimeconfig.json
+E:\Code\CSharp\c 语言参考\bin\Debug\net8.0\c 语言参考.dll
+E:\Code\CSharp\c 语言参考\bin\Debug\net8.0\c 语言参考.pdb
+E:\Code\CSharp\c 语言参考\obj\Debug\net8.0\c 语言参考.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\CSharp\c 语言参考\obj\Debug\net8.0\c 语言参考.AssemblyInfoInputs.cache
+E:\Code\CSharp\c 语言参考\obj\Debug\net8.0\c 语言参考.AssemblyInfo.cs
+E:\Code\CSharp\c 语言参考\obj\Debug\net8.0\c 语言参考.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\c 语言参考\obj\Debug\net8.0\c 语言参考.dll
+E:\Code\CSharp\c 语言参考\obj\Debug\net8.0\refint\c 语言参考.dll
+E:\Code\CSharp\c 语言参考\obj\Debug\net8.0\c 语言参考.pdb
+E:\Code\CSharp\c 语言参考\obj\Debug\net8.0\c 语言参考.genruntimeconfig.cache
+E:\Code\CSharp\c 语言参考\obj\Debug\net8.0\ref\c 语言参考.dll

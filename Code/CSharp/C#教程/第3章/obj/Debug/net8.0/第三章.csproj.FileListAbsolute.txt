@@ -1,0 +1,14 @@
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\obj\Debug\net8.0\第三章.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\obj\Debug\net8.0\第三章.AssemblyInfoInputs.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\obj\Debug\net8.0\第三章.AssemblyInfo.cs
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\obj\Debug\net8.0\第三章.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\bin\Debug\net8.0\第三章.exe
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\bin\Debug\net8.0\第三章.deps.json
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\bin\Debug\net8.0\第三章.runtimeconfig.json
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\bin\Debug\net8.0\第三章.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\bin\Debug\net8.0\第三章.pdb
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\obj\Debug\net8.0\第三章.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\obj\Debug\net8.0\refint\第三章.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\obj\Debug\net8.0\第三章.pdb
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\obj\Debug\net8.0\第三章.genruntimeconfig.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第三章\obj\Debug\net8.0\ref\第三章.dll

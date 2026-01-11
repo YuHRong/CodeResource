@@ -1,0 +1,44 @@
+6．编写一个程序，创建一个整型变量
+toes
+，并将
+toes
+设置为
+10
+。程序中还要计算
+toes的两倍和
+toes的平方。该程序应打印3个值，并分别描述以示区分。
+
+申明toes变量,
+初始toes 值为10, 
+toes的两倍变量为toes1,值为toes*2,
+toes 平方变量为 toes2, 值为toes*toes;
+最后输出toes的两倍值和平方，可以用一个printf输出
+int toes, toes1, toes2;
+
+
+参考代码1： 
+#include<stdio.h>
+
+int main(void) {
+	int toes, toes1, toes2;
+	toes = 10;
+	toes1 = toes * 2;
+	toes2 = toes * toes;
+
+	printf("toes的值为: %d,\ntoes的两倍和为: %d,\ntoes的平方是: %d,\n", toes, toes1, toes2);
+
+	return 0;
+}
+
+参考代码2： 
+#include<stdio.h>
+
+int main(void) {
+	int toes = 10;
+	int doubleToes = toes * 2;
+	int squareToes = toes * toes;
+
+	printf("toes的值是: %d,\n", toes);
+	printf("toes 的两倍和是: %d,\n", doubleToes);
+	printf("toes 的平方是: %d,\n", squareToes);
+}

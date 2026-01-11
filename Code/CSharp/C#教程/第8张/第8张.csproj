@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="8-1.cs" />
+    <Compile Remove="8-2.cs" />
+    <Compile Remove="8-3.cs" />
+    <Compile Remove="8-4.cs" />
+    <Compile Remove="8-5.cs" />
+    <Compile Remove="8-6.cs" />
+    <Compile Remove="8-7.cs" />
+    <Compile Remove="8-8.cs" />
+    <Compile Remove="8-9.cs" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+</Project>

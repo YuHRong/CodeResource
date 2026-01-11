@@ -1,0 +1,14 @@
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\bin\Debug\net8.0\第六章.exe
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\bin\Debug\net8.0\第六章.deps.json
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\bin\Debug\net8.0\第六章.runtimeconfig.json
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\bin\Debug\net8.0\第六章.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\bin\Debug\net8.0\第六章.pdb
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\obj\Debug\net8.0\第六章.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\obj\Debug\net8.0\第六章.AssemblyInfoInputs.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\obj\Debug\net8.0\第六章.AssemblyInfo.cs
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\obj\Debug\net8.0\第六章.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\obj\Debug\net8.0\第六章.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\obj\Debug\net8.0\refint\第六章.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\obj\Debug\net8.0\第六章.pdb
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\obj\Debug\net8.0\第六章.genruntimeconfig.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第六章\obj\Debug\net8.0\ref\第六章.dll

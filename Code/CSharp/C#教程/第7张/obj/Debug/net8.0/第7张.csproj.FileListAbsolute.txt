@@ -1,0 +1,14 @@
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\bin\Debug\net8.0\第7张.exe
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\bin\Debug\net8.0\第7张.deps.json
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\bin\Debug\net8.0\第7张.runtimeconfig.json
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\bin\Debug\net8.0\第7张.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\bin\Debug\net8.0\第7张.pdb
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\obj\Debug\net8.0\第7张.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\obj\Debug\net8.0\第7张.AssemblyInfoInputs.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\obj\Debug\net8.0\第7张.AssemblyInfo.cs
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\obj\Debug\net8.0\第7张.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\obj\Debug\net8.0\第7张.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\obj\Debug\net8.0\refint\第7张.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\obj\Debug\net8.0\第7张.pdb
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\obj\Debug\net8.0\第7张.genruntimeconfig.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第7张\obj\Debug\net8.0\ref\第7张.dll

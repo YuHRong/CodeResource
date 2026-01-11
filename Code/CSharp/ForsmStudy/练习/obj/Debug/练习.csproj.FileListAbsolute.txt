@@ -1,0 +1,11 @@
+E:\Code\CSharp\ForsmStudy\练习\obj\Debug\练习.csproj.AssemblyReference.cache
+E:\Code\CSharp\ForsmStudy\练习\obj\Debug\练习.Form1.resources
+E:\Code\CSharp\ForsmStudy\练习\obj\Debug\练习.Properties.Resources.resources
+E:\Code\CSharp\ForsmStudy\练习\obj\Debug\练习.csproj.GenerateResource.cache
+E:\Code\CSharp\ForsmStudy\练习\obj\Debug\练习.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\ForsmStudy\练习\bin\Debug\练习.exe.config
+E:\Code\CSharp\ForsmStudy\练习\bin\Debug\练习.exe
+E:\Code\CSharp\ForsmStudy\练习\bin\Debug\练习.pdb
+E:\Code\CSharp\ForsmStudy\练习\obj\Debug\练习.exe
+E:\Code\CSharp\ForsmStudy\练习\obj\Debug\练习.pdb
+E:\Code\CSharp\ForsmStudy\练习\obj\Debug\练习.exe.config

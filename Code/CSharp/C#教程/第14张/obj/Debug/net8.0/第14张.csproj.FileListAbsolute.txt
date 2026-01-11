@@ -1,0 +1,14 @@
+E:\Code\CSharp\C#教程\第14张\obj\Debug\net8.0\第14张.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\CSharp\C#教程\第14张\obj\Debug\net8.0\第14张.AssemblyInfoInputs.cache
+E:\Code\CSharp\C#教程\第14张\obj\Debug\net8.0\第14张.AssemblyInfo.cs
+E:\Code\CSharp\C#教程\第14张\obj\Debug\net8.0\第14张.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\C#教程\第14张\bin\Debug\net8.0\第14张.exe
+E:\Code\CSharp\C#教程\第14张\bin\Debug\net8.0\第14张.deps.json
+E:\Code\CSharp\C#教程\第14张\bin\Debug\net8.0\第14张.runtimeconfig.json
+E:\Code\CSharp\C#教程\第14张\bin\Debug\net8.0\第14张.dll
+E:\Code\CSharp\C#教程\第14张\bin\Debug\net8.0\第14张.pdb
+E:\Code\CSharp\C#教程\第14张\obj\Debug\net8.0\第14张.dll
+E:\Code\CSharp\C#教程\第14张\obj\Debug\net8.0\refint\第14张.dll
+E:\Code\CSharp\C#教程\第14张\obj\Debug\net8.0\第14张.pdb
+E:\Code\CSharp\C#教程\第14张\obj\Debug\net8.0\第14张.genruntimeconfig.cache
+E:\Code\CSharp\C#教程\第14张\obj\Debug\net8.0\ref\第14张.dll

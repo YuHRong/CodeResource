@@ -1,0 +1,14 @@
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\obj\Debug\net8.0\第10张.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\obj\Debug\net8.0\第10张.AssemblyInfoInputs.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\obj\Debug\net8.0\第10张.AssemblyInfo.cs
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\obj\Debug\net8.0\第10张.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\bin\Debug\net8.0\第10张.exe
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\bin\Debug\net8.0\第10张.deps.json
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\bin\Debug\net8.0\第10张.runtimeconfig.json
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\bin\Debug\net8.0\第10张.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\bin\Debug\net8.0\第10张.pdb
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\obj\Debug\net8.0\第10张.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\obj\Debug\net8.0\refint\第10张.dll
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\obj\Debug\net8.0\第10张.pdb
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\obj\Debug\net8.0\第10张.genruntimeconfig.cache
+E:\Code\CSharp\ForsmStudy\C#教程\第10张\obj\Debug\net8.0\ref\第10张.dll

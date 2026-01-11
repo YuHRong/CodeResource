@@ -1,0 +1,32 @@
+﻿using System;
+class Test
+{
+ static void F()
+ {
+  try
+  {
+   G();
+  }
+  catch (Exception e)
+  {
+   Console.WriteLine("Exception in F: " + e.Message);
+   e = new Exception("F");
+   throw;
+  }
+ }
+ static void G()
+ {
+  throw new Exception("G");
+ }
+ static void Main()
+ {
+  try
+  {
+   F();
+  }
+  catch(Exception e)
+  {
+   Console.WriteLine("Exception in Main: " + e.Message);
+  }
+ }
+}

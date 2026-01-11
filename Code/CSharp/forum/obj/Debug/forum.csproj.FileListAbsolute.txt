@@ -1,0 +1,11 @@
+E:\Code\CSharp\forum\bin\Debug\forum.exe.config
+E:\Code\CSharp\forum\bin\Debug\forum.exe
+E:\Code\CSharp\forum\bin\Debug\forum.pdb
+E:\Code\CSharp\forum\obj\Debug\forum.csproj.AssemblyReference.cache
+E:\Code\CSharp\forum\obj\Debug\forum.Form1.resources
+E:\Code\CSharp\forum\obj\Debug\forum.Properties.Resources.resources
+E:\Code\CSharp\forum\obj\Debug\forum.csproj.GenerateResource.cache
+E:\Code\CSharp\forum\obj\Debug\forum.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\forum\obj\Debug\forum.exe
+E:\Code\CSharp\forum\obj\Debug\forum.pdb
+E:\Code\CSharp\forum\obj\Debug\forum.exe.config

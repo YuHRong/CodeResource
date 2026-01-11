@@ -1,0 +1,4 @@
+E:\Code\CSharp\C#教程\第13张\obj\Debug\net8.0\第13张.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\CSharp\C#教程\第13张\obj\Debug\net8.0\第13张.AssemblyInfoInputs.cache
+E:\Code\CSharp\C#教程\第13张\obj\Debug\net8.0\第13张.AssemblyInfo.cs
+E:\Code\CSharp\C#教程\第13张\obj\Debug\net8.0\第13张.csproj.CoreCompileInputs.cache

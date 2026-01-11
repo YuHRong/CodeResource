@@ -1,0 +1,12 @@
+E:\Code\CSharp\ForsmStudy\MathQuiz\bin\Debug\MathQuiz.exe.config
+E:\Code\CSharp\ForsmStudy\MathQuiz\bin\Debug\MathQuiz.exe
+E:\Code\CSharp\ForsmStudy\MathQuiz\bin\Debug\MathQuiz.pdb
+E:\Code\CSharp\ForsmStudy\MathQuiz\obj\Debug\MathQuiz.csproj.AssemblyReference.cache
+E:\Code\CSharp\ForsmStudy\MathQuiz\obj\Debug\MathQuiz.Form1.resources
+E:\Code\CSharp\ForsmStudy\MathQuiz\obj\Debug\MathQuiz.Properties.Resources.resources
+E:\Code\CSharp\ForsmStudy\MathQuiz\obj\Debug\MathQuiz.csproj.GenerateResource.cache
+E:\Code\CSharp\ForsmStudy\MathQuiz\obj\Debug\MathQuiz.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\ForsmStudy\MathQuiz\obj\Debug\MathQuiz.exe
+E:\Code\CSharp\ForsmStudy\MathQuiz\obj\Debug\MathQuiz.pdb
+E:\Code\CSharp\ForsmStudy\MathQuiz\obj\Debug\MathQuiz.exe.config
+E:\Code\CSharp\ForsmStudy\MathQuiz\obj\Debug\Form1.resources

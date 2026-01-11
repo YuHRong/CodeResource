@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Code\\C primer plus\\\u4E66\u7C4D\u4EE3\u7801\\\u7B2C5\u7AE0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED1570B6-1156-4C99-8617-59EEE16EE98A}|\u7B2C5\u7AE0.vcxproj|E:\\Code\\C primer plus\\\u4E66\u7C4D\u4EE3\u7801\\\u7B2C5\u7AE0\\5.16 running.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{ED1570B6-1156-4C99-8617-59EEE16EE98A}|\u7B2C5\u7AE0.vcxproj|solutionrelative:5.16 running.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "5.16 running.c",
+              "DocumentMoniker": "E:\\Code\\C primer plus\\\u4E66\u7C4D\u4EE3\u7801\\\u7B2C5\u7AE0\\5.16 running.c",
+              "RelativeDocumentMoniker": "5.16 running.c",
+              "ToolTip": "E:\\Code\\C primer plus\\\u4E66\u7C4D\u4EE3\u7801\\\u7B2C5\u7AE0\\5.16 running.c",
+              "RelativeToolTip": "5.16 running.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-12-12T15:11:50.445Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+8．在C语言中，函数可以调用另一个函数。编写一个程序，调用一个名为
+one_three()   的函数。该函数在一行打印单词“
+one   ”，
+再调用第2个函数
+two()   ，
+然后在另一行打印单词“ three   ”。
+two()   函数在一行显示单词“ two   ”。 main()   函数在调用
+one_three()   函数前要打印短语“
+starting    now:   ”，并在调用完毕后显示短语“
+done!   ”。因此，该程序的输出应如下所示：
+starting now:
+one
+two
+three
+done!
+
+
+先定义函数one_three 的输出为one
+在定义函数two输出为three
+输出two 和 starting now以及done!直接main函数调用即可
+
+代码示例： 
+#include<stdio.h>
+
+// 定义函数one_three
+void one_three(void) {
+	printf("one\n");
+}
+// 定义函数two
+void two(void) {
+	printf("three");
+}
+
+// main 函数
+int main(void) {
+	printf("starting now:\n");
+	one_three();
+	printf("two\n");
+	two();
+	printf("\n");
+	printf("done!\n");
+
+	return 0;
+}
+
+函数体可以定义在前面或者后，
+在后面定义函数体的时候前面void one_three(void);
+以及
+void two(void);
+记得写;分号
+
+
+嵌套调用代码： 
+#include <stdio.h>
+
+void one(void) {
+	printf("two\n");
+}
+
+void two(void) {
+	printf("three\n");
+}
+
+void one_three(void) {
+	printf("one\n");
+	one(); // one_three调用one函数
+	two(); // one_three调用two函数
+}
+
+int main(void) {
+	printf("starting now:\n");
+	one_three(); // 一次调用触发整个链条
+	printf("done!\n");
+	return 0;
+}

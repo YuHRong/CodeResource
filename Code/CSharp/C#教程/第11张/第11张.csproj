@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+       <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="11-1.cs" />
+    <Compile Remove="11-10.cs" />
+    <Compile Remove="11-2.cs" />
+    <Compile Remove="11-3.cs" />
+    <Compile Remove="11-4.cs" />
+    <Compile Remove="11-5.cs" />
+    <Compile Remove="11-6.cs" />
+    <Compile Remove="11-7.cs" />
+    <Compile Remove="11-8.cs" />
+    <Compile Remove="11-9.cs" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+</Project>

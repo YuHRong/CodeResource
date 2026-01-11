@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Code\\C primer plus\\Project1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{70A51403-1367-4C0D-BFF4-928005CEDD77}|Project1.vcxproj|E:\\Code\\C primer plus\\Project1\\2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{70A51403-1367-4C0D-BFF4-928005CEDD77}|Project1.vcxproj|solutionrelative:2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "2.c",
+              "DocumentMoniker": "E:\\Code\\C primer plus\\Project1\\2.c",
+              "RelativeDocumentMoniker": "2.c",
+              "ToolTip": "E:\\Code\\C primer plus\\Project1\\2.c",
+              "RelativeToolTip": "2.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-11-16T16:17:44.917Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

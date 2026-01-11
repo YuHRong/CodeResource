@@ -1,0 +1,14 @@
+E:\Code\CSharp\practice\programPractice1\obj\Debug\net8.0\programPractice1.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\CSharp\practice\programPractice1\obj\Debug\net8.0\programPractice1.AssemblyInfoInputs.cache
+E:\Code\CSharp\practice\programPractice1\obj\Debug\net8.0\programPractice1.AssemblyInfo.cs
+E:\Code\CSharp\practice\programPractice1\obj\Debug\net8.0\programPractice1.csproj.CoreCompileInputs.cache
+E:\Code\CSharp\practice\programPractice1\bin\Debug\net8.0\programPractice1.exe
+E:\Code\CSharp\practice\programPractice1\bin\Debug\net8.0\programPractice1.deps.json
+E:\Code\CSharp\practice\programPractice1\bin\Debug\net8.0\programPractice1.runtimeconfig.json
+E:\Code\CSharp\practice\programPractice1\bin\Debug\net8.0\programPractice1.dll
+E:\Code\CSharp\practice\programPractice1\bin\Debug\net8.0\programPractice1.pdb
+E:\Code\CSharp\practice\programPractice1\obj\Debug\net8.0\programPractice1.dll
+E:\Code\CSharp\practice\programPractice1\obj\Debug\net8.0\refint\programPractice1.dll
+E:\Code\CSharp\practice\programPractice1\obj\Debug\net8.0\programPractice1.pdb
+E:\Code\CSharp\practice\programPractice1\obj\Debug\net8.0\programPractice1.genruntimeconfig.cache
+E:\Code\CSharp\practice\programPractice1\obj\Debug\net8.0\ref\programPractice1.dll
