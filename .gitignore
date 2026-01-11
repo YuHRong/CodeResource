@@ -1,0 +1,19 @@
+# --- VS/VS Code 缓存和配置 ---
+
+# 忽略所有 .vs 目录（包括子目录中的 .vs 目录）
+.vs/
+
+# 忽略所有中间文件和编译产物
+*.ipch
+*.obj
+*.exe
+*.dll
+*.pdb
+*.suo
+*.user
+*.sdf
+*.vspscc
+
+# 如果你使用 C# 或 .NET，通常还需要忽略这些
+**/bin/
+**/obj
