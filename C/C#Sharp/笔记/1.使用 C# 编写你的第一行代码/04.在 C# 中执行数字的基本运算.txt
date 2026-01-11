@@ -1,0 +1,404 @@
+要在 C# 中开发的应用程序需要你处理字面值和变量数值数据。 示例包括：
+执行简单的数学运算，包括加法、减法、乘法和除法
+执行多步骤的操作，这些操作必须按特定顺序完成。
+求除法后的余数
+递增或递减值等
+假设你想要执行将值从一个度量单位转换为另一个单位的计算。 例如，如果需要将当前温度从华氏度转换为摄氏度，该怎么办？ 计算温度（以摄氏度为单位）后，需要向用户显示格式化消息中的信息。 若要实现此目的，需要了解如何使用运算符对字面值和变量值等进行操作。
+在本模块中，你将对数据执行基本字符串和数字操作。 如你了解的那样，编译器将执行不同的任务，具体取决于给定运算符周围的值的数据类型。 更重要的是，你将了解到运算符如何对操作数执行操作。 了解如何正确处理运算符和作数有助于在代码中制定有意义的说明。
+在本模块结束时，你将能够编写对字面值和变量值进行基本操作的代码。
+
+通过学习本模块，你将能够：
+对数字值执行数学运算
+观察字符串和数值之间的隐式类型转换
+暂时将一种数据类型转换为另一种数据类型
+先决条件 
+.NET 编辑器的入门级体验
+基本 C# 语法规则的入门级经验
+使用
+Console.WriteLine
+和
+Console.Write
+方法向控制台显示消息的初学者级别体验
+创建文本值以及声明基本数据类型（如
+string
+、
+int
+和
+decimal
+）的变量的入门级体验
+字符串串联和字符串内插的入门级体验
+
+通常需要在数值数据上执行数学运算。 首先从本单元的加法开始，并在下一个单元中扩展到其他运算，因为要学习重要的一课来了解 C# 编译器如何分析和解释代码。
+添加两个数值数据  标题2
+若要将两个数字相加，请使用加法运算符，即加号
++
+。 没错，字符串串联使用的相同的加号
++
+也用于加法。 为了多个目的重复使用一个符号有时被称为“重载运算符”，并且经常在 C# 中发生。
+在此示例中，C# 编译器了解你要执行的操作。 编译器会分析你的代码，看
++
+（运算符）前后是否有两个数值（操作数）。 给定变量的数据类型（两个都是
+int
+），它会理解你想将这两个值相加。
+代码： 
+int firstNumber = 12;
+int secondNumber = 7;
+Console.WriteLine(firstNumber + secondNumber);
+输出就可以的得到： 19.
+
+如果尝试对
++
+和
+string
+值使用
+int
+符号会发生什么呢？
+string firstName = "Bob";
+int widgetsSold = 7;
+Console.WriteLine(firstName + " sold " + widgetsSold + " widgets.");
+输出得到： 
+Bob sold 7 widgets.
+
+在上面代码中，C# 编译器了解你想使用
++
+符号来连接两个操作数。 它推断出此情况，因为
++
+符号由
+string
+和
+int
+数据类型的操作数包围。 因此，它会尝试将
+int
+变量
+widgetsSold
+暂时转换为
+string
+以便将其与字符串的其余部分连接。 C# 编译器会尽力帮助你，但在理想情况下，你应该明确自己的意图。
+
+尝试添加数字和连接字符串的更高级情况
+string firstName = "Bob";
+int widgetsSold = 7;
+Console.WriteLine(firstName + " sold " + widgetsSold + 7 + " widgets.");
+输出得到： 
+Bob sold 77 widgets.
+编译器将所有内容视为字符串并将其全部连接起来，而不是将
+int变量
+widgetsSold添加到文本
+int7中。
+
+添加括号向编译器阐明意图
+string firstName = "Bob";
+int widgetsSold = 7;
+Console.WriteLine(firstName + " sold " + (widgetsSold + 7) + " widgets.");
+输出得到： 
+Bob sold 14 widgets.
+括号符号
+()
+变成另一个重载运算符。 在这种情况下，左括号和右括号构成运算符运算的顺序，就如你可以在数学公式中使用的那样。 你指出希望首先解析内部括号，结果是
+int
+值
+widgetsSold
+和值
+7
+相加。 解析该内容后，它将会隐式转换结果为字符串，以便可与消息的其余部分连接。
+备注
+应避免在单个代码行中同时执行计算和串联。 此处的重点是帮助你了解如何按编译器的方式查看运算符和操作数。
+总结 
+以下是到目前为止你学习到的关于 C# 中的数学运算的知识：
+可以对数字执行类似数学的加法运算。
+字符串串联和加法均使用加号
+。 这称为“重载运算符”，编译器根据其运算的数据类型推断合理的使用。
+如果 C# 编译器意识到开发者试图连接数字的字符串表示形式来实现演示，则它会隐式将
+int
+转换为
+string
+。
+可以使用括号定义运算顺序，以显式指示编译器你要在执行其他运算之前执行特定运算。
+
+执行基本的数学运算 
+编写代码以用整数执行加法、减法、乘法和除法运算 
+代码： 
+int sum = 7 + 5;
+int difference = 7 - 5;
+int product = 7 * 5;
+int quotient = 7 / 5;
+
+Console.WriteLine("Sum: " + sum);
+Console.WriteLine("Difference: " + difference);
+Console.WriteLine("Product: " + product);
+Console.WriteLine("Quotient: " + quotient);
+输出得到： 
+Sum: 12
+Difference: 2
+Product: 35
+Quotient: 1
+正如你所见：
++
+是加法运算符
+-
+是减法运算符
+*
+是乘法运算符
+/
+是除法运算符
+然而，除法示例的结果商可能不是你所期望的。 小数后面的值从
+quotient
+中截断，因为它被定义为
+int，
+并且
+int不能包含小数后面的值。
+
+要查看除法是否正确有效，需要使用支持小数点后的小数位的数据类型，如
+decimal
+如： 
+decimal decimalQuotient = 7.0m / 5;
+Console.WriteLine($"Decimal quotient: {decimalQuotient}");
+输出就可以得到： 
+Decimal quotient: 1.4
+为了使其正常运作，商（赋值运算符的左边）必须为
+decimal类型，且至少有一个被除数也必须为
+类型（两者都可为
+decimal类型）
+decimal。
+两个其他示例：
+decimal decimalQuotient = 7 / 5.0m;
+decimal decimalQuotient = 7.0m / 5.0m;
+但是，以下代码行会无效（或者会给出不准确的结果）：
+int decimalQuotient = 7 / 5.0m;
+int decimalQuotient = 7.0m / 5;
+int decimalQuotient = 7.0m / 5.0m;
+decimal decimalQuotient = 7 / 5;
+
+添加代码以转换整除的结果
+如果不使用文本值会怎么样？ 换句话说，如果需要将类型
+int的两个变量相除，但不希望结果被截断，该怎么办？ 在这种情况下，必须执行从
+int到decimal
+的数据类型强制转换。 强制转换是一种数据转换类型，指示编译器临时将值视为不同的数据类型。
+要将int强制转换为decimal
+，请在值之前添加强制转换运算符。 使用在值前面加括号括起来的数据类型名称来强制转换该数据类型。 在本示例中，将
+(decimal)添加到变量
+first和second之前。
+代码： 
+
+int first = 7;
+int second = 5;
+decimal quotient = (decimal)first / (decimal)second;
+Console.WriteLine(quotient);
+输出得到： 1.4
+对于括号运算符，你看到了三种用法：方法调用、运算顺序和强制转换。
+
+编写代码以确定整数相除后的余数 
+取模运算符
+%
+指示
+int
+相除后的余数。 你真正从此了解到的是一个数字是否可被另一个数字整除。 当遍历数百条或数千条数据记录，并想要在每 100 条数据记录经过处理后向最终用户提供反馈时，这非常有用。
+代码： 
+Console.WriteLine($"Modulus of 200 / 5 : {200 % 5}");
+Console.WriteLine($"Modulus of 7 / 5 : {7 % 5}");
+输出得到： 
+Modulus of 200 / 5 : 0
+Modulus of 7 / 5 : 2
+
+运算顺序 
+正如在上一个练习中了解到的，可以使用
+()
+符号作为运算符运算的顺序。 但是，这不是确定运算顺序的唯一方法。
+在数学中，PEMDAS 是一个首字母缩略词，有助于学生记住运算顺序。 此顺序为：
+1.
+圆括号 (P)（括号内的内容首先执行）
+2.
+指数 (E)
+3.
+乘法 (M) 和除法 (D)（从左至右）
+4.
+加法 (A) 和减法 (S)（从左至右）
+C# 遵循与 PEMDAS 相同的顺序，但指数除外。 虽然在 C# 中没有指数运算符，但可以使用
+System.Math.Pow
+方法。 模块“使用 C# 从 .NET 库类调用方法”将使用此方法和其他方法。
+
+编写代码以执行 C# 的运算顺序 
+代码： 
+int value1 = 3 + 4 * 5;
+int value2 = (3 + 4) * 5;
+Console.WriteLine(value1);
+Console.WriteLine(value2);
+在此你将看到在不同顺序中执行相同运算时的差异。
+输出得到： 
+23
+35
+
+总结
+以下是到目前为止你学习到的关于 C# 中的数学运算的知识：
+使用如
++-*/
+的运算符来执行基本数学运算。
+两个int
+值相除，得到小数点后的任意值被截断的结果。 要保留小数点后面的值，需要先将除数或被除数（或两者）由
+int
+强制转换为浮点数，如
+decimal
+，然后为了避免截断，商必须是相同的浮点类型。
+执行强制转换操作，将值暂时视为不同的数据类型。
+使用
+%
+运算符捕获相除后的余数。
+操作顺序将遵循首字母缩略词 PEMDAS 的规则。
+
+
+递增和递减  
+通常，需要递增和/或递减值，尤其是在编写与数据结构交互的循环逻辑或代码时。
+运算符
++=
+将运算符右侧的值添加到运算符左侧的值并赋值。 因此，以下代码片段中的第二行和第三行相同：
+
+int value = 0;     // value is now 0.
+value = value + 5; // value is now 5.
+value += 5;        // value is now 10.
+
+运算符
+++
+将变量的值递增 1。 因此，以下代码片段中的第二行和第三行相同：
+
+int value = 0;     // value is now 0.
+value = value + 1; // value is now 1.
+value++;           // value is now 2.
+这些相同的技术可用于减法、乘法等。 以下练习步骤将重点介绍几个步骤。
+
+备注
+运算符（如
++=
+-=
+*=
+++
+和
+--
+）称为
+复合赋值
+运算符（如
++=
+-=
+*=
+++
+和
+--
+）称为
+复合赋值
+运算符，因为它们除了将结果赋给变量外，还会对某些运算进行复合。 该
++=
+运算符专门称为
+加法赋值
+运算符。
+编写代码以递增和递减值 
+int value = 1;
+
+value = value + 1;
+Console.WriteLine("First increment: " + value);
+
+value += 1;
+Console.WriteLine("Second increment: " + value);
+
+value++;
+Console.WriteLine("Third increment: " + value);
+
+value = value - 1;
+Console.WriteLine("First decrement: " + value);
+
+value -= 1;
+Console.WriteLine("Second decrement: " + value);
+
+value--;
+Console.WriteLine("Third decrement: " + value);
+输出得到： 
+First increment: 2
+Second increment: 3
+Third increment: 4
+First decrement: 3
+Second decrement: 2
+Third decrement: 1
+
+备注
+在“第二次增加”中，使用了
+value += 1;
+。 但是，你可以使用任何字面
+int
+值（或变量）来增加该数值。 这同样适用于“第二次递减”：
+value -= 1;。
+
+确定递增和递减运算符的位置  标题2
+递增和递减运算符都有一个有趣的性质——根据它们的位置，它们会在检索其值之前或之后执行操作。 换言之，如果像在
+++value
+中一样在值之前使用运算符，则递增会在检索值之前出现
+。 同样，
+value++
+将在检索值后递增该值。
+
+在值前后使用增量运算符 
+
+int value = 1;
+value++;
+Console.WriteLine("First: " + value);
+Console.WriteLine($"Second: {value++}");
+Console.WriteLine("Third: " + value);
+Console.WriteLine("Fourth: " + (++value));
+输出得到： 
+First: 2
+Second: 2
+Third: 3
+Fourth: 4
+
+请注意以下代码行：
+Console.WriteLine($"Second: {value++}");
+此行包括两个步骤：
+1.检索变量
+value
+的当前值，并在字符串内插作中使用该值。
+2.递增该值。
+下一行代码确认值实际上是递增的。
+Console.WriteLine("Third: " + value);
+相比之下，请考虑最后一行代码：
+Console.WriteLine("Fourth: " + (++value));
+
+运算顺序在此处发生变化，因为
+++
+运算符放置在运算数
+value
+之前。
+1.递增该值。
+2.从变量
+value中检索新的递增值，并在字符串操作中使用该值。
+
+虽然并非严格必要，但围绕表达式
+(++value)
+添加了括号以提高可读性。 看到那么多彼此相邻的
++
+操作符，这似乎可能会被其他开发人员误解。 这样的风格决策是主观的。 但是，由于你将编写代码一次但多次读取代码，因此应优先考虑可读性。
+
+回顾  标题2
+以下是到目前为止你学习到的关于 C# 中的数学运算的知识：
+使用复合赋值运算符（例如
++=
+，、
+-=
+*=
+、）
+++
+执行
+--
+数学运算（如递增或递减），然后将结果分配给原始变量。
+递增和递减运算符的执行方式不同，具体取决于运算符是在操作数之前还是之后。
+
+int fahrenheit = 94;
+若要将华氏度的温度转换为摄氏度，请先减去32，然后乘以五分之五（5/9）。
+以格式化消息显示温度转换的结果
+将变量与传递到一系列
+Console.WriteLine()
+命令的文本字符串组合在一起，形成完整的消息。
+完成后，消息应类似于以下输出：
+The temperature is 34.444444444444444444444444447 Celsius.
+当然，最好不要在小数点之后看到这么多值。 理想情况下，该值将格式化为小数点后面的单个值：
+34.4。
+参考代码：
+int fahrenheit = 94;
+decimal celsius = (fahrenheit - 32m) * (5m / 9m);
+Console.WriteLine("The temperature is " + celsius + " Celsius.");

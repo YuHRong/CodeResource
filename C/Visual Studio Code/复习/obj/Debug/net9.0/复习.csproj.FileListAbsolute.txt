@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\复习\bin\Debug\net9.0\复习.exe
+E:\C\Visual Studio Code\复习\bin\Debug\net9.0\复习.deps.json
+E:\C\Visual Studio Code\复习\bin\Debug\net9.0\复习.runtimeconfig.json
+E:\C\Visual Studio Code\复习\bin\Debug\net9.0\复习.dll
+E:\C\Visual Studio Code\复习\bin\Debug\net9.0\复习.pdb
+E:\C\Visual Studio Code\复习\obj\Debug\net9.0\复习.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\复习\obj\Debug\net9.0\复习.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\复习\obj\Debug\net9.0\复习.AssemblyInfo.cs
+E:\C\Visual Studio Code\复习\obj\Debug\net9.0\复习.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\复习\obj\Debug\net9.0\复习.dll
+E:\C\Visual Studio Code\复习\obj\Debug\net9.0\refint\复习.dll
+E:\C\Visual Studio Code\复习\obj\Debug\net9.0\复习.pdb
+E:\C\Visual Studio Code\复习\obj\Debug\net9.0\复习.genruntimeconfig.cache
+E:\C\Visual Studio Code\复习\obj\Debug\net9.0\ref\复习.dll

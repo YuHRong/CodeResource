@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\bin\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.exe
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\bin\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.deps.json
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\bin\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.runtimeconfig.json
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\bin\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\bin\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.pdb
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\obj\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\obj\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\obj\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.AssemblyInfo.cs
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\obj\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\obj\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\obj\Debug\net9.0\refint\第四节： 练习 - 使用值和引用类型参数.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\obj\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.pdb
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\obj\Debug\net9.0\第四节： 练习 - 使用值和引用类型参数.genruntimeconfig.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第四节： 练习 - 使用值和引用类型参数\obj\Debug\net9.0\ref\第四节： 练习 - 使用值和引用类型参数.dll

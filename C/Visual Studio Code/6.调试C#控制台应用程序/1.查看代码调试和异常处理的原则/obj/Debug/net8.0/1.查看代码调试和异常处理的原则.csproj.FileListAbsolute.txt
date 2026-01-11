@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\bin\Debug\net8.0\1.查看代码调试和异常处理的原则.exe
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\bin\Debug\net8.0\1.查看代码调试和异常处理的原则.deps.json
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\bin\Debug\net8.0\1.查看代码调试和异常处理的原则.runtimeconfig.json
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\bin\Debug\net8.0\1.查看代码调试和异常处理的原则.dll
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\bin\Debug\net8.0\1.查看代码调试和异常处理的原则.pdb
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\obj\Debug\net8.0\1.查看代码调试和异常处理的原则.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\obj\Debug\net8.0\1.查看代码调试和异常处理的原则.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\obj\Debug\net8.0\1.查看代码调试和异常处理的原则.AssemblyInfo.cs
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\obj\Debug\net8.0\1.查看代码调试和异常处理的原则.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\obj\Debug\net8.0\1.查看代码调试和异常处理的原则.dll
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\obj\Debug\net8.0\refint\1.查看代码调试和异常处理的原则.dll
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\obj\Debug\net8.0\1.查看代码调试和异常处理的原则.pdb
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\obj\Debug\net8.0\1.查看代码调试和异常处理的原则.genruntimeconfig.cache
+E:\C\Visual Studio Code\6.调试C#控制台应用程序\1.查看代码调试和异常处理的原则\obj\Debug\net8.0\ref\1.查看代码调试和异常处理的原则.dll

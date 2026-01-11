@@ -1,0 +1,37 @@
+要将你的文档章节和小结做成一个HTML文档，并实现目录链接，可以使用HTML的锚链接功能。下面是一个示例代码，展示了如何将文档分章节并添加一个目录，目录中的链接可以直接跳转到对应的章节。
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>文档目录</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ line-height: 1.6;
+ margin: 20px;
+ }
+ h2, h3 {
+ color: #333;
+ }
+ .toc {
+ margin-bottom: 20px;
+ }
+ .toc a {
+ text-decoration: none;
+ color: blue;
+ }
+ .toc a:hover {
+ text-decoration: underline;
+ }
+ </style>
+</head>
+<body>
+
+ <h1>文档标题</h1>
+
+</body>
+</html>
+

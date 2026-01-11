@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\02\bin\Debug\net9.0\02.exe
+E:\C\Visual Studio Code\02\bin\Debug\net9.0\02.deps.json
+E:\C\Visual Studio Code\02\bin\Debug\net9.0\02.runtimeconfig.json
+E:\C\Visual Studio Code\02\bin\Debug\net9.0\02.dll
+E:\C\Visual Studio Code\02\bin\Debug\net9.0\02.pdb
+E:\C\Visual Studio Code\02\obj\Debug\net9.0\02.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\02\obj\Debug\net9.0\02.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\02\obj\Debug\net9.0\02.AssemblyInfo.cs
+E:\C\Visual Studio Code\02\obj\Debug\net9.0\02.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\02\obj\Debug\net9.0\02.dll
+E:\C\Visual Studio Code\02\obj\Debug\net9.0\refint\02.dll
+E:\C\Visual Studio Code\02\obj\Debug\net9.0\02.pdb
+E:\C\Visual Studio Code\02\obj\Debug\net9.0\02.genruntimeconfig.cache
+E:\C\Visual Studio Code\02\obj\Debug\net9.0\ref\02.dll

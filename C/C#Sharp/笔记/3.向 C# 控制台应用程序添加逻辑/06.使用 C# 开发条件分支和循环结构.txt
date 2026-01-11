@@ -1,0 +1,335 @@
+01： 简介
+假设你是一名喜欢支持当地社区的开发人员。 你和一些朋友创办了一家帮助寻找流浪或废弃猫和狗的新家园的企业。 你的企业从小开始，只有几只流浪动物，现已开始成长。 你想要创建一个应用程序，以帮助你匹配你照顾中的动物与寻找宠物的人。 你发现，必须对动物进行详细说明，以便与潜在主人分享。 此外，能够描述狗或猫的个性，使他们更吸引潜在的主人。 你决定创建一个应用程序，帮助你管理有关你关心的狗和猫的信息。
+本模块指导你完成开发 Contoso Pets 应用程序以数据为中心的功能的过程。 你将使用选择和迭代语句创建示例数据、列出护理中的动物，以及向业务添加新动物。 在整个应用程序中，你将使用变量和表达式来控制代码分支的执行。 你还将确保变量的作用域适当。
+开发的应用程序将：
+将预定义的示例数据添加到宠物数组。
+迭代“菜单选项和用户选择”代码块以建立应用程序的外部循环。
+实现对应于用户菜单选择的代码分支。
+显示用于存储宠物数据的数组中包含的所有信息（基于用户的菜单选择）。
+循环访问“添加新动物信息”代码块，使用户能够将一个或多个新动物添加到宠物阵列（基于用户的菜单选择）。
+在本模块结束时，你将能够开发组合选择和迭代语句的代码，以实现应用程序设计目标。
+备注
+本模块是一个引导式项目，你可以按照分步说明完成端到端项目。
+
+
+02引导： 
+
+在此引导项目中，你将使用 Visual Studio Code 开发 C# 应用程序的初始版本。 应用程序将使用布尔表达式、选择语句和迭代语句来实现设计规范的特征。 开发应用程序时，需要在适当的级别限定变量的范围。
+你正在处理 Contoso Pets 应用程序，该应用程序可帮助将宠物放在新家庭中。 应用程序的规范如下：
+创建 C# 控制台应用程序。
+将应用程序数据存储在名为 ourAnimals 的多维字符串数组中。
+我们的Animals数组包括每个动物的以下“宠物特征” ：
+宠物 ID #.
+◦ 宠物物种（猫或狗）。
+◦ 宠物年龄（年）。
+◦ 对宠物的物理状况/特征的描述。
+◦ 宠物个性的描述。
+◦ 宠物的绰号。
+• 实现表示当前在护理中的狗和猫的示例数据集。
+• 显示菜单选项以访问应用程序的主要功能。
+•
+ 主要功能启用以下任务： 
+◦
+ 列出我们的Animals 数组中所有动物的宠物信息。
+◦
+将新动物添加到我们的Animals 数组。 
+下列条件适用： 
+◦
+ 当将新动物添加到我们的Animals阵列时，必须进入宠物物种（狗或猫）。 
+◦
+ 将新动物添加到 ourAnimals 数组时，必须以编程方式生成宠物 ID。 
+◦
+ 在兽医检查之前，宠物的一些身体特征可能未知。 
+例如：
+年龄、品种和中性/稀疏状态。 
+◦
+ 当宠物第一次到来时，动物的绰号和个性可能未知。  
+◦
+ 确保动物年龄和身体描述已完成。 在兽医检查后，可能需要这样做。  
+◦
+ 确保动物绰号和个性描述已完成（此作可能发生在团队知道宠物之后）。  
+◦
+ 编辑动物的年龄（如果宠物的出生日期已知，宠物在我们照顾时有生日）。  
+◦
+ 编辑动物的个性描述（宠物在照顾中花费更多时间后的行为可能不同）。  
+◦
+ 显示满足用户指定物理特征的所有猫。 
+◦
+ 显示满足用户指定物理特征的所有狗。
+
+应用程序的初始版本已经完成。 此引导式项目模块的起始代码项目包括提供以下代码功能的 Program.cs 文件：
+该代码声明用于收集和处理宠物数据和菜单项选择的变量。
+该代码声明我们的Animals 数组。
+该代码使用 for 循环遍历 if-elseif-else 构造，以使用示例数据集填充 ourAnimals 数组。
+代码显示以下用于用户选择的主菜单选项：
+1.
+列出我们所有当前的宠物信息。
+2.
+将值分配给我们的Animals 数组字段。
+3.
+确保动物年龄和身体描述已完成。
+4.
+确保动物昵称和个性描述已完成。
+5.
+编辑动物的年龄。
+6.
+编辑动物的个性描述。
+7.
+显示具有指定特征的所有猫。
+8.
+显示具有指定特征的所有狗。
+输入菜单项选择或键入“Exit”退出程序
+该代码读取用户的菜单项选择，并显示一条消息以回显其选择。
+你的目标是开发实现前两个菜单选项的功能。 若要实现此目标，你将完成以下任务：
+1.
+更新用于为应用创建示例数据的代码。
+2.
+围绕主菜单构造一个循环，并创建一个选择语句，该语句为每个菜单选项建立代码分支。
+3.
+编写代码以显示所有Animals 数组数据（菜单选项 1）。
+4.
+生成用于输入新的Animals 数组数据的循环（菜单选项 2 - 第 1 部分）。
+5.
+编写代码以读取和保存新的Animals 数组数据（菜单选项 2 - 第 2 部分）。
+你将在开发过程的每个阶段测试应用程序。
+
+
+练习 - 生成示例数据和菜单选择循环 
+在本练习中，你将查看 Starter 项目中的代码，执行一些代码清理任务，然后开始向应用程序添加功能。 在本练习中完成的任务如下：
+1.
+代码评审：评审 Program.cs 文件的内容。
+2.
+示例数据：将 if-elseif-else 结构转换为可提高可读性的 switch-case 结构。
+3.
+菜单循环：将主菜单和菜单项选择放在循环中反复执行，直到用户输入“退出”。
+4.
+菜单选择：编写 switch-case 结构的代码，该结构为每个菜单选项建立单独的代码分支。
+5.
+代码分支：在菜单项分支中编写占位符，以便在应用功能开发前向用户提供反馈。
+6.
+验证测试：对在本练习中开发的代码执行验证测试。
+
+查看 Program.cs 文件的内容  标题2
+在此任务中，你将完成对 Starter 项目代码的逐步讲解。 Program.cs文件包含在此模块期间更新的应用程序的初步版本。 现有代码为应用程序生成示例数据，并显示菜单选项列表。 菜单选项表示应用程序的主要功能。
+请花几分钟时间查看 Program.cs 文件中的代码。
+请注意，代码的顶部部分以一些变量声明开头。
+
+// the ourAnimals array will store the following: 
+string animalSpecies = "";
+string animalID = "";
+string animalAge = "";
+string animalPhysicalDescription = "";
+string animalPersonalityDescription = "";
+string animalNickname = "";
+
+// variables that support data entry
+int maxPets = 8;
+string? readResult;
+string menuSelection = "";
+
+// array used to store runtime data, there is no persisted data
+string[,] ourAnimals = new string[maxPets, 6];
+
+在文件的顶部，会看到注释行和变量列表。 这些变量，从
+animalSpecies
+到
+animalNickname
+，用于保存宠物特征的值。 稍后在代码中，将特征值分配给名为
+ourAnimals
+多维字符串数组。 其中每个变量都初始化为包含零长度字符串
+""
+ourAnimals
+数组在代码中稍远一点的位置声明。
+下一组变量是混合
+string
+变量和
+int
+变量，用于生成示例数据、读取用户输入并为主程序循环建立退出条件。 你可能已注意到代码行
+string? readResult;
+。 在如下所示的变量声明中使用时，
+?
+字符定义可为 null 的类型变量。 使用
+Console.ReadLine()
+该方法读取用户输入的值时，最好使用可为 null 的类型。
+最后一个变量是一个名为
+ourAnimals
+的二维字符串数组。 由于实例化数组而不初始化任何值，因此使用
+new
+运算符（
+new
+该运算符用于创建类型的新实例）。 行数由
+maxPets
+定义，该项已初始化为 8。 您要存储的特征数量为6，即您在上面检查的字符串变量。
+5.
+向下滚动以查看包含
+for
+选择构造的
+if-elseif-else
+循环。
+备注
+如果在
+switch
+循环的代码块中看到
+if-elseif-else
+语句而不是
+for
+，请确保查看
+Starter
+文件夹中的 Program.cs 文件，而不是
+Final
+文件夹中的 Program.cs 文件。 你不希望对“最终”文件夹中的代码进行更改。 可能需要在本模块的后面部分使用最终文件夹作为参考。
+6.
+请注意，
+for
+循环使用
+maxPets
+变量在迭代数上建立上限。
+7.
+请注意，构造
+if-elseif-else
+会根据宠物特征选择性地对代码进行分支。
+该
+if-elseif-else
+构造用于为循环的前四个迭代
+for
+定义不同的值。 第四次迭代后，所有特征都分配有一个空或零长度的字符串。
+动物特征变量的值在
+for
+循环的底部被分配给 ourAnimals 数组。
+8.
+滚动到代码文件的底部，然后检查用于显示菜单选项并读取用户选择的代码。
+9.
+请注意，将方法返回
+Console.ReadLine()
+的值分配给可为 null 的字符串
+readResult
+使用可为 null 的字符串是从 ReadLine（） 方法捕获输入的最佳做法。 验证输入值是否不为 null 后，将该值分配给名为
+menuSelection
+的标准字符串变量。 此过程使你能够评估菜单选择值，而不必担心 null 值。 如果字符串被传递为 null 值，则接受字符串作为输入参数的许多方法都会生成错误。 如果不遵循此输入模式，则生成项目时，代码编译器可能会生成警告。
+Program.cs文件的最后几行会显示菜单选项的选择，然后暂停执行，直到按下 Enter 键。
+
+将 if 语句转换为 switch 语句 
+在此任务中，将现有
+if-elseif-else
+构造转换为构造
+switch-case
+。 语句
+switch
+可提高代码的可读性。
+1.
+向上滚动到用于生成示例数据的
+for
+循环的开头。
+2.
+请注意，构造
+if-elseif-else
+以以下
+if
+语句和代码块开头：
+
+if (i == 0)
+{
+    animalSpecies = "dog";
+    animalID = "d1";
+    animalAge = "2";
+    animalPhysicalDescription = "medium sized cream colored female golden retriever weighing about 65 pounds. housebroken.";
+    animalPersonalityDescription = "loves to have her belly rubbed and likes to chase her tail. gives lots of kisses.";
+    animalNickname = "lola";
+}
+
+将初始
+if
+语句和代码块替换为以下代码：
+switch (i)
+{
+    case 0:
+        animalSpecies = "dog";
+        animalID = "d1";
+        animalAge = "2";
+        animalPhysicalDescription = "medium sized cream colored female golden retriever weighing about 65 pounds. housebroken.";
+        animalPersonalityDescription = "loves to have her belly rubbed and likes to chase her tail. gives lots of kisses.";
+        animalNickname = "lola";
+        break;
+
+
+该
+case 0:
+代码执行与它所替换的
+if (i == 0)
+选择相同的操作。 你将进行相应的替换，以完成从
+if-elseif-else
+构造到
+switch-case
+构造的转换。
+4.
+请注意，现在
+;
+语句末尾的
+break
+下会显示一个红色波浪线符号。
+Visual Studio Code 使用红色波浪线来帮助发现代码中的问题。 在这种情况下，存在一些问题。 首先，您尚未关闭
+switch
+语句的代码块。 此外，你的一个
+else if
+没有
+if
+，这是不允许的。 在完成从
+if
+到
+switch
+的转换时，你可以修复每个问题。
+
+5. 将 else if (i == 1)  语句和代码块替换为以下代码： c# 复制 case1:
+    animalSpecies = "dog";
+    animalID = "d2";
+    animalAge = "9";
+    animalPhysicalDescription = "large reddish-brown male golden retriever weighing about 85 pounds. housebroken.";
+    animalPersonalityDescription = "loves to have his ears rubbed when he greets you at the door, or at any time! loves to lean-in and give doggy hugs.";
+    animalNickname = "loki";
+    break;
+
+6. 将 else if (i == 2)  语句和代码块替换为以下代码： c# 复制 case2:
+    animalSpecies = "cat";
+    animalID = "c3";
+    animalAge = "1";
+    animalPhysicalDescription = "small white female weighing about 8 pounds. litter box trained.";
+    animalPersonalityDescription = "friendly";
+    animalNickname = "Puss";
+    break;
+7. 将 else if (i == 3)  语句和代码块替换为以下代码： c# 复制 case3:
+    animalSpecies = "cat";
+    animalID = "c4";
+    animalAge = "?";
+    animalPhysicalDescription = "";
+    animalPersonalityDescription = "";
+    animalNickname = "";
+    break;
+8. 将 else  语句和代码块替换为以下代码： c# 复制 default:
+    animalSpecies = "";
+    animalID = "";
+    animalAge = "";
+    animalPhysicalDescription = "";
+    animalPersonalityDescription = "";
+    animalNickname = "";
+    break;
+
+}
+9. 请注意，构造 if-elseif-else  现在完全被构造 switch-case  替换，红色波浪线符号消失。 如果构造的某些 if-elseif-else  部分仍保留，或者 switch  语句不完整，请检查是否错过了步骤。
+10. 已完成 switch-case  的构造应具有类似于以下代码的结构： 备注 用于分配宠物特征值的变量已从下面的代码示例中删除，以缩短代码行数。 代码应包括每个case模式的字符串变量赋值，包括默认情况。 c# 复制 switch (i)
+{
+    case0:
+        // variable assignments were removed for this view of the structurebreak;
+
+    case1:
+        // variable assignments were removed for this view of the structurebreak;
+
+    case2:
+        // variable assignments were removed for this view of the structurebreak;
+
+    case3:
+        // variable assignments were removed for this view of the structurebreak;
+
+    default:
+        // variable assignments were removed for this view of the structurebreak;
+}
+ 回想一下，执行一个 switch 部分不能“贯穿”执行到下一个 switch 部分。 break  语句用于确保不会发生“贯穿”。

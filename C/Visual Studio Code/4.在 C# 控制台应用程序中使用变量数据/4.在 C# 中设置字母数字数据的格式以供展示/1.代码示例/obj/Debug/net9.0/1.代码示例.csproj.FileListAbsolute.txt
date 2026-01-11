@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\bin\Debug\net9.0\1.代码示例.exe
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\bin\Debug\net9.0\1.代码示例.deps.json
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\bin\Debug\net9.0\1.代码示例.runtimeconfig.json
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\bin\Debug\net9.0\1.代码示例.dll
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\bin\Debug\net9.0\1.代码示例.pdb
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\obj\Debug\net9.0\1.代码示例.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\obj\Debug\net9.0\1.代码示例.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\obj\Debug\net9.0\1.代码示例.AssemblyInfo.cs
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\obj\Debug\net9.0\1.代码示例.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\obj\Debug\net9.0\1.代码示例.dll
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\obj\Debug\net9.0\refint\1.代码示例.dll
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\obj\Debug\net9.0\1.代码示例.pdb
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\obj\Debug\net9.0\1.代码示例.genruntimeconfig.cache
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\4.在 C# 中设置字母数字数据的格式以供展示\1.代码示例\obj\Debug\net9.0\ref\1.代码示例.dll

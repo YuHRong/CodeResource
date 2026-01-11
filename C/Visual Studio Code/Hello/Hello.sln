@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hello", "Hello", "{94B0F470-30A9-786B-66F0-891B6490ACB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "txte", "Hello\txte\txte.csproj", "{BBA89435-B8C6-310E-9161-D730B810D984}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBA89435-B8C6-310E-9161-D730B810D984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA89435-B8C6-310E-9161-D730B810D984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA89435-B8C6-310E-9161-D730B810D984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA89435-B8C6-310E-9161-D730B810D984}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BBA89435-B8C6-310E-9161-D730B810D984} = {94B0F470-30A9-786B-66F0-891B6490ACB9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DEF3745-0151-4E76-8EC6-CBF1615DC52E}
+	EndGlobalSection
+EndGlobal

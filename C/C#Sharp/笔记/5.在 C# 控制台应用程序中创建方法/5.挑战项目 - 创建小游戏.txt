@@ -1,0 +1,52 @@
+第一节： 介绍
+创建自己的游戏是练习编程技能的一种令人兴奋的方法。 游戏在很大程度上依赖于处理用户输入来做出动态决策。 每个游戏还必须有一组定义的规则，用于确定游戏中的作和事件。
+
+假设你想要创建自己的游戏。 你可能还没有准备好开发功能齐全的游戏，因此你决定尽可能小地开始。 你想要在屏幕上移动角色并使其吃掉一个物体。 使用对象可能会影响玩家的状态。 为了继续游戏，你想要在对象被消耗后在新位置重新生成它。 你决定需要使用方法来保持游戏代码井然有序。
+在本模块中，你将开发小型游戏应用程序的以下功能：
+用于确定玩家是否消耗了食物的功能
+根据消耗的食物更新玩家状态的功能
+一项功能，根据消耗的食物暂停运动速度
+在新位置重新生成食物的功能
+按下不受支持的字符时终止游戏的选项
+在调整终端窗口大小时终止游戏的功能
+在本模块结束时，你将创建一个可玩的迷你游戏应用程序！
+注意
+这是一个挑战项目模块，你将从规范中完成端到端项目。 本模块旨在测试技能;没有指导，没有分步说明。
+在本模块中，您将展示自己在以下方面的能力：
+使用 Visual Studio Code 开发一个 C# 控制台应用程序，使用一些方法实现逻辑工作流。
+理解现有的代码，对设计进行明智的更改。
+使用必需参数和可选参数创建返回值和方法。
+
+
+第二节： 准备
+
+你将使用 Visual Studio Code 开发一款小游戏。 应用程序应建立游戏的基础内容，包括更新玩家状态、操控玩家移动以及消耗和重新生成食物对象。 你将开发其中每个功能并运行一个简化的游戏测试。
+
+本模块的起始代码项目包括具有以下代码功能的 Program.cs 文件：
+
+- The code declares the following variables:
+    - Variables to determine the size of the Terminal window.
+    - Variables to track the locations of the player and food.
+    - Arrays `states` and `foods` to provide available player and food appearances
+    - Variables to track the current player and food appearance
+
+- The code provides the following methods:
+    - A method to determine if the Terminal window was resized.
+    - A method to display a random food appearance at a random location.
+    - A method that changes the player appearance to match the food consumed.
+    - A method that temporarily freezes the player movement.
+    - A method that moves the player according to directional input.
+    - A method that sets up the initial game state.
+
+- The code doesn't call the methods correctly to make the game playable. The following features are missing:
+    - Code to determine if the player has consumed the food displayed.
+    - Code to determine if the food consumed should freeze player movement.
+    - Code to determine if the food consumed should increase player movement.
+    - Code to increase movement speed.
+    - Code to redisplay the food after it's consumed by the player.
+    - Code to terminate execution if an unsupported key is entered.
+    - Code to terminate execution if the terminal was resized.
+
+在此挑战中，你的目标是使用现有功能并创建缺少的功能，使游戏可玩。
+使用以下步骤为挑战项目练习做准备：
+

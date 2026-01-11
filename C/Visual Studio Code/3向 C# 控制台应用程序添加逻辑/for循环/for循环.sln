@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "for循环", "for循环.csproj", "{063EC901-B945-E260-4919-B59DF6CC29C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{063EC901-B945-E260-4919-B59DF6CC29C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{063EC901-B945-E260-4919-B59DF6CC29C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{063EC901-B945-E260-4919-B59DF6CC29C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{063EC901-B945-E260-4919-B59DF6CC29C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2BC0AB1-5973-4372-B0F9-D17BDD270D97}
+	EndGlobalSection
+EndGlobal

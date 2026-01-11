@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\00练手\bin\Debug\net9.0\00练手.exe
+E:\C\Visual Studio Code\00练手\bin\Debug\net9.0\00练手.deps.json
+E:\C\Visual Studio Code\00练手\bin\Debug\net9.0\00练手.runtimeconfig.json
+E:\C\Visual Studio Code\00练手\bin\Debug\net9.0\00练手.dll
+E:\C\Visual Studio Code\00练手\bin\Debug\net9.0\00练手.pdb
+E:\C\Visual Studio Code\00练手\obj\Debug\net9.0\00练手.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\00练手\obj\Debug\net9.0\00练手.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\00练手\obj\Debug\net9.0\00练手.AssemblyInfo.cs
+E:\C\Visual Studio Code\00练手\obj\Debug\net9.0\00练手.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\00练手\obj\Debug\net9.0\00练手.dll
+E:\C\Visual Studio Code\00练手\obj\Debug\net9.0\refint\00练手.dll
+E:\C\Visual Studio Code\00练手\obj\Debug\net9.0\00练手.pdb
+E:\C\Visual Studio Code\00练手\obj\Debug\net9.0\00练手.genruntimeconfig.cache
+E:\C\Visual Studio Code\00练手\obj\Debug\net9.0\ref\00练手.dll

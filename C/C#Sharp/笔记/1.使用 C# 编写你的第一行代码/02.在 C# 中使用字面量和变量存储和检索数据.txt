@@ -1,0 +1,258 @@
+如果只希望将单个字母数字字符打印到屏幕，可以用单引号将一个字母数字字符括起来，创建 char 类型文本。
+char是字符的简称。 在 C# 中，此数据类型被正式命名为“char”，但通常称为“character”。如： 
+Console.WriteLine('b');
+输出 b
+如果要在输出控制台中显示数字整数（无分数）值，可以使用
+int 文本。 该术语int
+是整数的缩写，可以从学习数学中识别出来。 在 C# 中，此数据类型正式命名为“int”，但通常称为“integer”。
+int类型文本不需要其他运算符（例如
+string或char，如： 
+Console.WriteLine(123);
+
+浮点数是包含小数的数字，例如 3.14159。 C# 支持三种数据类型来表示十进制数字：
+float
+、
+double
+和
+decimal
+。 每种类型都支持不同程度的精度。
+
+Float Type    Precision
+----------------------------
+float         ~6-9 digits
+double        ~15-17 digits
+decimal        28-29 digits
+在这里，精度反映了十进制数之后的准确位数。
+
+Console.WriteLine(0.25F);
+若要创建float文本，请在数字后面追加字母
+F。
+ 在此上下文中，
+F称为文本后缀
+。 文本后缀指示编译器您希望处理float类型的值。 可以使用小写
+f或大写F
+作为float的字面后缀。
+
+注意，
+float数据类型最不精确，因此最好将此数据类型用于固定的小数位数值，以避免意外的计算错误。
+
+Console.WriteLine(2.625);
+若要创建double文本，只需输入十进制数。 如果输入没有文本后缀的十进制数，则编译器默认为
+double类型文本。
+
+Console.WriteLine(12.39816m);
+若要创建十进制文本，请将字母
+m
+追加到数字后面。 在此上下文中，m称为文本后缀
+。 文本后缀指示编译器您希望处理decimal类型的值。 可以使用小写
+m或大写M
+作为decimal的字面后缀。
+
+如果要打印表示
+true或false的值，可以使用
+布尔字面量。
+bool
+在 C# 中，它们正式称为“bool”，但开发人员通常使用术语“Boolean”。
+Console.WriteLine(true);
+Console.WriteLine(false);
+bool
+类型文本表示真和假的概念。 你在开始向应用程序添加决策逻辑时，会广泛使用
+bool的值。 你将评估表达式，以查看其为真还是为假。
+
+数据类型在 C# 中起着核心作用。 事实上，与 JavaScript 等其他语言相比，对数据类型的强调是 C# 的主要区分功能之一。 C# 的设计人员认为，他们可以通过
+强制数据类型来帮助开发人员避免常见的软件 bug。 你在学习 C# 的过程中，将更好地理解这个概念。
+
+
+数据类型定义功能 
+之前，你看到string
+和char用于“展示，而不是计算”。 如果需要对数值执行数学运算，则应使用
+int或decimal
+。 如果你有用于呈现或文本作的数据，则应使用string或char数据类型。
+假设你需要从用户收集数据，例如电话号码或邮政编码。 根据你所在的国家/地区，该数据可能包含数字字符。 但是，由于很少对电话号码和邮政编码执行数学计算，因此在使用电话号码和邮政编码时，应倾向于使用
+string数据类型。
+这对于bool
+也相同。 如果需要在应用程序中使用字词
+"true"和"false"
+，可以使用string
+。 但是，如果在执行评估时需要处理
+true或false的概念，请使用
+bool。
+
+Console.WriteLine("123");
+Console.WriteLine(123);
+
+Console.WriteLine("true");
+Console.WriteLine(true);
+
+
+有许多数据类型，但目前只需关注几个数据类型：
+string用于展示字词、短语或任何字母数字数据，而非用于计算
+char用于表示单个字母数字字符
+int用于整数
+decimal表示包含小数部分的数字
+bool用于true/false值
+
+
+变量是用于存储值类型的容器。 变量很重要，因为它们的值在程序的执行过程中可以发生变化。 变量可以被分配、读取和更改。 使用变量来存储想要在代码中使用的值。
+变量名称是编译器分配给内存地址的友好标签。 如果要在该内存地址中存储或更改值，或者每当要检索存储的值时，只需使用创建的变量名称。
+
+声明变量  
+若要创建新变量，必须先声明该变量的数据类型，然后为其命名。
+string firstName;
+在这种情况下，你将创建一个类型为
+string
+并名为firstName
+的新变量。 从现在起，此变量只能保存字符串值。
+
+下面是有关变量名称的一些重要注意事项：
+变量名称可以包含字母数字字符和下划线字符。 不允许使用哈希符号
+#（也称为数字符号或磅号）或美元符号$等特殊字符。
+变量名称必须以字母或下划线开头，而不是数字。
+变量名称区分大小写，这意味着
+string Value;
+和
+string value;
+是两个不同的变量。
+变量名称不能是
+ C# 关键字。 例如，不能使用以下变量声明：
+decimal decimal;
+或
+string string;。
+
+下面是变量的一些编码约定：
+变量名称应使用驼峰式大小写形式，这是一种书写样式，即第一个单词的首字母采用小写形式，后续每个单词的首字母则采用大写形式
+。 例如，
+string thisIsCamelCase;。
+变量名称应以字母字母开头。 开发人员将下划线用于特殊用途，因此请尝试暂时不要使用该下划线。
+变量名称在应用中应具有描述性且有意义。 为变量选择一个名称，该名称表示它将保存的数据类型。
+变量名称应是组合在一起的一个或多个完整单词。 不要使用缩略或缩写，因为变量名（以及其用途）可能对阅读您代码的人不清楚。
+变量名称不应包含变量的数据类型。 你可能会看到一些建议使用类似
+string strValue;
+的样式。 这一建议不再是最新的。
+该示例
+string firstName;
+遵循所有这些规则和约定，假设你想要使用此变量来存储表示某人的名字的数据。
+
+下面是一些使用你迄今了解的数据类型的变量声明示例：
+char userOption;
+
+int gameScore;
+
+decimal particlesPerMillion;
+
+bool processedCustomer;
+
+变量是存储在计算机的内存中的临时值。
+必须先声明变量，然后才能使用变量。
+若要声明变量，首先为要存储的数据类型选择数据类型，然后为变量指定一个遵循规则的名称。
+了解如何声明变量后，让我们了解如何设置、检索和初始化变量的值。
+
+string firstName;
+firstName = "Bob";
+若要声明变量，请输入要使用的数据类型，后跟变量的名称。 若要向变量赋值，请使用
+赋值运算符
+，该运算符是一个相等字符=
+
+
+关于使用变量的注意事项如下：
+必须先为变量分配一个值，然后才能从变量中检索值（获取）。
+可以通过在声明点向变量赋值来初始化变量。
+从右到左进行赋值。
+使用单个相等字符作为赋值运算符。
+若要从变量中检索值，只需使用变量的名称。
+
+什么是隐式类型的局部变量？ 
+隐式类型的局部变量是通过使用
+var
+关键字并进行变量初始化来创建的。 例如：
+var message = "Hello world!";
+
+在此示例中，使用
+var关键字而不是
+string关键字创建了一个字符串变量。
+关键字var
+告知 C# 编译器，该数据类型由赋值隐含。
+ 隐含类型后，该变量的行为与实际数据类型用于声明它的行为相同。 当类型很长或类型在上下文中明显可见时，
+var关键字用于减少击键次数。
+
+var message = "Hello world!";
+由于变量message立即设置为
+string值
+"Hello World!"
+，因此 C# 编译器会了解意向并将每个实例message视为类型的string实例。
+事实上，变量message的类型化为一个
+string且永远无法更改。 例如，考虑以下代码：
+var message = "Hello World!";
+message = 10.703m;
+如果运行此代码，将看到以下错误消息。
+(2,11): error CS0029: Cannot implicitly convert type 'decimal' to 'string'
+其他编程语言以不同的方式使用
+var
+关键字。 在 C# 中，无论使用实际数据类型名称还是允许编译器暗示数据类型，变量都由编译器分配类型。 换句话说，该类型在声明时被锁定，因此永远无法保存不同数据类型的值。
+
+请务必了解关键字var
+取决于用于初始化变量的值。 如果尝试使用
+var关键字而不初始化变量，则尝试编译代码时会收到错误。
+如： 
+var message;
+如果尝试运行此代码（编译时），将看到以下输出：
+(1,5): error CS0818: Implicitly-typed variables must be initialized
+
+C# 社区广泛采用该
+var关键字。 如果查看书籍或联机代码示例，则可能会看到
+var使用的关键字而不是实际数据类型名称，因此了解其用法非常重要。关键字
+var在 C# 中具有重要的用法。 很多时候，变量的类型从初始化中显而易见。 在这些情况下，使用
+var关键字更简单。 规划应用程序的代码时，关键字
+var也很有用。 开始为任务开发代码时，可能无法立即知道要使用的数据类型。 使用
+var有助于更动态地开发解决方案。
+开始时，建议在声明变量时继续使用实际的数据类型名称，直到你更熟悉代码。 声明变量时使用数据类型有助于编写代码时有目的。
+以下内容是到目前为止你对var关键字的了解：
+关键字var告知编译器根据变量初始化的值推断变量的数据类型。
+阅读其他人的代码时，可能会看到var关键字;但是，应尽可能使用数据类型。
+
+将以下值存储在变量中：
+鲍勃
+3
+34.4
+应为这些变量提供反映其用途的名称。
+请确保根据变量将保留的数据类型为每个变量选择正确的数据类型。
+最后，您将变量与传递到一系列
+Console.Write()
+命令的文本字符串组合在一起，形成完整的消息。
+Hello, Bob! You have 3 messages in your inbox. The temperature is 34.4 celsius.
+无论如何操作，代码都应生成指定输出。
+string firstName = "bob";
+string intMessages = "3";
+string decimalTemperature = "34.4m";
+Console.Write("hello,");
+Console.Write(firstName);
+Console.Write(" you have");
+Console.Write(intMessages);
+ Console.Write("messages in your inbox.");
+   Console.Write("The temperature is");
+        Console.Write(decimalTemperature);
+      Console.Write(" celsius.");  
+
+参考答案： 
+string name = "Bob";
+int messages = 3;
+decimal temperature = 34.4m;
+
+Console.Write("Hello, ");
+Console.Write(name);
+Console.Write("! You have ");
+Console.Write(messages);
+Console.Write(" messages in your inbox. The temperature is ");
+Console.Write(temperature);
+Console.Write(" celsius.");
+
+提示： 
+应已使用：
+要保存名称
+"Bob"的类型的
+string变量。
+用于存储消息数的类型的
+int变量。
+类型decimal变量，
+float或double存储温度。
+

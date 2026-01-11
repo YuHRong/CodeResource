@@ -1,0 +1,504 @@
+假设你供职于某家公司的安全部门，该公司将在线卖家与基于佣金的广告商进行匹配。 公司要求你编写 C# 代码，该代码将循环访问传入订单的订单 ID。 你需要检查每个订单 ID，识别出可能存在欺骗性的订单。 要完成此编程任务，需要实现数组。
+在此模块中，你将创建并初始化数组。 在使用数组索引来访问每个元素的数组中，设置并检索来自元素的值。 创建循环逻辑，以便使用数组中的每个元素。
+数组可用于将同一类型的多个值存储在单个变量中。 数组中存储的值通常相关。 例如，学生姓名列表可以存储在名为
+students
+的字符串数组中。
+你在安全部门的工作重点是查找欺诈性订单的模式。 你希望代码查看过去的客户订单，并识别与欺诈性订单关联的标记。 你的公司希望这些标记可用于在处理之前先识别将来潜在的欺诈性采购订单。 由于无法提前知道需要查看多少订单，所以无法创建单个变量来保存每个订单 ID。 如何创建数据结构来保存多个相关值？
+在本练习中，你将使用数组来存储和分析一组订单 ID。
+
+什么是数组？ 
+数组是可通过单个变量名称进行访问的单个数据元素的集合。 使用从零开始的数字索引访问数组中的每个元素。 数组允许你以单个变量名称创建用途或特征相同的数据值的集合，以便于处理。
+声明数组和访问数组元素  标题2
+数组是一种特殊类型的变量，可以保存同一数据类型的多个值。 因为必须同时指定数组的数据类型和大小，所以数组的声明语法略有不同。
+
+若要声明可以保存三个元素的新字符串数组，请输入以下代码：
+string[] fraudulentOrderIDs = new string[3];
+new
+运算符在可容纳三个字符串值的计算机内存中创建数组的新实例。 有关
+new
+关键字的详细信息，请参阅模块“使用 C# 从 .NET 类库调用方法”。
+请注意，第一组方括号
+[]
+只是告知编译器，名为
+fraudulentOrderIDs
+的变量是数组，而第二组方括号
+[3]
+指示数组可以保存的元素数目。
+此示例演示如何声明一个字符串数组，但可以创建每个数据类型的数组，其中包括基元（如
+int
+和
+bool
+）以及更复杂的数据类型（如类）。 此示例使用字符串的简单性来最大程度地减少在入门时需要掌握的新想法数量。
+
+
+为数组的元素赋值 
+此时，你已声明了一个字符串数组，但该数组的每个元素都为空。 若要访问数组的元素，请使用方括号内从零开始的数字索引。 像常规变量一样，可以使用
+=
+为数组元素赋值。
+若要将订单 ID 值分配给
+fraudulentOrderIDs
+数组，请更新代码，如下所示：
+
+string[] fraudulentOrderIDs = new string[3];
+
+fraudulentOrderIDs[0] = "A123";
+fraudulentOrderIDs[1] = "B456";
+fraudulentOrderIDs[2] = "C789";
+
+请注意，你正在使用数组的名称来访问数组元素。 通过在方括号内指定从零开始的索引号，可以单独访问每个元素。
+由于数组声明为字符串，因此分配的值也必须是字符串。 在此方案中，你要将订单 ID 分配给数组的元素。
+
+尝试使用超出数组边界的索引 
+可能一开始看起来并不直观，但请务必记住，你要声明的是数组中元素的计数。 但是，你从零开始访问数组中的每个元素。 因此，若要访问数组中的第二个项，请使用索引
+1。
+初学者可能会忘记数组是从零开始的，所以他们会尝试访问不存在的数组元素。 如果犯了此错误，则会出现运行时异常的情况，通知你曾尝试访问数组边界之外的元素。
+若要有意“中断”应用程序，请尝试使用索引值
+3
+来访问数组的第四个元素。
+
+在代码文件的底部，输入以下代码行：
+fraudulentOrderIDs[3] = "D000";
+
+代码： 
+string[] fraudulentOrderIDs = new string[3];
+
+fraudulentOrderIDs[0] = "A123";
+fraudulentOrderIDs[1] = "B456";
+fraudulentOrderIDs[2] = "C789";
+fraudulentOrderIDs[3] = "D000";
+
+dotnet run后会收到： 
+Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.     
+   at Program.<Main>$(String[] args) in C:\Users\someuser\Desktop\CsharpProjects\TestProject\Program.cs:line 6
+请注意错误的以下部分：
+错误消息：
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+错误位置：
+Program.cs:line 6
+注释禁止生成运行时错误的行。
+
+注释禁止生成运行时错误的行。
+// fraudulentOrderIDs[3] = "D000";
+
+从数组的元素中检索值 
+访问数组元素的值的方式与为数组元素赋值的方式相同。 只需指定要检索其值的元素的索引。
+
+若要编写每个欺诈性订单 ID 的值，请更新代码，如下所示：
+string[] fraudulentOrderIDs = new string[3];
+
+fraudulentOrderIDs[0] = "A123";
+fraudulentOrderIDs[1] = "B456";
+fraudulentOrderIDs[2] = "C789";
+// fraudulentOrderIDs[3] = "D000";
+
+Console.WriteLine($"First: {fraudulentOrderIDs[0]}");
+Console.WriteLine($"Second: {fraudulentOrderIDs[1]}");
+Console.WriteLine($"Third: {fraudulentOrderIDs[2]}");
+
+dotnet run后输出： 
+First: A123
+Second: B456
+Third: C789
+
+重新分配数组的值 
+数组的元素与任何其他变量值一样。 可以为数组的每个元素分配、检索和重新分配值。
+fraudulentOrderIDs[0] = "F000";
+
+Console.WriteLine($"Reassign First: {fraudulentOrderIDs[0]}");
+
+添加后代码如下： 
+string[] fraudulentOrderIDs = new string[3];
+
+fraudulentOrderIDs[0] = "A123";
+fraudulentOrderIDs[1] = "B456";
+fraudulentOrderIDs[2] = "C789";
+// fraudulentOrderIDs[3] = "D000";
+
+Console.WriteLine($"First: {fraudulentOrderIDs[0]}");
+Console.WriteLine($"Second: {fraudulentOrderIDs[1]}");
+Console.WriteLine($"Third: {fraudulentOrderIDs[2]}");
+
+fraudulentOrderIDs[0] = "F000";
+
+Console.WriteLine($"Reassign First: {fraudulentOrderIDs[0]}");
+dotnet run后输出： 
+First: A123
+Second: B456
+Third: C789
+Reassign First: F000
+
+
+初始化数组
+可以在声明期间初始化数组，就像初始化常规变量一样。
+注释禁止声明
+fraudulentOrderIDs
+变量的行。
+可以使用多行注释 (
+/* ... */
+) 注释禁止
+fraudulentOrderIDs
+的声明以及用于向数组元素赋值的行。
+
+若要在单个语句中声明数组并初始化值，请输入以下代码：
+
+此示例使用 C# 12 中引入的“集合表达式”语法
+可能还会看到用于初始化数组的较旧语法。
+string[] fraudulentOrderIDs = { "A123", "B456", "C789" };
+请注意，此较旧语法使用大括号
+{}
+将数组的值括起来。 两种语法均有效。
+你可能会看到此训练中使用的较旧语法和集合表达式语法的组合。
+
+/*
+string[] fraudulentOrderIDs = new string[3];
+
+fraudulentOrderIDs[0] = "A123";
+fraudulentOrderIDs[1] = "B456";
+fraudulentOrderIDs[2] = "C789";
+// fraudulentOrderIDs[3] = "D000";
+*/
+
+string[] fraudulentOrderIDs = [ "A123", "B456", "C789" ];
+
+Console.WriteLine($"First: {fraudulentOrderIDs[0]}");
+Console.WriteLine($"Second: {fraudulentOrderIDs[1]}");
+Console.WriteLine($"Third: {fraudulentOrderIDs[2]}");
+
+fraudulentOrderIDs[0] = "F000";
+
+Console.WriteLine($"Reassign First: {fraudulentOrderIDs[0]}");
+
+dotnet run后输出： 
+First: A123
+Second: B456
+Third: C789
+Reassign First: F000
+
+使用数组的 Length 属性 
+根据数组的创建方式，你可能无法提前知道一个数组包含多少元素。 若要确定数组的大小，可使用
+Length
+属性。
+
+在代码文件的末尾，输入以下代码以报告欺诈性订单的数量：
+Console.WriteLine($"There are {fraudulentOrderIDs.Length} fraudulent orders to process.");
+此代码使用数组的
+Length
+属性（整数）返回
+fraudulentOrderIDs
+数组中的元素数目。
+
+/*
+string[] fraudulentOrderIDs = new string[3];
+
+fraudulentOrderIDs[0] = "A123";
+fraudulentOrderIDs[1] = "B456";
+fraudulentOrderIDs[2] = "C789";
+// fraudulentOrderIDs[3] = "D000";
+*/
+
+string[] fraudulentOrderIDs = [ "A123", "B456", "C789" ];
+
+Console.WriteLine($"First: {fraudulentOrderIDs[0]}");
+Console.WriteLine($"Second: {fraudulentOrderIDs[1]}");
+Console.WriteLine($"Third: {fraudulentOrderIDs[2]}");
+
+fraudulentOrderIDs[0] = "F000";
+
+Console.WriteLine($"Reassign First: {fraudulentOrderIDs[0]}");
+
+Console.WriteLine($"There are {fraudulentOrderIDs.Length} fraudulent orders to process.");
+
+dotnet run后输出： 
+First: A123
+Second: B456
+Third: C789
+Reassign First: F000
+There are 3 fraudulent orders to process.
+
+总结： 
+使用数组时，应谨记以下重要事项：
+数组是一种特殊的变量，用于保存相关数据元素的集合。
+应记住数组变量声明的基本格式。
+访问数组的每个元素，使用方括号内从零开始的索引来设置或获取其值。
+如果尝试访问数组边界之外的索引，则会出现运行时异常。
+Length
+属性采用编程方式来确定数组中的元素编号。
+
+
+假设你就职于一家制造公司。 公司需要你完成仓库清点，以确定已准备好发货的产品数量。 除了成品总数外，还需要报告仓库中每个箱中存储的成品数，以及流水账总计。 此流水账总计将用于创建审核线索，以便你可以仔细检查工作并确定“收缩”。
+
+使用 foreach 遍历数组 
+foreach
+语句提供一种简单、明了的方法来循环访问数组的元素。
+foreach
+语句以递增索引顺序（从索引 0 开始并以索引 Length - 1 结束）处理数组元素。 它使用临时变量来保存与当前迭代关联的数组元素的值。 每次迭代都将运行位于
+foreach
+声明下方的代码块。
+简单示例： 
+string[] names = { "Rowena", "Robin", "Bao" };
+foreach (string name in names)
+{
+    Console.WriteLine(name);
+}
+
+在
+foreach
+关键字下，包含
+Console.WriteLine(name);
+的代码块将为
+names
+数组的每个元素执行一次。 当 .Net 运行时遍历数组的每个元素时，将存储在
+names
+数组的当前元素中的值分配给临时变量
+name
+，以便能轻松访问代码块。
+如果运行代码，将看到以下结果。
+Rowena
+Robin
+Bao
+
+使用
+foreach
+语句来创建仓库里每个箱中现有的全部项目的总和。
+
+
+创建并初始化 int 数组
+
+若要创建
+int
+类型的数组，用于在每个箱中存储成品数，请输入以下代码：
+int[] inventory = { 200, 450, 700, 175, 250 };
+添加 foreach 语句以循环访问数组 
+
+若要创建循环访问
+foreach
+数组的每个元素的
+inventory
+语句，请输入以下代码：
+foreach (int items in inventory)
+{
+
+}
+
+请注意，
+foreach
+语句会临时将当前数组元素的值分配给名为
+int的
+items变量。
+
+
+添加变量以对数组中每个元素的值求和 
+将光标置于
+foreach
+语句上方的空白代码行上。
+若要声明表示仓库中所有成品之和的新变量，请输入以下代码：
+int sum = 0;
+确保在
+语句的“外部”声明变量。
+
+将光标置于
+foreach
+语句的代码块内。
+若要将存储在
+items
+中的当前值添加到
+sum
+变量，请输入以下代码：
+sum += items;
+
+代码： 
+int[] inventory = { 200, 450, 700, 175, 250 };
+int sum = 0;
+foreach (int items in inventory)
+{
+    sum += items;
+}
+
+显示总和的最终值 
+在
+foreach
+语句的代码块下方创建一个空白代码行。
+若要报告库存中项目的最终总和，请输入以下代码：
+Console.WriteLine($"We have {sum} items in inventory.");
+
+代码： 
+int[] inventory = { 200, 450, 700, 175, 250 };
+int sum = 0;
+foreach (int items in inventory)
+{
+    sum += items;
+}
+
+Console.WriteLine($"We have {sum} items in inventory.");
+
+dotnet 输出： 
+We have 1775 items in inventory.
+
+创建一个变量，用于存储当前箱编号并显示总数 
+为满足库存报告项目的最终要求，需要创建一个变量，用于存储
+foreach
+语句的当前迭代数，从而显示箱和该箱中的成品数，以及目前为止进行了计数的所有箱项的总数。
+
+若要声明已初始化为
+int
+的名为
+bin
+的
+0
+变量，在foreach上输入下面代码： 
+int bin = 0;
+
+你将使用
+bin
+来存储当前正在处理其库存的箱的编号。
+
+在
+foreach
+代码块中，若要在执行代码块时递增
+bin
+，请输入以下代码：
+bin ++;
+
+请注意，
+++
+运算符用于将变量的值递增 1。 这是
+bin = bin + 1
+的快捷方式。
+若要报告箱号、箱中成品数和成品流水账总计，请在
+foreach
+后的
+bin++;
+代码块中输入以下代码：
+Console.WriteLine($"Bin {bin} = {items} items (Running total: {sum})");
+
+此代码将使用计数器变量
+bin
+、临时
+foreach
+变量
+items
+和
+sum
+变量通过格式正确的消息报告库存的当前状态。
+
+int[] inventory = { 200, 450, 700, 175, 250 };
+int sum = 0;
+int bin = 0;
+foreach (int items in inventory)
+{
+    sum += items;
+    bin++;
+    Console.WriteLine($"Bin {bin} = {items} items (Running total: {sum})");
+}
+Console.WriteLine($"We have {sum} items in inventory.");
+
+dotnet run输出： 
+Bin 1 = 200 items (Running total: 200)
+Bin 2 = 450 items (Running total: 650)
+Bin 3 = 700 items (Running total: 1350)
+Bin 4 = 175 items (Running total: 1525)
+Bin 5 = 250 items (Running total: 1775)
+We have 1775 items in inventory.
+
+总结： 
+下面是在本单元中学习的
+foreach
+语句和递增值的一些注意事项：
+使用
+foreach
+语句来循环访问数组中的每个元素，为数组中的每个元素执行一次关联的代码块。
+foreach
+语句将数组中当前元素的值设置为临时变量，该临时变量可用于代码块的正文中。
+使用
+++
+增量运算符将 1 添加到变量的当前值中。
+
+
+
+练习 - 完成嵌套迭代和选择语句的挑战活动 
+代码挑战将强化所学知识，有助于在继续操作之前增强自信。
+欺诈性订单挑战  
+在本模块前面部分，你着手编写了代码来存储可能是欺诈性订单的订单 ID。 你的目标是尽早发现欺诈性订单，并标记这些订单以进行深入分析。
+代码挑战 - 报告需要进一步调查的订单 ID 
+你的团队找到了一种模式。 以字母“B”开头的订单涉及欺诈的概率比正常订单高 25 倍。 你将编写新代码来输出新订单的订单 ID（这些订单 ID 以字母“B”开头）。 反欺诈团队将使用此方法进行进一步调查。
+
+声明数组并将其初始化以包含以下元素：
+B123
+C234
+A345
+C15
+B177
+G3003
+C235
+B179
+这些值表示应用程序使用的欺诈性订单 ID 数据。
+
+创建
+foreach
+语句循环访问数组的每个元素。
+报告以字母“B”开头的订单 ID。
+需要评估数组的每个元素。 通过检测以字母“B”开头的订单来报告潜在的欺诈性订单 ID。 若要确定某元素是否以字母“B”开头，请使用
+String.StartsWith()
+方法。 以下简单示例介绍了如何使用
+String.StartsWith()
+方法，你可根据自己代码对该方法进行调整：
+string name = "Bob";
+if (name.StartsWith("B"))
+{
+    Console.WriteLine("The name starts with 'B'!");
+}
+
+
+输出应与以下输出相匹配：
+
+B123
+B177
+B179
+
+提示
+循环访问数组中的每个元素时，需要一个
+if
+语句。 该
+if
+语句需要使用字符串类上的方法来确定字符串是否以特定字母开头。 如果不确定如何使用
+if
+语句，请参阅模块“使用 C#中 的 if-elseif-else 语句将决策逻辑添加到代码中”。
+
+参考代码： 
+string[] orderIDs = { "B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179" };
+
+foreach (string orderID in orderIDs)
+{
+    if (orderID.StartsWith("B"))
+    {
+        Console.WriteLine(orderID);
+    }
+}
+
+/*string[] IDs = new string[8];
+IDs[0] = "B123";
+IDs[1] = "C234";
+IDs[2] = "A345";
+IDs[3] = "C15";
+IDs[4] = "B177";
+IDs[5] = "G3003";
+IDs[6] = "C235";
+IDs[7] = "B179";
+*/
+
+string[] IDs = ["B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179"];
+
+foreach (string ID in IDs)
+{
+    if (ID.StartsWith("b"))
+    {
+        Console.WriteLine(ID);
+    }
+}
+
+
+dotnet run
+
+B123
+B177
+B179

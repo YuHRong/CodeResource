@@ -1,0 +1,261 @@
+入口 11L: alpha, delta  - 1900, 2910
+项目说明  标题2
+此模块的起始代码项目是实现以下代码功能的 C# 控制台应用程序：
+使用数组存储学生姓名和作业分数。
+使用
+foreach
+语句作为外部程序循环来遍历学生姓名。
+在外部循环中使用
+if
+语句来识别当前学生的姓名并访问该学生的作业分数。
+在外部循环中使用
+foreach
+语句来遍历作业分数数组并对这些值进行求和。
+在外部循环中使用算法来计算每个学生的考试平均分。
+在外部循环中使用
+if-elseif-else
+构造来计算考试平均分并自动分配字母等级。
+在计算学生的总分数和字母等级时整合额外的学分，如下所示：
+根据学生分数数组中的元素数量来检测额外的学分分配。
+在将额外的学分分数添加到考试成绩总和之前，将 10% 的权重系数应用于额外的学分分配。
+你在此挑战中的目标是实现生成教师要求的成绩单所需的编码更新。
+当前成绩单列出了学生的姓名，后跟计算得出的总成绩和字母等级。 下面是现有的成绩单格式：
+Student         Grade   Letter Grade
+
+Sophia          95.6    A
+Andrew          91.6    A-
+Emma            89.2    B+
+Logan           93      A
+
+除了学生的数字总分和字母等级之外，教师还希望更新后的成绩单包含考试成绩以及额外学分对学生总成绩的影响。 更新后的成绩单格式应如下所示：
+除了学生的数字总分和字母等级之外，教师还希望更新后的成绩单包含考试成绩以及额外学分对学生总成绩的影响。 更新后的成绩单格式应如下所示：
+Student         Exam Score      Overall Grade   Extra Credit
+
+Sophia          92.2            95.88   A       92 (3.68 pts)
+Andrew          89.6            91.38   A-      89 (1.78 pts)
+Emma            85.6            90.94   A-      89 (5.34 pts)
+Logan           91.2            93.12   A       96 (1.92 pts)
+
+
+学生评分应用程序用于根据学生的评分考试和额外的学分作业来计算和报告学生的成绩。 你在此挑战中的目标是根据教师的更新要求更新代码来生成分数报告。
+在第一个挑战练习中，需要实例化更新的分数报告所需的变量，然后更新将学生成绩写入控制台的
+Console.WriteLine()
+语句。
+更新后的应用程序必须：
+使用现有数组和数组值进行所有学生成绩计算。
+使用现有
+foreach
+和
+if
+语句提供的嵌套结构。
+声明并初始化计算总和所需的任何其他整数变量。
+声明并初始化计算和/或评分报告值所需的任何其他十进制变量。
+更新分数报告的格式为：
+Student         Exam Score      Overall Grade   Extra Credit
+
+Sophia          0               95.8    A       0 (0 pts)
+Andrew          0               91.2    A-      0 (0 pts)
+Emma            0               90.4    A-      0 (0 pts)
+Logan           0               93      A       0 (0 pts)
+由于此练习不包括更新计算，因此分数报告将显示新字段的
+0
+如上所示。
+
+
+若要验证代码是否满足此练习的指定要求，请完成以下步骤：
+验证应用程序是否创建以下输出：
+Student         Exam Score      Overall Grade   Extra Credit
+
+Sophia          0               95.8    A       0 (0 pts)
+Andrew          0               91.2    A-      0 (0 pts)
+Emma            0               90.4    A-      0 (0 pts)
+Logan           0               93      A       0 (0 pts)
+
+学生评分应用程序用于根据学生的评分考试和额外的学分作业来计算和报告学生的成绩。 你在此挑战中的目标是根据教师的更新要求更新代码来计算学生成绩。
+在第二个挑战练习中，需要实例化更新的分数报告所需的变量，完成所需计算，然后更新将学生成绩写入控制台的
+Console.WriteLine()
+语句。
+更新后的应用程序必须：
+使用现有数组和数组值进行所有学生成绩计算。
+使用现有
+foreach
+和
+if
+语句提供的嵌套结构。
+使用第一个练习或原始代码中的变量计算考试和额外的学分作业分数的总和。
+使用第一个练习或原始代码中的变量计算考试和额外的学分分数的平均值。
+计算最终数字分数的方法如下：将额外学分总和的 10% 添加到考试成绩总和，然后用该值除以考试次数。
+计算获得的额外学分的方法如下：用额外学分总和的 10% 除以考试次数。
+在计算期间，需要在方程式中使用
+(decimal)
+强制转换保留小数部分。
+所需的分数报告格式为：
+Student         Exam Score      Overall Grade   Extra Credit
+
+Sophia          92.2            95.88   A       92 (3.68 pts)
+Andrew          89.6            91.38   A-      89 (1.78 pts)
+Emma            85.6            90.94   A-      89 (5.34 pts)
+Logan           91.2            93.12   A       96 (1.92 pts)
+验证应用程序是否创建以下输出：
+Student         Exam Score      Overall Grade   Extra Credit
+
+Sophia          92.2            95.88   A       92 (3.68 pts)
+Andrew          89.6            91.38   A-      89 (1.78 pts)
+Emma            85.6            90.94   A-      89 (5.34 pts)
+Logan           91.2            93.12   A       96 (1.92 pts)
+
+
+
+最终代码： 
+/* 
+This C# console application is designed to:
+- Use arrays to store student names and assignment scores.
+- Use a `foreach` statement to iterate through the student names as an outer program loop.
+- Use an `if` statement within the outer loop to identify the current student name and access that student's assignment scores.
+- Use a `foreach` statement within the outer loop to iterate though the assignment scores array and sum the values.
+- Use an algorithm within the outer loop to calculate the average exam score for each student.
+- Use an `if-elseif-else` construct within the outer loop to evaluate the average exam score and assign a letter grade automatically.
+- Integrate extra credit scores when calculating the student's final score and letter grade as follows:
+    - detects extra credit assignments based on the number of elements in the student's scores array.
+    - divides the values of extra credit assignments by 10 before adding extra credit scores to the sum of exam scores.
+- use the following report format to report student grades: 
+
+Student         Exam Score      Overall Grade   Extra Credit
+
+Sophia          92.2            95.88   A       92 (3.68 pts)
+
+*/
+int examAssignments = 5;
+
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+
+int[] studentScores = new int[10];
+
+string currentStudentLetterGrade = "";
+
+// display the header row for scores/grades
+Console.Clear();
+Console.WriteLine("Student\t\tExam Score\tOverall Grade\tExtra Credit\n");
+
+/*
+The outer foreach loop is used to:
+- iterate through student names 
+- assign a student's grades to the studentScores array
+- calculate exam and extra credit sums (inner foreach loop)
+- calculate numeric and letter grade
+- write the score report information
+*/
+foreach (string name in studentNames)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+        studentScores = sophiaScores;
+
+    else if (currentStudent == "Andrew")
+        studentScores = andrewScores;
+
+    else if (currentStudent == "Emma")
+        studentScores = emmaScores;
+
+    else if (currentStudent == "Logan")
+        studentScores = loganScores;
+
+    int gradedAssignments = 0;
+    int gradedExtraCreditAssignments = 0;
+
+    int sumExamScores = 0;
+    int sumExtraCreditScores = 0;
+
+    decimal currentStudentGrade = 0;
+    decimal currentStudentExamScore = 0;
+    decimal currentStudentExtraCreditScore = 0;
+
+    /* 
+    the inner foreach loop: 
+    - sums the exam and extra credit scores
+    - counts the extra credit assignments
+    */
+    foreach (int score in studentScores)
+    {
+        gradedAssignments += 1;
+
+        if (gradedAssignments <= examAssignments)
+        {
+            sumExamScores = sumExamScores + score;
+        }
+
+        else
+        {
+            gradedExtraCreditAssignments += 1;
+            sumExtraCreditScores += score;
+        }
+    }
+
+    currentStudentExamScore = (decimal)(sumExamScores) / examAssignments;
+    currentStudentExtraCreditScore = (decimal)(sumExtraCreditScores) / gradedExtraCreditAssignments;
+
+    currentStudentGrade = (decimal)((decimal)sumExamScores + ((decimal)sumExtraCreditScores / 10)) / examAssignments;
+
+    if (currentStudentGrade >= 97)
+        currentStudentLetterGrade = "A+";
+
+    else if (currentStudentGrade >= 93)
+        currentStudentLetterGrade = "A";
+
+    else if (currentStudentGrade >= 90)
+        currentStudentLetterGrade = "A-";
+
+    else if (currentStudentGrade >= 87)
+        currentStudentLetterGrade = "B+";
+
+    else if (currentStudentGrade >= 83)
+        currentStudentLetterGrade = "B";
+
+    else if (currentStudentGrade >= 80)
+        currentStudentLetterGrade = "B-";
+
+    else if (currentStudentGrade >= 77)
+        currentStudentLetterGrade = "C+";
+
+    else if (currentStudentGrade >= 73)
+        currentStudentLetterGrade = "C";
+
+    else if (currentStudentGrade >= 70)
+        currentStudentLetterGrade = "C-";
+
+    else if (currentStudentGrade >= 67)
+        currentStudentLetterGrade = "D+";
+
+    else if (currentStudentGrade >= 63)
+        currentStudentLetterGrade = "D";
+
+    else if (currentStudentGrade >= 60)
+        currentStudentLetterGrade = "D-";
+
+    else
+        currentStudentLetterGrade = "F";
+
+
+    // Student         Exam Score      Overall Grade   Extra Credit
+    // Sophia          92.2            95.88   A       92 (3.68 pts)
+
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentExamScore}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{currentStudentExtraCreditScore} ({(((decimal)sumExtraCreditScores / 10) / examAssignments)} pts)");
+}
+
+// required for running in VS Code (keeps the Output windows open to view results)
+Console.WriteLine("\n\rPress the Enter key to continue");
+Console.ReadLine();
+
+
+开发人员正在用使嵌套的
+foreach
+结构，该结构循环访问应用程序的数组数据。 第一个数组包含 10 个地理区域的名称。 其余数组基于这 10 个区域。 每个区域数组都包含人口超过 100 万的城市的人口。 区域数组中的人口值从大到小。 应用程序对每个区域中人口最多的 25 个城市求和。 开发人员应如何确保仅将 25 个最大人口添加到总和中？
+开发人员应递增
+foreach
+代码块内的计数器。 当计数器达到 25 时，应用程序应停止向总和添加值。

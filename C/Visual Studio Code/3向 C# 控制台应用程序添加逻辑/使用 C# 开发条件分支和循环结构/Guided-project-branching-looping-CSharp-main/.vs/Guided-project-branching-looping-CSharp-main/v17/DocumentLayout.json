@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\C\\Visual Studio Code\\4\u5411 C# \u63A7\u5236\u53F0\u5E94\u7528\u7A0B\u5E8F\u6DFB\u52A0\u903B\u8F91\\\u4F7F\u7528 C# \u5F00\u53D1\u6761\u4EF6\u5206\u652F\u548C\u5FAA\u73AF\u7ED3\u6784\\Guided-project-branching-looping-CSharp-main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{999B4EBA-F49C-B0FA-046C-9D24C3A79FE8}|GuidedProject\\Final\\Final.csproj|e:\\c\\visual studio code\\4\u5411 c# \u63A7\u5236\u53F0\u5E94\u7528\u7A0B\u5E8F\u6DFB\u52A0\u903B\u8F91\\\u4F7F\u7528 c# \u5F00\u53D1\u6761\u4EF6\u5206\u652F\u548C\u5FAA\u73AF\u7ED3\u6784\\guided-project-branching-looping-csharp-main\\guidedproject\\final\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{999B4EBA-F49C-B0FA-046C-9D24C3A79FE8}|GuidedProject\\Final\\Final.csproj|solutionrelative:guidedproject\\final\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\C\\Visual Studio Code\\4\u5411 C# \u63A7\u5236\u53F0\u5E94\u7528\u7A0B\u5E8F\u6DFB\u52A0\u903B\u8F91\\\u4F7F\u7528 C# \u5F00\u53D1\u6761\u4EF6\u5206\u652F\u548C\u5FAA\u73AF\u7ED3\u6784\\Guided-project-branching-looping-CSharp-main\\GuidedProject\\Final\\Program.cs",
+              "RelativeDocumentMoniker": "GuidedProject\\Final\\Program.cs",
+              "ToolTip": "E:\\C\\Visual Studio Code\\4\u5411 C# \u63A7\u5236\u53F0\u5E94\u7528\u7A0B\u5E8F\u6DFB\u52A0\u903B\u8F91\\\u4F7F\u7528 C# \u5F00\u53D1\u6761\u4EF6\u5206\u652F\u548C\u5FAA\u73AF\u7ED3\u6784\\Guided-project-branching-looping-CSharp-main\\GuidedProject\\Final\\Program.cs",
+              "RelativeToolTip": "GuidedProject\\Final\\Program.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAqwGoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T12:38:40.191Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

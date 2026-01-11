@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\bin\Debug\net9.0\switch.exe
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\bin\Debug\net9.0\switch.deps.json
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\bin\Debug\net9.0\switch.runtimeconfig.json
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\bin\Debug\net9.0\switch.dll
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\bin\Debug\net9.0\switch.pdb
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\obj\Debug\net9.0\switch.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\obj\Debug\net9.0\switch.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\obj\Debug\net9.0\switch.AssemblyInfo.cs
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\obj\Debug\net9.0\switch.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\obj\Debug\net9.0\switch.dll
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\obj\Debug\net9.0\refint\switch.dll
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\obj\Debug\net9.0\switch.pdb
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\obj\Debug\net9.0\switch.genruntimeconfig.cache
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\switch\obj\Debug\net9.0\ref\switch.dll

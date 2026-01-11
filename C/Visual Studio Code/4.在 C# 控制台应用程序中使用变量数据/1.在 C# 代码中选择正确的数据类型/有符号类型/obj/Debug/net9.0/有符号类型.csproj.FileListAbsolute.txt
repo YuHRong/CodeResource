@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\bin\Debug\net9.0\有符号类型.exe
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\bin\Debug\net9.0\有符号类型.deps.json
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\bin\Debug\net9.0\有符号类型.runtimeconfig.json
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\bin\Debug\net9.0\有符号类型.dll
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\bin\Debug\net9.0\有符号类型.pdb
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\obj\Debug\net9.0\有符号类型.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\obj\Debug\net9.0\有符号类型.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\obj\Debug\net9.0\有符号类型.AssemblyInfo.cs
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\obj\Debug\net9.0\有符号类型.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\obj\Debug\net9.0\有符号类型.dll
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\obj\Debug\net9.0\refint\有符号类型.dll
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\obj\Debug\net9.0\有符号类型.pdb
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\obj\Debug\net9.0\有符号类型.genruntimeconfig.cache
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\1.在 C# 代码中选择正确的数据类型\有符号类型\obj\Debug\net9.0\ref\有符号类型.dll

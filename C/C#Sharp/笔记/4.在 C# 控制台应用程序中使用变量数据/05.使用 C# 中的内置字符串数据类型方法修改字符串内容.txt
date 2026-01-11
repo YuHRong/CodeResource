@@ -1,0 +1,718 @@
+第一节： 介绍
+
+假设你是应用程序开发人员，允许企业通过发送电子邮件更新其“最后机会交易”网站。 更新电子邮件在电子邮件的标题和正文中使用
+特殊
+的必需文本，以指示自动化流程如何更新网站。 邮件包括下一个优惠活动标题、折扣 %、到期时间，以及何时上线发布优惠。
+通常，您需要处理的应用程序数据来自
+其他
+软件系统，并且包含您不想要或不需要的数据。 有时数据的格式不可用，包含
+额外的
+信息，使重要信息难以提取。 若要调整应用程序的数据，需要工具和技术来分析字符串数据，隔离所需的信息，并删除不需要的信息。
+在本模块中，你将使用字符串帮助程序方法来识别和隔离你感兴趣的信息。 本模块还将介绍如何复制较大字符串的一小部分。 替换字符，或者从字符串中删除字符。
+在本模块结束时，可以修改字符串的内容、隔离要提取、替换或删除的特定部分。
+通过学习本模块，你将能够：
+标识字符或字符串在另一个字符串中的位置
+提取部分字符串
+删除字符串部分
+将字符串中的值替换为不同的值
+
+
+
+第二节： 练习 - 使用字符串的 IndexOf() 和 Substring() 帮助程序方法
+
+在本练习中，你将使用
+IndexOf()
+方法查找一个或多个字符在较大字符串中的位置。 您可以使用
+Substring()
+方法来返回较大字符串中位于指定字符位置之后的部分。
+你还将使用
+Substring()
+方法的重载版本来设置在字符串中指定位置后要返回的字符长度。
+
+编写代码以查找嵌入在字符串中的括号对 
+键入代码： 
+string message = "Find what is (inside the parentheses)";
+
+int openingPosition = message.IndexOf('(');
+int closingPosition = message.IndexOf(')');
+
+Console.WriteLine(openingPosition);
+Console.WriteLine(closingPosition);
+
+运行结果： 
+13
+36
+
+本例中，
+(
+字符的索引为 13。 请记住，这些值从零开始，因此它是字符串中的第 14 个字符。
+)
+字符的索引是
+36
+有了两个索引后，可以使用它们作为边界来检索它们之间的值。
+
+添加代码以检索括号之间的值
+
+键入代码： 
+string message = "Find what is (inside the parentheses)";
+
+int openingPosition = message.IndexOf('(');
+int closingPosition = message.IndexOf(')');
+
+// Console.WriteLine(openingPosition);
+// Console.WriteLine(closingPosition);
+
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length));
+运行结果： 
+(inside the parentheses
+
+该方法
+Substring()
+需要起始位置以及要检索的字符数或长度。 因此，在名为
+length
+的临时变量中计算长度，并将该长度与
+openingPosition
+值一起传递，以检索括号内的字符串。
+结果接近，但输出包含左括号。 在本练习中，不需要包含括号。 若要从输出中删除括号，必须更新代码以跳过括号本身的索引。
+
+键入代码： 
+string message = "Find what is (inside the parentheses)";
+
+int openingPosition = message.IndexOf('(');
+int closingPosition = message.IndexOf(')');
+
+openingPosition += 1;
+
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length));
+
+运行结果： 
+inside the parentheses
+
+
+花点时间查看前面的代码和行
+openingPosition += 1;
+通过将
+openingPosition
+增加
+1
+，可跳过左括号字符。
+使用该值
+1
+的原因是，这是字符的长度。 如果尝试查找以较长字符串开头的值，例如，
+<div>
+或者
+---
+，应改用该字符串的长度。
+
+键入代码： 
+
+string message = "What is the value <span>between the tags</span>?";
+
+int openingPosition = message.IndexOf("<span>");
+int closingPosition = message.IndexOf("</span>");
+
+openingPosition += 6;
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length));
+
+花点时间查看前面的代码和行
+openingPosition += 6;
+前面的代码段显示了如何在开头和结尾
+<span>
+标记之间查找值。
+在这种情况下，您将
+6
+添加到
+openingPosition
+作为偏移量，以计算子字符串的长度。
+
+
+避免使用魔术数值
+硬编码字符串（如前面代码列表中的
+"<span>"
+）被称为“魔法字符串（magic strings）”，硬编码的数值（如
+6
+）被称为“魔法数字（magic numbers）”。 由于许多原因，这些“魔法”值是不受欢迎的，你应该尽量避免使用它们。
+查看前面的代码，考虑代码可能中断的情况：如果你在代码中多次对字符串
+"<span>"
+进行了硬编码，但将其中一个实例误拼为
+"<sapn>"
+编译器在编译时不会捕获
+"<sapn>"
+，因为该值位于字符串中。 拼写错误会导致运行时出现问题，并且根据代码的复杂性，可能很难跟踪。
+此外，如果将字符串
+"<span>"
+更改为较短的
+"<div>"
+，但忘记将数字
+6
+更改为
+5
+，代码将产生不良结果。
+
+键入代码： 
+string message = "What is the value <span>between the tags</span>?";
+
+const string openSpan = "<span>";
+const string closeSpan = "</span>";
+
+int openingPosition = message.IndexOf(openSpan);
+int closingPosition = message.IndexOf(closeSpan);
+
+openingPosition += openSpan.Length;
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length));
+
+请花一分钟查看更新的代码以及关键字
+const
+在
+const string openSpan = "<span>";
+中的使用。
+该代码使用具有关键字的
+const
+常量。 使用常量可以定义和初始化其值永远无法更改的变量。 然后，只要需要该值，就可以在代码的其余部分使用该常量。 这可确保该值只定义一次，编译器会捕获变量
+const
+的拼写错误。
+上一个代码列表是编写在上一部分中检查的相同代码的更安全方法。 现在，如果
+openSpan
+的值更改为
+<div>
+，则使用该
+Length
+属性的代码行将继续有效。
+
+
+总结： 
+本单元涵盖了很多内容。 以下是要记住的最重要事项：
+IndexOf()
+可查找字符或字符串在另一个字符串中第一次出现的位置。
+IndexOf()
+如果
+-1
+找不到匹配项，则返回。
+Substring()
+仅使用起始位置和可选长度返回字符串的指定部分。
+解决问题的方法通常不止一种。 你使用了两种不同的技术来查找给定字符或字符串的所有实例。
+避免硬编码的 magic 值
+。 而是定义变量
+const
+。 初始化后，无法更改常量变量的值。
+
+1.  myString.IndexOf('C');  
+的返回值
+（其中  string myString = "C# Time"; ）是多少？
+正确答案: 0 单选按钮  已选中 不可用
+正确。  "C"  是  myString  中的第一个项目，匹配的位置是  0 。
+1 单选按钮  未选中 不可用
+-1 单选按钮  未选中 不可用
+
+
+第三节： 练习 - 使用字符串的 IndexOf() 和 LastIndexOf() 帮助程序方法
+
+本练习使用
+IndexOf()
+和
+LastIndexOf()
+方法查找给定字符串中字符和子字符串的位置。
+IndexOf()
+和 
+LastIndexOf
+.IndexOf()
+方法返回给定字符串中指定字符或子字符串的第一个匹配项的索引。
+.LastIndexOf()
+方法返回给定字符串中字符或字符串的最后一个匹配项的索引位置。 如果未找到字符或字符串，
+Indexof()
+和
+LastIndexOf()
+方法均返回 -1
+键入代码： 
+
+string message = "hello there!";
+
+int first_h = message.IndexOf('h');
+int last_h = message.LastIndexOf('h');
+
+Console.WriteLine($"For the message: '{message}', the first 'h' is at position {first_h} and the last 'h' is at position {last_h}.");
+
+运行结果： 
+For the message: 'hello there!', the first 'h' is at position 0 and the last 'h' is at position 7.
+输出标识了字符串“hello there!”中位置 0 处的第一个“h”和位置 7 处的最后一个“h”
+
+
+检索子字符串的最后一个匹配项
+通过添加多对括号来增加
+message
+变量的复杂性，然后编写代码以检索最后一组括号内的内容
+
+键入代码： 
+string message = "(What if) I am (only interested) in the last (set of parentheses)?";
+int openingPosition = message.LastIndexOf('(');
+
+openingPosition += 1;
+int closingPosition = message.LastIndexOf(')');
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length));
+
+运行结果： 
+set of parentheses
+
+此示例的关键是使用
+LastIndexOf()
+获取最后一个左括号和右括号的位置。
+注意
+前面的示例代码运行时不会出现错误，因为
+message
+字符串包含格式正确的括号对。 但是该代码易被破坏，当不存在括号对时，或当最后的括号没有形成开括号和闭括号对时，该代码就会产生错误。
+
+
+检索括号内子字符串的所有实例
+这次，将
+message
+更新为包含三组括号，并且编写代码来提取括号中的文本。 你将能够重复使用一部分以前的工作，但是需要添加
+while
+语句来循环访问字符串，直到发现、提取并显示所有括号为止。
+
+键入代码： 
+string message = "(What if) there are (more than) one (set of parentheses)?";
+while (true)
+{
+    int openingPosition = message.IndexOf('(');
+    if (openingPosition == -1) break;
+
+    openingPosition += 1;
+    int closingPosition = message.IndexOf(')');
+    int length = closingPosition - openingPosition;
+    Console.WriteLine(message.Substring(openingPosition, length));
+
+    // Note the overload of the Substring to return only the remaining 
+    // unprocessed message:
+    message = message.Substring(closingPosition + 1);
+}
+运行结果： 
+What if
+more than
+set of parentheses
+
+花一分钟观察
+while
+循环中的最后一行代码，在以下代码中拉取：
+message = message.Substring(closingPosition +1 );
+
+
+使用
+Substring()
+而不指定长度输入参数时，将返回指定的起始位置之后的每个字符。 处理字符串时，
+message = "(What if) there are (more than) one (set of parentheses)?"
+，从
+(What if)
+的值中删除第一组括号
+message
+是有好处的。 然后在
+while
+循环的下一次迭代中处理剩余的内容。
+花一分钟考虑在
+while
+循环的最终迭代期间，当仅保留最后的
+?
+字符时会发生什么情况。
+以下代码用于处理字符串末尾：
+
+int openingPosition = message.IndexOf('(');
+if (openingPosition == -1) break;
+
+如果在字符串中找不到输入参数，则
+IndexOf()
+方法将返回
+-1
+。 你只检查循环外的值
+-1
+和
+break
+
+
+使用
+IndexOfAny()
+处理不同类型的符号集
+这一次，使用
+.IndexOfAny()
+搜索几个不同的字符符号，而不仅仅是一组括号。
+.IndexOfAny()
+报告提供的字符数组中任意字符的第一个匹配项的索引。 如果未在字符数组中找到任何字符，则该方法返回 -1
+在以下示例中，返回了找到的第一个“a”、“e”或“i”字符的索引。
+
+键入代码： 
+string message = "Hello, world!";
+char[] charsToFind = { 'a', 'e', 'i' };
+
+int index = message.IndexOfAny(charsToFind);
+
+Console.WriteLine($"Found '{message[index]}' in '{message}' at index: {index}.");
+运行结果： 
+Found 'e' in 'Hello, world!' at index: 1.
+
+将添加不同类型符号（如方括号
+message
+和大括号
+[]
+）来更新
+{}
+字符串。 若要同时搜索多个符号，请使用
+.IndexOfAny()
+。 使用
+.IndexOfAny()
+进行搜索，以从
+openSymbols
+字符串中找到的数组
+message
+中返回第一个符号的索引。
+在 Visual Studio Code 编辑器中更新代码，如下所示：
+
+string message = "Help (find) the {opening symbols}";
+Console.WriteLine($"Searching THIS Message: {message}");
+char[] openSymbols = { '[', '{', '(' };
+int startPosition = 5;
+int openingPosition = message.IndexOfAny(openSymbols);
+Console.WriteLine($"Found WITHOUT using startPosition: {message.Substring(openingPosition)}");
+
+openingPosition = message.IndexOfAny(openSymbols, startPosition);
+Console.WriteLine($"Found WITH using startPosition {startPosition}:  {message.Substring(openingPosition)}");
+
+运行结果： 
+Searching THIS message: Help (find) the {opening symbols}
+Found WITHOUT using startPosition: (find) the {opening symbols}
+Found WITH using startPosition 5:  (find) the {opening symbols}
+
+花一分钟检查一下之前输入的代码。
+你使用了
+.IndexOfAny()
+without
+，然后又使用了 with
+，导致起始位置重载。
+找到开始符号后，需要查找其匹配的结束符号。
+
+键入代码： 
+string message = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
+
+// The IndexOfAny() helper method requires a char array of characters. 
+// You want to look for:
+
+char[] openSymbols = { '[', '{', '(' };
+
+// You'll use a slightly different technique for iterating through 
+// the characters in the string. This time, use the closing 
+// position of the previous iteration as the starting index for the 
+//next open symbol. So, you need to initialize the closingPosition 
+// variable to zero:
+
+int closingPosition = 0;
+
+while (true)
+{
+    int openingPosition = message.IndexOfAny(openSymbols, closingPosition);
+
+    if (openingPosition == -1) break;
+
+    string currentSymbol = message.Substring(openingPosition, 1);
+
+    // Now  find the matching closing symbol
+    char matchingSymbol = ' ';
+
+    switch (currentSymbol)
+    {
+        case "[":
+            matchingSymbol = ']';
+            break;
+        case "{":
+            matchingSymbol = '}';
+            break;
+        case "(":
+            matchingSymbol = ')';
+            break;
+    }
+
+    // To find the closingPosition, use an overload of the IndexOf method to specify 
+    // that the search for the matchingSymbol should start at the openingPosition in the string. 
+
+    openingPosition += 1;
+    closingPosition = message.IndexOf(matchingSymbol, openingPosition);
+
+    // Finally, use the techniques you've already learned to display the sub-string:
+
+    int length = closingPosition - openingPosition;
+    Console.WriteLine(message.Substring(openingPosition, length));
+}
+
+继续检查代码，并使用
+IndexOf()
+找到以下代码行来定义
+closingPosition
+closingPosition = message.IndexOf(matchingSymbol, openingPosition);
+
+变量
+closingPosition
+用于查找传递到方法
+Substring()
+的长度，并查找下一个
+openingPosition
+值：
+int openingPosition = message.IndexOfAny(openSymbols, closingPosition);
+
+因此，会在
+closingPosition
+循环范围外定义
+while
+变量并在第一次迭代时将其初始化为
+0
+最后运行结果： 
+What if
+different symbols
+open symbol
+matching closing symbol
+
+概括  标题2
+此处需要谨记两个要点：
+LastIndexOf()
+返回字符或字符串在另一个字符串中最后出现的位置。
+IndexOfAny()
+返回在另一个字符串内首次出现
+char
+数组的位置。
+
+知识检查： 
+1. 应使用哪种方法来搜索长字符串中搜索词的第一个匹配项？
+正确答案: IndexOfAny() 单选按钮  已选中 不可用
+正确。  IndexOfAny()  返回在另一个字符串内首次出现  char  数组的位置。
+LastIndexOf() 单选按钮  未选中 不可用
+Substring() 单选按钮  未选中 不可用
+
+
+
+第四节： 练习 - 使用 Remove() 和 Replace() 方法
+
+在本练习中，你将使用
+Remove()
+该方法从字符串中删除字符，并使用该方法
+Replace()
+替换字符。
+有时，需要修改字符串的内容，删除或替换字符。 虽然你可以使用你已知的工具来替换字符，但这需要一些临时存储和将字符串拼接回去。 幸运的是，
+string
+数据类型具有其他内置方法，
+Remove()
+并且
+Replace()
+适用于这些专用方案。
+
+使用 
+Remove()
+方法 
+当要从字符串中删除的字符有一个标准且一致的位置时，通常会使用
+Remove()
+本练习将数据存储在具有固定长度的较旧文件中，并为某些信息字段分配了字符位置。 前五位数字表示客户标识号。 接下来的 20 位数字包含客户的姓名。 接下来的六个职位表示客户的最新发票金额，最后三个职位表示在该发票上订购的项目数。
+在以下步骤中，需要删除客户的名称来设置数据的格式，以便可以将其发送到单独的进程。 由于知道用户名的确切位置和长度，因此可以使用该方法轻松将其删除
+Remove()
+
+键入代码： 
+string data = "12345John Smith          5000  3  ";
+string updatedData = data.Remove(5, 20);
+Console.WriteLine(updatedData);
+
+运行结果： 
+123455000  3
+
+该方法
+Remove()
+的工作方式与
+Substring()
+该方法类似。 提供起始位置和长度，以从字符串中删除这些字符。
+
+使用 
+Replace()
+方法 
+Replace()
+当需要将一个或多个字符替换为不同的字符（或无字符）时，将使用此方法。 该方法
+Replace()
+与到目前为止使用的其他方法不同，它替换给定字符
+的每个实例
+，而不仅仅是第一个或最后一个实例。
+
+删除字符，无论字符出现在字符串中的位置
+键入代码： 
+string message = "This--is--ex-amp-le--da-ta";
+message = message.Replace("--", " ");
+message = message.Replace("-", "");
+Console.WriteLine(message);
+
+运行结果： 
+This is example data
+
+此处使用了
+Replace()
+两次方法。 第一次将字符串
+--
+替换为空格。 第二次将字符串
+-
+替换为空字符串，该字符串将完全删除字符串中的字符。
+
+
+总结： 
+此处需要谨记两个要点：
+该方法
+Remove()
+的工作方式与该方法类似
+Substring()
+，只不过该方法删除字符串中的指定字符。
+该方法
+Replace()
+使用新字符串交换字符串的所有实例。
+
+1. 如果  
+message = message.Replace("B", "D");
+  代码在  
+string message = "Big Dog";
+  处运行，那么  message  的新值是什么？
+"Big Dog" 单选按钮  未选中 不可用
+"Big Bog" 单选按钮  未选中 不可用
+正确答案: "Dig Dog" 单选按钮  已选中 不可用
+正确。  "B"  替换为  "D" 。
+
+
+
+第五节： 练习 - 完成从输入字符串中提取、替换和删除数据的挑战
+
+代码挑战强化学习，帮助你在继续学习之前获得一些信心。
+在此挑战中，你将使用包含 HTML 片段的字符串。 从 HTML 片段中提取数据，替换部分内容，并删除其内容的其他部分，以实现所需的输出。
+如果不熟悉 HTML 代码，请查看本单元末尾的
+“快速 HTML 入门"
+部分。
+
+从输入字符串中提取、替换和删除数据
+
+键入代码： 
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+string quantity = "";
+string output = "";
+
+// Your work here
+
+Console.WriteLine(quantity);
+Console.WriteLine(output);
+
+如果运行代码，输出会显示空行，
+quantity
+和
+output
+的起始值为空
+string
+值。
+花一分钟时间查看包含
+string
+HTML 的代码的初始行。
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+请注意
+<div>
+变量中包含的标记：
+<h2>
+<span>
+&trade;
+以及符号代码
+input
+检查最终程序输出的
+期望输出
+Quantity: 5000
+Output: <h2>Widgets &reg;</h2><span>5000</span>
+
+开始在注释
+// Your work here
+下的初始代码中添加您的解决方案代码。
+将
+quantity
+变量设置为通过提取标记之间的
+<span>
+</span>
+文本获得的值。
+将
+output
+变量设置为值
+input
+，然后删除
+<div>
+和
+</div>
+标记。
+将 HTML 字符
+™
+（
+&trade;
+） 替换为
+®
+变量中的
+&reg;
+（
+output
+运行解决方案并验证输出是否与预期输出匹配。
+Quantity: 5000
+Output: <h2>Widgets &reg;</h2><span>5000</span>
+
+答案1： 
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+string quantity = "";
+int quantityStart = input.IndexOf("<span>");
+int quantityEnd = input.IndexOf("</span>");
+
+string output = input.Replace("<div", "");
+//string outputStart = input.Replace("<div>", "");
+
+// Your work here
+
+quantityStart += "<span>".Length;
+int length = quantityEnd - quantityStart;
+quantity = input.Substring(quantityStart, length);
+
+
+
+Console.WriteLine("Quantity: " + quantity);
+Console.WriteLine("Output: " + output);
+
+
+参考答案： 
+
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+string quantity = "";
+string output = "";
+
+// Your work here
+
+// Extract the "quantity"
+const string openSpan = "<span>";
+const string closeSpan = "</span>";
+
+int quantityStart = input.IndexOf(openSpan) + openSpan.Length; // + length of <span> so index at end of <span> tag
+int quantityEnd= input.IndexOf(closeSpan);
+int quantityLength = quantityEnd - quantityStart;
+quantity = input.Substring(quantityStart, quantityLength);
+quantity = $"Quantity: {quantity}";
+
+// Set output to input, replacing the trademark symbol with the registered trademark symbol
+const string tradeSymbol = "&trade;";
+const string regSymbol = "&reg;";
+output = input.Replace(tradeSymbol, regSymbol);
+
+// Remove the opening <div> tag
+const string openDiv = "<div>";
+int divStart = output.IndexOf(openDiv);
+output = output.Remove(divStart, openDiv.Length);
+
+// Remove the closing </div> tag and add "Output:" to the beginning
+const string closeDiv = "</div>";
+int divCloseStart = output.IndexOf(closeDiv);
+output = "Output: " + output.Remove(divCloseStart, closeDiv.Length);
+
+Console.WriteLine(quantity);
+Console.WriteLine(output);
+

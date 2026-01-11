@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "像控制台添加逻辑/1.0.0": {
+        "runtime": {
+          "像控制台添加逻辑.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "像控制台添加逻辑/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

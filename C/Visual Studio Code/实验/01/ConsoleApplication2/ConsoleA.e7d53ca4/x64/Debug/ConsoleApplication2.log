@@ -1,0 +1,7 @@
+﻿  ConsoleApplication2.cpp
+E:\C\Visual Studio Code\实验\01\ConsoleApplication2\ConsoleApplication2.cpp(16,2): error C2014: 预处理器命令必须作为第一个非空白空间启动
+E:\C\Visual Studio Code\实验\01\ConsoleApplication2\ConsoleApplication2.cpp(17,1): error C2143: 语法错误: 缺少“;”(在“using”的前面)
+E:\C\Visual Studio Code\实验\01\ConsoleApplication2\ConsoleApplication2.cpp(16,1): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+E:\C\Visual Studio Code\实验\01\ConsoleApplication2\ConsoleApplication2.cpp(17,7): error C2065: “System”: 未声明的标识符
+E:\C\Visual Studio Code\实验\01\ConsoleApplication2\ConsoleApplication2.cpp(17,7): error C2187: 语法错误: 此处出现意外的“System”
+E:\C\Visual Studio Code\实验\01\ConsoleApplication2\ConsoleApplication2.cpp(31,1): error C1004: 发现意外的文件尾

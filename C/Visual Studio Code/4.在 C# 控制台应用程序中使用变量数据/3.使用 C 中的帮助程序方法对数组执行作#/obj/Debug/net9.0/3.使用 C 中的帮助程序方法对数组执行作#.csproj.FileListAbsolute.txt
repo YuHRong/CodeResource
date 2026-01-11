@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\bin\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.exe
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\bin\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.deps.json
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\bin\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.runtimeconfig.json
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\bin\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.dll
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\bin\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.pdb
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\obj\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\obj\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\obj\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.AssemblyInfo.cs
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\obj\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\obj\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.dll
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\obj\Debug\net9.0\refint\3.使用 C 中的帮助程序方法对数组执行作#.dll
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\obj\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.pdb
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\obj\Debug\net9.0\3.使用 C 中的帮助程序方法对数组执行作#.genruntimeconfig.cache
+E:\C\Visual Studio Code\4.在 C# 控制台应用程序中使用变量数据\3.使用 C 中的帮助程序方法对数组执行作#\obj\Debug\net9.0\ref\3.使用 C 中的帮助程序方法对数组执行作#.dll

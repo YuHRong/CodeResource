@@ -1,0 +1,2 @@
+console.WriteLine
+    ("hello world")£»

@@ -1,0 +1,36 @@
+在终端命令提示符处，若要在指定文件夹中新建控制台应用程序，请输入以下命令：
+dotnet new console -o ./CsharpProjects/TestProject
+
+此 .NET CLI 命令使用 .NET 程序模板在指定文件夹位置创建新的 C# 控制台应用程序项目。 该命令会为你创建 CsharpProjects 和 TestProject 文件夹，并使用 TestProject 作为
+.csproj
+文件的名称。
+在文件夹下你会看到，
+ TestProject 文件夹和两个文件，一个名为 Program.cs 的 C# 程序文件和一个名为 TestProject.csproj 的 C# 项目文件。 CLI 命令在创建项目文件 (TestProject.csproj) 时使用该文件夹名称。 Program.cs 文件是包含 C# 代码的文件。
+在 Visual Studio Code 资源管理器视图中，右键单击“TestProject”文件夹，然后选择“在集成终端中打开”
+
+集成终端面板中的命令提示符显示将运行命令的文件夹位置。 运行
+build
+或
+run
+命令之前，必须确保终端已打开并转到你的项目文件夹。
+在 Visual Studio Code 编辑器中，更新
+Console.WriteLine()
+方法，如下所示：
+Console.WriteLine("Hello C#!");
+
+若要对应用程序的生成进行编译，请在终端命令提示符下输入以下命令：
+dotnet build
+
+dotnet build
+命令将项目及其依赖项构建为一组二进制文件。 二进制文件包括扩展名为 .dll 的中间语言 (IL) 文件中的项目代码。 根据项目类型和设置，可能会包含其他文件。 如果好奇，可以在“资源管理器”视图中路径如下所示的文件夹位置查找 TestProject.dll 文件：
+你的文件夹路径将反映你的帐户和 TestProject 文件夹的文件夹路径。
+若要运行应用程序，请在终端命令提示符处输入以下命令：
+dotnet run
+命令无需任何显式编译或启动命令即可运行源代码。 该命令为从源代码使用一个命令运行应用程序提供了一个方便的选项。 它可用于从命令行进行快速迭代开发。 该命令依靠 dotnet build 命令来生成代码。
+
+请注意，Hello C# 显示在终端面板内
+dotnet run
+命令下方的行中。
+如果显示了“Hello, World!”，请确保已保存代码更改。
+恭喜，你已经完成了 Visual Studio Code 的设置，且生成并运行了一行简单的代码！
+

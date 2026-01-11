@@ -1,0 +1,410 @@
+你编写的代码应向编译器和可能需要阅读你代码的其他开发人员传达你的意图。 而且，由于你自己是最常阅读你的代码的开发人员，有时会在最初编写代码后的几个月内进行阅读，因此，编写清晰易懂的代码符合你的最佳利益。 请记住，你可能只编写一次代码，但你需要读上许多遍。
+假设你被要求为另一组开发人员编写一些代码。 你与他们会面讨论规范，明确任务分配。 会议结束后，他们告诉你，你将在开发过程中独立工作。 完成后，你将代码移交给其他组。 编码任务并不超出你的技能水平，但你不必编写其他人将维护的代码。 团队告诉你，只要遵循 C# 的标准编码约定，就不应该有问题。 你制定计划来查看与要处理的代码相关的 C# 编码约定。
+在本模块中，你将了解如何为变量选择一个描述其目的和意图的名称。 你将了解如何添加代码注释，以便在代码中记录大概要求和你的方法，以及暂时指示编译器忽略代码行。 最后，你将学习如何使用空格来帮助传达各代码行之间的关系。
+学完本模块后，你将能够更有目的地编写代码，注重代码的可读性和质量以向编译器和其他开发者传达信息。
+重要
+
+
+学习目标 
+在本模块中，你将：
+为变量选择一个描述其目的和意图的描述性名称。
+使用代码注释暂时指示编译器忽略代码行。
+使用代码注释描述一段代码的更高级别要求或用途。
+编写有效使用空格来传达代码行之间关系的代码。
+
+
+变量名称规则  标题2
+C# 编译器强制实施一些变量命名规则。
+变量名称可以包含字母数字字符和下划线 （_） 字符。 不允许使用英镑
+#
+、短划线
+-
+和美元符号
+$
+等特殊字符。
+变量名称必须以字母或下划线开头，而不是数字。 使用下划线字符启动变量名称通常是为专用实例字段保留的。 可以在模块摘要中找到指向进一步阅读的链接。
+变量名称不得为 C# 关键字。 例如，不允许这些变量名称声明：
+float float;
+或
+string string;。
+变量名称区分大小写，这意味着
+string MyValue;
+和
+string myValue;
+两个不同的变量。
+
+
+变量名称约定  标题2
+约定是软件开发社区同意的建议。 虽然你可以自由决定不遵循这些约定，但它们非常受欢迎，可能使其他开发人员难以理解你的代码。 你应该练习采用这些约定，并使它们成为你自己的编码习惯的一部分。
+变量名称应使用驼峰式大小写形式，这是一种书写样式，即第一个单词的首字母采用小写形式，后续每个单词的首字母则采用大写形式
+。 例如：
+string thisIsCamelCase;。
+变量名称在应用程序中应具有描述性且有意义。 应为变量选择一个名称，该名称表示它将保留的数据类型（而不是数据类型）。 例如：
+bool orderComplete;
+，NOT
+bool isComplete;。
+变量名称应是组合在一起的一个或多个完整单词。 请勿使用缩写形式，因为变量名称可能对正在阅读代码的其他人而言不够清楚。 例如：
+decimal orderAmount;
+，NOT
+decimal odrAmt;。
+变量名称不应包含变量的数据类型。 你可能会看到一些建议使用类似
+string strMyValue;
+的样式。 几年前，这是一种流行的风格。 但是，大多数开发人员不再遵循此建议，并且有充分的理由不要使用它。
+该示例
+string firstName;
+遵循所有这些规则和约定，假设你想要使用此变量来存储表示某人的名字的数据。
+
+下面是变量声明的几个示例（使用常见数据类型）：
+char userOption;
+
+int gameScore;
+
+float particlesPerMillion;
+
+bool processedCustomer;
+
+其他命名约定  标题2
+上述规则和约定适用于
+局部变量。
+局部变量
+是在方法主体范围内声明的变量，或者是在控制台应用程序中使用顶级语句（例如本模块中的代码）时所定义的变量。
+在应用程序中可以使用其他类型的构造，并且许多构造具有自己的约定。 例如，类通常用于 C# 编程，并且具有关联的约定。 虽然不会在此模块中创建类，但必须知道刚刚了解的命名约定适合更大的命名框架。
+
+
+在本练习中，你将向代码添加注释并暂时禁止某些代码行进行编译。 然后，你将了解 C# 编译器如何理解空格，学习如何使用空格来提高代码的可读性。
+代码注释是一条指令，用于指示编译器忽略当前行中代码注释符号后面的一切内容。
+// This is a code comment!
+
+刚开始这似乎没什么作用，但是在以下三种情况非常有用：
+当你想记下一段代码的意图时。 当你编写一组极具挑战性的代码指令时，包含描述用途或思考过程的代码注释可能会很有帮助。 将来的你会感谢自己。
+当你想暂时删除应用程序中的代码，以尝试其他方法，但不确信新想法是否有用时。 可以注释掉代码，编写新代码，一旦你确定新代码会按预期方式运行时，就可安全地删除旧代码（注释代码）。
+添加类似于
+TODO
+的消息，以提醒自己稍后查看特定的代码段。 虽然你应该谨慎地使用这种方法，但它很有用。 当阅读到引起你关注的代码行时，你可能正在处理另一项功能。 你可以对其进行标记以便稍后调查，而不是忽略关注的新代码行。
+备注
+应使用代码注释来说明代码无法说明的内容。 通常，开发者会更新其代码，但忘记更新代码注释。 最好使用注释来描述更高级别的想法，请勿添加关于单个代码行如何工作的注释。
+
+
+在 Visual Studio Code 编辑器面板中，输入以下代码：
+string firstName = "Bob";
+int widgetsSold = 7;
+Console.WriteLine($"{firstName} sold {widgetsSold} widgets.");
+
+若要使用代码注释和修订来修改代码，请按如下所示更新代码：
+
+string firstName = "Bob";
+int widgetsPurchased = 7;
+// Testing a change to the message.
+// int widgetsSold = 7;
+// Console.WriteLine($"{firstName} sold {widgetsSold} widgets.");
+Console.WriteLine($"{firstName} purchased {widgetsPurchased} widgets.");
+
+请注意，代码注释用于记录可能做出的更改，并用于在你测试新消息时暂时禁用旧消息。 下一步是测试更新。 如果你对新代码感到满意，可以安全地删除注释掉的旧代码。在你确信你已准备好永久删除工作代码之前，这是一种更安全、更有条理的修改工作代码的方法。
+
+
+若要应用注释掉多行的块注释，请按如下所示更新代码：
+/*
+string firstName = "Bob";
+int widgetsPurchased = 7;
+Console.WriteLine($"{firstName} purchased {widgetsPurchased} widgets.");
+*/
+如果需要编写长注释或移除许多代码行，块注释是很好的选择。 块注释在代码开头使用
+/*
+，在末尾使用
+*/
+。 使用块注释是禁用三个或更多代码行的最快速、最简单的方式。
+
+
+替换代码： 
+Random random = new Random();
+string[] orderIDs = new string[5];
+// Loop through each blank orderID
+for (int i = 0; i < orderIDs.Length; i++)
+{
+    // Get a random value that equates to ASCII letters A through E
+    int prefixValue = random.Next(65, 70);
+    // Convert the random value into a char, then a string
+    string prefix = Convert.ToChar(prefixValue).ToString();
+    // Create a random number, pad with zeroes
+    string suffix = random.Next(1, 1000).ToString("000");
+    // Combine the prefix and suffix together, then assign to current OrderID
+    orderIDs[i] = prefix + suffix;
+}
+// Print out each orderID
+foreach (var orderID in orderIDs)
+{
+    Console.WriteLine(orderID);
+}
+在提供注释的情况下，你也许能够明白代码所执行的操作（假设注释准确地说明了当前状态并随着代码一起更新）。 但你能猜一猜此代码为什么存在吗？ 如果代码文件的顶部有一些解释提供了一些上下文并描述了其用途，这不是很有帮助吗？
+
+考虑如何改进注释。
+请注意，这些注释主要存在两个问题：
+代码注释不必要地解释了单独代码行的明显功能。 这些被视为低质量的注释，因为它们只解释了 C# 或 .NET 类库的方法如何工作。 如果读者不熟悉这些内容，他们可以使用 learn.microsoft.com 或 IntelliSense 来查阅。
+代码注释未提供代码所解决问题的任何上下文。 这些被视为低质量的注释，因为读者无法了解此代码的用途，尤其是在涉及到更大的系统时。
+注释有用与否是一种主观意识。 只要与代码可读性相关的事，都应该相信自己最合理的判断。 做你认为最能清楚描述代码的事。
+
+小结： 
+本练习的要点包括：
+使用代码注释为自己添加有意义的备注，注明代码可解决的问题。
+请勿使用解释 C# 或 .NET 类库如何工作的代码注释。
+暂时尝试替代解决方法时，请使用代码注释，直至你已准备提交新的代码解决方案，此时可以删除旧代码。
+不要完全相信注释。 在进行许多更改和更新之后，它们可能不会反映代码的当前状态。
+
+平面设计师和网页设计师知道，在小空间中塞入太多信息会让浏览器不知所措。 因此，他们战略性地使用空格或负空间来分散信息，以最大程度地使观看者能够消化其作品中的主要消息。
+当开发者在编辑器中编写代码时，他们可以使用类似的策略。 通过使用空格传达含义，开发者可以更清楚地传达代码意图。
+
+什么是空格？ 
+术语“空格”指的是由
+space bar
+生成的单个空格、由
+tab
+键生成的制表符以及由
+enter
+键生成的新行。
+C# 编译器会忽略空格。 若要了解如何忽略空格，以及如何使用空格更清楚地传达代码意图，请完成以下练习。
+
+输入以下代码： 
+// Example 1:
+Console
+.
+WriteLine
+(
+"Hello Example 1!"
+)
+;
+
+// Example 2:
+string firstWord="Hello";string lastWord="Example 2";Console.WriteLine(firstWord+" "+lastWord+"!");
+
+dotnet run输出： 
+Hello Example 1!
+Hello Example 2!
+
+
+这两个代码示例说明了两个重要概念：
+空格对编译器而言不重要。 但是...
+正确使用空格可以提高你阅读和理解代码的能力。
+你可能只编写一次代码，但需要多次阅读代码。 因此，应注重所编写代码的可读性。 你会逐渐意识到使用空格（如空格字符、制表符和新行）的好处方式。
+提前指导：
+每个完整的命令（语句）都属于单独的一行。
+如果单个代码行过长，可以将其拆分。 但是，不应随意将单个语句拆分为多行，除非你有充分的理由这样做。
+在赋值运算符的左侧和右侧使用空格。
+将现有代码替换为以下代码：
+
+Random dice = new Random();
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+int total = roll1 + roll2 + roll3;
+Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3)) {
+    if ((roll1 == roll2) && (roll2 == roll3)) {
+        Console.WriteLine("You rolled triples!  +6 bonus to total!");
+        total += 6; 
+    } else {
+        Console.WriteLine("You rolled doubles!  +2 bonus to total!");
+        total += 2;
+    }
+}
+
+
+
+请注意，此代码不包含太多空格。 此代码将用于演示向应用程序添加空格的方法。 有效的空格可让你更轻松地理解代码的作用。
+备注
+该代码使用
+Random
+类来帮助开发模拟骰子游戏，其中三次掷出的总点数用于计算“获胜”分数。 代码会为掷出两个或三个相同的点数奖励额外得分。 无需完全了解此代码即可了解包含空格的好处。
+花一点时间考虑如何使用空格来提高此代码的可读性。
+需要记下此代码的两个特点：
+此代码示例中没有垂直空格。 换言之，没有分隔代码行的空行。 所有内容都整合到一个密集的代码列表中。
+由左大括号和右大括号
+{ }
+定义的代码块压缩在一起，使其边界难以在视觉上辨别出来。
+一般而言，为了提高可读性，可在执行相似或相关操作的两个、三个或四个代码行之间引入空行。
+使用垂直空格表述代码是主观操作。 关于哪种形式更加易读或者何时添加空格，不同的开发人员可能意见不同。 请根据你的最佳判断来使用。
+要添加垂直空格以提高可读性，请按如下所示更新代码：
+Random dice = new Random();
+
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+
+int total = roll1 + roll2 + roll3;
+Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
+
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3)) {
+    if ((roll1 == roll2) && (roll2 == roll3)) {
+        Console.WriteLine("You rolled triples!  +6 bonus to total!");
+        total += 6; 
+    } else {
+        Console.WriteLine("You rolled doubles!  +2 bonus to total!");
+        total += 2;
+    }
+}
+
+
+第一行空格用于将
+dice
+变量的声明与用于为掷骰变量赋值的代码行分开。 此分离操作可让你更轻松地了解
+dice
+在代码中的使用方式。
+下一行空格将掷骰变量的声明与
+total
+的声明分隔开。 对三个掷骰变量的声明进行分组会在两个方面很有用。 首先，它会创建一组包含相关变量的代码行。 其次，变量名称非常相似，声明遵循相同的模式。 因此，将它们分组到一起可让你看到相似之处，并且有助于揭示差异。
+最后，第三行空格将另一组相关语句与嵌套的
+if
+语句分隔开。 包含
+total
+声明和
+Console.WriteLine()
+方法的语句组是按用途（而不是外观）相关联的。 代码侧重于三个骰子掷出的总值，以及是否掷出了两个或三个相同的点数。 这些代码行是相关联的，因为你需要计算
+total
+并将掷骰的结果报告给用户。
+有些开发人员可能会认为你应该在
+total
+和
+Console.WriteLine()
+的声明之间添加一个空行。 同样，是否选择添加空格应该根据自己的最佳判断。 你应该决定哪种样式对你而言更易阅读，并且应该始终使用该样式。
+剩下的只有
+if
+语句了。 现在可以检查该语句。
+重点关注关键字
+if
+下方的代码行，按如下方式修改代码：
+
+Random dice = new Random();
+
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+
+int total = roll1 + roll2 + roll3;
+Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
+
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3)) 
+{
+    if ((roll1 == roll2) && (roll2 == roll3)) 
+    {
+        Console.WriteLine("You rolled triples!  +6 bonus to total!");
+        total += 6; 
+    } 
+    else 
+    {
+        Console.WriteLine("You rolled doubles!  +2 bonus to total!");
+        total += 2;
+    }
+}
+
+
+请注意，你已将左大括号和右大括号移动到其自己的行，以增加间距。
+{
+和
+}
+符号可创建代码块。 许多 C# 构造都需要代码块。 应将这些符号放在单独的行中，以便其边界清晰可见且可阅读。
+此外，请务必使用
+tab
+键使代码块符号在其所属的关键字下方对齐。 例如，请注意以关键字
+if
+开头的代码行。 该行下面是
+{
+符号。 可通过这种对齐方式轻松地知道
+{
+“属于”
+if
+语句。 此外，最后一个
+}
+符号也与
+if
+语句对齐。 对齐和缩进的组合方式使得理解代码块的开始和结束位置变得容易。
+此代码块中的代码行是缩进的，表示它们“属于”此代码块。
+对于内部
+if
+语句和
+else
+语句以及这些代码块内部的代码，请遵循类似的模式。
+并非每个人都同意这种包含空格的样式指南。 但是，在编写代码时，应考虑从使用本指南开始。 将来，在做出不同于本指南的决定时，可以有针对性地执行相关操作。
+
+小结： 
+本练习的要点包括：
+明智地使用空格来提高代码的可读性。
+使用换行符来创建空行以分隔代码短语。 一个短语包括类似或协同工作的代码行。
+使用换行符分隔代码块符号，使其处于自己的代码行中。
+使用
+tab
+键将代码块与相关的关键字对齐。
+缩进代码块中的代码以显示所有权。
+
+在此挑战中，你将使用在本模块中学到的技术来提高代码示例的可读性。 为你提供的代码示例样式和注释较差。 目标是使用变量名称、代码注释和空格的样式准则更新代码，以提高代码的可读性。
+代码挑战 - 应用样式准则来提高可读性 
+
+若要为本挑战创建初始代码，请输入以下代码：
+string str = "The quick brown fox jumps over the lazy dog.";
+// convert the message into a char array
+char[] charMessage = str.ToCharArray();
+// Reverse the chars
+Array.Reverse(charMessage);
+int x = 0;
+// count the o's
+foreach (char i in charMessage) { if (i == 'o') { x++; } }
+// convert it back to a string
+string new_message = new String(charMessage);
+// print it out
+Console.WriteLine(new_message);
+Console.WriteLine($"'o' appears {x} times.");
+
+
+备注
+此代码示例可能包含你不熟悉的 .NET 类库方法。 例如，你可能不熟悉
+ToCharArray()
+类的
+String
+方法或
+Reverse
+类的
+Array
+方法。 无需完全了解代码示例即可成功应对本挑战。
+提示
+此代码的更高级别用途是反转字符串并计算特定字符出现的次数。
+若要提高可读性，请使用样式准则更新代码。
+使用你在本模块中学到的方法改进代码，提高代码可读性。
+无论是遇到问题而需要查看解决方案，还是成功完成操作，都请继续查看此挑战的一种解决方案。
+
+/*
+   This code reverses a message, counts the number of times 
+   a particular character appears, then prints the results
+   to the console window.
+ */
+
+string originalMessage = "The quick brown fox jumps over the lazy dog.";
+
+char[] message = originalMessage.ToCharArray();
+Array.Reverse(message);
+
+int letterCount = 0;
+
+foreach (char letter in message)
+{
+    if (letter == 'o')
+    {
+        letterCount++;
+    }
+}
+
+string newMessage = new String(message);
+
+Console.WriteLine(newMessage);
+Console.WriteLine($"'o' appears {letterCount} times.");
+
+该代码仅仅是“一种可能解决方案”。 你可能会遇到一些不同的变量名称、不同的垂直间距和制表符缩进。 以下是所做更改的列表。
+该代码在顶部的多行注释中包含对整个代码列表试图完成的操作的更高级别描述。 你可能会认为，这是对原始代码注释的一个小改进，但鉴于代码挑战的描述，没有太多可用的上下文。
+单独注释已删除，因为这些注释未真正表明代码的用途和功能。
+添加了几个空白行来改进代码列表的表述。 如果代码行看起来相似或需要相互协作以完成一个小任务，请将代码行放在一起。
+已添加换行符和制表符，用于改进
+foreach
+语句和
+if
+语句的外观。
+已应用局部变量命名约定来更好地传达每个值的用途。
+如果你发现了相同的问题并以类似方式解决了这些问题，那么祝贺你！ 继续进行下一个单元中的知识检查。
+如果在完成此项挑战时遇到问题，可能需要先回顾前面的几个单元，然后再继续。
+

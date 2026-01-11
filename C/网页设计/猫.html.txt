@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en	">
+  <head>
+<meta charset="utf-8">
+    <title>CatPhotoApp</title>
+  </head>
+  <body>
+    <main>
+      <h1>猫相册</h1>
+      <section>
+        <h2>猫照片</h2>
+        <!-- TODO: 添加猫图片链接-->
+        <p>查看更多 <a target="_blank" href="https://freecatphotoapp.com">猫照片</a> 在图片中 </p>
+        <a href="https://freecatphotoapp.com"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="一只橙色可爱的小猫躺着"></a>
+      </section>
+      <section>
+        <h2>猫列表</h2>
+        <h3>猫喜欢什么东西:</h3>
+        <ul>
+          <li>猫的影子</li>
+          <li>激光</li>
+          <li>西红柿面条</li>
+        </ul>
+        <figure>
+          <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/lasagna.jpg" alt="盘子里的千层面">
+          <figcaption>猫 <em>喜欢</em>千层面        </figure></figcaption>  
+        </figure>
+        <h3>猫最讨厌的三件事</h3>
+        <ol>
+          <li>跳蚤治疗</li>
+          <li>打雷</li>
+          <li>其他猫</li>
+        </ol>
+        <figure>
+          <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/cats.jpg" alt="五只猫在田野里张望">
+          <figcaption>猫 <strong>讨厌</strong>其他猫</figcaption>  
+        </figure>
+      </section>
+      <section>
+        <h2>猫调查</h2>
+        <form action="https://freecatphotoapp.com/submit-cat-photo">
+          <fieldset>
+            <legend>你的猫是室内猫还是室外猫？</legend>
+            <label><input id="室内" type="radio" name="室内-室外" value="indoor"> 室内</label>
+            <label><input id="室外" type="radio" name="室内-室外" value="o室外"> 室外</label>
+          </fieldset>
+          <fieldset>
+            <legend>你的猫是什么性格的猫？</legend>
+            <input id="有爱" type="checkbox" name="性格" value="有爱"> <label for="有爱">有爱</label>
+            <input id="懒猫" type="checkbox" name="性格" value="懒猫"> <label for="懒猫">懒猫</label>
+            <input id="精力旺盛" type="checkbox" name="性格" value="精力旺盛"> <label for="精力旺盛">精力旺盛</label>
+          </fieldset>
+          <input type="text" name="catphotourl" placeholder="猫照片地址" required>
+          <button type="submit">提交</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>
+        无版权- <a href="https://www.freecodecamp.org">freeCodeCamp.org</a>
+      </p>
+    </footer>
+  </body>
+</html>

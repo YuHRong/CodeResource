@@ -1,0 +1,18 @@
+申明下面变量： 
+string key申明调式， C大调。
+int BPM申明速度: BPM 90
+string tS申明拍号: tS 4/4
+ string chord 申明和弦进行: 1645
+string LRC申明歌词，
+ soundP申明段落: p, a1, b1, c1, i, b1, c1, c2, c3, end。a b 主歌，c 副歌, end 结尾, p 前奏， i 间奏
+
+输出整体
+
+申明方法，
+a1, b1, c1 是第一段
+b2, c1 ,c2, c3, 是第二段。
+p, 前奏
+i, 间奏
+end, 结尾
+
+提取个变量数组组成整首歌。

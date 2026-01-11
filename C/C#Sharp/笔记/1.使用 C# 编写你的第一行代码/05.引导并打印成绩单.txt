@@ -1,0 +1,378 @@
+你正在开发一个学生评分应用程序，该应用程序自动计算课堂中每个学生的当前成绩。 应用程序的参数包括：
+你得到了四名学生及其五个作业成绩的简短名单。
+每个作业成绩都表示为整数值 0-100，其中 100 表示 100% 正确。
+最终分数计算为五个工作分配分数的平均值。
+应用程序需要执行基本的数学运算来计算每个学生的最终成绩。
+应用程序需要输出/显示每个学生的姓名和最终分数。
+目前，教师成绩簿显示每个学生的评分作业如下：
+
+Sophia: 93, 87, 98, 95, 100
+
+Nicolas: 80, 83, 82, 88, 85
+
+Zahirah:   84, 96, 73, 85, 79
+
+Jeong:  90, 92, 98, 100, 97
+
+教师要求每个学生的计算成绩如下所示：
+Student     Grade
+Sophia      94.6  A
+Nicolas     83.6  B
+Zahirah     83.4  B
+Jeong       95.4  A
+
+将每个学生的成绩创建变量
+// initialize variables - graded assignments 
+int currentAssignments = 5;
+
+int sophia1 = 93;
+int sophia2 = 87;
+int sophia3 = 98;
+int sophia4 = 95;
+int sophia5 = 100;
+
+int nicolas1 = 80;
+int nicolas2 = 83;
+int nicolas3 = 82;
+int nicolas4 = 88;
+int nicolas5 = 85;
+
+int zahirah1 = 84;
+int zahirah2 = 96;
+int zahirah3 = 73;
+int zahirah4 = 85;
+int zahirah5 = 79;
+
+int jeong1 = 90;
+int jeong2 = 92;
+int jeong3 = 98;
+int jeong4 = 100;
+int jeong5 = 97;
+
+若要为每个学生声明一个整数变量，可以使用该变量对分数求和，请输入以下代码：
+int sophiaSum = 0;
+int nicolasSum = 0;
+int zahirahSum = 0;
+int jeongSum = 0;
+
+请注意，
+0作为声明语句的一部分分配给变量。 换句话说，变量初始化为
+0
+。 虽然声明变量时不需要值赋值，但它可以使代码更高效。 下一步是显示输出，并且由于该输出将包含对这些变量的引用，因此必须初始化它们。
+
+若要创建
+Console.WriteLine()
+显示学生姓名及其求和作业分数值的语句，请输入以下代码：
+Console.WriteLine("Sophia: " + sophiaSum);
+Console.WriteLine("Nicolas: " + nicolasSum);
+Console.WriteLine("Zahirah: " + zahirahSum);
+Console.WriteLine("Jeong: " + jeongSum);
+
+最终，你想要显示学生的当前整体成绩，但现在，让我们使用这些
+Console.WriteLine()
+语句来显示总和计算的值。 这样，就可以检查代码是否在开发过程的每个阶段正常运行。
+备注
+更高级的开发人员环境（如 Visual Studio Code）提供了工具，使开发人员能够在代码运行时观察应用程序变量的值。 了解如何在开发过程中使用这些工具可节省专业开发人员大量时间。 不过，现在可以使用
+Console.WriteLine()
+它来帮助验证代码是否按预期工作。
+
+请注意，可以使用显示字符串字面量（学生姓名）的相同
+0
+方法来显示整数值，目前全部为
+WriteLine()。
+
+通过引用变量名称自动检索当前数值。
+现在，您已准备好
+Console.WriteLine()
+用于显示结果的语句，接下来我们开始添加用于执行计算的代码。
+重要
+需要编写在显示输出的代码上方执行计算的代码。
+
+找到以下代码行：
+int sophiaSum = 0;
+你将编写计算每个学生的总和值的代码。 首先，添加学生的作业分数，然后将该值分配给“sum”变量。 让我们从索菲亚开始吧。 请记住，索菲亚的分数存储在以下代码中：
+int sophia1 = 93;
+int sophia2 = 87;
+int sophia3 = 98;
+int sophia4 = 95;
+int sophia5 = 100;
+
+将该代码行更新为以下内容：
+int sophiaSum = sophia1 + sophia2 + sophia3 + sophia4 + sophia5;
+输出后应得到： 
+Sophia: 473
+Nicolas: 0
+Zahirah: 0
+Jeong: 0
+同理，添加以下代码行： 
+int nicolasSum = nicolas1 + nicolas2 + nicolas3 + nicolas4 + nicolas5;
+int zahirahSum = zahirah1 + zahirah2 + zahirah3 + zahirah4 + zahirah5;
+int jeongSum = jeong1 + jeong2 + jeong3 + jeong4 + jeong5;
+
+最后得到代码： 
+int currentAssignments = 5;
+
+int sophia1 = 93;
+int sophia2 = 87;
+int sophia3 = 98;
+int sophia4 = 95;
+int sophia5 = 100;
+
+int nicolas1 = 80;
+int nicolas2 = 83;
+int nicolas3 = 82;
+int nicolas4 = 88;
+int nicolas5 = 85;
+
+int zahirah1 = 84;
+int zahirah2 = 96;
+int zahirah3 = 73;
+int zahirah4 = 85;
+int zahirah5 = 79;
+
+int jeong1 = 90;
+int jeong2 = 92;
+int jeong3 = 98;
+int jeong4 = 100;
+int jeong5 = 97;
+
+int sophiaSum = sophia1 + sophia2 + sophia3 + sophia4 + sophia5;
+int nicolasSum = nicolas1 + nicolas2 + nicolas3 + nicolas4 + nicolas5;
+int zahirahSum = zahirah1 + zahirah2 + zahirah3 + zahirah4 + zahirah5;
+int jeongSum = jeong1 + jeong2 + jeong3 + jeong4 + jeong5;
+
+Console.WriteLine("Sophia: " + sophiaSum);
+Console.WriteLine("Nicolas: " + nicolasSum);
+Console.WriteLine("Zahirah: " + zahirahSum);
+Console.WriteLine("Jeong: " + jeongSum);
+得到每个同学的总成绩： 
+Sophia: 473
+Nicolas: 418
+Zahirah: 417
+Jeong: 477
+
+
+创建变量以存储平均值 
+在此任务中，你将为每个学生创建一个变量，该变量可用于存储其评分作业的平均分数。
+
+在上面代码行中找到
+Console.WriteLine()
+用于显示每个学生的求和分数的语句。
+在Console.WriteLine()
+语句上方创建一个空白代码行。
+decimal sophiaScore;
+decimal nicolasScore;
+decimal zahirahScore;
+decimal jeongScore;在创建的空白代码行中，若要声明将用于学生当前分数的十进制变量，请输入以下代码：
+
+请注意，你只声明
+decimal
+变量，而不是初始化它们。 之所以选择
+decimal
+类型，是因为你表示的是平均成绩，并且希望包含一个小数位，如果使用整数，该小数位将不可用。 这样，你可以看到学生是否得分为 89.9，并将他们从 B 提升到 A。
+在上一练习中，你初始化了整数变量，以便你可以立即在控制台输出中使用它们。 在这种情况下，这些
+decimal
+变量将在下一步使用您的现有数据进行计算，起始点是索菲亚的分数。
+
+若要将索菲亚在类中的当前分数分配给小数
+sophiaScore
+，请使用以下代码更新变量：
+decimal sophiaScore = sophiaSum / currentAssignments;
+
+若要计算学生的当前课堂分数，可以将作业分数的总和除以作业总数。 课程中的每个学生都有五项作业，由你在设置过程中初始化的
+currentAssignments
+表示。
+5.
+若要分配学生的其余分数，请输入以下代码：
+
+修改每个学生的代码匹配
+decimal nicolasScore = nicolasSum / currentAssignments;
+decimal zahirahScore = zahirahSum / currentAssignments;
+decimal jeongScore = jeongSum / currentAssignments;
+
+最终，你想要在此应用程序中显示每个学生的成绩。 在下一步中，你将修改代码以显示每个学生的分数，而不是他们的作业总和。
+若要显示每个学生的当前分数，请将 display 语句中的总和变量替换为分数变量：
+Console.WriteLine("Sophia: " + sophiaScore);
+Console.WriteLine("Nicolas: " + nicolasScore);
+Console.WriteLine("Zahirah: " + zahirahScore);
+Console.WriteLine("Jeong: " + jeongScore);
+
+若要查看每个学生的当前成绩的值，请选择“
+应会看到以下输出：
+Sophia: 94
+Nicolas: 83
+Zahirah: 83
+Jeong: 95
+
+请注意，分数显示为整数而不是小数。
+如果希望除法计算的结果为十进制值，则被除数或除数必须是 Decimal 类型（或两者都是）。 在计算中使用整数变量时，需要应用一种称为将整数“转换”为十进制的技术。
+对于分数计算，可以通过将 sum 变量或
+currentAssignments
+强制转换为 Decimal 类型来获取十进制结果。 在本例中，将 sum 强制转换为 Decimal 类型。
+
+在除法运算中，若要将整数变量转换为小数，请按如下所示更新代码：
+decimal sophiaScore = (decimal) sophiaSum / currentAssignments;
+decimal nicolasScore = (decimal) nicolasSum / currentAssignments;
+decimal zahirahScore = (decimal) zahirahSum / currentAssignments;
+decimal jeongScore = (decimal) jeongSum / currentAssignments;
+只需要被除数或除数是 Decimal 类型，除法就会产生十进制值。 在此处，只强制转换用作被除数的 sum 变量。
+
+查看以下教师用于分配字母成绩的评分表：
+97 - 100    A+
+93 - 96     A
+90 - 92     A-
+87 - 89     B+
+83 - 86     B
+
+下一步是根据每个学生的总分数为每个学生添加一个字母成绩。 将字母等级添加到显示的输出将是一个手动过程。
+
+要在每个学生的数字分数之后追加字母成绩，请更新代码，如下所示：
+Console.WriteLine("Sophia: " + sophiaScore + " A");
+Console.WriteLine("Nicolas: " + nicolasScore + " B");
+Console.WriteLine("Zahirah: " + zahirahScore + " B");
+Console.WriteLine("Jeong: " + jeongScore + " A");
+
+输出得到。Sophia: 94.6 A
+Nicolas: 83.6 B
+Zahirah: 83.4 B
+Jeong: 95.4 A
+
+完整代码： 
+int currentAssignments = 5;
+
+int sophia1 = 93;
+int sophia2 = 87;
+int sophia3 = 98;
+int sophia4 = 95;
+int sophia5 = 100;
+
+int nicolas1 = 80;
+int nicolas2 = 83;
+int nicolas3 = 82;
+int nicolas4 = 88;
+int nicolas5 = 85;
+
+int zahirah1 = 84;
+int zahirah2 = 96;
+int zahirah3 = 73;
+int zahirah4 = 85;
+int zahirah5 = 79;
+
+int jeong1 = 90;
+int jeong2 = 92;
+int jeong3 = 98;
+int jeong4 = 100;
+int jeong5 = 97;
+
+int sophiaSum = sophia1 + sophia2 + sophia3 + sophia4 + sophia5;
+int nicolasSum = nicolas1 + nicolas2 + nicolas3 + nicolas4 + nicolas5;
+int zahirahSum = zahirah1 + zahirah2 + zahirah3 + zahirah4 + zahirah5;
+int jeongSum = jeong1 + jeong2 + jeong3 + jeong4 + jeong5;
+
+decimal sophiaScore = (decimal) sophiaSum / currentAssignments;
+decimal nicolasScore = (decimal) nicolasSum / currentAssignments;
+decimal zahirahScore = (decimal) zahirahSum / currentAssignments;
+decimal jeongScore = (decimal) jeongSum / currentAssignments;
+
+Console.WriteLine("Sophia: " + sophiaScore + " A");
+Console.WriteLine("Nicolas: " + nicolasScore + " B");
+Console.WriteLine("Zahirah: " + zahirahScore + " B");
+Console.WriteLine("Jeong: " + jeongScore + " A");
+
+输出得到 
+Sophia: 94.6 A
+Nicolas: 83.6 B
+Zahirah: 83.4 B
+Jeong: 95.4 A
+
+练习 - 使用转义字符序列设置输出格式 
+在本练习中，你将修改上一练习中的控制台输出，以实现教师指定的报告格式。
+在此任务中，你将更新代码，以完善报告的输出。 首先，添加一个标题行，其中包含教师指定的列标签。 之后，你将使用字符转义序列在信息列之间添加额外的填充。
+
+找到用于显示每个学生的当前课堂分数和字母成绩的 Console.WriteLine（） 语句。
+在Console.WriteLine()
+语句上方创建一个空白代码行。
+在创建的空白代码行上，若要添加学生成绩的标题，请输入以下代码：
+Console.WriteLine("Student Grade\n");
+若要将输出的格式设置为文本的对齐列，请将单词之间的空格替换为
+\t
+转义序列，如下所示：
+Console.WriteLine("Student\tGrade\n");
+Console.WriteLine("Sophia:\t" + sophiaScore + "\tA");
+Console.WriteLine("Nicolas:\t" + nicolasScore + "\tB");
+Console.WriteLine("Zahirah:\t" + zahirahScore + "\tB");
+Console.WriteLine("Jeong:\t" + jeongScore + "\tA");
+转义序列将在文本项之间插入制表位。 添加该制表位会生成左对齐的信息列。
+最后输出得到： 
+Student	Grade
+
+Sophia: 94.6    A
+Nicolas:    83.6    B
+Zahirah:    83.4    B
+Jeong:  95.4    A
+
+请注意，尽管使用制表符而不是空格字符，但某些行在学生的姓名和数字分数之间仍然没有太大的空格。
+这种差异是由于应用制表符间距的方式造成的。 制表位以四个字符的间隔设置，每个制表位将前进到下一个制表位。 如果有一个包含五个字符的字符串，后跟一个制表位转义序列，该转义序列将前进到八字符位置的制表位，用空格字符填充空白以在输出中创建空格。 但如果有一个包含七个字符的字符串，后跟一个制表位转义序列，可以前进到同一位置。 由此，制表位转义序列在从下一个制表位继续前进时更明显。
+
+若要使前两列之间的空格更加明显，请在两个较短的学生姓名后面添加另一个
+\t
+空格，如下所示：
+Console.WriteLine("Student\t\tGrade\n");
+Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA");
+Console.WriteLine("Nicolas:\t" + nicolasScore + "\tB");
+Console.WriteLine("Zahirah:\t" + zahirahScore + "\tB");
+Console.WriteLine("Jeong:\t\t" + jeongScore + "\tA");
+
+
+所有代码： 
+int currentAssignments = 5;
+
+int sophia1 = 93;
+int sophia2 = 87;
+int sophia3 = 98;
+int sophia4 = 95;
+int sophia5 = 100;
+
+int nicolas1 = 80;
+int nicolas2 = 83;
+int nicolas3 = 82;
+int nicolas4 = 88;
+int nicolas5 = 85;
+
+int zahirah1 = 84;
+int zahirah2 = 96;
+int zahirah3 = 73;
+int zahirah4 = 85;
+int zahirah5 = 79;
+
+int jeong1 = 90;
+int jeong2 = 92;
+int jeong3 = 98;
+int jeong4 = 100;
+int jeong5 = 97;
+
+int sophiaSum = sophia1 + sophia2 + sophia3 + sophia4 + sophia5;
+int nicolasSum = nicolas1 + nicolas2 + nicolas3 + nicolas4 + nicolas5;
+int zahirahSum = zahirah1 + zahirah2 + zahirah3 + zahirah4 + zahirah5;
+int jeongSum = jeong1 + jeong2 + jeong3 + jeong4 + jeong5;
+
+decimal sophiaScore = (decimal) sophiaSum / currentAssignments;
+decimal nicolasScore = (decimal) nicolasSum / currentAssignments;
+decimal zahirahScore = (decimal) zahirahSum / currentAssignments;
+decimal jeongScore = (decimal) jeongSum / currentAssignments;
+
+Console.WriteLine("Student\t\tGrade\n");
+Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA");
+Console.WriteLine("Nicolas:\t" + nicolasScore + "\tB");
+Console.WriteLine("Zahirah:\t" + zahirahScore + "\tB");
+Console.WriteLine("Jeong:\t\t" + jeongScore + "\tA");
+
+
+最后输出： 
+Student     Grade
+
+Sophia:     94.6    A
+Nicolas:    83.6    B
+Zahirah:    83.4    B
+Jeong:      95.4    A
+

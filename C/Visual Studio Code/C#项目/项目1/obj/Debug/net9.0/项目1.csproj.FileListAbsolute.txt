@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\C#项目\项目1\bin\Debug\net9.0\项目1.exe
+E:\C\Visual Studio Code\C#项目\项目1\bin\Debug\net9.0\项目1.deps.json
+E:\C\Visual Studio Code\C#项目\项目1\bin\Debug\net9.0\项目1.runtimeconfig.json
+E:\C\Visual Studio Code\C#项目\项目1\bin\Debug\net9.0\项目1.dll
+E:\C\Visual Studio Code\C#项目\项目1\bin\Debug\net9.0\项目1.pdb
+E:\C\Visual Studio Code\C#项目\项目1\obj\Debug\net9.0\项目1.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\C#项目\项目1\obj\Debug\net9.0\项目1.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\C#项目\项目1\obj\Debug\net9.0\项目1.AssemblyInfo.cs
+E:\C\Visual Studio Code\C#项目\项目1\obj\Debug\net9.0\项目1.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\C#项目\项目1\obj\Debug\net9.0\项目1.dll
+E:\C\Visual Studio Code\C#项目\项目1\obj\Debug\net9.0\refint\项目1.dll
+E:\C\Visual Studio Code\C#项目\项目1\obj\Debug\net9.0\项目1.pdb
+E:\C\Visual Studio Code\C#项目\项目1\obj\Debug\net9.0\项目1.genruntimeconfig.cache
+E:\C\Visual Studio Code\C#项目\项目1\obj\Debug\net9.0\ref\项目1.dll

@@ -1,0 +1,753 @@
+第一节： 介绍
+
+假设你是一个正在从事医疗信息采集表单自动化的团队中的软件开发人员。 你的任务是交付应用程序功能，以便在医生看到病人之前收集医疗技术人员输入的数据。 技术人员可以使用应用程序记录日期和时间、患者年龄、身高、体重、脉冲和血压。 该应用程序还提供其他信息的文本字段，例如访问原因、当前处方和其他项目。 你正在处理多种混合数据类型的数据。 对于原型，你将生成一个控制台应用程序并以
+strings
+的形式收集所有输入。
+由于输入最初是字符串输入，因此有时需要在代码中将一种数据类型的值更改为另一种数据类型。 一个简单的示例是你想要对字符串数据执行的任何数学运算。 首先需要将值更改为数值数据类型，例如
+int
+，然后您可以进行操作。 或者，你可能希望使用字符串内插设置摘要报表的格式和输出数值。
+如有必要，可以使用不同的方法更改数据类型。 当你学会如何选择一种技术胜过另一种技术，以及何时使用某一种技术可能会有数据丢失的风险。
+在本模块结束时，你能够控制应用程序中的数据，知道何时应用正确的技术来根据需要更改数据类型。
+
+第二节： 练习 - 探索数据类型强制转换和转换
+
+有多种方法可以执行数据类型转换。 选择的方法取决于你对两个重要问题的回答：
+对于不同的值，尝试更改值的数据类型是否可能在运行时引发异常？
+对于不同的值，尝试更改值的数据类型是否可能导致信息丢失？
+在此练习中，你将研究这些问题、它们的答案的含义，以及需要更改数据类型时应使用哪种方法。
+
+
+问题：尝试更改值的数据类型是否可能在运行时引发异常？ 
+C# 编译器会尝试适应你的代码，但不会编译可能导致异常的操作。 了解 C# 编译器的主要问题后，你将更容易理解它以特定方式工作的原因。
+
+编写尝试添加  
+int
+和  
+string
+的代码，并将结果保存在 
+int
+中  
+
+键入以下代码： 
+int first = 2;
+string second = "4";
+int result = first + second;
+Console.WriteLine(result);
+在此，你尝试添加值
+2和4
+。 值
+4的类型为
+string
+。 这是否有效？
+
+请花一点时间考虑编译器无法运行第一个代码示例的原因。
+错误消息的重要部分
+(3,14): error CS0029: Cannot implicitly convert type 'string' to 'int'
+指示问题与使用
+string
+数据类型有关。
+但为什么 C# 编译器无法处理该错误？ 毕竟，你可以执行反向操作，将数字连接到
+string
+，并将其保存在字符串变量中
+。 此处，你可以将
+result
+变量的数据类型从
+int
+更改为
+string
+
+修改代码： 
+int first = 2;
+string second = "4";
+string result = first + second;
+Console.WriteLine(result);
+输出结果： 
+24
+输出在数学上不正确，但通过将值组合为字符“2”和“4”来完成。
+再次查看第一个代码示例，其中
+result
+变量的类型为
+int
+。 包含错误消息的代码。
+int first = 2;
+string second = "4";
+int result = first + second;
+Console.WriteLine(result);
+为什么 C# 编译器不明白你要将包含
+4
+的变量
+second
+视为数字，而不是
+string?
+
+编译器进行安全转换 
+C# 编译器会在操作过程中发现潜在问题。 变量
+second
+的类型为
+string
+，因此可能会将其设置为不同的值，如
+"hello"
+。 如果 C# 编译器尝试将
+"hello"
+转换为数字，则会在运行时引发异常。 为避免这种情况，C# 编译器不会隐式执行从
+string
+到
+int
+的转换。
+从 C# 编译器的角度来看，更安全的操作是将
+int
+转换为
+string
+并改为执行串联。
+如果你的目的是使用字符串执行加法，C# 编译器会要求你对数据转换过程进行更显式的控制。 换言之，它会强制要求你更多地参与其中，这样你就可以采取适当的预防措施来处理转换可能引发异常的可能性。
+如果需要将值从原始数据类型更改为新的数据类型，并且更改可能在运行时引发异常，则必须执行数据转换
+若要执行数据转换，你可以使用下列方法之一：
+对数据类型使用帮助程序方法
+对变量使用帮助程序方法
+使用
+Convert
+类的方法
+稍后，你将在本单元中了解几个用于数据转换的方法示例。
+
+问题：尝试更改值的数据类型是否可能导致信息丢失？ 
+键入代码： 
+int myInt = 3;
+Console.WriteLine($"int: {myInt}");
+
+decimal myDecimal = myInt;
+Console.WriteLine($"decimal: {myDecimal}");
+
+输出结果： 
+int: 3
+decimal: 3
+
+此示例的关键是下面的代码行：
+decimal myDecimal = myInt;
+
+由于任何
+int
+值都可以轻松地纳入
+decimal
+，因此编译器会执行转换。
+术语“扩大转换”表示你正在尝试将值从一种可以保留较少信息的数据类型转换为一种可保留较多信息的数据类型
+。 在这种情况下，存储在
+int
+类型的变量中的值转换为
+decimal
+类型的变量时不会丢失信息。
+如果你了解需要执行扩大转换，则可以依赖于隐式转换。
+ 编译器处理隐式转换。
+
+执行强制转换  
+键入下面代码： 
+
+decimal myDecimal = 3.14m;
+Console.WriteLine($"decimal: {myDecimal}");
+
+int myInt = (int)myDecimal;
+Console.WriteLine($"int: {myInt}");
+若要执行强制转换，请使用强制转换运算符
+()
+将数据类型括起来，然后将其放在要转换的变量旁边（示例：
+(int)myDecimal
+）。 对定义的强制转换数据类型 (
+int
+) 执行显式转换
+
+输出结果： 
+decimal: 3.14
+int: 3
+
+此示例的关键是下面的代码行：
+int myInt = (int )myDecimal;
+变量
+myDecimal
+保存一个精度在小数点之后的值。 通过添加强制转换指令
+(int)
+，你告诉编译器 C#，你知道可能发生精度丢失，并且在这种情况下是可以接受的。 你告诉编译器你正在执行有意转换，即显式转换
+
+定义转换是“扩大转换”还是“收缩转换” 
+术语“收缩转换”表示你试图将值从一种可保存较多信息的数据类型转换为一种可保存较少信息的数据类型
+。 在这种情况下，你可能会丢失信息，如精度（即小数点后的位数）。 一个示例是将存储在
+decimal
+类型的变量中的值转换为
+int
+类型的变量。 如果打印出这两个值，你可能会注意到出现了信息丢失的情况。
+如果你了解需要执行收缩转换，则需要执行强制转换
+。 强制转换是一种针对 C# 编译器的指令，即你知道可能发生精度丢失，但这种情况可以接受。
+如果不确定在转换过程中是否会丢失数据，请编写代码以两种不同的方式执行转换，并观察变化。 开发人员经常编写小型测试来更好地了解行为，如下面的示例所示。
+键入代码： 
+decimal myDecimal = 1.23456789m;
+float myFloat = (float)myDecimal;
+
+Console.WriteLine($"Decimal: {myDecimal}");
+Console.WriteLine($"Float  : {myFloat}");
+运行结果： 
+Decimal: 1.23456789
+Float  : 1.2345679
+
+你可以从输出中了解到，将
+decimal
+强制转换为
+float
+是收缩转换，因为会丢失精度。
+
+执行数据转换  标题2
+前面指出，值从一种数据类型更改为另一种数据类型可能会导致运行时异常，应执行数据转换。 对于数据转换，可以使用三种技术：
+对变量使用帮助程序方法
+对数据类型使用帮助程序方法
+使用
+Convert
+类的方法
+
+
+使用  
+ToString()
+将数字转换为  
+string
+每个数据类型变量都具有
+ToString()
+方法。
+ToString()
+方法的作用取决于它在给定类型上的实现方式。 但在大多数基元中，该方法执行扩大转换。 尽管这并不是绝对必要的（因为在大多数情况下你可以依赖于隐式转换），但它可以向其他开发人员传递这样的信息，即你了解正在执行的操作，并且是有意为之的。
+下面是使用
+ToString()
+方法将
+int
+值显式转换为
+string
+的简单示例。
+
+键入代码： 
+int first = 5;
+int second = 7;
+string message = first.ToString() + second.ToString();
+Console.WriteLine(message);
+输出结果： 
+57
+
+
+使用  
+Parse()
+帮助程序方法将 
+string
+转换为 
+int
+大部分数字数据类型都具有
+Parse()
+方法，可将字符串转换为给定的数据类型。 在这种情况下，你使用
+Parse()
+方法将两个字符串转换为
+int
+值，然后将二者相加。
+
+键入代码： 
+string first = "5";
+string second = "7";
+int sum = int.Parse(first) + int.Parse(second);
+Console.WriteLine(sum);
+运行结果： 
+12
+请花一点时间尝试找出前面的代码示例存在的潜在问题？ 如果将
+first
+或
+second
+变量设置为无法转换为
+int
+的值，会发生什么情况呢？ 在运行时引发异常。 C# 编译器和运行时要求你提前计划并防止“非法”转换。 可以通过多种方式缓解运行时异常。
+缓解此情况最简单的方法是使用
+Parse()
+，它是比
+TryParse()
+方法更好的版本。
+
+
+使用 
+Convert
+类将  
+string
+转换为  
+int
+Convert
+类有许多可用于将值从一种类型转换为另一种类型的帮助程序方法。 在下面的代码示例中，你将两个字符串转换为
+int
+类型的值。
+键入代码： 
+string value1 = "5";
+string value2 = "7";
+int result = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+Console.WriteLine(result);
+运行结果： 35
+
+
+为什么该方法的名称为
+ToInt32()
+？ 为什么不是
+ToInt()
+System.Int32
+是 .NET 类库中的基础数据类型名称，C# 编程语言将其映射到
+int
+关键字。 由于
+Convert
+类也属于 .NET 类库，因此调用该类时是按其全名（而非按其 C# 名称）进行调用。 通过将数据类型定义为 .NET 类库的一部分，Visual Basic、F#、IronPython 等多种 .NET 语言可以在 .NET 类库中共享相同的数据类型和相同的类。
+ToInt32()
+方法具有 19 个重载版本，这让它能够接受几乎所有的数据类型。
+你在此处将
+Convert.ToInt32()
+方法与字符串一起使用，但应该尽可能使用
+TryParse()
+那么，在什么情况下你应该使用
+Convert
+类？
+Convert
+类非常适用于将小数数字转换为整数 (
+int
+)，因为它按预期方式向上舍入。
+
+
+比较强制转换和将
+decimal
+转换为 
+int
+下面的示例演示如果尝试以收缩转换方式将
+decimal
+强制转换为
+int
+，而不是使用
+Convert.ToInt32()
+方法将该
+decimal
+转换为
+int
+，会发生什么情况。
+键入代码： 
+int value = (int)1.5m; // casting truncates
+Console.WriteLine(value);
+
+int value2 = Convert.ToInt32(1.5m); // converting rounds up
+Console.WriteLine(value2);
+运行结果： 
+1
+2
+
+强制转换截断和转换舍入 
+强制转换
+int value = (int)1.5m;
+时，系统会截断浮点数的值，因此结果是
+1
+，这意味着完全忽略小数后的值。 你可以将文本浮点数更改为
+1.999m
+，强制转换的结果也是相同的。
+使用
+Convert.ToInt32()
+进行转换时，文本浮点数值将正确地向上舍入到
+2
+。 如果你将文本值更改为
+1.499m
+，则会向下舍入到
+1
+
+总结： 
+你了解了有关数据转换和强制转换的多个重要概念：
+防止执行数据转换时出现运行时错误
+执行显式强制转换，告诉编译器你了解存在丢失数据的风险
+执行扩大转换时，依靠编译器执行隐式转换
+使用
+()
+强制转换运算符和数据类型执行强制转换（例如
+(int)myDecimal
+）
+如果要执行收缩转换，但要执行舍入，而不是信息截断，请使用
+Convert
+类
+
+知识检查 
+1. 在 C# 中将十进制类型舍入为 int 类型的最佳方法是什么？
+正确答案: 转换 单选按钮  已选中 不可用
+正确。 decimal   到 int   是一个收缩转换，因此要舍入，Convert   是最佳答案。
+收缩 单选按钮  未选中 不可用
+隐式转换 单选按钮  未选中 不可用
+2. 以下哪个转换会舍入（而不是截断）值？
+int cost = (int)3.75m; 单选按钮  未选中 不可用
+正确答案: int cost = Convert.ToInt32(3.75m); 单选按钮  已选中 不可用
+正确。  Convert.ToInt32()  使用小数精度对值进行舍入。
+
+
+第三节： 练习 - 检查 TryParse() 方法 
+处理数据时，有时需要将字符串数据转换为数字数据类型。 正如上一单元所述，由于字符串数据类型可以保留非数字值，因此将
+string
+转换为数字数据类型可能导致运行时错误。
+例如，以下代码：
+string name = "Bob";
+Console.WriteLine(int.Parse(name));
+运行后提示： 
+System.FormatException: 'Input string was not in a correct format.'
+
+若要避免格式异常，请对目标数据类型使用 TryParse () 方法。
+
+使用 TryParse()
+TryParse() 方法可同时执行多项操作：
+它会尝试将字符串分析成给定的数字数据类型。
+如果成功，它会将转换后的值存储在 out 参数中，如以下部分所述。
+它将返回
+bool
+，指示操作是成功还是失败。
+可使用布尔返回值对值执行操作，如执行一些计算，或在分析操作失败时显示一条消息。
+注意
+在此练习中，使用
+int
+数据类型，但对于所有数字数据类型，均可使用类似的
+TryParse()
+方法。
+
+输出参数
+方法可返回值或返回“void”，后者意味着不返回值。 方法还可以通过
+out
+参数返回值，这些值的定义与输入参数一样，但包含关键字
+out
+
+使用 TryParse() 将字符串转换为整数 
+键入代码： 
+string value = "102";
+int result = 0;
+if (int.TryParse(value, out result))
+{
+   Console.WriteLine($"Measurement: {result}");
+}
+else
+{
+   Console.WriteLine("Unable to report the measurement.");
+}
+
+检查此代码行：
+if (int.TryParse(value, out result))
+使用
+out
+参数调用方法时，必须在变量前使用关键字
+out
+，以便保存值。
+out
+参数被分配给代码
+result
+(int.TryParse(value,
+out result
+中的
+)
+变量。 然后，可以使用变量
+out
+在其余代码中使用
+result
+参数包含的值。
+如果
+int.TryParse()
+方法成功地将
+true
+变量
+string
+转换为
+value
+，则它返回
+int
+；否则，它返回
+false
+。 因此，将该语句置于
+if
+语句中，然后相应地执行决策逻辑。
+转换后的值存储在
+int
+变量
+result
+中。 在此代码行之前声明并初始化了
+int
+变量
+result
+，因此，对于属于
+和
+if
+语句的代码块，在其内部及外部均可访问该变量。
+out
+关键字指示编译器，
+TryParse()
+方法不会仅以传统方式返回值（作为返回值），还会通过此双向参数传递输出。
+运行代码，应看到以下输出：
+Measurement: 102
+
+稍后在代码中使用已分析的 int 
+
+若要演示前面声明的
+result
+变量由
+out
+参数填充，并且稍后还可以在代码中使用，请在 Visual Studio Code 编辑器中更新代码，如下所示：
+string value = "102";
+int result = 0;
+if (int.TryParse(value, out result))
+{
+   Console.WriteLine($"Measurement: {result}");
+}
+else
+{
+   Console.WriteLine("Unable to report the measurement.");
+}
+Console.WriteLine($"Measurement (w/ offset): {50 + result}");
+
+运行结果： 
+Measurement: 102
+Measurement (w/ offset): 152
+
+检查上一示例
+Console.WriteLine($"Measurement (w/ offset): {50 + result}");
+中的最后一行代码，因为
+result
+变量是在 if 语句之外定义的，所以可以稍后在代码中访问它。
+
+将字符串变量修改为无法分析的值 
+最后，研究另一种情况 - 故意为
+TryParse()
+提供不能转换为
+int
+的错误值。
+修改第一行代码，将变量
+value
+重新初始化为其他值。
+string value = "bad";
+此外，请修改最后一行代码，先确保结果大于 0，然后再显示第二条消息。
+if (result > 0)
+   Console.WriteLine($"Measurement (w/ offset): {50 + result}");
+
+代码： 
+string value = "bad";
+int result = 0;
+if (int.TryParse(value, out result))
+{
+   Console.WriteLine($"Measurement: {result}");
+}
+else
+{
+   Console.WriteLine("Unable to report the measurement.");
+}
+
+if (result > 0)
+   Console.WriteLine($"Measurement (w/ offset): {50 + result}");
+
+运行后提示： 
+Unable to report the measurement.
+
+检查在上一个示例中添加的最后两个代码行。
+if (result > 0)
+   Console.WriteLine($"Measurement (w/ offset): {50 + result}");
+
+总结： 
+由于
+result
+是在
+if
+语句之外定义的，因此稍后可以在代码块之外的代码中访问
+result
+。 因此，在允许将
+result
++ 偏移作为输出写入之前，可以检查
+result
+是否有大于零的值。 检查大于零的
+result
+值可避免在
+Unable to report the measurement.
+消息后打印偏移值。
+
+
+TryParse()
+方法是一个非常有用的工具。 下面是一些需要记住的便捷提示。
+将字符串转换为数字数据类型时，请使用
+TryParse()
+如果转换成功，
+TryParse()
+会返回
+true
+；如果失败，则会返回
+false
+out 参数提供了返回值的方法的辅助手段。 在这种情况下，
+out
+参数返回转换后的值。
+向已定义
+out
+形参的方法传递实参时，请使用关键字
+out
+
+
+测试你的知识 
+1. 应该使用哪种方法将  myInput （一个  string  值  "2.71828" ）更改为  decimal  变量  myInputDecimal ？
+decimal myInputDecimal = (decimal)(myInput); 单选按钮  未选中 不可用
+decimal myInputDecimal = myInput + 0; 单选按钮  未选中 不可用
+正确答案: decimal.TryParse(myInput, out myInputDecimal); 单选按钮  已选中 不可用
+正确。 使用  TryParse （或  Parse() ）是一种有效的方法。
+2. 请考虑 C# 代码 bool success = decimal.TryParse(input, out decimal number);  。 哪一项最恰当地描述了 
+decimal.TryParse()   的返回类型？
+decimal 单选按钮  未选中 不可用
+正确答案: bool 单选按钮  已选中 不可用
+正确。  TryParse()  返回  bool 。
+out 单选按钮  未选中 不可用
+
+
+
+第四节： 练习 - 完成将字符串数组值合并为字符串和整数的挑战 
+
+代码挑战强化了你学到的知识，并帮助你在继续作之前获得一些信心。
+此模块具有两个代码挑战。 第一个挑战迫使你根据数据的类型拆分数据，并相应地连接或添加数据。
+注意
+本练习中的代码示例是根据 en-US 区域性设置设计的，并使用句点（
+.
+）作为小数分隔符。 在使用其他小数分隔符（如逗号
+,
+）的区域性设置下生成和运行代码，可能会出现意外的结果或错误。 若要解决此问题，请将代码示例中的句点小数分隔符替换为本地小数分隔符（如
+,
+）。 或者，若要使用 en-US 区域性设置运行程序，请将以下代码添加到程序顶部：
+using System.Globalization;
+，并在任何其他
+using
+语句之后添加
+CultureInfo.CurrentCulture = new CultureInfo("en-US");
+
+
+若要实例化字符串数组，请输入以下“初学者”代码：
+string[] values = { "12.3", "45", "ABC", "11", "DEF" };
+3. 创建一个循环结构，该结构可用于循环访问数组 values 中的每个字符串值。
+4. 完成所需的代码，将其置于数组循环结构代码块中。 必须在代码逻辑中实现以下业务规则： • 规则 1：如果值按字母顺序排列，请连接它以形成消息。  • 规则 2：如果值为数值，请将其添加到总计。  • 规则 3：结果应与以下输出匹配： Output 复制 Message: ABCDEF
+Total: 68.3
+7. 在终端命令提示符处，若要运行代码，请键入 dotnet run ，然后按 Enter。 
+应会看到以下输出： 
+Message: ABCDEF
+    Total: 68.3
+ 注意 如果看到一条消息“找不到要运行的项目”，请确保终端命令提示符显示预期的 TestProject 文件夹位置。 例如：C:\Users\someuser\Desktop\csharpprojects\TestProject>
+
+参考答案： 
+string[] values = { "12.3", "45", "ABC", "11", "DEF" };
+
+decimal total = 0m;
+string message = "";
+
+foreach (var value in values)
+{
+    decimal number; // stores the TryParse "out" value
+    if (decimal.TryParse(value, out number))
+    {
+        total += number;
+    } else
+    {
+        message += value;
+    }
+}
+
+Console.WriteLine($"Message: {message}");
+Console.WriteLine($"Total: {total}");
+
+deepseek代码分析： 
+我来逐行分析这段代码，详细说明每部分的功能和作用：
+代码功能概述
+这段代码的主要功能是处理字符串数组，将数字字符串累加求和，同时将非数字字符串拼接起来。
+逐行分析
+第1行：数组初始化
+string[] values = { "12.3", "45", "ABC", "11", "DEF" };
+功能：创建一个包含5个字符串元素的数组
+作用：提供待处理的数据源
+数据特点：混合了数字字符串和非数字字符串
+第2-3行：变量声明
+decimal total = 0m; // 用于累加数字的总和
+string message = ""; // 用于拼接非数字字符串
+功能：初始化两个变量来存储处理结果
+作用：
+total：累加所有可解析为decimal的数字
+message：收集所有无法解析为数字的字符串
+第5-15行：foreach循环处理
+foreach (var value in values)
+{
+ decimal number; // 存储TryParse的"out"参数值
+ if (decimal.TryParse(value, out number))
+ {
+ total += number; // 如果是数字，累加到total
+ }
+ else
+ {
+ message += value; // 如果不是数字，拼接到message
+ }
+}
+详细分析循环内部：
+第7行：decimal number;
+功能：声明decimal变量，用于接收TryParse的解析结果
+作用：作为out参数存储解析后的数值
+第8行：if (decimal.TryParse(value, out number))
+功能：尝试将字符串转换为decimal类型
+TryParse方法的作用：
+尝试解析字符串为数字
+返回bool表示解析是否成功
+通过out参数返回解析后的数值
+out关键字的作用：允许方法返回多个值（成功状态+解析结果）
+第10行：total += number;
+功能：数字累加
+执行情况：当字符串成功解析为数字时执行
+第13行：message += value;
+功能：字符串拼接
+执行情况：当字符串无法解析为数字时执行
+第17-18行：输出结果
+Console.WriteLine($"Message: {message}");
+Console.WriteLine($"Total: {total}");
+功能：显示处理结果
+预期输出：
+Message: ABCDEF
+Total: 68.3
+代码执行流程总结
+初始化：创建测试数据数组
+遍历处理：对每个字符串进行数字解析尝试
+分类处理：
+数字字符串 → 累加到total
+非数字字符串 → 拼接到message
+输出结果：显示分类处理后的结果
+关键知识点
+TryParse方法：安全地尝试类型转换，避免异常
+out参数：允许方法返回额外的输出值
+字符串处理：演示了字符串拼接和数字解析的常见模式
+这段代码展示了在实际编程中如何处理混合数据类型，并进行分类统计的典型做法。
+
+
+第六节： 练习
+
+下面是使用你学到的关于转换和转换的内容来解决编码挑战的第二次机会。
+输入以下“初学者”代码：
+int value1 = 11;
+decimal value2 = 6.2m;
+float value3 = 4.3f;
+
+// Your code here to set result1
+// Hint: You need to round the result to nearest integer (don't just truncate)
+Console.WriteLine($"Divide value1 by value2, display the result as an int: {result1}");
+
+// Your code here to set result2
+Console.WriteLine($"Divide value2 by value3, display the result as a decimal: {result2}");
+
+// Your code here to set result3
+Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");
+
+将初学者代码中的代码注释替换为你自己的代码来解决难题：
+解决  result1 ：按  value1 划分  value2 ，将结果显示为  int 
+• 解决 result2 ：按 value2 划分 value3 ，将结果显示为 decimal
+• 解决 result3 ：按 value3 划分 value1 ，将结果显示为 float
+解决挑战，使输出类似于：
+Divide value1 by value2, display the result as an int: 2
+Divide value2 by value3, display the result as a decimal: 1.4418604651162790697674418605
+Divide value3 by value1, display the result as a float: 0.3909091
+
+第七节： 解决方案： 
+
+int value1 = 11;
+decimal value2 = 6.2m;
+float value3 = 4.3f;
+
+// The Convert class is best for converting the fractional decimal numbers into whole integer numbers
+// Convert.ToInt32() rounds up the way you would expect.
+int result1 = Convert.ToInt32(value1 / value2);
+Console.WriteLine($"Divide value1 by value2, display the result as an int: {result1}");
+
+decimal result2 = value2 / (decimal)value3;
+Console.WriteLine($"Divide value2 by value3, display the result as a decimal: {result2}");
+
+float result3 = value3 / value1;
+Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");

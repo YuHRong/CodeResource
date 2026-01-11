@@ -1,0 +1,364 @@
+完成本模块后，你将能够：
+了解如何通过将工作分解为较小的部分来开发基本应用程序。
+确定用于存储和处理变量的相应数据类型。
+执行数学运算以确定结果。
+应用格式设置技术显示输出。
+
+在本模块中，你将练习如何：
+使用变量来存储和检索数据
+执行基本的数学运算
+设置字符串格式以呈现结果
+
+你正在开发一个学生 GPA 计算器，以帮助计算学生的整体成绩点平均值。 应用程序的参数包括：
+你获得学生的姓名和课堂信息。
+每个班级都有一个名称、学生的年级和该班级的信用小时数。
+应用程序需要执行基本的数学运算来计算给定学生的 GPA。
+应用程序需要输出/显示学生的姓名、课堂信息和 GPA。
+计算 GPA：
+将课程的成绩值乘以该课程的信用小时数。
+针对每个课程执行此作，然后将这些结果添加到一起。
+将所得的总和除以全部的学分数。
+您被提供了以下学生的课程信息和 GPA 示例：
+Student: Sophia Johnson
+
+Course          Grade   Credit Hours	
+English 101         4       3
+Algebra 101         3       3
+Biology 101         3       4
+Computer Science I  3       4
+Psychology 101      4       3
+
+Final GPA:          3.35
+
+
+string studentName = "Sophia Johnson";
+string course1Name = "English 101";
+string course2Name = "Algebra 101";
+string course3Name = "Biology 101";
+string course4Name = "Computer Science I";
+string course5Name = "Psychology 101";
+
+int course1Credit = 3;
+int course2Credit = 3;
+int course3Credit = 4;
+int course4Credit = 4;
+int course5Credit = 3;
+
+
+要为每个数值成绩声明一个整数型变量，请输入以下代码：
+int gradeA = 4;
+int gradeB = 3;
+请注意，固定值用于表示数值成绩。 如果需要重复输入不同的成绩，此方法有助于使代码易于理解，并帮助防止拼写错误。 C、D 和 F 等级的值现已省略，因为它们未使用。
+
+查看每个课程的学生成绩：
+Course			    Grade		
+English 101		     A
+Algebra 101		     B
+Biology 101		     B
+Computer Science I	 B
+Psychology 101	     A
+
+
+若要创建将存储每个课程成绩的变量，请输入以下代码：
+int course1Grade = gradeA;
+int course2Grade = gradeB;
+int course3Grade = gradeB;
+int course4Grade = gradeB;
+int course5Grade = gradeA;
+
+若要显示课程名称以及数值等级，请输入以下代码：
+Console.WriteLine($"{course1Name} {course1Grade}");
+Console.WriteLine($"{course2Name} {course2Grade}");
+Console.WriteLine($"{course3Name} {course3Grade}");
+Console.WriteLine($"{course4Name} {course4Grade}");
+Console.WriteLine($"{course5Name} {course5Grade}");
+输出得到： 
+English 101 4
+Algebra 101 3
+Biology 101 3
+Computer Science I 3
+Psychology 101 4
+
+若要将每门课程的学分小时数添加到打印语句中，请按如下所示更新代码：
+Console.WriteLine($"{course1Name} {course1Grade} {course1Credit}");
+Console.WriteLine($"{course2Name} {course2Grade} {course2Credit}");
+Console.WriteLine($"{course3Name} {course3Grade} {course3Credit}");
+Console.WriteLine($"{course4Name} {course4Grade} {course4Credit}");
+Console.WriteLine($"{course5Name} {course5Grade} {course5Credit}");
+
+输出得到： 
+English 101 4 3
+Algebra 101 3 3
+Biology 101 3 4
+Computer Science I 3 4
+Psychology 101 4 3
+
+
+要计算学生的 GPA，你需要总学分和获得的总绩点。 课程赚取的分数等于该课程的信用小时数和赚取的数字等级值乘积。 例如：
+Course          Credit  Credit Hours    Grade Points
+English 101     4		3               12
+
+在此任务中，你将创建变量来存储计算 GPA 所需的值。 你将创建一个变量来存储每个课程的总信用小时数和，另一个变量用于存储学生为每个课程赚取的成绩分数的总和。
+若要创建一个将存储总信用小时数的变量，
+在Console.WriteLine上新建空白行输入以下代码：
+int totalCreditHours = 0;
+请注意，总计初始化为
+0
+。 通过此初始化，可以在保持代码组织的同时递增总和。
+若要递增总和以表示总额度小时数，请输入以下代码：
+
+totalCreditHours += course1Credit;
+totalCreditHours += course2Credit;
+totalCreditHours += course3Credit;
+totalCreditHours += course4Credit;
+totalCreditHours += course5Credit;
+
+回想一下，
++=
+运算符是简写表示法，用于向变量添加值。 这些代码行的结果与在一行上添加每个
+courseCredit
+变量的结果相同，例如：
+totalCreditHours = course1Credit + course2Credit + course3Credit + course4Credit + course5Credit;
+
+若要创建一个变量，用于存储每个课程赚取的分数总数，请输入以下代码：
+int totalGradePoints = 0;
+
+若要按第一课程赚取的分数递增总和，请输入以下代码：
+totalGradePoints += course1Credit * course1Grade;
+请记住，课程的绩点等于课程学分乘以获得的成绩分数。 在这行代码中，您使用复合赋值运算符将
+course1Credit * course1Grade
+的积添加到
+totalGradePoints。
+
+要根据剩余课程获得的绩点来递增总和，请输入以下代码：
+totalGradePoints += course2Credit * course2Grade;
+totalGradePoints += course3Credit * course3Grade;
+totalGradePoints += course4Credit * course4Grade;
+totalGradePoints += course5Credit * course5Grade;
+
+请注意，你编写的代码按可管理的步骤分解了问题，而不是试图在一次大型操作中计算 GPA。 首先，初始化并计算了值
+totalCreditHours
+。 然后，初始化并计算了值
+totalGradePoints
+。 之后，你将在最终计算中使用这些值。
+现在您的代码正在为
+totalGradePoints
+计算一个值，我们在继续之前验证计算是否正确。 请务必定期暂停并检查您的工作。 在开发过程中尽早检查你的工作可以更轻松地查找和修复代码中的任何错误。
+
+若要显示
+totalGradePoints
+和
+totalCreditHours
+的值，请输入以下代码：
+Console.WriteLine($"{totalGradePoints} {totalCreditHours}");
+稍后将删除此
+WriteLine()
+语句，因为最终输出中不需要该语句。
+
+
+参考代码： 
+string studentName = "Sophia Johnson";
+string course1Name = "English 101";
+string course2Name = "Algebra 101";
+string course3Name = "Biology 101";
+string course4Name = "Computer Science I";
+string course5Name = "Psychology 101";
+
+int course1Credit = 3;
+int course2Credit = 3;
+int course3Credit = 4;
+int course4Credit = 4;
+int course5Credit = 3;
+
+int gradeA = 4;
+int gradeB = 3;
+
+int course1Grade = gradeA;
+int course2Grade = gradeB;
+int course3Grade = gradeB;
+int course4Grade = gradeB;
+int course5Grade = gradeA;
+
+int totalCreditHours = 0;
+totalCreditHours += course1Credit;
+totalCreditHours += course2Credit;
+totalCreditHours += course3Credit;
+totalCreditHours += course4Credit;
+totalCreditHours += course5Credit;
+
+int totalGradePoints = 0;
+totalGradePoints += course1Credit * course1Grade;
+totalGradePoints += course2Credit * course2Grade;
+totalGradePoints += course3Credit * course3Grade;
+totalGradePoints += course4Credit * course4Grade;
+totalGradePoints += course5Credit * course5Grade;
+
+Console.WriteLine($"{totalGradePoints} {totalCreditHours}");
+
+Console.WriteLine($"{course1Name} {course1Grade} {course1Credit}");
+Console.WriteLine($"{course2Name} {course2Grade} {course2Credit}");
+Console.WriteLine($"{course3Name} {course3Grade} {course3Credit}");
+Console.WriteLine($"{course4Name} {course4Grade} {course4Credit}");
+Console.WriteLine($"{course5Name} {course5Grade} {course5Credit}");
+
+输出得到： 
+57 17
+English 101 4 3
+Algebra 101 3 3
+Biology 101 3 4
+Computer Science I 3 4
+Psychology 101 4 3
+
+计算最终 GPA 
+从上一练习中删除以下代码：
+Console.WriteLine($"{totalGradePoints} {totalCreditHours}");
+
+在 Console.WriteLine（） 语句上方创建一个空白代码行。
+在创建的空白代码行中，若要初始化将存储最终 GPA 的变量，请输入以下代码：
+
+decimal gradePointAverage = totalGradePoints/totalCreditHours;
+若要从除法中检索小数值，请按如下所示更新代码：
+decimal gradePointAverage = (decimal) totalGradePoints/totalCreditHours;
+
+导航到最后一个 Console.WriteLine（） 语句，并在最后一个语句之后创建新的空白代码行。
+若要显示最终的 GPA，请输入以下代码：
+Console.WriteLine($"Final GPA: {gradePointAverage}");
+
+最终输出得到： 
+English 101 4 3
+Algebra 101 3 3
+Biology 101 3 4
+Computer Science I 3 4
+Psychology 101 4 3
+Final GPA: 3.3529411764705882352941176471
+
+
+你可能已经注意到，小数结果包含的数字比标准 GPA 多得多。 在此任务中，你将调整小数 GPA 值，以便仅显示三位小数。
+最终，你希望显示 GPA 的第一位数字、小数点以及小数点后的前两位数字。 可以通过使用变量分别存储前导和尾随数字，然后使用 Console.WriteLine（）将它们打印在一起来实现此格式。 可以使用学习的数学运算提取前导数字和尾随数字。
+在你继续开发者旅程时，你将发现内置操作可以自动对数据应用格式设置。 目前，这是巩固你迄今学到的知识的好机会。
+
+导航到 Console.WriteLine（） 语句的顶部。
+在 Console.WriteLine（） 语句上方创建一个空白代码行。
+在创建的空白代码行中，若要初始化将存储 GPA 前导数字的变量，请输入以下代码：
+int leadingDigit = (int) gradePointAverage;
+请注意，若要从十进制中提取前导数字，需要将其转换为整数值。 此方法简单且可靠，因为强制转换小数值永远不会对结果进行四舍五入。 这意味着如果 GPA 为 2.99，则将十进制值转换为 int 将导致 2。
+
+若要初始化将存储小数后的前两位数字的变量，请输入以下代码：
+int firstDigit = (int) (gradePointAverage * 10) % 10;
+
+在此操作的上半部分，将小数点向右移动一位，并将其转换为整数。 在后半部分中，使用余数或取模运算符来获得除以 10 的余数，这将隔离整数中的最后一个数字。 下面是一个示例：
+假设
+gradePointAverage = 2.994573
+然后，对这些值执行操作将导致以下步骤：
+int firstDigit = (int) (2.994573 * 10) % 10;
+int firstDigit = 29 % 10;
+int firstDigit = 9;
+生成的值为
+firstDigit
+9。
+接下来，你将应用相同的操作来提取第二个数字。
+
+在新的空白代码行上，输入以下代码：
+int secondDigit = (int) (gradePointAverage * 100 ) % 10;
+在这一行中，将小数移动两位，并使用取模运算符检索最后一位。
+若要更正最终的 GPA 输出，请更新最后一个 Console.WriteLine（） 语句，如下所示：
+Console.WriteLine($"Final GPA: {leadingDigit}.{firstDigit}{secondDigit}");
+
+最后输出： 
+English 101 4 3
+Algebra 101 3 3
+Biology 101 3 4
+Computer Science I 3 4
+Psychology 101 4 3
+Final GPA: 3.35
+
+
+在Console.WirteLIne前面添加输出学生姓名和课程的代码行
+Console.WriteLine($"Student: {studentName}\n");
+Console.WriteLine("Course\t\t\t\tGrade\tCredit Hours");
+
+若要将输出的格式设置为文本的对齐列，请将单词之间的空格替换为
+\t
+转义序列，如下所示：
+Console.WriteLine($"{course1Name}\t\t\t{course1Grade}\t\t{course1Credit}");
+Console.WriteLine($"{course2Name}\t\t\t{course2Grade}\t\t{course2Credit}");
+Console.WriteLine($"{course3Name}\t\t\t{course3Grade}\t\t{course3Credit}");
+Console.WriteLine($"{course4Name}\t{course4Grade}\t\t{course4Credit}");
+Console.WriteLine($"{course5Name}\t\t{course5Grade}\t\t{course5Credit}");
+
+\t
+转义序列将在文本项之间插入制表位。 这些制表位应该会生成左对齐的信息列。
+请注意，您可以减少
+course4Name
+和
+course5Name
+的选项卡数量。 这种差异是因为这些课程名称比其他课程名称长。 在上一步中，在课程名称列后面添加了额外的选项卡，以保持长短课程名称的间距一致。
+若要将填充添加到最终的 GPA 结果输出，请按如下所示更新代码：
+Console.WriteLine($"\nFinal GPA:\t\t\t {leadingDigit}.{firstDigit}{secondDigit}");
+
+
+完整代码： 
+string studentName = "Sophia Johnson";
+string course1Name = "English 101";
+string course2Name = "Algebra 101";
+string course3Name = "Biology 101";
+string course4Name = "Computer Science I";
+string course5Name = "Psychology 101";
+
+int course1Credit = 3;
+int course2Credit = 3;
+int course3Credit = 4;
+int course4Credit = 4;
+int course5Credit = 3;
+
+int gradeA = 4;
+int gradeB = 3;
+
+int course1Grade = gradeA;
+int course2Grade = gradeB;
+int course3Grade = gradeB;
+int course4Grade = gradeB;
+int course5Grade = gradeA;
+
+int totalCreditHours = 0;
+totalCreditHours += course1Credit;
+totalCreditHours += course2Credit;
+totalCreditHours += course3Credit;
+totalCreditHours += course4Credit;
+totalCreditHours += course5Credit;
+
+int totalGradePoints = 0;
+totalGradePoints += course1Credit * course1Grade;
+totalGradePoints += course2Credit * course2Grade;
+totalGradePoints += course3Credit * course3Grade;
+totalGradePoints += course4Credit * course4Grade;
+totalGradePoints += course5Credit * course5Grade;
+
+decimal gradePointAverage = (decimal) totalGradePoints/totalCreditHours;
+
+int leadingDigit = (int) gradePointAverage;
+int firstDigit = (int) (gradePointAverage * 10 ) % 10;
+int secondDigit = (int) (gradePointAverage * 100 ) % 10;
+
+Console.WriteLine($"Student: {studentName}\n");
+Console.WriteLine("Course\t\t\t\tGrade\tCredit Hours");
+
+Console.WriteLine($"{course1Name}\t\t\t{course1Grade}\t\t{course1Credit}");
+Console.WriteLine($"{course2Name}\t\t\t{course2Grade}\t\t{course2Credit}");
+Console.WriteLine($"{course3Name}\t\t\t{course3Grade}\t\t{course3Credit}");
+Console.WriteLine($"{course4Name}\t{course4Grade}\t\t{course4Credit}");
+Console.WriteLine($"{course5Name}\t\t{course5Grade}\t\t{course5Credit}");
+
+Console.WriteLine($"\nFinal GPA:\t\t\t {leadingDigit}.{firstDigit}{secondDigit}");
+
+输出得到： 
+Student: Sophia Johnson
+
+Course              Grade   Credit Hours	
+English 101         4       3
+Algebra 101         3       3
+Biology 101         3       4
+Computer Science I  3       4
+Psychology 101      4       3
+
+Final GPA:          3.35

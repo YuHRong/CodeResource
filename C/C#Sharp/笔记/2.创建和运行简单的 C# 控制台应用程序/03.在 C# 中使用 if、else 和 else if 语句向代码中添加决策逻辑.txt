@@ -1,0 +1,782 @@
+练习 - 使用 if 语句创建决策逻辑
+大多数应用程序都包含大量执行路径。 例如，应用程序可以根据用户选择的菜单选项实现不同的执行路径。 开发人员将实现不同执行路径的代码称为代码分支。
+运用最广泛的代码分支语句是
+if
+语句。
+if
+语句依赖布尔表达式，后者用一组括号括起来。 如果表达式为 true，则执行
+if
+语句后面的代码。 如果不是，.NET 运行时将忽略此代码且不会执行它。
+在本练习中，你将通过创建一个游戏来练习编写
+if
+语句。 首先，你将定义游戏规则，然后使用代码将其实现。
+你将使用
+Random.Next()
+方法来模拟抛掷三个六面骰子。 你将评估抛掷出的点数以计算得分。 如果得分大于任意总和，则向用户显示一条获胜消息。 如果得分低于分数线，则向用户显示一条失败信息。
+如果抛掷任何两个骰子得到相同的值，则因两个骰子投出同样的点数获得两点奖励得分。
+如果抛掷全部三个骰子都得到相同的值，则因三个骰子投出同样的点数获得六点奖励得分。
+如果三个骰子投出的点数之和加上所有奖励点数大于等于 15，则你赢得比赛。 否则，就是你输了。
+你将在详细了解
+if
+语句的同时完善规则。
+重要
+本练习大量使用
+System.Random
+类。 如果需要复习
+Random.Next()
+的工作原理，可以参考标题为“使用 C# 从 .NET 类库调用方法”的 Microsoft Learn 模块。
+本模块包括指导你完成生成和运行示例代码的过程的活动。 建议使用 Visual Studio Code 作为开发环境来完成这些活动。 使用 Visual Studio Code 来完成这些活动将帮助你在供全球专业人员使用的开发人员环境中更舒适地编写和运行代码。
+
+在本模块中，你将使用此 C# 控制台项目来创建、生成和运行代码示例。
+若要为本练习创建初始代码，请输入以下内容：
+
+Random dice = new Random();
+
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+
+int total = roll1 + roll2 + roll3;
+
+Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
+
+
+首先，创建
+System.Random
+类的新实例，并将对该对象的引用存储在名为
+dice
+的变量中。 然后，你会对
+Random.Next()
+对象调用三次
+dice
+方法，同时提供下限和上限，将可能的值限制在
+1
+到
+6
+之间（上限是排他性的）。 你会将这三个随机数字分别存储在变量
+roll1
+、
+roll2
+和
+roll3
+中。
+接下来，你将三个骰子投出的点数相加，并将该值保存到名为
+total
+的整数变量中。
+最后，你会使用
+WriteLine()
+方法通过字符串内插显示三个值。
+输出后会得到类似结果： 
+Dice roll: 4 + 5 + 2 = 11
+
+
+第一个任务是一个筹备任务。 现在，你可以将决策逻辑添加到代码中，使游戏更加有趣。
+添加一个 if 语句，以基于 total 变量的值显示不同的消息 
+若要创建第一个游戏功能，请输入以下
+if语句。
+if (total > 14)
+{
+    Console.WriteLine("You win!");
+}
+
+if (total < 15)
+{
+    Console.WriteLine("Sorry, you lose.");
+}
+
+这两个
+if语句用于处理获胜和失败的场景。 花点时间检查第一个
+if语句。
+请注意，
+if语句由三个部分组成：
+if关键字
+用括起来的布尔表达式
+()
+由大括号定义的代码块
+{ }
+在运行时，会评估布尔表达式
+total > 14
+。 如果此语句为 true，即如果
+total的值大于
+14
+，则执行流程将执行代码块中定义的代码。 换言之，它会执行大括号中的代码。
+但是，如果布尔表达式为 false，即
+total的值小于
+14
+，则执行流程会跳过该代码块。 换言之，它不会执行大括号中的代码。
+最后，第二个
+if语句用来控制用户失败时的提示信息。 在下一单元，你将使用
+if语句的变体来将这两个语句精简为一个语句，同时更明确地表达意图。
+
+
+什么是布尔表达式？  标题2
+布尔表达式是返回布尔值（
+true
+或
+false
+）的任意代码。 最简单的布尔表达式就是值
+true和false
+。 此外，布尔表达式可以是返回值
+true或false
+的方法的结果。 例如，下面是一个简单的代码示例，它使用
+string.Contains()
+方法评估某个字符串是否包含另一个字符串。
+
+string message = "The quick brown fox jumps over the lazy dog.";
+bool result = message.Contains("dog");
+Console.WriteLine(result);
+
+if (message.Contains("fox"))
+{
+    Console.WriteLine("What does the fox say?");
+}
+
+由于message.Contains("fox")
+返回true或false
+值，因此它符合作为布尔表达式的条件，可在
+if语句中使用。
+
+其他简单的布尔表达式可通过使用运算符比较两个值进行创建。 运算符包括：
+==
+，用于测试是否相等的“等于”运算符
+“大于”运算符
+>
+，用于测试左边的值是否大于右边的值
+“‘小于’运算符
+<
+，用于测试左边的值是否小于右边的值”
+>=
+，称为“大于或等于”运算符。
+<=
+，“小于或等于”运算符
+等等
+备注
+Microsoft Learn 中的 C# 训练系列使用了一整个模块来介绍布尔表达式。 有很多运算符可用来构造布尔表达式，本模块将只介绍一些基础知识。 有关布尔表达式的详细信息，请参阅标题为“计算布尔表达式以使用 C# 做出决策”的 Microsoft Learn 模块。
+在此示例中，你评估了布尔表达式
+total > 14
+。 但是，你本可选择布尔表达式
+total >= 15
+，因为这两者在此情况下是等效的。 鉴于游戏的规则规定“如果三个骰子投出的点数加上所有奖励得分大于等于 15，则你赢得游戏”，你可能应实现
+>= 15
+表达式。 你将在练习的下一步中进行此更改。
+
+什么是代码块？  标题2
+代码块是包含一行或多行代码的集合，其中代码行由左大括号和右大括号
+{ }
+定义。 它表示在软件系统中用途单一的完整代码单位。 在此情况下，如果布尔表达式为 true，则会在运行时执行代码块中的所有代码行。 反之，如果布尔表达式为 false，则会忽略代码块中的所有代码行。
+你还应该知道代码块可以包含其他代码块。 事实上，在应用程序中，一个代码块“嵌套”在另一个代码块中是很常见的。 在本模块的稍后部分，当你在一个
+if
+语句的代码块中创建另一个语句时，你将开始嵌套你自己的代码块。
+备注
+Microsoft Learn 中的 C# 训练系列使用了一整个模块来介绍理解代码块。 代码块对于理解代码组织和结构至关重要，它们还定义了变量范围的边界。 有关代码块的详细信息，请参阅标题为“在 C# 中使用代码块控制变量范围和逻辑”的模块。
+
+
+接下来，可以实施该规则：“如果抛掷任何两个骰子得到相同的值，则因两个骰子投出同样的点数获得两点奖励得分”。 修改上述步骤中的代码以匹配以下代码清单：
+在if语句上方的空白代码行处添加下面代码
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
+{
+    Console.WriteLine("You rolled doubles! +2 bonus to total!");
+    total += 2;
+}
+
+你在这里合并了三个布尔表达式，以便在单行代码中创建一个复合布尔表达式。 这有时被称为“复合条件”。 你有一组外括号，它包含由两个竖线分隔符分隔的三组内括号。
+双竖线分隔符
+||
+是“逻辑或”运算符，主要表示“要使整个布尔表达式为 true，要么左侧表达式必须为 true，要么右侧表达式必须为 true”
+。 如果两个布尔表达式均为 false，则整个布尔表达式为 false。 你使用两个“逻辑或”运算符，以便可将评估扩展到第三个布尔表达式。
+首先，对
+(roll1 == roll2)
+进行评估。 如果它为 true，则整个表达式为 true。 如果它为 false，则评估
+(roll2 == roll3)
+。 如果它为 true，则整个表达式为 true。 如果它为 false，则评估
+(roll1 == roll3)
+。 如果它为 true，则整个表达式为 true。 如果它为 false，则整个表达式为 false。
+如果复合布尔表达式为 true，则执行后面的代码块。 此时，有两行代码。 第一行代码会将消息打印发送给用户。 第二行代码将
+total
+的值增加
+2。
+
+若要提高代码的可读性，请更新第二个
+if
+语句，如下： 
+if (total >= 15)
+
+请注意，你现在在表达式中使用的是
+>=
+运算符，该运算符用于评估获胜掷骰。
+>=
+运算符表示“大于或等于”。 因此，你可以将
+total
+与
+15
+（而不是
+14
+）的值进行比较。 通过这些更改，用于评估获胜掷骰的表达式现在类似于用于评估失败掷骰的表达式。 这应有助于使代码更易于理解（更具可读性）。 由于使用的是整数值，因此新表达式
+(total >= 15)
+的功能与之前编写的
+(total > 14)
+完全相同。
+
+完整代码： 
+Random dice = new Random();
+
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+
+int total = roll1 + roll2 + roll3;
+
+Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
+
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
+{
+    Console.WriteLine("You rolled doubles! +2 bonus to total!");
+    total += 2;
+}
+
+if (total >= 15)
+{
+    Console.WriteLine("You win!");
+}
+
+if (total < 15)
+{
+    Console.WriteLine("Sorry, you lose.");
+}
+请注意，用于评估获胜掷骰和失败掷骰的表达式之间的对齐方式已得到优化。
+
+
+再添加一个 if 语句来实现三倍奖励
+接下来，你将实现规则：“如果掷出的所有三个骰子的结果相同，则掷出三倍可获得六分奖励”。修改前面步骤中的代码以匹配以下代码清单：
+在 Visual Studio Code 编辑器中，在“doubles”
+if语句的代码块下方创建一个空行。
+若要创建“三倍奖励”游戏功能，请输入以下
+if语句。
+
+if ((roll1 == roll2) && (roll2 == roll3)) 
+{
+    Console.WriteLine("You rolled triples! +6 bonus to total!");
+    total += 6;
+}
+
+你在这里合并了两个布尔表达式，以便在单行代码中创建一个复合布尔表达式。 你有一组外括号，它包含由两个“与”字符分隔的两组内括号。
+双与符号
+&&
+是“逻辑与”运算符，它基本上表示“只有当两个表达式均为真时，整个表达式才为真”。 在此情况下，如果
+roll1
+等于
+roll2
+，并且
+roll2
+等于
+roll3
+，那么通过推断，
+roll1
+必须等于
+roll3
+且用户投出了三倍奖励分数。
+
+代码如下： 
+Random dice = new Random();
+
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+
+int total = roll1 + roll2 + roll3;
+
+Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
+
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
+{
+    Console.WriteLine("You rolled doubles! +2 bonus to total!");
+    total += 2;
+}
+
+if ((roll1 == roll2) && (roll2 == roll3)) 
+{
+    Console.WriteLine("You rolled triples! +6 bonus to total!");
+    total += 6;
+}
+
+if (total >= 15)
+{
+    Console.WriteLine("You win!");
+}
+
+if (total < 15)
+{
+    Console.WriteLine("Sorry, you lose.");
+}
+
+输出得到类似输出： Dice roll: 3 + 6 + 1 = 10
+Sorry, you lose.
+
+三个骰子投出相同的点数表示他们两个骰子也投出了相同的点数。 理想情况下，奖励不应叠加。 应该有两个单独的奖励条件。 这是一个逻辑 bug，需要进行更正。
+逻辑上的问题以及优化代码的机会 
+虽然这是一个好的开始，而且你也学到了许多关于
+if
+语句、布尔表达式、代码块、“逻辑或”和“逻辑与”运算符等等的知识，但仍然有很多可优化的地方。 你将在下一单元中执行此操作。
+总结： 
+使用
+if
+语句对代码逻辑进行分支。 如果
+if
+决策语句的布尔表达式等于 true，它将执行其代码块中的代码。 否则，运行时会跳过代码块并转到代码块后面的下一行代码。
+布尔表达式是返回布尔值的任何表达式。
+布尔表达式会比较其两侧的值是否相等，进行比较等操作。
+代码块由大括号
+{ }
+进行定义。 它会收集应被视为单个单元的代码行。
+“逻辑与”运算符
+&&
+聚合两个表达式，这两个子表达式都必须为 true，才能使整个表达式为 true。
+“逻辑或”运算符
+||
+聚合两个表达式，如果其中一个子表达式为 true，则整个表达式为 true。
+什么是代码块？
+代码块由大括号
+{ }
+进行定义。 它会收集应被视为单个单元的代码行。
+什么是布尔语句或表达式？
+ 返回 true 或 false 的代码。
+
+
+练习 - 使用 if、else if 和 else 创建嵌套决策逻辑
+上面，你使用了多个
+if
+语句来实现游戏规则。 但在该单元结束时，你注意到需使用含义更明确的
+if
+语句才能修复代码中的细微 bug。
+在本练习中，你将使用
+if
+、
+else
+和
+else if
+语句来优化代码中的分支选项并修复逻辑 bug。
+
+使用 if 和 else 语句，而不是两个单独的 if 语句 
+不是执行两项检查来显示消息“你获胜了！”或“抱歉，你失败了”，而是将使用
+else
+关键字。
+
+花点时间检查文件末尾的两个
+if语句：
+if (total >= 15)
+{
+    Console.WriteLine("You win!");
+}
+
+if (total < 15)
+{
+    Console.WriteLine("Sorry, you lose.");
+}
+
+请注意，两个
+if
+语句都将
+total
+与同一数值进行比较。 这是使用
+else
+语句的绝佳机会。
+更新两个
+if语句，如下所示：
+if (total >= 15)
+{
+    Console.WriteLine("You win!");
+}
+else 
+{
+    Console.WriteLine("Sorry, you lose.");
+}
+
+此处，如果
+total >= 15
+为 false，则将执行
+else
+关键字后面的代码块。 由于这两个结果是相对的，因此是适合
+else
+关键字的最佳场景。
+
+更新后的代码： 
+Random dice = new Random();
+
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+
+int total = roll1 + roll2 + roll3;
+
+Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
+
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
+{
+    Console.WriteLine("You rolled doubles!  +2 bonus to total!");
+    total += 2;
+}
+
+if ((roll1 == roll2) && (roll2 == roll3))
+{
+    Console.WriteLine("You rolled triples!  +6 bonus to total!");
+    total += 6;
+}
+
+if (total >= 15)
+{
+    Console.WriteLine("You win!");
+}
+else 
+{
+    Console.WriteLine("Sorry, you lose.");
+}
+
+修改代码，通过嵌套消除双倍奖励和三倍奖励叠加的情形 
+在上一单元中，你发现应用程序中引入了一个细微的逻辑 bug。 你可以通过嵌套
+if
+语句来解决该问题。
+通过嵌套，可以将代码块放在代码块中。 在此情况下，可以将
+if
+和
+else
+组合（检查是否有双倍奖励）嵌套在另一个
+if
+语句（检查是否有三倍奖励）中，以防止同时颁发两种奖励。
+
+修改代码： 
+Random dice = new Random();
+
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+
+int total = roll1 + roll2 + roll3;
+
+Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
+
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
+{
+    if ((roll1 == roll2) && (roll2 == roll3))
+    {
+        Console.WriteLine("You rolled triples!  +6 bonus to total!");
+        total += 6;
+    }
+    else
+    {
+        Console.WriteLine("You rolled doubles!  +2 bonus to total!");
+        total += 2;
+    }
+}
+
+if (total >= 15)
+{
+    Console.WriteLine("You win!");
+}
+else 
+{
+    Console.WriteLine("Sorry, you lose.");
+}
+
+花点时间查看嵌套的
+if
+语句。
+目标是创建一个内部
+if-else
+构造，其中两个结果是相对的，然后使用相对的结果（if/true 和 else/false）颁发三倍奖励和双倍奖励的奖励积分。 为实现此目标，在外部
+if
+语句中检查是否有双倍奖励，然后在内部
+if
+语句中检查是否有三倍奖励。 此模式确保检查是否有三倍奖励的内部语句返回
+false
+时，
+else
+代码块可以颁发双倍奖励的积分。
+接下来，你将对三次掷骰结果进行“硬编码”，以测试代码逻辑。
+在已声明和初始化
+total
+的行的上方创建一个空白代码行。
+若要测试是否掷出双倍奖励，请输入以下代码：
+roll1 = 6;
+roll2 = 6;
+roll3 = 5;
+通过对三个
+roll
+变量进行硬编码，无需数十次运行应用程序即可测试代码。
+若要测试是否掷出三倍奖励，请更新硬编码的掷骰变量，如下所示：
+roll1 = 6;
+roll2 = 6;
+roll3 = 6;
+
+两个侧式输出是： 
+Dice roll: 6 + 6 + 5 = 17
+You rolled doubles!  +2 bonus to total!
+You win!
+
+Dice roll: 6 + 6 + 6 = 18
+You rolled triples!  +6 bonus to total!
+You win!
+
+
+使用 if、else 和 else if 语句提供奖励，而不是显示胜败消息 
+为了使游戏更有趣，可以将游戏从输赢结果改为对每个分数奖励虚拟奖品。 可以提供四个奖品。 但玩家应该只赢取一个奖品：
+如果玩家的分数大于等于 16，则赢得一辆新车。
+如果玩家的分数大于等于 10，则赢得一台新的笔记本电脑。
+如果玩家的分数正好为 7，则赢得一次旅行机会。
+否则，玩家赢得一只小猫。
+
+输入以下代码： 
+Random dice = new Random();
+
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+
+int total = roll1 + roll2 + roll3;
+
+Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
+
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
+{
+    if ((roll1 == roll2) && (roll2 == roll3))
+    {
+        Console.WriteLine("You rolled triples!  +6 bonus to total!");
+        total += 6;
+    }
+    else
+    {
+        Console.WriteLine("You rolled doubles!  +2 bonus to total!");
+        total += 2;
+    }
+
+    Console.WriteLine($"Your total including the bonus: {total}");
+}
+
+if (total >= 16)
+{
+    Console.WriteLine("You win a new car!");
+}
+else if (total >= 10)
+{
+    Console.WriteLine("You win a new laptop!");
+}
+else if (total == 7)
+{
+    Console.WriteLine("You win a trip for two!");
+}
+else
+{
+    Console.WriteLine("You win a kitten!");
+}
+
+花点时间查看更新后的
+if-elseif-else
+构造。
+使用
+if
+else if
+和
+else
+语句可以创建多个排他性条件作为布尔表达式。 换言之，如果你只希望产生一种结果，但却有多个可能的条件和结果，则根据需要使用任意数量的
+else if
+语句。 如果
+if
+和
+else if
+语句均不适用，则将执行最后的
+else
+代码块。
+else
+是可选语句，但如果选择包含该语句，则该语句必须最后执行。
+使用对
+roll
+变量进行临时硬编码方法来测试每条消息。
+
+回顾  标题2
+通过使用
+if
+和
+else
+语句的组合，可以测试一个条件，然后执行两个结果之一。
+if
+的代码块将在布尔表达式为
+true
+时运行，而
+else
+的代码块将在布尔表达式为
+false
+时运行。
+可以嵌套“
+if
+”语句来减少可能的条件。 但是，应考虑改用
+if
+else if
+和
+else
+语句。
+使用
+else if
+语句创建多个排他性条件。
+else
+是可选语句，但包含该语句时该语句必须最后执行。
+
+
+若要为本挑战创建初始代码，请输入以下代码：
+Random random = new Random();
+int daysUntilExpiration = random.Next(12);
+int discountPercentage = 0;
+
+// Your code goes here
+
+请注意，此代码将生成一个取值范围为 0 - 11 的随机数。 该随机数将分配给名为
+daysUntilExpiration
+的整数变量。 你有另一个名为
+discountPercentage
+、初始化为
+0
+的整数变量。
+重要
+在此挑战中，只能删除代码注释。 换句话说，可以删除以
+//
+开头的代码行，但不能删除任何其他代码。 此外，必须使用解决方案中的所有变量。
+
+请审核此挑战的业务规则  标题2
+规则 1：代码只能显示一条消息。
+代码显示的消息将取决于其他五个规则。 对于规则 2-6，编号较高的规则优先于编号较低的规则。
+规则 2：如果用户的订阅将在 10 天或更短的时间内到期，则显示以下消息：
+Your subscription will expire soon. Renew now!
+规则 3：如果用户的订阅将在 5 天或更短的时间内到期，则显示以下消息：
+Your subscription expires in _ days.
+Renew now and save 10%!
+备注
+构造消息输出时，请务必将上述消息中显示的
+_
+字符替换为变量
+daysUntilExpiration
+中存储的值。
+规则 4：如果用户的订阅将在一天后到期，则显示以下消息：
+Your subscription expires within a day!
+Renew now and save 20%!
+规则 5：如果用户的订阅已过期，则显示以下消息：
+Your subscription has expired.
+规则 6：如果用户订阅的剩余有效期超过 10 天，则不显示任何消息。
+
+
+使用 if语句实现解决方案代码
+解决方案必须使用单独的
+if
+和
+if-else
+语句来实现业务规则。
+if-else
+语句可以包含多个
+else if
+部分。
+
+创建一个
+if-else
+语句，该语句显示有关订阅何时过期的消息。
+提示
+使用
+else if
+确保每个过期规则都已考虑在内。
+创建一个单独的
+if
+语句来显示折扣套餐。
+业务规则指示何时应提供折扣。
+无论是陷入困境而需要查看解决方案，还是顺利完成，都请继续查看这次挑战的解决方案。
+
+
+中文代码： 
+Random random = new Random();
+int 到期时间 = random.Next(12);
+int 折扣百分比 = 0;
+
+if (到期时间 == 0)
+{
+    Console.WriteLine("您的订阅已过期。");
+}
+else if (到期时间 == 1)
+{
+    Console.WriteLine($"您的订阅将在一天后到期！");
+    折扣百分比 = 20;
+}
+else if (到期时间 <= 5)
+{
+    Console.WriteLine($"您的订阅将在 {到期时间} 天后过期！");
+    折扣百分比 = 10;
+}
+else if (到期时间 <= 10)
+{
+    Console.WriteLine("您的订阅即将过期，立即订阅！");
+}
+else if (到期时间 >= 11)
+{
+    Console.WriteLine();
+}
+
+if (折扣百分比 > 0)
+{
+    Console.WriteLine($"立即续订并节省 {折扣百分比}%");
+}
+
+参考代码： 
+Random random = new Random();
+int 到期时间 = random.Next(12);
+int 折扣百分比 = 0;
+
+if (到期时间 == 0)
+{
+    Console.WriteLine("您的订阅已过期。");
+}
+else if (到期时间 == 1)
+{
+    Console.WriteLine($"您的订阅将在一天后到期！");
+    折扣百分比 = 20;
+}
+else if (到期时间 <= 5)
+{
+    Console.WriteLine($"您的订阅将在 {到期时间} 天后过期！");
+    折扣百分比 = 10;
+}
+else if (到期时间 <= 10)
+{
+    Console.WriteLine("您的订阅即将过期，立即订阅！");
+}
+else if (到期时间 >= 11)
+{
+    Console.WriteLine();
+}
+
+if (折扣百分比 > 0)
+{
+    Console.WriteLine($"立即续订并节省 {折扣百分比}%");
+}
+
+参考代码： 
+Random random = new Random();
+int daysUntilExpiration = random.Next(12);
+int discountPercentage = 0;
+
+if (daysUntilExpiration == 0)
+{
+    Console.WriteLine("Your subscription has expired.");
+}
+else if (daysUntilExpiration == 1)
+{
+    Console.WriteLine("Your subscription expires within a day!");
+    discountPercentage = 20;
+}
+else if (daysUntilExpiration <= 5)
+{
+    Console.WriteLine($"Your subscription expires in {daysUntilExpiration} days.");
+    discountPercentage = 10;
+}
+else if (daysUntilExpiration <= 10)
+{
+    Console.WriteLine("Your subscription will expire soon. Renew now!");
+}
+
+if (discountPercentage > 0)
+{
+    Console.WriteLine($"Renew now and save {discountPercentage}%.");
+}

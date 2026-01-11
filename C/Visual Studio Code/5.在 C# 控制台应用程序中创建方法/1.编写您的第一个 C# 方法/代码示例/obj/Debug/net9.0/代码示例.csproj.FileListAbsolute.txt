@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\bin\Debug\net9.0\代码示例.exe
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\bin\Debug\net9.0\代码示例.deps.json
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\bin\Debug\net9.0\代码示例.runtimeconfig.json
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\bin\Debug\net9.0\代码示例.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\bin\Debug\net9.0\代码示例.pdb
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\obj\Debug\net9.0\代码示例.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\obj\Debug\net9.0\代码示例.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\obj\Debug\net9.0\代码示例.AssemblyInfo.cs
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\obj\Debug\net9.0\代码示例.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\obj\Debug\net9.0\代码示例.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\obj\Debug\net9.0\refint\代码示例.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\obj\Debug\net9.0\代码示例.pdb
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\obj\Debug\net9.0\代码示例.genruntimeconfig.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\1.编写您的第一个 C# 方法\代码示例\obj\Debug\net9.0\ref\代码示例.dll

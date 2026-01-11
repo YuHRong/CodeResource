@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\实验\实验\bin\Release\net9.0\实验.exe
+E:\C\Visual Studio Code\实验\实验\bin\Release\net9.0\实验.deps.json
+E:\C\Visual Studio Code\实验\实验\bin\Release\net9.0\实验.runtimeconfig.json
+E:\C\Visual Studio Code\实验\实验\bin\Release\net9.0\实验.dll
+E:\C\Visual Studio Code\实验\实验\bin\Release\net9.0\实验.pdb
+E:\C\Visual Studio Code\实验\实验\obj\Release\net9.0\实验.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\实验\实验\obj\Release\net9.0\实验.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\实验\实验\obj\Release\net9.0\实验.AssemblyInfo.cs
+E:\C\Visual Studio Code\实验\实验\obj\Release\net9.0\实验.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\实验\实验\obj\Release\net9.0\实验.dll
+E:\C\Visual Studio Code\实验\实验\obj\Release\net9.0\refint\实验.dll
+E:\C\Visual Studio Code\实验\实验\obj\Release\net9.0\实验.pdb
+E:\C\Visual Studio Code\实验\实验\obj\Release\net9.0\实验.genruntimeconfig.cache
+E:\C\Visual Studio Code\实验\实验\obj\Release\net9.0\ref\实验.dll

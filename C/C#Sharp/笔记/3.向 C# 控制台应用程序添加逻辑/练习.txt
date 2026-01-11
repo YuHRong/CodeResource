@@ -1,0 +1,621 @@
+练习1 代码：
+string permission = "Admin|Manager";
+int level = 53;
+
+if (permission.Contains("Admin"))
+{
+    if (level > 55)
+    {
+        Console.WriteLine("Welcome, Super Admin user.");
+    }
+    else
+    {
+        Console.WriteLine("Welcome, Admin user.");
+    }
+}
+else if (permission.Contains("Manager"))
+{
+    if (level >= 20)
+    {
+        Console.WriteLine("Contact an Admin for access.");
+    }
+    else
+    {
+        Console.WriteLine("You do not have sufficient privileges.");
+    }
+}
+else
+{
+    Console.WriteLine("You do not have sufficient privileges.");
+}
+
+
+第二节
+使用变量作用域完成挑战活动练习代码： 
+int[] numbers = { 4, 8, 15, 16, 23, 42 };
+
+foreach (int number in numbers)
+{
+    int total;
+
+    total += number;
+
+    if (number == 42)
+    {
+       bool found = true;
+
+    }
+
+}
+
+if (found) 
+{
+    Console.WriteLine("Set contains 42");
+
+}
+
+Console.WriteLine($"Total: {total}");
+
+
+问题代码的最大更改包括：
+请将
+total
+和
+found
+变量的声明移到
+foreach
+语句之外。
+使用合理的默认值初始化
+total
+和
+found
+变量。
+从
+if
+语句中删除代码块（大括号）。
+无论如何设置代码的格式，运行代码时，都应看到以下输出：
+Set contains 42
+Total: 108修改后代码： 
+int[] numbers = { 4, 8, 15, 16, 23, 42 };
+bool found = false;
+int total = 0;
+
+foreach (int number in numbers)
+{
+    total += number;
+    if (number == 42)
+        found = true;
+}
+
+if (found)
+    Console.WriteLine("Set contains 42");
+
+Console.WriteLine($"Total: {total}");
+
+第三节把if else if 语句转换为 switch语句练习
+作业代码： 
+// SKU = Stock Keeping unit.
+// SKU value fromat: <product #>-<2-letter color code>-<size code>
+string sku = "01-MM-L";
+
+string[] product = sku.Split('-');
+
+string type = "01";
+string color = "MM";
+string size = "L";
+
+switch (type)
+{
+case "01":
+    type = "Sweat shirt";
+break;
+case "02":
+    type = "T-shirt";
+        break;
+case "03":
+        type = "Sweat pants";
+        break;
+default:
+        type = "other";
+        break;
+}
+
+switch (color)
+{
+case "BL":
+        color = "Black";
+        break;
+case "MM":
+        color = "maroon";
+        break;
+default:
+        color = "White";
+        break;
+}
+
+switch (size)
+{
+case "S":
+    size = "Small";
+        break;
+case "M":
+    size = "medium";
+        break;
+case "L":
+    size = "Large";
+        break;
+default:
+        size = "One Size Fits All";
+        break;
+}
+
+Console.WriteLine($"Product: {size} {color} {type}");
+
+参考答案： 
+// SKU = Stock Keeping Unit
+string sku = "01-MN-L";
+
+string[] product = sku.Split('-');
+
+string type = "";
+string color = "";
+string size = "";
+
+switch (product[0])
+{
+    case "01":
+        type = "Sweat shirt";
+        break;
+    case "02":
+        type = "T-Shirt";
+        break;
+    case "03":
+        type = "Sweat pants";
+        break;
+    default:
+        type = "Other";
+        break;
+}
+
+switch (product[1])
+{
+    case "BL":
+        color = "Black";
+        break;
+    case "MN":
+        color = "Maroon";
+        break;
+    default:
+        color = "White";
+        break;
+}
+
+switch (product[2])
+{
+    case "S":
+        size = "Small";
+        break;
+    case "M":
+        size = "Medium";
+        break;
+    case "L":
+        size = "Large";
+        break;
+    default:
+        size = "One Size Fits All";
+        break;
+}
+
+Console.WriteLine($"Product: {size} {color} {type}");
+
+第四节练习代码： 
+
+for (int i = 1; i < 101; i++)
+        if (i % 15 == 0)
+        {
+                Console.WriteLine($"{i}, FizzBuzz");
+        }
+        else if (i % 3 == 0)
+        {
+                Console.WriteLine($"{i}, Fizz");
+        }
+        else if (i % 5 == 0)
+        {
+                Console.WriteLine($"{i}, Buzz");
+        }
+        else
+        {
+                Console.WriteLine(i);
+        }
+
+
+参考答案： 
+for (int i = 1; i < 101; i++)
+{
+    if ((i % 3 == 0) && (i % 5 == 0))
+        Console.WriteLine($"{i} - FizzBuzz");
+    else if (i % 3 == 0)
+        Console.WriteLine($"{i} - Fizz");
+    else if (i % 5 == 0)
+        Console.WriteLine($"{i} - Buzz");
+    else
+        Console.WriteLine($"{i}");
+}
+
+该代码仅仅是“一种可能解决方案”。
+for
+语句比较重要，因为使用它可以循环访问代码块 100 次。
+使用
+if-elseif-else
+可以查找可被 3 和 5 整除的数。
+通过使用
+%
+（mod 运算符），可以确定某个数是否可被 3 或 5 整除（余数为零）。
+而通过使用
+&&
+运算符，可确保一个数字可针对
+FizzBuzz
+条件同时被 3 和 5 整除。
+从 1 到 100，代码应得到以下输出。
+
+1
+2
+3 - Fizz
+4
+5 - Buzz
+6 - Fizz
+7
+8
+9 - Fizz
+10 - Buzz
+11
+12 - Fizz
+13
+14
+15 - FizzBuzz
+16
+17
+18 - Fizz
+19
+20 - Buzz
+21 - Fizz
+22
+23
+24 - Fizz
+25 - Buzz
+26
+27 - Fizz
+28
+29
+30 - FizzBuzz
+31
+32
+33 - Fizz
+34
+35 - Buzz
+36 - Fizz
+37
+38
+39 - Fizz
+40 - Buzz
+41
+42 - Fizz
+43
+44
+45 - FizzBuzz
+46
+47
+48 - Fizz
+49
+50 - Buzz
+51 - Fizz
+52
+53
+54 - Fizz
+55 - Buzz
+56
+57 - Fizz
+58
+59
+60 - FizzBuzz
+61
+62
+63 - Fizz
+64
+65 - Buzz
+66 - Fizz
+67
+68
+69 - Fizz
+70 - Buzz
+71
+72 - Fizz
+73
+74
+75 - FizzBuzz
+76
+77
+78 - Fizz
+79
+80 - Buzz
+81 - Fizz
+82
+83
+84 - Fizz
+85 - Buzz
+86
+87 - Fizz
+88
+89
+90 - FizzBuzz
+91
+92
+93 - Fizz
+94
+95 - Buzz
+96 - Fizz
+97
+98
+99 - Fizz
+100 - Buzz
+
+
+第五节练习 - 使用 do 和 while 迭代语句
+
+答案： 
+int hero = 10;
+int monster = 10;
+
+Random dice = new Random();
+
+do
+{
+    int roll = dice.Next(1, 11);
+    monster -= roll;
+    Console.WriteLine($"Monster was damaged and lost {roll} health and now has {monster} health.");
+
+    if (monster <= 0) continue;
+
+    roll = dice.Next(1, 11);
+    hero -= roll;
+    Console.WriteLine($"Hero was damaged and lost {roll} health and now has {hero} health.");
+
+} while (hero > 0 && monster > 0);
+
+Console.WriteLine(hero > monster ? "Hero wins!" : "Monster wins!");
+
+
+练习 - 完成挑战活动以区分 do 和 while 迭代语句
+
+在此质询期间管理用户输入  标题2
+使用
+Console.ReadLine()
+语句获取用户输入时，通常的做法是使用可为 null 的类型字符串（指定的
+string?
+）作为输入变量，然后计算用户输入的值。 下面的代码示例使用可为 null 的类型字符串来捕获用户输入。 当用户提供的值为 null 时，迭代将继续：string? readResult;
+Console.WriteLine("Enter a string:");
+do
+{
+    readResult = Console.ReadLine();
+} 
+while (readResult == null);
+
+语句
+while
+计算的布尔表达式可用于确保用户输入满足指定的要求。 例如，如果提示要求用户输入至少包含三个字符的字符串，则可使用以下代码：
+
+以下是第一个编码项目必须实现的条件：
+• 解决方案必须包含 do-while  或 while  迭代。
+• 在迭代块之前：解决方案必须使用 Console.WriteLine()  语句提示用户输入介于 5 和 10 之间的整数值。
+• 在迭代块内： ◦ 解决方案必须使用 Console.ReadLine()  语句从用户获取输入。 ◦ 解决方案必须确保输入是整数的有效表示形式。 ◦ 如果整数值不在 5 和 10 之间，则代码必须使用 Console.WriteLine()  语句提示用户输入介于 5 和 10 之间的整数值。 ◦ 在退出迭代之前，解决方案必须确保整数值介于 5 和 10 之间。
+• 在迭代代码块下面（之后）：解决方案必须使用 Console.WriteLine()  语句通知用户其输入值已被接受。
+运行应用程序并验证代码是否根据指定的要求验证用户输入。
+在上述示例中，控制台输出应如下所示：
+Enter an integer value between 5 and 10
+two
+Sorry, you entered an invalid number, please try again
+2
+You entered 2. Please enter a number between 5 and 10.
+7
+Your input value (7) has been accepted.
+
+
+以下是第二个编码项目必须实现的条件：
+• 解决方案必须包含 do-while  或 while  迭代。
+• 在迭代块之前：解决方案必须使用 Console.WriteLine()  语句提示用户输入三个角色名称之一：Administrator、Manager 或 User。
+• 在迭代块内： ◦ 解决方案必须使用 Console.ReadLine()  语句从用户获取输入。 ◦ 解决方案必须确保输入的值与三个角色选项之一匹配。 ◦ 解决方案应对输入值使用 Trim()  方法，以忽略前导字符和尾随空格字符。 ◦ 解决方案应对输入值使用 ToLower()  方法来忽略大小写。 ◦ 如果输入的值与其中一个角色选项不匹配，则代码必须使用 Console.WriteLine()  语句来提示用户输入有效的条目。
+• 在迭代代码块下面（之后）：解决方案必须使用 Console.WriteLine()  语句通知用户其输入值已被接受。
+
+string? readResult;
+bool validEntry = false;
+Console.WriteLine("Enter a string containing at least three characters:");
+do
+{
+    readResult = Console.ReadLine();
+    if (readResult != null)
+    {
+        if (readResult.Length >= 3)
+        {
+            validEntry = true;
+        }
+        else
+        {
+            Console.WriteLine("Your input is invalid, please try again.");
+        }
+    }
+} while (validEntry == false);
+
+此示例的控制台输出应如下所示：
+Enter your role name (Administrator, Manager, or User)
+Admin
+The role name that you entered, "Admin" is not valid. Enter your role name (Administrator, Manager, or User)
+   Administrator
+Your input value (Administrator) has been accepted.
+
+
+以下是第三个编码项目必须实现的条件：
+• 解决方案必须使用以下字符串数组来表示编码逻辑的输入： c# 复制 string[] myStrings = newstring[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+• 解决方案必须声明一个名为 periodLocation  的整数变量，该变量可用于保存字符串中句点字符的位置。
+• 解决方案必须包含可用于处理数组中每个字符串元素的外部 foreach  或 for  循环。 将在循环内处理的字符串变量应命名为 myString 。
+• 在外部循环中，解决方案必须使用 IndexOf()  类的 String  方法来获取 myString  变量中第一个句点字符的位置。 方法调用应类似于：myString.IndexOf(".") 。 如果字符串中没有句点字符，则将返回值 -1。
+• 解决方案必须包含可用于处理 do-while  变量的内部 while  或 myString  循环。
+• 在内部循环中，解决方案必须提取并显示（写入控制台）处理的每个字符串中包含的每个句子。
+• 在内部循环中，解决方案不得显示句点字符。
+• 在内部循环中，解决方案必须使用 Remove() 、 Substring()  和 TrimStart()  方法来处理字符串信息。
+以下是第三个编码项目必须实现的条件：
+
+
+// capture user input in a string variable named readResult
+
+int numericValue = 0;
+bool validNumber = false;
+
+validNumber = int.TryParse(readResult, out numericValue);
+
+
+如果代码逻辑正常工作，输出应如下所示：
+I like pizza
+I like roast chicken
+I like salad
+I like all three of the menu choices
+
+
+
+以下代码是上一单元中所述挑战项目 1 的一种可能的解决方案。
+代码使用
+do
+语句，因为必须至少执行一次代码块。 也可以使用
+while
+来实现相同的结果。 一些开发人员可能认为
+while
+的逻辑使代码更具可读性。 如果你也这样认为，可以选择在此处实现
+while
+语句。
+
+string? readResult;
+string valueEntered = "";
+int numValue = 0;
+bool validNumber = false;
+
+Console.WriteLine("Enter an integer value between 5 and 10");
+
+do
+{
+    readResult = Console.ReadLine();
+    if (readResult != null) 
+    {
+        valueEntered = readResult;
+    }
+
+    validNumber = int.TryParse(valueEntered, out numValue);
+
+    if (validNumber == true)
+    {
+        if (numValue <= 5 || numValue >= 10)
+        {
+            validNumber = false;
+            Console.WriteLine($"You entered {numValue}. Please enter a number between 5 and 10.");
+        }
+    }
+    else 
+    {
+        Console.WriteLine("Sorry, you entered an invalid number, please try again");
+    }
+} while (validNumber == false);
+
+Console.WriteLine($"Your input value ({numValue}) has been accepted.");
+
+readResult = Console.ReadLine();
+
+
+
+以下代码是上一单元中所述挑战项目 2 的一种可能的解决方案。
+代码使用
+do
+语句，因为必须至少执行一次代码块。 也可以使用
+while
+来实现相同的结果。 一些开发人员可能认为
+while
+的逻辑使代码更具可读性。 如果你也这样认为，可以选择在此处实现
+while
+语句。
+
+string? readResult;
+string roleName = "";
+bool validEntry = false;
+
+do
+{                
+    Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
+    readResult = Console.ReadLine();
+    if (readResult != null) 
+    {
+        roleName = readResult.Trim();
+    }
+
+    if (roleName.ToLower() == "administrator" || roleName.ToLower() == "manager" || roleName.ToLower() == "user") 
+    {
+        validEntry = true;
+    }
+    else
+    {
+        Console.Write($"The role name that you entered, \"{roleName}\" is not valid. ");
+    }
+
+} while (validEntry == false);
+
+Console.WriteLine($"Your input value ({roleName}) has been accepted.");
+readResult = Console.ReadLine();
+
+
+以下代码是上一单元中所述挑战项目 3 的一种可能的解决方案。
+代码对外部循环使用
+for
+语句，因为无法修改分配给“foreach 迭代变量”的值。 可以通过在
+foreach
+循环内声明其他字符串变量来解决此问题，但这样会为代码逻辑增加不必要的复杂性。 换句话说，如果使用迭代语句
+foreach (string myString in myStrings)
+，然后尝试处理
+myString
+变量，则会产生编译错误。
+代码对内部循环使用
+while
+语句，因为根据数据字符串的值，可能不会执行代码块（当字符串不包含句点时）。 在可能不需要执行迭代块的情况下，不应使用
+do
+语句。
+
+string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+int stringsCount = myStrings.Length;
+
+string myString = "";
+int periodLocation = 0;
+
+for (int i = 0; i < stringsCount; i++)
+{
+    myString = myStrings[i];
+    periodLocation = myString.IndexOf(".");
+
+    string mySentence;
+
+    // extract sentences from each string and display them one at a time
+    while (periodLocation != -1)
+    {
+
+        // first sentence is the string value to the left of the period location
+        mySentence = myString.Remove(periodLocation);
+
+        // the remainder of myString is the string value to the right of the location
+        myString = myString.Substring(periodLocation + 1);
+
+        // remove any leading white-space from myString
+        myString = myString.TrimStart();
+
+        // update the comma location and increment the counter
+        periodLocation = myString.IndexOf(".");
+
+        Console.WriteLine(mySentence);
+    }
+ 
+    mySentence = myString.Trim();
+    Console.WriteLine(mySentence);
+}

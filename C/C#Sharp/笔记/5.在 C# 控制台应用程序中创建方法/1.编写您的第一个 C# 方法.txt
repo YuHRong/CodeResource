@@ -1,0 +1,872 @@
+了解如何创建自己的方法来执行特定任务。
+学习目标  
+创建你的第一个 C# 方法
+确定可模块化的代码部分
+使用方法将代码组织到特定任务中
+
+
+第一节： 介绍
+
+使用 C# 编程语言可以创建各种可靠的应用程序。 假设你想要编写代码以对不可预知的用户输入执行作。 你可能想要添加逻辑来处理不正确的输入，将输入转换为可行的格式，并执行正确的作。 随着应用程序的大小越来越大，跟踪代码可能会很快成为挑战。
+方法（也称为函数）是保持代码结构化、高效且可读的关键部分。 方法是一个模块化的代码单元，也是一个基本的编程概念。 方法通常设计为执行特定任务，并包含执行该任务的代码。 方法的名称应清楚地反映其任务，从而提高代码可读性。 了解如何使用方法可帮助你更快地生成功能丰富的应用程序。
+在本模块中，你将了解如何创建自己的方法来执行特定任务。 你将了解方法如何简化和缩短代码，以及如何使内容组织有序且易于查找。
+
+
+
+第二节： 了解方法的语法
+
+你可能已经熟悉某些方法，例如
+Console.WriteLine()
+或
+random.Next()
+。 你可能已了解这些方法如何简化任务，并让你更轻松地生成代码。 在本单元中，你将了解如何创建自己的方法。
+
+方法的工作原理
+开发方法的过程从创建方法签名开始。 方法签名声明方法的返回类型、名称和输入参数。 例如，请考虑使用以下方法签名：
+void SayHello();
+
+方法名称为
+SayHello
+. 其返回类型为
+void
+，这意味着该方法不返回任何数据。 但是，方法也可以返回任何数据类型的值，例如
+bool
+int
+和
+double
+数组。 方法参数（如果有）应包含在括号
+()
+中。 方法可以接受任何数据类型的多个参数。 在此示例中，该方法没有参数。
+在运行方法之前，需要添加定义。 方法定义使用括号
+{}
+来包含调用该方法时执行的代码。 例如：
+void SayHello() 
+{
+    Console.WriteLine("Hello World!");
+}
+现在，每当调用该方法时，该方法都会打印
+Hello World!
+
+调用方法
+方法使用其名称调用，并包括任何必需的参数。 请考虑以下事项：
+Console.Write("Input!");
+
+字符串
+"Input!"
+是提供给方法的参数
+Write
+方法可以在其定义之前或之后调用。 例如，
+SayHello
+可以使用以下语法定义和调用该方法：
+SayHello();
+
+void SayHello() 
+{
+    Console.WriteLine("Hello World!");
+}
+请注意，在调用该方法之前，不需要定义该方法。 这种灵活性使你可以根据需要组织代码。 通常定义程序末尾的所有方法。 例如：
+int[] a = {1,2,3,4,5};
+
+Console.WriteLine("Contents of Array:");
+PrintArray();
+
+void PrintArray()
+{
+    foreach (int x in a)
+    {
+        Console.Write($"{x} ");
+    }
+    Console.WriteLine();
+}
+
+方法执行
+调用方法时，将执行方法正文中的代码。 这意味着执行控件将从方法调用方传递到该方法。 方法完成其执行后，控件将返回到调用方。 例如，考虑以下代码：
+
+Console.WriteLine("Before calling a method");
+SayHello();
+Console.WriteLine("After calling a method");
+
+void SayHello() 
+{
+    Console.WriteLine("Hello World!");
+}
+
+此代码显示以下输出：
+Before calling a method
+Hello World!
+After calling a method
+
+定义方法后，可以随时调用该方法，并根据需要多次调用该方法。 可以在
+if-else
+语句、for循环、
+switch
+语句中使用方法，甚至初始化变量，等等！
+
+定义方法后，可以随时调用该方法，并根据需要多次调用该方法。 可以在
+if-else
+语句、for循环、
+switch
+语句中使用方法，甚至初始化变量，等等！
+
+最佳做法  标题2
+选择方法名称时，请务必保持名称简洁，并明确方法执行的任务。 
+方法名称应为 Pascal 大小写，通常不应以数字开头。 参数的名称应描述参数所表示的信息类型。 请考虑以下方法签名：
+
+void ShowData(string a, int b, int c);
+void DisplayDate(string month, int day, int year);
+
+第二种方法描述显示哪种类型的数据，并为参数提供描述性名称。
+
+
+
+第三节： 
+练习 - 创建第一个方法
+
+创建显示随机数的方法
+若要创建方法，请先创建方法签名，然后添加方法正文。 若要创建方法签名，请声明返回类型、方法名称和参数。 使用包含代码的括号
+{}
+创建方法正文。
+
+void DisplayRandomNumbers();
+在这种情况下，方法只需生成并显示信息，因此返回类型为
+void
+。 目前，无需包含任何参数。
+若要创建方法正文，请删除分号
+并将代码更新为以下内容：
+void DisplayRandomNumbers() 
+{
+    Random random = new Random();
+}
+在这里，你将创建一个
+Random
+对象，用于生成数字。
+若要显示五个随机整数，可将
+for
+循环添加到方法：
+void DisplayRandomNumbers() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < 5; i++) 
+    {
+        Console.Write($"{random.Next(1, 100)} ");
+    }
+}
+在此代码中，将生成一个介于 1 和 99（含）之间的数字。 打印数字后，还会添加一个空格。 接下来，你将在方法终止之前显示一个新行。
+使用以下代码更新方法：
+
+void DisplayRandomNumbers() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < 5; i++) 
+    {
+        Console.Write($"{random.Next(1, 100)} ");
+    }
+
+    Console.WriteLine();
+}
+现在，方法将在显示数字后添加新行。
+
+
+调用方法
+1.
+在
+DisplayRandomNumbers
+方法上方输入新的空白代码行。
+在新的空白代码行上输入以下代码：
+Console.WriteLine("Generating random numbers:");
+DisplayRandomNumbers();
+最终代码是： 
+Console.WriteLine("Generating random numbers:");
+DisplayRandomNumbers();
+
+void DisplayRandomNumbers() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < 5; i++) 
+    {
+        Console.Write($"{random.Next(1, 100)} ");
+    }
+
+    Console.WriteLine();
+}
+
+请注意，使用方法如何使代码易于理解。 可以快速阅读方法名称，了解此代码是否显示随机数，而不是花时间尝试破译
+for
+循环本身。
+在此任务中，从集成终端运行应用程序，并验证代码是否正常工作。 现在就开始吧。
+输出大概像： 17 29 46 36 3
+
+总结： 
+下面是到目前为止你了解到的有关方法的内容：
+通过声明返回类型、名称、输入参数和方法正文来创建方法。
+方法名称应清楚地反映方法执行的任务。
+通过调用方法名称并添加括号
+()
+来使用方法。
+
+
+
+第四节： 练习 - 创建可重用的方法
+
+开发应用程序时，你可能会发现自己编写代码来反复执行相同的作。 使用方法执行相同的任务可缩短代码并帮助你更快地开发应用程序，而不是编写重复的代码。 在本练习中，你将识别重复的代码，并将其替换为可重用的方法。 让我们开始吧！
+
+标识重复的代码
+在此任务中，你将了解一个应用程序，用于跟踪不同时区的服药时间。 用户输入其当前时区及其目标时区。 他们的药物计划显示，然后调整为新的时区。
+
+键入代码： 
+using System;
+
+int[] times = {800, 1200, 1600, 2000};
+int diff = 0;
+
+Console.WriteLine("Enter current GMT");
+int currentGMT = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Current Medicine Schedule:");
+
+/* Format and display medicine times */
+foreach (int val in times)
+{
+    string time = val.ToString();
+    int len = time.Length;
+
+    if (len >= 3)
+    {
+        time = time.Insert(len - 2, ":");
+    }
+    else if (len == 2)
+    {
+        time = time.Insert(0, "0:");
+    }
+    else
+    {
+        time = time.Insert(0, "0:0");
+    }
+
+    Console.Write($"{time} ");
+}
+
+Console.WriteLine();
+
+Console.WriteLine("Enter new GMT");
+int newGMT = Convert.ToInt32(Console.ReadLine());
+
+if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+{
+    Console.WriteLine("Invalid GMT");
+}
+else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+{
+    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+
+    /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    for (int i = 0; i < times.Length; i++) 
+    {
+        times[i] = ((times[i] + diff)) % 2400;
+    }
+} 
+else 
+{
+    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+
+    /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    for (int i = 0; i < times.Length; i++) 
+    {
+        times[i] = ((times[i] + diff)) % 2400;
+    }
+}
+
+Console.WriteLine("New Medicine Schedule:");
+
+/* Format and display medicine times */
+foreach (int val in times)
+{
+    string time = val.ToString();
+    int len = time.Length;
+
+    if (len >= 3)
+    {
+        time = time.Insert(len - 2, ":");
+    }
+    else if (len == 2)
+    {
+        time = time.Insert(0, "0:");
+    }
+    else
+    {
+        time = time.Insert(0, "0:0");
+    }
+
+    Console.Write($"{time} ");
+}
+
+Console.WriteLine();
+
+请注意，有多个
+for
+-loop 重复相同的代码。
+有两
+foreach
+个循环可以设置格式并显示医学时间。 另外还有两
+for
+个循环根据时区差异调整时间。
+编写代码时，你可能会发现自己重复执行相同任务的代码块。 这是使用方法执行任务来合并代码的绝佳机会。 让我们来练习一下！
+
+创建执行重复任务的方法
+确定重复代码后，可以创建一个方法来包含代码并删除重复代码。 使用方法增加了缩短代码并提高可读性的好处！ 循环
+foreach
+格式并显示时间值，因此你可以为方法提供一个清楚地反映该任务的名称。 可以使用调整时间的
+for
+循环执行相同的作。 让我们开始吧！
+
+添加代码： 
+void DisplayTimes() 
+{
+
+}
+
+若要定义方法正文，请复制并粘贴
+DisplayTimes
+块来更新
+foreach
+方法，如下所示：
+
+void DisplayTimes() 
+{
+    /* Format and display medicine times */
+    foreach (int val in times)
+    {
+        string time = val.ToString();
+        int len = time.Length;
+
+        if (len >= 3)
+        {
+            time = time.Insert(len - 2, ":");
+        }
+        else if (len == 2)
+        {
+            time = time.Insert(0, "0:");
+        }
+        else
+        {
+            time = time.Insert(0, "0:0");
+        }
+
+        Console.Write($"{time} ");
+    }
+
+    Console.WriteLine();
+}
+
+在此方法中，你将在显示时间后添加对末尾的调用
+Console.WriteLine
+以追加一个新行。 接下来，你将创建另一种方法来根据时区差异调整时间。
+在上一个代码的末尾输入新的空白代码行。
+在新的空白代码行上，输入以下代码来创建方法签名：
+void AdjustTimes() 
+{
+
+}
+通过复制并粘贴
+for
+循环来更新方法，如下所示：
+
+步骤 3：调用方法
+
+在此任务中，你将删除重复的代码块，并将其替换为对所创建方法的调用。
+在注释“格式和显示医学时间”下找到重复
+foreach
+循环的第一个实例：
+Console.WriteLine("Current Medicine Schedule:");
+
+/* Format and display medicine times */
+foreach (int val in times)
+{
+    ...
+}
+
+Console.WriteLine();
+
+Console.WriteLine("Enter new GMT");
+
+将标识的代码替换为对方法的
+DisplayTimes
+调用。 替换应生成以下代码：
+
+Console.WriteLine("Current Medicine Schedule:");
+DisplayTimes();
+
+Console.WriteLine("Enter new GMT");
+
+接下来，你将替换重复代码的第二个实例。
+在注释“格式并显示医学时间”下找到循环的第
+foreach
+二个实例：
+
+Console.WriteLine("New Medicine Schedule:");
+
+/* Format and display medicine times */
+foreach (int val in times)
+{
+    ...
+}
+
+Console.WriteLine();
+
+将标识的代码替换为对方法的
+DisplayTimes
+调用。 替换应生成以下代码：
+Console.WriteLine("New Medicine Schedule:");
+DisplayTimes();
+
+
+请注意如何使用方法代替大型代码块，从而更清晰地了解代码，并使代码更易于理解。 让我们对
+AdjustTimes
+创建的方法执行相同的操作。
+
+使用重复
+for
+的 -loops 找到以下代码：
+else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+{
+    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+
+    /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    for (int i = 0; i < times.Length; i++) 
+    {
+        times[i] = ((times[i] + diff)) % 2400;
+    }
+} 
+else 
+{
+    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+
+    /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    for (int i = 0; i < times.Length; i++) 
+    {
+        times[i] = ((times[i] + diff)) % 2400;
+    }
+}
+
+将注释下的重复代码实例替换为对
+AdjustTimes
+方法的调用“通过添加差异来调整时间”。 替换应生成以下代码：
+
+else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+{
+    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+    AdjustTimes();
+} 
+else 
+{
+    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+    AdjustTimes();
+}
+
+
+
+
+第五节： 练习 - 使用方法生成代码
+
+方法对于组织代码、重用代码和有效地解决问题非常有用。 可以将方法想象成一个接受输入、执行指定任务并返回输出的黑盒。 根据此假设，只需将任务命名为方法，然后在确定所有必要的任务后填写逻辑，即可快速构建程序。
+如果使用简单的语言来描述代码中的步骤，而不严格遵守语法规则，那么你就是在使用“伪代码”。 将方法和伪代码相结合这种办法非常适合用于快速完成任何具有挑战性的编程任务。
+
+使用方法构建代码
+假设你是编码面试的候选人。 面试官希望你编写一个程序来检查 IPv4 地址是有效还是无效。 规则如下：
+有效的 IPv4 地址由四个数字组成，以点分隔
+每个数字不得包含前导零
+每个数字的范围必须介于 0 到 255 之间
+有效 IP 地址的示例：1.1.1.1 和 255.255.255.255。
+IPv4 地址以字符串的形式提供。 可以假设它只包含数字和点（提供的字符串中没有字母）。
+你将如何完成此任务？
+注意
+即使不熟悉 IP 地址，也不要担心！ 你仍然可以按照步骤完成本练习中的代码。
+
+
+拆分问题
+在此任务中，你将确定解决问题所需的步骤。 如果仔细查看规则，可以发现只需三个步骤即可确定 IPv4 地址是否有效。
+
+键入伪代码
+/*
+if ipAddress consists of 4 numbers
+and
+if each ipAddress number has no leading zeroes
+and
+if each ipAddress number is in range 0 - 255
+
+then ipAddress is valid
+
+else ipAddress is invalid
+*/
+
+伪代码是开始处理任何问题的好方法。 使用此注释块，可以弥合提示规则和程序代码之间的差距，阐明代码将执行的主要任务。 伪代码无需正常运行或遵守语法规则，但它应该清楚地说明代码将执行的操作。 现在，让我们将其转换为真实代码！
+输入新的空白代码行，然后在编辑器中键入以下代码：
+
+if (ValidateLength() && ValidateZeroes() && ValidateRange()) 
+{
+    Console.WriteLine($"ip is a valid IPv4 address");
+} 
+else 
+{
+    Console.WriteLine($"ip is an invalid IPv4 address");
+}
+
+在此步骤中，将伪代码中的
+if
+语句转换为可调用的方法并输出结果。 此时不用担心如何定义方法；可以假定每个方法都执行其名称所述的任务。 很快你将修复编译错误并创建方法逻辑，但现在要着眼于大局。 开始编写新程序时，专注于整体设计有助于保持井然有序并更快地开发应用程序。
+在现有代码下方输入新的空白代码行，然后在编辑器中键入以下代码：
+
+void ValidateLength() {}
+void ValidateZeroes() {}
+void ValidateRange() {}
+
+注意，使用占位符方法可让你快速解决问题并构建代码来开发解决方案。 有了结构化的计划后，便可通过逐段填写代码来继续解决问题。
+
+开发解决方案
+现在，你已拥有解决问题所需的所有占位符方法，接下来可以开始关注解决方案的细节了。 请记住，IPv4 地址的输入格式将是一个由点分隔的数字组成的字符串。 让我们开始吧！
+开始编写程序时，创建变量来存储输入和验证状态：
+
+string ipv4Input = "107.31.1.5";
+bool validLength = false;
+bool validZeroes = false;
+bool validRange = false;
+
+第一条规则规定 IPv4 地址需要有四个数字。 因此，在此代码中，使用
+string.Split
+分隔数字并检查其中包含四个数字。
+4.
+更新
+ValidateZeroes
+方法，如下所示：
+
+void ValidateZeroes() 
+{
+    string[] address = ipv4Input.Split(".");
+
+    foreach (string number in address) 
+    {
+        if (number.Length > 1 && number.StartsWith("0")) 
+        {
+            validZeroes = false;
+        }
+    }
+
+    validZeroes = true;
+}
+
+花点时间思考如何将规则转换为代码。
+第二条规则规定 IPv4 地址中的数字不得包含前导零。 因此，该方法需要检查数字中的前导零，同时接受
+0
+作为有效数字。 如果所有数字都具有有效的零，则
+validZeroes
+应等于
+true
+，否则应等于
+false
+。 因此，在此代码中，检查每个数位大于一的数字未以 0 开头。
+如果仔细观察，你会发现在
+validZeroes
+循环完成后，
+true
+设置为
+foreach
+。 但如果未找到前导零，只需将
+validZeroes
+设置为
+true
+。 可通过在
+validZeroes = true
+循环运行之前设置
+foreach
+来更正此 bug。 但是，也可使用 return 语句更正此 bug。
+
+将代码更新为以下内容：
+foreach (string number in address) 
+{
+    if (number.Length > 1 && number.StartsWith("0")) 
+    {
+        validZeroes = false;
+        return;
+    }
+}
+
+return 语句终止方法的执行，并将控制返回给方法调用方。 如果在
+return
+之后添加
+validZeroes = false
+语句，则会在找到第一个无效的零后终止该方法。 如果未找到无效的零，该方法将在
+validZeroes
+设置为
+true
+后终止。 我们再来看看下一个方法。
+
+更新
+ValidateRange
+方法，如下所示：
+
+void ValidateRange() 
+{
+    string[] address = ipv4Input.Split(".");
+
+    foreach (string number in address) 
+    {
+        int value = int.Parse(number);
+        if (value < 0 || value > 255) 
+        {
+            validRange = false;
+            return;
+        }
+    }
+    validRange = true;
+}
+
+第三条规则规定 IPv4 地址中每个数字的范围必须在 0 到 255 之间。 因此，在此代码中，检查每个数字是否小于 255，如果不是，则在将
+validRange
+设置为
+false
+后终止执行。 由于输入字符串仅包含数字和点，因此无需检查负数。
+但可能存在点之间没有数字的情况。 例如“255...255”。 在这种情况下，
+string.Split(".")
+将返回空条目，从而导致
+int.Parse
+失败。 可通过指定
+StringSplitOptions
+来防止这种情况。
+
+按以下方式更新您的代码：
+string[] address = ipv4Input.Split(".", StringSplitOptions.RemoveEmptyEntries);
+
+使用
+StringSplitOptions.RemoveEmptyEntries
+时，会省略
+address
+数组中的空条目并防止尝试分析空字符串。
+
+完成解决方案
+所有方法都完成 IP 地址的验证后，便可重新访问初始解决方案。 在此任务中，你将添加更多输入值并准备测试代码。
+找到
+string ipv4Input = "107.31.1.5";
+更新代码
+string[] ipv4Input = {"107.31.1.5", "255.0.0.255", "555..0.555", "255...255"};
+开发解决方案时，请务必使用不同的输入用例测试代码。 在此代码中，提供一个合适的测试值范围。 更新测试输入后，需要更新代码才能使用新值。 由于值位于数组中，因此需要更新代码才能使用循环测试每个值。
+按以下方式更新您的代码：
+
+foreach (string ip in ipv4Input) 
+{
+    ValidateLength(); 
+    ValidateZeroes(); 
+    ValidateRange();
+
+    if (validLength && validZeroes && validRange) 
+    {
+        Console.WriteLine($"{ip} is a valid IPv4 address");
+    } 
+    else 
+    {
+        Console.WriteLine($"{ip} is an invalid IPv4 address");
+    }
+}
+
+最后，需要修复每个方法使用的输入数据，因为
+ipv4Input
+从字符串更新为了数组。 由于每个方法都使用
+string.Split
+，因此可以声明一个变量来存储
+string.Split
+的结果并在每个方法中改为使用它。
+添加变量以存储每个方法将引用的当前 IPv4 地址：
+
+使用
+address
+初始化
+string.Split
+，如下所示：
+
+检查你的工作
+在此任务中，从集成终端运行应用程序，并验证代码是否正常工作。 现在就开始吧。
+
+string[] ipv4Input = {"107.31.1.5", "255.0.0.255", "555..0.555", "255...255"};
+string[] address;
+bool validLength = false;
+bool validZeroes = false;
+bool validRange = false;
+
+foreach (string ip in ipv4Input) 
+{
+    address = ip.Split(".", StringSplitOptions.RemoveEmptyEntries);
+
+    ValidateLength(); 
+    ValidateZeroes(); 
+    ValidateRange();
+
+    if (validLength && validZeroes && validRange) 
+    {
+        Console.WriteLine($"{ip} is a valid IPv4 address");
+    } 
+    else 
+    {
+        Console.WriteLine($"{ip} is an invalid IPv4 address");
+    }
+}
+
+void ValidateLength() 
+{
+    validLength = address.Length == 4;
+};
+
+void ValidateZeroes() 
+{
+    foreach (string number in address) 
+    {
+        if (number.Length > 1 && number.StartsWith("0")) 
+        {
+            validZeroes = false;
+            return;
+        }
+    }
+
+    validZeroes = true;
+}
+
+void ValidateRange() 
+{
+    foreach (string number in address) 
+    {
+        int value = int.Parse(number);
+        if (value < 0 || value > 255) 
+        {
+            validRange = false;
+            return;
+        }
+    }
+    validRange = true;
+}
+
+最后输出： 
+107.31.1.5 is a valid IPv4 address
+255.0.0.255 is a valid IPv4 address
+555..0.555 is an invalid IPv4 address
+255...255 is an invalid IPv4 address
+
+总结： 
+下面是到目前为止你了解到的关于使用方法的内容：
+方法可用于快速构建应用程序
+return
+关键字可用于终止方法执行
+问题的每个步骤通常都可以转换为它自己的方法
+使用方法解决小问题，以构建解决方案
+
+
+
+
+练习： 
+你正在帮助开发一个大型多玩家角色扮演游戏。
+ 每个玩家都有一个运气统计数据，
+可能会影响他们找到稀有宝藏的几率。
+ 每天，
+玩家可以与游戏内的算命师交谈，
+算命师会揭示其运气统计数据是高、低还是一般。
+游戏当前具有生成玩家时运的代码，
+但无法重复使用。
+ 你的任务是创建一个可随时调用的 tellFortune 方法，
+并将现有逻辑替换为对该方法的调用。
+在此挑战中，
+你将获得一些起始代码。
+ 必须决定如何创建和调用 tellFortune 方法。
+代码挑战：创建可重用的方法
+在开始的代码中，
+有一个泛型文本数组，
+后跟“好”、“坏”和“一般”文本数组。
+ 根据 luck 的值，
+选择其中一个数组与泛型文本一起显示。
+你的挑战是创建一个可重用的方法，
+随时打印玩家的时运。
+ 该方法应包含提供的代码中已存在的逻辑。
+确保在 Visual Studio Code 中打开了一个空的 Program.cs 文件。
+如有必要，
+请打开 Visual Studio Code，
+然后完成以下步骤，
+以在编辑器中准备 Program.cs 文件：
+在“文件”菜单中，
+选择“打开文件夹”。
+使用“打开文件夹”对话框导航到 CsharpProjects 文件夹，
+然后打开。
+在 Visual Studio Code 的“资源管理器”窗格中，
+选择“Program.cs”。
+在 Visual Studio Code 的“选择”菜单上，
+选择“全选”，
+然后按 Delete 键。
+复制以下代码并将其粘贴到编辑器中：
+c#
+Random random = new Random();
+int luck = random.Next(100);
+string[] text = {"You have much to",
+ "Today is a day to",
+ "Whatever work you do",
+ "This is an ideal time to"};
+string[] good = {"look forward to.",
+ "try new things!",
+ "is likely to succeed.",
+ "accomplish your dreams!"};
+string[] bad = {"fear.",
+ "avoid major decisions.",
+ "may have unexpected outcomes.",
+ "re-evaluate your life."};
+string[] neutral = {"appreciate.",
+ "enjoy time with friends.",
+ "should align with your values.",
+ "get in tune with nature."};
+Console.WriteLine("A fortune teller whispers the following words:");
+string[] fortune = (luck > 75 ?
+ good : (luck < 25 ?
+ bad : neutral));
+for (int i = 0;
+ i < 4;
+ i++) {
+    Console.Write($"{text[i]} {fortune[i]} ");}
+更新代码以使用方法来显示时运。
+使用学到的有关创建和调用方法的知识来完成更新。
+通过更改 luck 的值并再次调用方法来测试代码。
+验证代码生成以下消息之一：
+Output
+A fortune teller whispers the following words:
+You have much to look forward to.
+ Today is a day to try new things!
+ Whatever work you do is likely to succeed.
+ This is an ideal time to accomplish your dreams! 
+Output
+A fortune teller whispers the following words:
+You have much to appreciate.
+ Today is a day to enjoy time with friends.
+ Whatever work you do should align with your values.
+ This is an ideal time to get in tune with nature. 
+Output
+A fortune teller whispers the following words:
+You have much to fear.
+ Today is a day to avoid major decisions.
+ Whatever work you do may have unexpected outcomes.
+ This is an ideal time to re-evaluate your life.
+
+参考代码： 
+Random random = new Random();
+int luck = random.Next(100);
+
+string[] text = {"You have much to", "Today is a day to", "Whatever work you do", "This is an ideal time to"};
+string[] good = {"look forward to.", "try new things!", "is likely to succeed.", "accomplish your dreams!"};
+string[] bad = {"fear.", "avoid major decisions.", "may have unexpected outcomes.", "re-evaluate your life."};
+string[] neutral = {"appreciate.", "enjoy time with friends.", "should align with your values.", "get in tune with nature."};
+
+TellFortune();
+
+void TellFortune() 
+{
+    Console.WriteLine("A fortune teller whispers the following words:");
+    string[] fortune = (luck > 75 ? good : (luck < 25 ? bad : neutral));
+    for (int i = 0; i < 4; i++) 
+    {
+        Console.Write($"{text[i]} {fortune[i]} ");
+    }
+}

@@ -1,0 +1,655 @@
+第一节： 简介 
+
+假设你是一个团队中的软件开发人员，所在团队与一家物流公司合作。 你的任务是为该公司收集和整理业务数据。 你参与了各种项目，每个项目都各有特点，但都以数据处理为中心。 这些项目涵盖跟踪和报告库存、与业务合作伙伴交换数据以及识别潜在的欺诈性订单。 在这些项目中，常见的操作包括添加、删除、排序、组合、计算、验证数据和格式化输出。
+在此模块中，使用 C# 数组可以将值的序列存储在单个数据结构中。 将数据存储在数组中后，可以修改顺序和内容。 此外，还可以使用数组帮助程序方法执行复杂的字符串操作。
+首先使用帮助程序方法对数据进行排序或逆向处理。 接下来，你将了解如何从数组中删除项并调整数组的大小以适应新项。 然后，了解如何在每次遇到逗号等特定字符时将字符串拆分为较小的字符串，从而将字符串转换为数组。 同一方法还可用于将字符串拆分为字符数组。 最后，了解如何将数组的所有元素加入到一个字符串中。
+通过学习本模块，你将能够：
+排列和反向排列数组元素。
+清除数组元素及调整其大小。
+将string
+拆分为字符串或字符 (char) 的数组。
+将数组元素加入
+string
+
+
+
+第二节： 练习 - 发现 Sort() 和 Reverse() 
+
+Array
+类包含一些方法，可用于操纵数组的内容、排列方式和大小。 在本练习中，你将编写对托盘标识符数组执行各种操作的代码。 你的代码可能是用于为公司跟踪并优化托盘使用情况的应用程序的开端。
+键入代码： 
+string[] pallets = [ "B14", "A11", "B12", "A13" ];
+
+Console.WriteLine("Sorted...");
+Array.Sort(pallets);
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+注意
+此示例使用 C# 12 中引入的
+Collection 表达式语法
+
+花一点时间查看之前添加的代码中的
+Array.Sort(pallets);
+行。
+此处，你使用
+Sort()类的
+Array方法来按字母数字顺序对数组中的项进行排序。
+
+输出结果： 
+Sorted...
+-- A11
+-- A13
+-- B12
+-- B14
+
+反转托盘顺序 
+若要使用
+Array.Reverse()
+方法反转托盘的顺序，请更新代码，如下所示：
+string[] pallets = [ "B14", "A11", "B12", "A13" ];
+
+Console.WriteLine("Sorted...");
+Array.Sort(pallets);
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Console.WriteLine("Reversed...");
+Array.Reverse(pallets);
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+ 将重点放在之前添加的代码中的代码行 
+Array.Reverse(pallets);
+  上。 此处，你使用 
+Reverse()  类的 Array  方法来反转各项的顺序。
+
+运行结果： 
+Sorted...
+-- A11
+-- A13
+-- B12
+-- B14
+
+Reversed...
+-- B14
+-- B12
+-- A13
+-- A11
+
+总结： 
+以下是本单元中涉及的几个重要概念：
+Array 类具有可以操纵数组大小和内容的方法。
+使用
+Sort()
+方法，根据数组的给定数据类型来操纵顺序。
+使用
+Reverse()
+方法来调转数组中元素的顺序。
+
+1. 哪个选项最准确地描述了  Array.Sort(pallets);  是一个  pallets  数组的代码  string ？
+Sort 表示强制转换操作 单选按钮  未选中 不可用
+正确答案: Sort 是一种数组方法。 单选按钮  未选中 不可用
+错误答案: Sort 用于对数组精度进行排序。 单选按钮  已选中 不可用
+
+
+第三节： 练习 - 了解 Clear() 和 Resize()
+在您继续为物流公司开发托盘追踪器的过程中，可能需要跟踪新托盘，并从跟踪系统中移除旧托盘。 那么如何创建允许添加和移除托盘的跟踪功能呢？
+
+使用数组方法清除数组并调整其大小 
+使用  
+Array.Clear()  
+方法可以清除数组中特定元素的内容，从而将其替换为数组的默认值。 例如，如果清除  string   数组中的元素，则清除的值将替换为 
+null  。 同样，在清除  int   数组中的元素时，将替换为  0  （零）。
+另一方面，使用  
+Array.Resize()
+  方法可以从数组中添加或移除元素。
+键入代码： 
+string[] pallets = [ "B14", "A11", "B12", "A13" ];
+Console.WriteLine("");
+
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+注意
+此示例使用 C# 12 中引入的
+Collection 表达式语法
+
+花点时间了解代码行
+Array.Clear(pallets, 0, 2);
+此处，使用
+Array.Clear()
+方法来清除存储在
+pallets
+数组元素中的值（从索引
+0
+开始，清除
+2
+个元素）。
+
+运行代码时，你会发现清除了存储在数组内前两个元素中的值。在
+Length
+属性和
+foreach
+语句中，这些元素仍然存在，但当前为空。
+Clearing 2 ... count: 4
+-- 
+-- 
+-- B12
+-- A13
+
+空字符串与 null 
+使用
+Array.Clear()
+时，被清除的元素不再引用内存中的字符串。 事实上，该元素不指向任何内容。 “不指向任何内容”的概念非常重要，最初可能会难以理解。
+如果尝试检索受
+Array.Clear()
+方法影响的某个元素的值，能检索到吗？
+
+访问已清除元素的值 
+需要两种方法来确定已清除元素的值，以查看 C# 编译器如何处理 null 值。
+在  
+Array.Clear(pallets, 0, 2);
+  代码行周围插入新的代码行，如下所示：
+Console.WriteLine($"Before: {pallets[0]}");
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"After: {pallets[0]}");
+
+运行结果，
+Before: B14
+After:
+Clearing 2 ... count: 4
+--
+--
+-- B12
+-- A13
+
+如果关注
+After:
+输出行，你可能会认为
+pallets[0]
+中存储的值是空字符串。 但是，C# 编译器会将 null 值隐式转换为可供显示的空字符串。
+
+在已清除元素上调用字符串帮助程序方法
+为了证明清除后存储在
+pallets[0]
+中的值为 null，将修改代码示例，在
+ToLower()
+上调用
+pallets[0]
+方法。 如果它是字符串，代码应会正常工作。 但如果它为 null，则会使代码引发异常。
+
+若要在每次尝试将
+ToLower()
+写入控制台时调用
+pallets[0]
+方法，请按如下所示更新代码：
+
+Console.WriteLine($"Before: {pallets[0].ToLower()}");
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"After: {pallets[0].ToLower()}");
+
+运行结果： 
+System.NullReferenceException: Object reference not set to an instance of an object.
+
+引发此异常的原因是，尝试在
+pallets[0]
+元素的内容上调用方法时，C# 编译器尚未将 null 隐式转换为空字符串。
+由此可知，
+Array.Clear()
+会删除数组元素对值的引用（如果存在）。 若要解决此问题，可以在尝试输出值之前检查该值是否为 null。
+若要避免错误，可以在访问可能为 null 的数组元素之前添加
+if语句。
+
+if (pallets[0] != null)
+    Console.WriteLine($"After: {pallets[0].ToLower()}");
+
+
+调整数组大小以添加更多元素 
+接下来，重写步骤 1 中的代码列表，在其中包含用于调整数组大小的代码。 完成后，代码应与以下代码列表一致：
+string[] pallets =  ["B14", "A11", "B12", "A13" ];
+Console.WriteLine("");
+
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Array.Resize(ref pallets, 6);
+Console.WriteLine($"Resizing 6 ... count: {pallets.Length}");
+
+pallets[4] = "C01";
+pallets[5] = "C02";
+
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+花几分钟时间了解行
+Array.Resize(ref pallets, 6);
+此时将调用通过引用（使用
+Resize()
+关键字）传入
+pallets
+数组的
+ref
+方法。 在某些情况下，方法会要求按值（默认）或按引用（使用 ref 关键字）来传递参数。 要解释此操作的必要性，需花时间详细阐释 .NET 中对象的管理方式。 很遗憾，这超出了本模块的范围。 如果有疑问，建议查看 Intellisense 或 Microsoft Docs，获取有关如何正确调用给定方法的示例。
+在本例中，要将
+pallets
+数组从 4 个元素调整为
+6
+个。 将新元素添加到当前元素的末尾。 在向这两个新元素赋值之前，其值为 null。
+
+运行结果： 
+Clearing 2 ... count: 4
+-- 
+-- 
+-- B12
+-- A13
+
+Resizing 6 ... count: 6
+-- 
+-- 
+-- B12
+-- A13
+-- C01
+-- C02
+
+
+调整数组大小以删除元素
+相反，可以使用
+Array.Resize()
+来删除数组元素。
+
+键入代码： 
+
+string[] pallets = [ "B14", "A11", "B12", "A13" ];
+Console.WriteLine("");
+
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Array.Resize(ref pallets, 6);
+Console.WriteLine($"Resizing 6 ... count: {pallets.Length}");
+
+pallets[4] = "C01";
+pallets[5] = "C02";
+
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Array.Resize(ref pallets, 3);
+Console.WriteLine($"Resizing 3 ... count: {pallets.Length}");
+
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+运行结果： 
+Clearing 2 ... count: 4
+--
+--
+-- B12
+-- A13
+
+Resizing 6 ... count: 6
+--
+--
+-- B12
+-- A13
+-- C01
+-- C02
+
+Resizing 3 ... count: 3
+--
+--
+-- B12
+
+请注意，调用
+Array.Resize()
+不会删除前两个 null 元素， 而是删除了最后三个元素。 值得注意的是，即使最后三个元素包含字符串值，也会将其删除。
+
+是否能从数组中删除 null 元素？  标题3
+如果
+Array.Resize()
+方法不能从数组中删除空元素，是否存在其他可自动完成此作业的帮助程序方法？ 否。 从数组删除空元素的最佳方式是，通过循环访问每个项并使一个变量（计数器）递增，对非 null 元素进行计数。 接下来，创建另一个与计数器变量大小相同的数组。 最后，循环访问原始数组中的每个元素，并将非 null 值复制到新数组中。
+
+总结： 
+以下是本单元中展示的几处重要内容：
+使用  Clear()  方法清空数组内元素中的值。
+• 使用 Resize()  方法更改数组中的元素数，从数组末尾删除或添加元素。
+• 新的数组元素和已清除的元素为 null，这意味着它们不指向内存中的值。
+
+1. 哪个选项最准确地描述了代码 Array.Clear(pallets, 0, 2);  ？（其中 pallets   是一个 string   数组）
+正确答案: Array.Clear(pallets, 0, 2); 从数组中删除从项目 2 开始的 0 个元素数据。 单选按钮  未选中 不可用
+正确。  Clear  是数组的一种方法，可以删除（用  Null  替换）数组中的特定元素。
+错误答案: Array.Clear(pallets, 0, 2); 从数组元素位置 pallets[0] 和 pallets[2] 中删除数据。 单选按钮  已选中 不可用
+Array.Clear(pallets, 0, 2); 删除等于 0 或 2 的数组元素。 单选按钮  未选中 不可用
+
+
+
+第四节： 练习 - 了解 Split() 和 Join()
+
+当你继续为一家物流公司进行开发工作时，你将开始构建一系列小型应用程序。 这些应用程序协同工作，从一个合作伙伴的系统获取数据，对其进行修改，然后以所需格式将其传递给内部系统。
+若要执行数据转换，需要以字符串形式接受传入数据，将其解析为较小的数据元素，然后通过操纵使其匹配其他所需格式。 如何将字符串数据解析为较小的数据元素呢？
+
+字符串数据类型的数组方法 
+string
+类型的变量具有许多内置方法，可将单个字符串转换为较小字符串的数组，或转换为单个字符的数组。
+当你处理来自其他计算机系统的数据时，有时它会以一种对你的意图没有帮助的方式进行格式设置或编码。 在这些情况下，请使用
+string
+数据类型的数组方法，将字符串解析为数组。
+
+使用
+ToCharArray()
+以反向排列
+string
+键入代码： 
+
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+
+在此示例中，
+ToCharArray()
+方法用于创建一个
+char
+的数组，其中数组的每个元素表示原始字符串的一个字符。
+
+反向排列该字符数组中的元素，然后将其合并为新的字符串
+接下来，将反转数组中的字符顺序，然后使用
+Write
+方法将它们合并回单个输出中。
+键入代码： 
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+Array.Reverse(valueArray);
+string result = new string(valueArray);
+Console.WriteLine(result);
+
+表达式
+new string(valueArray)
+会新建
+System.String
+类的空实例（与 C# 中的
+string
+数据类型相同），并以构造函数的形式传入字符数组。
+注意
+什么是
+new
+关键字？
+System.String
+类与 C# 中
+string
+数据类型有什么关系？ 什么是构造函数？ 这些都是很好的问题，但很遗憾，他们都超出了此模块内容。 建议继续了解 .NET 类库以及 C# 中的类和对象，以便充分了解这种代码表现的内在原理。 目前，当你确定要执行转换但不确定如何使用 C# 来执行此操作，或有类似情况时，使用搜索引擎和 Microsoft 文档查找可供参考的典型示例。
+
+上面代码运行结果： 
+321cba
+
+
+使用 
+Join()
+，将所有字符合并为新的逗号分隔值字符串
+在某些情况下，可能需要使用逗号分隔字符数组的每个元素，这是处理表示为 ASCII 文本的数据时的常见做法。 为此，注释掉在步骤 2 中添加的代码行，并使用
+String
+类的
+Join()
+方法，传入要用于分段的字符（逗号）和数组本身。
+
+键入代码： 
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+Array.Reverse(valueArray);
+// string result = new string(valueArray);
+string result = String.Join(",", valueArray);
+Console.WriteLine(result);
+运行结果： 
+3,2,1,c,b,a
+
+对逗号分隔值字符串执行
+Split()
+操作，以拆分为字符串数组
+为了完成代码，将使用
+Split()
+方法。 此方法适用于类型
+string
+的变量，并会创建字符串数组。
+添加代码： 
+string[] items = result.Split(',');
+foreach (string item in items)
+{
+    Console.WriteLine(item);
+}
+
+花点时间查看之前的代码。
+逗号作为分隔符提供给
+.Split()
+，将一个长字符串拆分为较小字符串。 然后，代码使用
+foreach
+循环来循环访问新创建的字符串数组
+items
+的每个元素。
+
+代码如下： 
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+Array.Reverse(valueArray);
+// string result = new string(valueArray);
+string result = String.Join(",", valueArray);
+Console.WriteLine(result);
+
+string[] items = result.Split(',');
+foreach (string item in items)
+{
+    Console.WriteLine(item);
+}
+
+运行结果： 
+3,2,1,c,b,a
+3
+2
+1
+c
+b
+a
+
+使用
+items
+创建的
+string[] items = result.Split(',');
+数组用于
+foreach
+循环且显示
+string
+变量中包含的原始
+value中的各个字符。
+
+
+总结： 
+处理字符串和数组时，应谨记以下要点：
+若要创建数组，使用
+ToCharArray()
+和
+Split()
+等方法
+若要将数组转换回单个字符串，使用
+Join()
+等方法，或创建传入
+char
+数组的新字符串
+
+课后问答：
+1. String.Join("-", myArray);  是联接的示例。 哪个解释最适合此示例？
+错误答案: 从与 myArray（逗号）连接的 , 中的项构造字符数组。 单选按钮  已选中 不可用
+正确答案: 从与 myArray（短划线）连接的 - 中的项构造字符串。 单选按钮  未选中 不可用
+正确。  String.Join  从  myArray  的元素构造字符串）。
+构造与 myArray（短划线）连接的名为 - 的字符串。 单选按钮  未选中 不可用
+
+
+第五节： 练习1
+练习 - 完成在句子中反向拼写单词的挑战  标题1
+代码挑战将强化所学知识，有助于在继续操作之前增强自信。
+很多时候都需要将本模块中介绍的几个概念组合成一个解决方案。 你应该努力将较大的问题分解成若干小问题，然后使用本模块中的各个概念来解决每个小问题。
+
+编写代码以反向拼写消息中的每个单词
+
+string pangram = "The quick brown fox jumps over the lazy dog";
+
+编写必要的代码来反向排列构成每个单词的字母，并显示结果。
+换言之，不要只反向排列变量
+pangram
+中的每个字母， 相反，你只需要反向排列构成每个单词的字母，但仍以反向拼写单词在消息中的原始位置打印它们。
+代码必须生成以下输出：
+ehT kciuq nworb xof spmuj revo eht yzal god
+
+重要
+这是一个特别困难的挑战。 需要结合本练习中学习到的许多概念，包括
+Split()
+ToCharArray()
+Array.Reverse()
+和
+String.Join()
+的使用。 还需要创建多个数组和至少一个迭代语句。
+祝你好运！ 不断把问题分解成小步骤，然后解决一个特定步骤再继续进行下一步即可。
+
+
+提供的以下解决方案是众多可能的解决方案之一。 解决此挑战的方法是将解决方案分解为四个步骤：
+1
+如要创建字符串数组
+message
+，请在空格字符处拆分
+pangram
+字符串。
+2.
+创建一个新的
+newMessage
+数组，用于存储
+message
+数组中“word”字符串的反向副本。
+3.
+循环访问
+message
+数组中的每个元素，反转它，并将该元素存储在
+newMessage
+数组中。
+4.
+再次使用空格连接数组
+newMessage
+中的“word”字符串，以创建要写入控制台的所需单个字符串。
+
+string pangram = "The quick brown fox jumps over the lazy dog";
+
+// Step 1
+string[] message = pangram.Split(' ');
+
+//Step 2
+string[] newMessage = new string[message.Length];
+
+// Step 3
+for (int i = 0; i < message.Length; i++)
+{
+    char[] letters = message[i].ToCharArray();
+    Array.Reverse(letters);
+    newMessage[i] = new string(letters);
+}
+
+//Step 4
+string result = String.Join(" ", newMessage);
+Console.WriteLine(result);
+
+
+第七节： 练习 - 完成一项分析订单字符串、对订单进行排序并标记可能错误
+
+数据有多种格式。 在此挑战中，你必须分析单个“订单 ID”，如果“订单 ID”的长度不全为四个字符，则输出已排序并标记为“错误”的“OrderIDs”。
+string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+请注意，在前面的代码中，
+orderStream
+变量包含由逗号分隔的多个订单 ID 组成的
+string
+在前面的代码下方添加代码，以分析传入订单的
+string
+中的“订单 ID”，并将“订单 ID”存储在数组中。
+添加代码，以排序的顺序输出每个“订单 ID”，并将长度不全为四个字符的订单标记为“- 错误”。
+保存并运行代码
+代码必须生成以下输出：
+A345
+B123
+B177
+B179
+C15     - Error
+C234
+C235
+G3003   - Error
+
+string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+
+string[] message = orderStream.Split(',');
+Array.Sort(message);
+string[] newMessage = new string[message.Length];
+
+int[] stringLength = new int[message.Length];
+for (int i = 0; i < message.Length; i++)
+{
+    newMessage[i] = message[i];
+    stringLength[i] = message[i].Length;
+    if (message[i].Length == 5 || message[i].Length == 3)
+    {
+        Console.WriteLine($"{message[i]} error");
+    }
+    else
+    {
+        Console.WriteLine($"{message[i]}");
+    }
+}
+
+
+参考答案： 
+string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+string[] items = orderStream.Split(',');
+Array.Sort(items);
+
+foreach (var item in items)
+{
+    if (item.Length == 4)
+    {
+        Console.WriteLine(item);
+    }
+    else
+    {
+        Console.WriteLine(item + "\t- Error");
+    }
+}
+
+
+知识检查： 
+1. 哪种方法更改数组中  string  项的顺序？
+myArray.Resize() 单选按钮  未选中 不可用
+myArray.Clear() 单选按钮  未选中 不可用
+Array.Sort() ＂ Correct 单选按钮  已选中 不可用
+2.  什么是 null？
+与空字符串相同。 单选按钮  未选中 不可用
+与值零相同。 单选按钮  未选中 不可用
+指示变量不指向内存中任何内容的值。 ＂ Correct 单选按钮  已选中 不可用
+

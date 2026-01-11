@@ -1,0 +1,673 @@
+第一节简介： 
+
+假设你为之提供服务的营销部门会向公司的现有客户（即机构投资者）发送成千上万封个性化信件。 你团队的工作是将新的金融产品推广给客户。 你发送的每封信件中都整合了有关客户的个性化信息。 信件中会比较客户当前投资组合的收益以及使用最新产品的预期收益。 如何正确地整合数据并设置其格式？
+从较高层面看，软件开发者关注以下事项：
+数据输入
+，包括用户通过键盘、鼠标、设备或其他软件系统通过网络请求键入的数据。
+数据处理
+，包括决策逻辑、操作数据和执行计算。
+数据输出
+，包括通过命令行消息、窗口、网页或将处理的数据保存到文件中并向最终用户呈现，并将其发送到网络服务。
+若要解决 C# 中的业务问题，需要处理不同类型的数据，例如字符串和数字。 还需要对数据执行各种操作，例如计算、比较或转换。 在本模块中，你将使用各种格式设置选项在 C# 中输出字符串和数值数据。 你还将使用数据合并技术创建收据模拟和个性化营销消息。
+通过学习本模块，你将能够：
+使用复合格式设置将字符串模板与变量合并。
+使用各种格式说明符正确地显示百分比、货币和数字。
+使用填充方法正确对齐字符串值。
+
+
+第二节： 练习 - 了解字符串格式设置基础知识 
+
+在本单元中，你将了解格式化字符串以高效显示的方法，尤其是对于使用多个变量的情况。
+什么是复合格式设置？ 
+复合格式化在字符串中使用带编号的占位符。 在运行时，大括号内的所有内容都将解析为一个值，该值也是根据大括号的位置传入的。
+此复合格式设置示例对
+Format()
+数据类型关键字使用
+string
+内置方法。 在 Visual Studio Code 编辑器中更新代码，如下所示：
+
+string first = "Hello";
+string second = "World";
+string result = string.Format("{0} {1}!", first, second);
+Console.WriteLine(result);
+
+运行结果： 
+Hello World!
+关于此代码，需要注意几项重要事项。
+给定数据类型的数据类型和变量具有内置“帮助程序方法”，可简化某些任务。
+文本字符串
+"{0} {1}!"
+构成一个模板，其中部分内容在运行时被替换。
+标记
+{0}
+替换为字符串模板后的第一个参数，即
+first
+变量的值。
+标记
+{1}
+替换为字符串模板后的第二个参数，即
+second
+变量的值。
+注意
+你可能会认为以数字 0 开头很奇怪。 实际上，这在软件部署中非常常见。 只要有一系列可使用数字标识的项，编号通常就是从 0 开始。
+
+更新代码： 
+string first = "Hello";
+string second = "World";
+Console.WriteLine("{1} {0}!", first, second);
+Console.WriteLine("{0} {0} {0}!", first, second);
+
+运行结果： 
+World Hello!
+Hello Hello Hello!
+
+对这些示例的一些观察：
+对于第一个
+Console.WriteLine()
+语句，会看到标记可按任意顺序排列。 示例代码在
+{1}
+之前会出现
+{0}
+对于第二个
+Console.WriteLine()
+语句，会看到标记可与
+{0}
+的三个实例一起重复使用。 此外，不使用第二个变量参数
+second
+。 但代码仍可正常运行。
+
+什么是字符串内插？  标题3
+“字符串内插”是一种可简化复合格式化的技术
+只需使用大括号内的变量名，而不需要使用有编号的标记，并在
+String.Format()
+或
+Console.WriteLine()
+参数列表中包括文本值或变量名称。
+1.
+为了对字符串进行插值，必须在其前面加上
+$
+指令。 现在，请使用字符串插值而不是复合格式来创建之前相同的示例。 按以下方式更新您的代码：
+
+string first = "Hello";
+string second = "World";
+Console.WriteLine($"{first} {second}!");
+Console.WriteLine($"{second} {first}!");
+Console.WriteLine($"{first} {first} {first}!");
+
+运行结果： 
+Hello World!
+World Hello!
+Hello Hello Hello!
+
+注意
+如果在书籍和网络中查看代码示例，可能会发现同时使用了“复合格式化”和“字符串插值”，但通常应该选择“字符串插值”。
+
+
+设置货币格式  标题3
+复合格式设置和字符串内插可用于根据特定语言和区域性设置显示值的格式。 在下面的示例中，
+:C
+货币格式说明符用于将
+price
+和
+discount
+变量以货币形式显示。 按以下方式更新您的代码：
+
+decimal price = 123.45m;
+int discount = 50;
+Console.WriteLine($"Price: {price:C} (Save {discount:C})");
+如果在 Windows 显示语言设置为“英语(美国)”的计算机上执行此代码，会看到以下输出。
+Price: $123.45 (Save $50.00)
+中文环境下输出： 
+Price: ¥123.45 (save ¥50.00)
+
+请注意，无论使用
+:C
+还是
+int
+，在大括号内的标记中添加
+decimal
+都会将数字格式化为货币。
+注意
+如果国家/地区和语言未知，会发生什么情况？ 如果在“浏览器内”.NET 编辑器中运行前面的代码（例如在
+TrydotNet
+中），将看到以下输出：
+Price: ¤123.45 (Save ¤50.00)
+。 使用
+¤
+符号，而不是所在国家/地区的货币符号。 这是用于在任何货币类型下表示“货币”的通用符号
+。 在 .NET 编辑器中显示此符号，因为此符号会忽略当前位置。
+
+用户的国家/地区和语言对字符串格式设置的影响
+如果在法国的一台“Windows 显示语言”设置为“法语”的计算机上执行前面的代码，会怎样？ 在此情况下，会显示以下输出。
+Price: 123,45 € (Save 50,00 €)
+前面输出“€”的原因是，字符串货币格式设置功能取决于本地计算机的“区域性”设置
+。 在此上下文中，术语“区域性”指的是最终用户的国家/地区和语言。 “区域性代码”是一个由五个字符组成的字符串，计算机使用它来标识最终用户的位置和语言
+。 文化代码确保可以正确显示日期和货币等特定信息。
+例如：
+美国说英语的人的区域性代码是
+en-US
+法国说法语的人的文化代码是
+fr-FR
+加拿大法语使用者的文化代码是
+fr-CA
+文化影响书写系统、所用日历、字符串排序，以及日期和数字的格式（如货币格式）。
+遗憾的是，确保代码在所有计算机上正常运行，而不受最终用户的国家/地区或语言影响，这确实具有挑战性。 此过程称为本地化（或全球化）。 本地化取决于本模块中未讨论的许多因素，但简单地说，字符串格式设置语法可能会根据用户的区域性使用不同的格式。
+
+设置数值格式  标题3
+处理数字数据时，可能需要用逗号分隔千位、百万位、十亿位等来设置数字格式，提高其可读性。
+N
+数值格式说明符使数字更具可读性。 按以下方式更新您的代码：
+
+如果以
+en-US
+文化查看此项，会看到以下输出。
+Measurement: 123,456.79 units
+N
+数值格式说明符默认仅显示小数点后两位数字。
+如果要以更高的精度显示，可通过在说明符后面添加数字来实现。 下面的代码将使用
+N4
+说明符显示小数点后四位数字。 按以下方式更新您的代码：
+
+decimal measurement = 123456.78912m;
+Console.WriteLine($"Measurement: {measurement:N4} units");
+
+如果以
+en-US
+文化查看此项，会看到以下输出。
+Measurement: 123,456.7891 units
+
+
+设置百分比的格式
+使用
+P
+格式说明符设置百分比的格式，并将百分比舍入为 2 个小数位。 之后添加一个数字来控制小数点后显示位数。 按以下方式更新您的代码：
+
+decimal tax = .36785m;
+Console.WriteLine($"Tax rate: {tax:P2}");
+
+如果以
+en-US
+文化查看此项，会看到以下输出。
+Tax rate: 36.79%
+
+结合格式设置方法  标题3
+字符串变量可以存储使用格式设置方法创建的字符串。 在以下示例中，小数和小数数学运算结果使用复合格式设置进行格式化，并存储在
+yourDiscount
+字符串中。
+更新代码如下。
+decimal price = 67.55m;
+decimal salePrice = 59.99m;
+
+string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price. ", (price - salePrice), price);
+
+Console.WriteLine(yourDiscount);
+
+如果以
+en-US
+文化查看此项，会看到以下输出。
+You saved $7.56 off the regular $67.55 price.
+
+可以组合多个格式化字符串。 在前面代码的基础上，通过将
+yourDiscount += $"A discount of {(price - salePrice)/price:P2}!";
+插入到
+Console.WriteLine()
+之前行的代码中，以使用字符串内插而非字符串连接来连接计算的百分比。
+注意
+不需要将
+String.Format()
+与此字符串内插方法一起使用。
+更新代码如下。
+decimal price = 67.55m;
+decimal salePrice = 59.99m;
+
+string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price. ", (price - salePrice), price);
+
+yourDiscount += $"A discount of {((price - salePrice)/price):P2}!"; //inserted
+Console.WriteLine(yourDiscount);
+
+如果您是从
+en-US
+文化查看此单元，您将看到以下输出。
+You saved $7.56 off the regular $67.55 price. A discount of 11.19%!
+
+
+总结： 
+下面是此单元中有关字符串格式设置的最重要的要点：
+可以使用复合格式设置或字符串内插来设置字符串格式。
+借助复合格式设置，可使用包含具有
+格式的一个或多个替换标记的字符串模板
+{0}
+。 你还可提供参数列表，这些参数根据其顺序与替换标记相匹配。 使用
+string.Format()
+或
+Console.WriteLine()
+时，复合格式设置有效。
+借助字符串内插，可通过以大括号括起来的形式使用字符串模板，其中包含要替换的变量名
+。 在字符串模板之前使用
+$
+指令，以指示希望对字符串进行插值。
+使用
+:C
+说明符设置货币的格式。
+使用
+:N
+说明符设置数字的格式。 在数字后使用
+:N
+，如
+{myNumber:N3}
+，控制精度（小数点后的位数）。
+使用
+:P
+格式说明符设置百分比的格式。
+货币和数字的格式设置取决于最终用户的区域性，这是一个五个字符的代码，其中包括用户的国家/地区和语言（具体取决于计算机的设置）。
+
+知识检查
+1. 哪个是  Console.WriteLine($"Tax rate: {tax:P1}");  的输出（其中  tax  由  decimal tax =.12051m;  定义）？
+Tax rate: 12.05% 单选按钮  未选中 不可用
+Tax rate: 12.10% 单选按钮  未选中 不可用
+正确答案: Tax rate: 12.1% 单选按钮  已选中 不可用
+
+
+
+第三节： 练习 - 探索字符串内插
+
+你需要创建代码来打印客户购买投资产品的股票的收据。 这些股票根据一系列工资扣减在年底自动购买，因此购买的股票数量通常包含小数位数。 若要打印收据，可能需要以精确方式合并不同类型的数据，包括小数值、货币和百分比。
+使用字符串内插显示发票编号  标题2
+键入代码： 
+int invoiceNumber = 1201;
+decimal productShares = 25.4568m;
+decimal subtotal = 2750.00m;
+decimal taxPercentage = .15825m;
+decimal total = 3185.19m;
+
+Console.WriteLine($"Invoice Number: {invoiceNumber}");
+
+运行结果： 
+Invoice Number: 1201
+注意
+你可能会看到多个警告，例如
+warning CS0219: The variable 'productShares' is assigned but its value is never used
+针对已定义但尚未在代码中使用的所有变量。
+
+以千分之一股（0.001）精度显示产品份额
+由于使用股票分数向客户计费，即使精度为 1 万分之一（0.0001），因此仅显示小数点后的三位数。
+在前面键入的代码下面添加以下代码：
+
+运行结果： 
+Invoice Number: 1201
+   Shares: 25.457 Product
+按货币格式显示向客户收取的金额小计  标题2
+在步骤 1 和步骤 2 中键入的代码下面添加以下代码：
+
+Console.WriteLine($"     Sub Total: {subtotal:C}");
+运行结果： 
+Invoice Number: 1201
+   Shares: 25.457 Product
+     Sub Total: $2,750.00
+
+注意
+该示例显示“$”，但可能会看到不同的区域货币符号。
+
+显示以百分比形式表示的销售税
+在步骤 1 到步骤 3 中键入的代码下面添加以下代码：
+Console.WriteLine($"           Tax: {taxPercentage:P2}");
+运行结果： 
+Invoice Number: 1201
+   Shares: 25.457 Product
+     Sub Total: $2,750.00
+           Tax: 15.83%
+
+按货币格式显示应付总额，最终确定收据
+在步骤 1 到 4 中键入的代码下面添加以下代码：
+
+Console.WriteLine($"     Total Billed: {total:C}");
+
+
+最终代码： 
+int invoiceNumber = 1201;
+decimal productShares = 25.4568m;
+decimal subtotal = 2750.00m;
+decimal taxPercentage = .15825m;
+decimal total = 3185.19m;
+
+Console.WriteLine($"Invoice Number: {invoiceNumber}");
+Console.WriteLine($"   Shares: {productShares:N3} Product");
+Console.WriteLine($"     Sub Total: {subtotal:C}");
+Console.WriteLine($"           Tax: {taxPercentage:P2}");
+Console.WriteLine($"     Total Billed: {total:C}");
+
+运行结果： 
+Invoice Number: 1201
+   Shares: 25.457 Product
+     Sub Total: $2,750.00
+           Tax: 15.83%
+     Total Billed: $3,185.19
+
+
+
+第四节： 
+
+练习 - 了解填充和对齐
+该方法
+string.Format()
+用于执行复合格式设置，如示例中所示：
+看起来有点奇怪，表示数据类型的关键字具有可按照
+Console
+类中方法的调用方式调用的方法。 事实是，
+string
+数据类型上以及任何文本字符串或属于字符串类型的变量上都有许多类似的方法。
+下面简要列出了这些内置方法的类别，以便你可以了解可能的情况。
+用于为格式设置添加空白的方法 （
+PadLeft()
+PadRight()
+比较两个字符串或促进比较的方法（
+Trim()
+TrimStart()
+TrimEnd()
+GetHashcode()
+Length
+属性）
+帮助确定字符串内部内容的方法，甚至只检索字符串的一部分（
+Contains()
+StartsWith()
+EndsWith()
+Substring()
+）
+通过替换、插入或删除部分
+Replace()
+（、
+Insert()
+Remove()
+） 来更改字符串内容的方法
+将字符串转换为字符串或字符数组的方法 （
+Split()
+ToCharArray()
+
+
+通过在前后添加空格来设置字符串格式  
+该方法
+PadLeft()
+将空格添加到字符串的左侧，使字符总数等于发送该字符串的参数。 在这种情况下，需要字符串的总长度为 12 个字符。
+
+键入代码： 
+string input = "Pad this";
+ Console.WriteLine(input.PadLeft(12));
+运行结果： 
+    Pad this
+
+若要向字符串右侧添加空格或字符，请改用该方法
+PadRight()
+键入代码： 
+Console.WriteLine(input.PadRight(12));
+运行结果： 
+Pad this    
+保存代码文件，然后使用 Visual Studio Code 运行代码。 不会观察到添加到字符串末尾的任何字符，但它们就在那里。
+
+什么是重载方法？  标题3
+在 C# 中，
+重载方法
+是另一个版本，该方法具有不同或额外参数，可稍微修改方法的功能，与该方法的
+PadLeft()
+重载版本的情况一样。
+你还可以调用该方法的第二个
+重载
+版本，并传入你想用的任何字符来替代空格。 在本例中，你将使用短划线字符填充额外的空格。
+键入代码： 
+string input = "Pad this";
+Console.WriteLine(input.PadLeft(12, '-'));
+ Console.WriteLine(input.PadRight(12, '-'));
+
+运行结果： 
+----Pad this
+ Pad this----
+
+现在，将此新发现的知识应用于另一个现实世界场景。
+
+使用填充字符串 
+假设你为仍然支持旧大型机系统的付款处理公司工作。 通常，这些系统需要在特定列中输入数据。 例如，将付款 ID 存储在第 1 至 6 列中、付款人的姓名（列 7 到 30）和第 31 至 40 列中的付款金额。 此外，重要的是，付款金额采用右对齐的格式。
+系统会要求你生成一个应用程序，该应用程序会将关系数据库管理系统中的数据转换为旧文件格式。 为了确保集成正常工作，第一步是通过向旧系统维护者提供输出示例来确认文件格式。 稍后，你将基于这项工作，通过 ASCII 文本文件传送数百或数千笔需要处理的付款。
+
+将付款 ID 添加到输出  标题3
+若要开始，请打印前六列中的付款 ID。 选择一些应足以满足目的的随机付款数据。
+键入代码： 
+string paymentId = "769C";
+
+ var formattedLine = paymentId.PadRight(6);
+
+ Console.WriteLine(formattedLine);
+
+重复使用变量
+formattedLine
+来生成输出字符串。
+
+运行结果： 
+769C  
+右侧有两个不可见的空白。 你将在下一步确认它们的存在。
+
+将付款人名称添加到输出
+接下来，添加虚构的“付款人姓名”，并相应地填充它。
+
+运算符执行字符串连接，将变量
+formattedLine
+的原有值与新值进行合并。 以下代码示例的简化等效形式为:
+formattedLine = formattedLine + payeeName.PadRight(24);
+运行结果： 
+769C  Mr. Stephen Ortega
+同样，在付款人姓名之后有相当多的空白空间。 此外，步骤 1 中的付款 ID 后还有两个空格。
+
+接下来添加虚构的付款金额，并确保使用
+PadLeft()
+使输出右对齐。
+
+更新代码： 
+string paymentId = "769C";
+ string payeeName = "Mr. Stephen Ortega";
+ string paymentAmount = "$5,000.00";
+
+ var formattedLine = paymentId.PadRight(6);
+ formattedLine += payeeName.PadRight(24);
+ formattedLine += paymentAmount.PadLeft(10);
+
+ Console.WriteLine(formattedLine);
+
+运行结果： 
+769C  Mr. Stephen Ortega       $5,000.00
+此输出非常接近你理解的旧系统维护人员正在寻找的内容。
+
+在输出上方添加一行数字，以便更轻松地确认结果  标题3
+由于很难计算每个数据元素的确切列数，因此直接在输出上方添加一行，以帮助对列进行计数。
+键入代码： 
+Console.WriteLine("1234567890123456789012345678901234567890");
+
+代码为： 
+string paymentId = "769C";
+ string payeeName = "Mr. Stephen Ortega";
+ string paymentAmount = "$5,000.00";
+
+ var formattedLine = paymentId.PadRight(6);
+ formattedLine += payeeName.PadRight(24);
+ formattedLine += paymentAmount.PadLeft(10);
+
+ Console.WriteLine("1234567890123456789012345678901234567890");
+ Console.WriteLine(formattedLine);
+
+运行结果： 
+1234567890123456789012345678901234567890
+ 769C  Mr. Stephen Ortega       $5,000.00
+成功！
+
+此单元中有几个重要的要点。
+string
+数据类型、文本字符串和字符串类型的变量都实现了许多辅助方法，用于格式化、修改和执行其他字符串操作。
+使用
+PadLeft()
+和
+PadRight()
+方法可将空格（或可选其他字符）添加到字符串的总长度。
+使用
+PadLeft()
+来右对齐字符串。
+某些方法被重载，这意味着它们具有多个版本的方法，具有影响其功能的不同参数。
+运算符
++=
+将右侧的新字符串连接到左侧的现有字符串上。
+
+1. 给定  
+string myWords = "Learning C#"
+  后，对  Console.WriteLine(myWords.PadLeft(12));  的最佳输出描述是什么？
+正确答案: 将一个空格添加到字符串的开头。 单选按钮  已选中 不可用
+正确。  myWords  的长度为 11 个字符，通过增加一个空格完成填充到 12 个字符。
+将四个空格添加到字符串的开头。 单选按钮  未选中 不可用
+12 个空格将添加到字符串的开头。 单选按钮  未选中 不可用
+
+
+
+第五节： 练习
+对于销售和营销公司的最新投资产品，你向公司的现有客户发送数千封个性化信件。 你的工作是编写 C# 代码以合并有关客户的个性化信息。 信中包含其现有投资组合等信息，并将当前回报与预计的回报进行比较，如果他们要投资使用新产品。
+作者已决定使用以下示例市场营销消息。 下面是所需的输出（使用虚构的客户帐户数据）。
+Dear Ms. Barros,
+As a customer of our Magic Yield offering we are excited to tell you about a new financial product that would dramatically increase your return.
+
+Currently, you own 2,975,000.00 shares at a return of 12.75%.
+
+Our new product, Glorious Future offers a return of 13.13%.  Given your current volume, your potential profit would be ¤63,000,000.00.
+
+Here's a quick comparison:
+
+Magic Yield         12.75%   $55,000,000.00      
+Glorious Future     13.13%   $63,000,000.00
+利用您新掌握的字符串格式化知识来开发一个应用程序，该应用程序能够根据前面的示例输出合并和格式化相应的内容。 请特别注意空格，并确保使用 C# 准确表示此确切格式。
+
+C#代码： 
+string customerName = "Ms. Barros";
+
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
+
+string newProduct = "Glorious Future";
+decimal newReturn = 0.13125m;
+decimal newProfit = 63000000.0m;
+
+// Your logic here
+
+Console.WriteLine("Here's a quick comparison:\n");
+
+string comparisonMessage = "";
+
+// Your logic here
+
+Console.WriteLine(comparisonMessage);
+
+
+使用 Visual Studio Code 编辑器在使用给定变量和代码时生成消息。
+除了注释之外，不得删除任何现有代码。
+确保代码输出以下消息：
+Dear Ms. Barros,
+As a customer of our Magic Yield offering we are excited to tell you about a new financial product that would dramatically increase your return.
+
+Currently, you own 2,975,000.00 shares at a return of 12.75%.
+
+Our new product, Glorious Future offers a return of 13.13%.  Given your current volume, your potential profit would be $63,000,000.00.
+
+Here's a quick comparison:
+
+Magic Yield         12.75%   $55,000,000.00      
+Glorious Future     13.13%   $63,000,000.00
+
+参考答案： 
+string customerName = "Ms. Barros";
+
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
+
+string newProduct = "Glorious Future";
+decimal newReturn = 0.13125m;
+decimal newProfit = 63000000.0m;
+
+Console.WriteLine($"Dear {customerName},");
+Console.WriteLine($"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.\n");
+Console.WriteLine($"Currently, you own {currentShares:N} shares at a return of {currentReturn:P}.\n");
+Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturn:P}.  Given your current volume, your potential profit would be {newProfit:C}.\n");
+
+Console.WriteLine("Here's a quick comparison:\n");
+
+string comparisonMessage = "";
+
+comparisonMessage = currentProduct.PadRight(20);
+comparisonMessage += String.Format("{0:P}", currentReturn).PadRight(10);
+comparisonMessage += String.Format("{0:C}", currentProfit).PadRight(20);
+
+comparisonMessage += "\n";
+comparisonMessage += newProduct.PadRight(20);
+comparisonMessage += String.Format("{0:P}", newReturn).PadRight(10);
+comparisonMessage += String.Format("{0:C}", newProfit).PadRight(20);
+
+Console.WriteLine(comparisonMessage);
+
+可以继续本部分，了解给定解决方案如何解决此挑战。
+1.
+花一分钟时间查看解决方案代码。
+可以开始分解解决方案，并首先解决将问候语和打开段落写入终端的问题。 下面的代码可解决使用字符串内插显示问候语
+Dear Ms. Barros,
+的问题。 现在应熟悉模式
+Console.WriteLine($"Your text {yourVariable}");
+
+string customerName = "Ms. Barros";
+Console.WriteLine($"Dear {customerName},");
+代码输出为：
+Dear Ms. Barros,
+
+再次查看示例完整解决方案。 解决方案的前半部分使用字符串内插来显示第一段的每个部分。
+注意
+复合格式设置，例如
+Console.WriteLine("Dear {0},", customerName)
+另一种可能的解决方案。
+解决方案的第二部分通过使用字符串串联
+string.Format()
+、复合格式、格式说明符（百分比和货币）
+PadRight()
+逐步生成长字符串来显示比较表。
+以下代码生成表的第一行，并添加
+Console.WriteLine()
+每个生成字符串
+comparisonMessage
+的步骤后。
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
+string comparisonMessage = "";
+
+comparisonMessage = currentProduct.PadRight(20);
+Console.WriteLine(comparisonMessage);
+
+comparisonMessage += String.Format("{0:P}", currentReturn).PadRight(10);
+Console.WriteLine(comparisonMessage);
+
+comparisonMessage += String.Format("{0:C}", currentProfit).PadRight(20);
+Console.WriteLine(comparisonMessage);
+
+以下示例输出显示了如何通过三个步骤生成比较表的第一行。
+Magic Yield
+Magic Yield         12.75%
+Magic Yield         12.75%    $55,000,000.00
+
+
+单元练习： 
+1. 对于 C# 代码  Console.WriteLine("C110".PadLeft(6, '0')); ，预期输出是什么？
+C11000 单选按钮  未选中 不可用
+C110000000 单选按钮  未选中 不可用
+00C110 ＂ Correct 单选按钮  已选中 不可用
+2. 哪个格式说明符向 en-US 受众提供以下格式的十进制值：  12,345.67 
+0:C 单选按钮  未选中 不可用
+0:H 单选按钮  未选中 不可用
+0:N2 ＂ Correct 单选按钮  已选中 不可用
+3. 哪个字符必须用作指令来执行字符串内插？
+$ ＂ Correct 单选按钮  已选中 不可用
+$
+@ 单选按钮  未选中 不可用
+% 单选按钮  未选中 不可用

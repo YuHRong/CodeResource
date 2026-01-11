@@ -1,0 +1,1601 @@
+创建代码分支和循环访问代码块是面向开发人员的基本功能。 在 C# 中，
+if
+语句可用于计算表达式并对执行路径进行分支。
+foreach
+语句的代码块可用于循环访问数组的每个元素。 通过将循环访问数组的功能与对执行路径进行分支的功能相结合，可以创建功能强大且可扩展的应用程序。
+假设你是一所学校的教师助理。 你一直在与一位教师合作，创建一个可自动执行评分过程的应用程序。 自从完成你的应用程序的初始版本以来，你的 C# 编程技能有所提高。 教师要求你对你的应用程序进行更新。 更新侧重于使用数组、
+foreach
+语句和
+if
+语句。 教师还希望你在最终成绩的计算中包括额外的学分作业。
+在本模块中，将指导你完成更新你的“学生评分”应用程序的过程。 你将使用数组来存储学生姓名和评分作业的分数，并使用
+foreach
+语句来循环访问数组值。 每个学生的最终成绩将在
+foreach
+代码块内计算。 你将使用
+if
+语句来分配最终字母成绩。 你完成的应用程序将使用教师的分数报告规范来输出学生成绩。
+完成本模块后，你将拥有开发使用数组、
+foreach
+语句和
+if
+语句的应用程序的经验。 你还可以轻松创建使用嵌套的迭代和选择语句高效处理数据的应用程序。
+本模块是一个引导式项目，你可以按照分步说明完成端到端项目。
+在本模块中，你将练习如何：
+使用 Visual Studio Code 开发使用
+foreach
+循环来访问数组数据的 C# 控制台应用程序。
+使用
+if
+语句计算表达式并创建代码分支。
+具有在 C# 中使用
+if
+语句相应地计算表达式和分支代码的经验。
+具有使用
+foreach
+循环来访问数组变量元素的经验。
+
+在此引导式项目中，你将使用 Visual Studio Code 开发 C# 应用程序。 应用程序将使用数组、
+foreach
+和
+if
+语句来实现设计参数列表。 你将从创建包含应用程序数据的数组变量开始。 若要完成该项目，你将开发实现应用程序设计目标的
+foreach
+和
+if
+语句。
+
+
+项目概述  标题2
+你正在开发 Student Grading 应用程序，该应用程序可自动计算班级中每名学生的成绩。 应用程序的参数包括：
+创建 C# 控制台应用程序。
+从四名学生开始。 每名学生都有五次考试成绩。
+每个考试成绩都是一个整数值 (0 - 100)，其中 100 表示 100% 正确。
+学生的考试总分是他们五次考试成绩的平均分。
+额外学分分配的条件：
+在学生的分数数组中包含额外的学分分配分数。
+额外的学分分配占考试成绩的 10%（在计算数字总分时）。
+在计算数字总分之前，将额外的学分分配分数添加到学生的考试总分中。
+应用程序需要根据计算得出的每名学生的总分自动分配字母等级。
+应用程序需要输出/显示每名学生的姓名和格式化成绩。
+应用程序需要支持在对代码影响最低的情况下添加其他学生和分数。
+你已完成应用程序的初始版本。 此引导式项目模块的起始代码项目包括提供以下代码功能的 Program.cs 文件：
+代码声明用于定义每名学生的姓名和个人考试成绩的变量。
+代码包括用于对考试成绩求和以及计算每名学生的考试平均分的变量和算法。
+代码包括开发人员必须手动应用的硬编码字母等级。
+代码包括用于显示学生成绩单的 Console.WriteLine() 语句。
+你的目标是更新现有代码以包含以下功能：
+使用数组存储学生姓名和作业分数。
+使用
+foreach
+语句作为外部程序循环来遍历学生姓名。
+在外部循环中使用
+if
+语句来识别当前学生姓名并访问该学生的作业分数。
+在外部循环中使用
+foreach
+语句来遍历作业分数数组并对这些值进行求和。
+在外部循环中使用更新后的算法来计算每个学生的考试平均分。
+在外部循环中使用
+if-elseif-else
+构造来计算考试平均分并自动分配字母等级。
+在计算学生的总分数和字母等级时整合额外的学分，如下所示：
+你的代码必须根据学生分数数组中的元素数量来检测额外的学分分配。
+在将额外的学分分数添加到考试成绩总和之前，你的代码必须将 10% 的权重系数应用于额外的学分分配。
+以下列表显示对应于数字分数的字母等级：
+97 - 100   A+
+93 - 96    A
+90 - 92    A-
+87 - 89    B+
+83 - 86    B
+80 - 82    B-
+77 - 79    C+
+73 - 76    C
+70 - 72    C-
+67 - 69    D+
+63 - 66    D
+60 - 62    D-
+0  - 59    F
+更新应用程序需要生成格式化的学生成绩单，如下所示：
+Student         Grade
+
+Sophia:         92.2    A-
+Andrew:         89.6    B+
+Emma:           85.6    B
+Logan:          91.2    A-
+使用以下步骤准备引导式项目练习。
+
+
+在本练习中，你将查看 Starter 项目代码，然后开始更新应用程序。 你的第一个编码任务是创建保存学生考试分数的数组。 一旦应用程序数据可用在数组中，开始处理
+foreach
+循环，该循环可用于对学生成绩求和。 在本练习中完成的详细任务包括：
+代码评审：评审 Program.cs 文件的内容。
+数组：创建存储每个学生作业分数的数组。
+迭代：创建一个
+foreach
+循环，用于对 Sophia 的作业成绩求和。
+计算并显示 Sophia 的平均作业成绩。
+验证测试：对在本练习中开发的代码执行验证测试。
+在开始此练习之前，需要完成上一单元“准备”中的设置说明。
+
+在代码文件的顶部，你将看到一个注释行，后面是一个变量列表，用于保存每个学生作业的分数。 第一个变量
+currentAssignments
+用于保存已评分的考试数量。
+作业分数变量是创建和使用数组的绝佳机会！
+向下滚动并查看两组变量声明代码行。
+int sophiaSum = 0;
+int andrewSum = 0;
+int emmaSum = 0;
+int loganSum = 0;
+
+decimal sophiaScore;
+decimal andrewScore;
+decimal emmaScore;
+decimal loganScore;
+第一组变量是整数，用于保存考试分数总和。
+第二组变量是小数，用于保存计算出的平均分数。 此处代码使用小数，因为整数计算会对计算值的小数部分进行四舍五入。
+请注意，你为每个学生使用了一个唯一的变量。 这可能为减少更新后应用程序中的代码行数提供了另一个机会。
+看起来起始代码开始计算分数了。
+
+请向下滚动一点，花一点时间查看以下代码：
+sophiaSum = sophia1 + sophia2 + sophia3 + sophia4 + sophia5;
+andrewSum = andrew1 + andrew2 + andrew3 + andrew4 + andrew5;
+emmaSum = emma1 + emma2 + emma3 + emma4 + emma5;
+loganSum = logan1 + logan2 + logan3 + logan4 + logan5;
+
+sophiaScore = (decimal)sophiaSum / currentAssignments;
+andrewScore = (decimal)andrewSum / currentAssignments;
+emmaScore = (decimal)emmaSum / currentAssignments;
+loganScore = (decimal)loganSum / currentAssignments;
+
+第一组方程式用于计算每个学生的作业分数之和。
+第二组方程式计算平均分数。 请注意，分子被转换为小数，以确保除法运算保留小数部分。
+请花点时间查看最后的代码部分：
+Console.WriteLine("Student\t\tGrade\n");
+Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+Console.WriteLine("Andrew:\t\t" + andrewScore + "\tB+");
+Console.WriteLine("Emma:\t\t" + emmaScore + "\tB");
+Console.WriteLine("Logan:\t\t" + loganScore + "\tA-");
+
+Console.WriteLine("Press the Enter key to continue");
+Console.ReadLine();
+
+本部分根据教师的指南打印格式化输出。 第一行是带有列标题的标题行，后跟每个学生的姓名和分数。
+该
+Console.ReadLine()
+语句暂停应用程序，以便应用程序用户可以查看输出。
+在 Visual Studio Code EXPLORER 视图中，右键单击
+“初学者”
+，然后选择“
+在集成终端中打开
+使用终端面板运行 .NET 命令行接口 （CLI） 命令，例如
+dotnet build
+和
+dotnet run
+dotnet build
+命令将编译代码，并显示与代码语法相关的错误和警告消息。
+重要
+请确保终端命令提示符打开并转到项目工作区的根目录。 在本例中，项目工作区的根目录是 Starter 文件夹，Starter.csproj 和 Program.cs 文件位于该文件夹中。 在终端中运行 .NET CLI 命令时，这些命令会尝试使用当前文件夹位置执行作。 如果尝试从不包含文件的文件夹位置运行
+dotnet build
+dotnet build
+或
+dotnet run
+命令，命令将生成错误消息。
+在终端命令提示符处，若要生成项目代码，请输入以下命令：
+dotnet build
+几秒钟后，应会看到一条消息，告知生成成功，有 0 个警告，0 个错误。
+Determining projects to restore...
+All projects are up-to-date for restore.
+Starter -> C:\Users\someuser\Desktop\GuidedProject\Starter\bin\Debug\net7.0\Starter.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+使用 .NET CLI 命令是在 Visual Studio Code 中生成和运行应用程序的一种简单方法。
+在终端命令提示符处，键入 dotnet run，然后按 Enter
+该
+dotnet run
+命令指示编译器生成应用程序，然后，只要没有生成错误，它将运行已编译的代码。
+Starter 项目面向的是 .NET 8（在 Starter.csproj 文件中）。 如果未安装 .NET 8，该
+dotnet run
+命令将生成错误。 可安装 .NET 8 SDK（推荐），也可更改 Starter.csproj 文件中的目标框架，使其与环境中安装的 .NET 版本保持一致。
+验证应用程序是否生成以下输出：
+Student         Grade
+
+Sophia:         92.2    A-
+Andrew:         89.6    B+
+Emma:           85.6    B
+Logan:          91.2    A-
+Press the Enter key to continue
+在终端面板中，按 Enter 键。
+向控制台写入“按 Enter 键继续”后，应用程序实际上已暂停。 此行为是由
+Console.ReadLine()
+语句引起的，该语句用于在控制台应用程序中收集用户输入。 按 Enter 后，应用程序将停止运行。
+关闭“终端”面板。
+这就完成了代码评审。 此应用程序似乎是应用数组、迭代和选择语句的绝佳机会。
+是时候开始更新了！
+
+
+在用于声明
+currentAssignments
+变量的行下方创建一个空白代码行。
+创建一个保存sophia作业分数的数组
+int[] sophiaScores = new int[5];
+
+请注意，此代码使用
+new
+运算符来指定要创建数组的新实例。
+int[]
+中的方括号告知编译器
+sophiaScores
+将是一个整数数组，而
+int[5]
+中的方括号用于指定数组中元素的数量。
+你可能还记得，可以选择在声明中分配数组值。
+如果提前知道数组元素的值，并且这些值不太可能改变，则可以在声明数组时分配数组值。 一个很好的例子就是用来保存一周中各天的数组。 显然，如果数组值未知，则不能在声明数组时指定它们，而是使用上面输入的语法来声明数组。
+已知sophia 的成绩，更新代码： 
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100 };
+
+请注意，用于指定元素数量的
+5
+已被删除，取而代之的是包含五个评分作业的分数。
+验证
+{}
+中列出的分数是否与 Sophia 作业的各分数一致。
+用于保存各分数的五个变量如下所示：
+int sophia1 = 90;
+int sophia2 = 86;
+int sophia3 = 87;
+int sophia4 = 98;
+int sophia5 = 100;
+
+删除声明保存 Sophia 各分数的变量的代码行。
+由于你将使用
+sophiaScores
+数组来访问 Sophia 的分数，因此不再需要这些变量。
+
+创建保存Andrew 作业分数的整数数组，
+int[] andrewScores = new int[] {92, 89, 81, 96, 90};
+为其他学生创建数组声明。
+请务必使用学生的姓名来命名数组，然后将他们的各个分数值复制到数组声明行上的
+{}
+中。
+验证是否已将各个分数准确复制到数组声明中，然后删除用于保存 Andrew、Emma 和 Logan 各个分数的变量。
+每个同学的成绩数组代码： 
+// initialize variables - graded assignments 
+int currentAssignments = 5;
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96 };
+
+int sophiaSum = 0; 
+
+创建 foreach 迭代以计算 Sophia 的成绩 
+foreach
+语句。 你将使用
+foreach
+循环的代码块来计算 Sophia 分数的总和，然后计算并显示 Sophia 的成绩。
+
+删除求和的代码行，使用
+foreach
+循环来计算总和。
+删除为 Andrew、Emma 和 Logan 声明
+int
+和
+decimal
+变量的代码行。
+保留为 Sophia 声明变量的代码行。
+删除用于计算 Andrew、Emma 和 Logan 平均分数的代码行。
+保留包含 Sophia 平均分数计算的代码行。
+向下滚动到代码底部，然后删除用于报告 Andrew、Emma 和 Logan 成绩的代码行。
+添加或删除空白代码行，以便代码与如下所示的代码一致。
+// initialize variables - graded assignments 
+int currentAssignments = 5;
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96 };
+
+int sophiaSum = 0;
+
+decimal sophiaScore;
+
+sophiaScore = (decimal)sophiaSum / currentAssignments;
+
+Console.WriteLine("Student\t\tGrade\n");
+Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+
+Console.WriteLine("Press the Enter key to continue");
+Console.ReadLine();
+
+在用于声明
+sophiaScore
+的代码行之后创建一个空白代码行。
+若要创建用于循环访问 Sophia 分数的
+foreach
+语句，请输入以下代码：
+foreach (int score in sophiaScores)
+{
+}
+请注意，此代码将名为
+score
+的整数变量实例化为
+foreach
+语句的一部分。 你将在
+foreach
+的代码块中使用
+score
+来访问
+sophiaScores
+数组的值。
+若要创建对 Sophia 分数求和的方程式，请按如下方式更新
+foreach
+代码块：
+foreach (int score in sophiaScores)
+{
+    // add the exam score to the sum
+    sophiaSum += score;    
+}
+
+请注意，此代码在
+foreach
+循环中使用
++=
+运算符来将
+score
+的值添加到
+sophiaSum
+中。 开发人员通常在计算总和时使用
++=
+作为快捷方式。 此方程式等效于以下内容：
+sophiaSum = sophiaSum + score;
+循环循环访问了
+sophiaScores
+数组中的所有值后，
+sophiaSum
+将包含她的分数总和。
+
+此时，你已为所有学生创建了分数数组，并正在一个
+foreach
+循环中计算 Sophia 的分数总和，该循环循环访问她的分数。 完成所有计划的更新还有很长的路要走，但这是检查进度的好时机。
+
+
+dotnet run输出： 
+Student         Grade
+
+Sophia:         92.2    A-
+Press the Enter key to continue
+在终端面板中，若要停止正在运行的应用程序，请按 Enter 键。
+
+恭喜，你构建了一个使用
+foreach
+循环来循环访问数组元素并根据数组内容执行计算的应用程序。 你在要求的应用更新上取得了很大进展！
+
+练习 - 构建用于计算学生成绩的嵌套循环结构
+在本练习中，你将添加一个字符串数组来保存学生名称，然后实现一个嵌套结构：外循环遍历学生名称，内循环遍历学生分数。 首先构造
+studentNames
+数组和
+foreach
+循环，循环访问数组元素。 接下来，将用于计算索菲亚的成绩的代码移到“names”循环的代码块中。 最后，实现使用学生名称访问其分数数组、计算其平均分数并将成绩写入控制台的代码逻辑。 在本练习中完成的详细任务包括：
+创建姓名数组：创建一个学生姓名数组。
+创建外部循环：创建一个
+foreach
+循环来循环访问学生姓名。
+开发外部循环代码块：重新定位计算和报告 Sophia 的分数的代码，并将其放置在“姓名”循环的代码块中。
+更新计算和报告：使用新的分数数组更新执行学生分数计算的代码。
+
+
+创建学生姓名数组和外部 foreach 循环
+在此任务中，你将创建一个学生姓名数组和一个用于循环访问学生姓名的
+foreach
+循环。
+在分数数组的声明下面，创建一个空白的代码行。位于
+sophiaSum
+的行之间。
+创建一个studentNames的字符串数组保存学生姓名
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+请注意，你指定了学生姓名作为声明的一部分。
+
+若要创建可用于循环访问学生姓名的
+foreach
+语句，请输入以下代码：
+foreach (string name in studentNames)
+{
+}
+
+若要验证
+foreach
+循环是否按预期循环访问
+studentNames
+数组，请更新
+foreach
+语句的代码块，如下所示：
+foreach (string name in studentNames)
+{
+    Console.WriteLine($"{name}");
+
+}
+
+检查代码： 
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+foreach (string name in studentNames)
+{
+    Console.WriteLine($"{name}");
+
+}
+
+代码将使用此
+foreach
+循环作为应用程序的外部循环。 在本练习中，你将在应用程序中实现以下逻辑：
+对于
+studentNames
+数组中的每位学生，应用程序将：
+确定当前学生。
+访问当前学生的分数。
+计算当前学生的成绩（总分和平均分）。
+将当前学生的成绩写入控制台。
+不过，现在只需将学生的姓名写入控制台。
+
+最后dotnet 输出： 
+Sophia
+Andrew
+Emma
+Logan
+Student         Grade
+
+Sophia:         92.2    A-
+Press the Enter key to continue
+
+
+在此任务中，重新定位计算和报告 Sophia 的分数的代码，并将其放置在“姓名”循环的代码块中。
+找到用于计算和报告 Sophia 成绩的代码行。
+int sophiaSum = 0;
+
+decimal sophiaScore;
+
+foreach (int score in sophiaScores)
+{
+    // add the exam score to the sum
+    sophiaSum += score;
+
+}
+
+sophiaScore = (decimal)sophiaSum / currentAssignments;
+
+Console.WriteLine("Student\t\tGrade\n");
+Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+下一步是将此代码从当前位置移动到“姓名”
+foreach
+循环的代码块。
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+foreach (string name in studentNames)
+{
+    Console.WriteLine($"{name}");
+    int sophiaSum = 0;
+
+    decimal sophiaScore;
+
+    foreach (int score in sophiaScores)
+    {
+        // add the exam score to the sum
+        sophiaSum += score;
+
+    }
+
+    sophiaScore = (decimal)sophiaSum / currentAssignments;
+
+    Console.WriteLine("Student\t\tGrade\n");
+    Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+}
+
+Console.WriteLine("Press the Enter key to continue");
+Console.ReadLine();
+请注意在这时，无论当前学生的
+name
+是什么，代码都将计算并报告 Sophia 的分数。 你将很快解决这一问题。
+
+在用于将 Sophia 的成绩写入控制台的代码后面，创建一个空白代码行。
+// initialize variables - graded assignments 
+int currentAssignments = 5;
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96 };
+
+// Student names
+string[] studentNames = new string[] {"Sophia", "Andrew", "Emma", "Logan"};
+
+foreach (string name in studentNames)
+{
+    if (name == "Sophia")
+    {
+        int sophiaSum = 0;
+        decimal sophiaScore;
+
+        foreach (int score in sophiaScores)
+        {
+            // add the exam score to the sum
+            sophiaSum += score;
+        }
+
+        sophiaScore = (decimal)(sophiaSum) / currentAssignments;
+
+        Console.WriteLine("Student\t\tGrade\n");
+        Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+    }
+}
+
+Console.WriteLine("Press the Enter key to continue");
+Console.ReadLine();
+请注意，外部
+foreach
+代码块内的
+if
+语句限制了应该计算和报告哪一位学生的成绩。 这并不完全是你需要的，但这是朝着正确方向迈出的一步。
+
+最后dotnet run输出： 
+Student         Grade
+
+Sophia:         92.2    A-
+
+
+更新嵌套循环来计算所有学生分数
+在此任务中，你将使用新的分数数组更新执行学生分数计算的代码。 首先，创建一个名为
+studentScores
+的数组，该数组可用于保存任何学生的分数。 接下来，你将创建一个
+if .. elseif
+构造，该构造使用当前学生的姓名来将他们的分数数组分配给
+studentScores
+。 最后，你将更新用于计算和报告学生成绩的代码。 完成后，报告应会包含所有学生的姓名和数字形式的分数。
+
+在
+studentNames
+数组的声明下面，创建一个空白代码行。
+空行应该在外部
+foreach
+语句的上方。
+若要创建可用于保存当前学生的分数的整数数组，请输入以下代码：
+int[] studentScores = new int[10];
+
+请注意，目前此代码不会向数组分配任何值。 只需指定数组可以包含 10 个元素就行。
+在外部
+foreach
+代码块的顶部，创建一个空白代码行。
+空行应该位于
+foreach
+代码块内，并且位于计算是否
+name
+等于 Sophia 的
+if
+语句上方。
+
+若要创建将用于保存当前学生姓名的字符串变量，请输入以下代码：
+string currentStudent = name;
+
+在循环访问姓名数组时，可继续使用
+name
+来跟踪当前学生的姓名，但在后续步骤中生成应用程序时，使用
+currentStudent
+可以更轻松地理解代码逻辑。
+若要在计算
+name
+是否等于 Sophia 的
+if
+语句中用
+currentStudent
+替换
+name
+，请按如下所示更新代码：
+if (currentStudent == "Sophia")
+
+将用于计算和报告 Sophia 分数的代码移动到代码块下方的位置。
+你要将代码块中的所有代码移动到代码块下方的某个位置。 在接下来的几个步骤中，这样做的原因将变得显而易见。
+
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+    {
+    }
+
+    int sophiaSum = 0;
+    decimal sophiaScore;
+
+    foreach (int score in sophiaScores)
+    {
+        // add the exam score to the sum
+        sophiaSum += score;
+
+    }
+
+    sophiaScore = (decimal)sophiaSum / currentAssignments;
+
+    Console.WriteLine("Student\t\tGrade\n");
+    Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+
+}
+
+若要在
+currentStudent == "Sophia"
+时将
+sophiaScores
+数组分配给
+studentScores
+，请按如下所示更新
+if
+语句代码：
+if (currentStudent == "Sophia")
+    studentScores = sophiaScores;
+
+若要在
+currentStudent == "Andrew"
+时添加将
+andrewScores
+数组分配给
+studentScores
+的
+else if
+语句，请输入以下代码：
+else if (currentStudent == "Andrew")
+    studentScores = andrewScores;
+
+在
+currentStudent == "Emma"
+时，再创建一个
+else if
+语句来将
+emmaScores
+数组分配给
+studentScores
+在
+currentStudent == "Logan"
+时，创建一个
+else if
+语句来将
+loganScores
+数组分配给
+studentScores
+确保
+foreach
+代码块与以下代码匹配：
+
+foreach (string name in studentNames)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+        studentScores = sophiaScores;
+
+    else if (currentStudent == "Andrew")
+        studentScores = andrewScores;
+
+    else if (currentStudent == "Emma")
+        studentScores = emmaScores;
+
+    else if (currentStudent == "Logan")
+        studentScores = loganScores;
+
+    int sophiaSum = 0;
+
+    decimal sophiaScore;
+
+    foreach (int score in sophiaScores)
+    {
+        // add the exam score to the sum
+        sophiaSum += score;
+
+    }
+
+    sophiaScore = (decimal)sophiaSum / currentAssignments;
+
+    Console.WriteLine("Student\t\tGrade\n");
+    Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+
+}
+
+接下来，需要更新内部
+foreach
+循环来使用
+studentScores
+，并将计算中使用的变量“去个人化”。
+若要在循环访问分数数组的
+studentScores
+循环中用
+sophiaScores
+替换
+foreach
+，请按如下所示更新代码：
+foreach (int score in studentScores)
+
+若要将特定于 Sophia 的变量声明替换为更通用的姓名，请按如下所示更新代码：
+int sumAssignmentScores = 0;
+
+decimal currentStudentGrade = 0;
+这两个变量声明旨在替换以下特定于 Sophia 的变量声明：
+
+若要将新变量名称应用到用于计算学生总分的公式，请按如下所示更新内部
+foreach
+代码块：
+foreach (int score in studentScores)
+{
+    // add the exam score to the sum
+    sumAssignmentScores += score;
+}
+
+若要将新变量名称应用到用于计算平均分的公式，请按如下所示更新代码：
+currentStudentGrade = (decimal)(sumAssignmentScores) / currentAssignments;
+
+
+int[] studentScores = new int[10];
+
+foreach (string name in studentNames)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+        studentScores = sophiaScores;
+
+    else if (currentStudent == "Andrew")
+        studentScores = andrewScores;
+
+    else if (currentStudent == "Emma")
+        studentScores = emmaScores;
+
+    else if (currentStudent == "Logan")
+        studentScores = loganScores;
+
+    // initialize/reset the sum of scored assignments
+    int sumAssignmentScores = 0;
+
+    // initialize/reset the calculated average of exam + extra credit scores
+    decimal currentStudentGrade = 0;
+
+    foreach (int score in studentScores)
+    {
+        // add the exam score to the sum
+        sumAssignmentScores += score;
+    }
+
+    currentStudentGrade = (decimal)(sumAssignmentScores) / currentAssignments;
+
+    Console.WriteLine("Student\t\tGrade\n");
+    Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+
+}
+
+现在，嵌套的
+foreach
+循环将循环访问学生姓名并使用学生的分数来计算其成绩，但你仍然需要更新用于生成分数报告的代码。
+若要将学生姓名和计算得到分数打印到控制台，请按如下所示更新第二个
+Console.WriteLine
+语句：
+Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t?");
+
+请注意，此代码已经将用字母评的分数分配替换成了“?”。 在下一个练习中，你将学习如何自动分配字母评分。
+将用于写入分数报告的列标签的
+Console.WriteLine
+语句移动到外部
+foreach
+循环的正上方位置。
+你不希望每个学生分数的列标题有重复，因此你将此代码移动到外部
+foreach
+循环上方的某个点。
+
+完整代码： 
+// initialize variables - graded assignments 
+int currentAssignments = 5;
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96 };
+
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+int[] studentScores = new int[10];
+
+// Write the Report Header to the console
+Console.WriteLine("Student\t\tGrade\n");
+
+foreach (string name in studentNames)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+        studentScores = sophiaScores;
+
+    else if (currentStudent == "Andrew")
+        studentScores = andrewScores;
+
+    else if (currentStudent == "Emma")
+        studentScores = emmaScores;
+
+    else if (currentStudent == "Logan")
+        studentScores = loganScores;
+
+    // initialize/reset the sum of scored assignments
+    int sumAssignmentScores = 0;
+
+    // initialize/reset the calculated average of exam + extra credit scores
+    decimal currentStudentGrade = 0;
+
+    foreach (int score in studentScores)
+    {
+        // add the exam score to the sum
+        sumAssignmentScores += score;
+    }
+
+    currentStudentGrade = (decimal)(sumAssignmentScores) / currentAssignments;
+
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t?");
+}
+用于生成学生分数报告的代码已更新，看起来你已准备好进行检查了。
+
+最后输出： 
+Student         Grade
+
+Sophia          92.2    ?
+Andrew          89.6    ?
+Emma            85.6    ?
+Logan           91.2    ?
+Press the Enter key to continue
+
+恭喜，你的应用程序离你开始的地方还有很长的路要走。你正在有效地使用数组和
+foreach
+迭代，并且你集成了一个
+if
+语句，使代码能够选择正确的分数数组。
+
+
+使用 if-elseif-else 构造分配字母成绩
+在本练习中，你将开发基于学生最终数字分数自动分配学生的字母成绩的代码，并更新应用程序，以便将额外的学分项目分数计入学生的最终成绩。 首先，你将编写一个
+if-elseif-else
+构造，该构造可用于计算学生的数字分数并分配字母成绩。 接下来，你将详细了解与额外学分工作相关的应用程序要求，然后完成所需的代码更新。 在本练习中完成的详细任务包括：
+开发一个
+if-elseif-else
+构造，用于计算学生的分数以分配字母成绩。 计算的表达式将学生的数值分数与教师提供的评分图表中的分数范围进行比较。
+将额外的学分整合到每个学生的分数数组中，然后更新用于计算学生数字分数的代码。 用于对学生分数求和的
+foreach
+将更新为包含对代码进行分支的
+if
+语句。 将在一个分支的总和中应用考试分数，在另一个分支中应用额外学分。
+
+使用
+if-elseif-else
+构造分配字母成绩
+在此任务中，你将开发一个
+if-elseif-else
+结构，该结构可用于根据计算的数字分数来分配字母成绩。
+
+在用于声明
+studentScores
+数组的行下方创建一个空白代码行。
+若要创建可用于保存学生的字母成绩的字符串变量，请输入以下代码：
+string currentStudentLetterGrade = "";
+向下滚动到 Program.cs 文件的底端。
+在将计算得到的值分配给
+currentStudentGrade
+的行下方添加一个空白代码行。
+花一分钟时间考虑评分表，其中显示了与数字分数对应的字母成绩。
+97 - 100   A+
+93 - 96    A
+90 - 92    A-
+87 - 89    B+
+83 - 86    B
+80 - 82    B-
+77 - 79    C+
+73 - 76    C
+70 - 72    C-
+67 - 69    D+
+63 - 66    D
+60 - 62    D-
+0  - 59    F
+请注意，第一行分数的值大于等于 97，其对应的字母成绩为“A+”。 换句话说，如果学生的最终分数 >=97，则学生的字母成绩为“A+”。
+若要创建
+if
+语句，在学生的分数大于或等于 97 时将
+A+
+赋值给
+currentStudentLetterGrade
+，请输入以下代码：
+if (currentStudentGrade >= 97)
+    currentStudentLetterGrade = "A+";
+
+若要创建
+else if
+语句，在学生的分数大于或等于 93 时将
+A
+赋值给
+currentStudentLetterGrade
+，请输入以下代码：
+
+else if (currentStudentGrade >= 93)
+    currentStudentLetterGrade = "A";
+当学生的分数大于或等于 97 时，
+else if
+不会将
+A
+分配给
+currentStudentLetterGrade
+，因为该表达式在前面的
+if
+中返回了
+true
+可以将此
+else if
+模式扩展沿用到字母成绩表中下面的行。 到达表末尾时，可以使用终极
+else
+捕获低于 60 的任何
+currentStudentGrade
+
+创建
+else if
+语句，用于将字母成绩分配给分数范围介于 60 到 92 的
+currentStudentLetterGrade
+完成此步骤后，应存在一个与以下代码匹配的
+if
+语句结构：
+if (currentStudentGrade >= 97)
+        currentStudentLetterGrade = "A+";
+
+    else if (currentStudentGrade >= 93)
+        currentStudentLetterGrade = "A";
+
+    else if (currentStudentGrade >= 90)
+        currentStudentLetterGrade = "A-";
+
+    else if (currentStudentGrade >= 87)
+        currentStudentLetterGrade = "B+";
+
+    else if (currentStudentGrade >= 83)
+        currentStudentLetterGrade = "B";
+
+    else if (currentStudentGrade >= 80)
+        currentStudentLetterGrade = "B-";
+
+    else if (currentStudentGrade >= 77)
+        currentStudentLetterGrade = "C+";
+
+    else if (currentStudentGrade >= 73)
+        currentStudentLetterGrade = "C";
+
+    else if (currentStudentGrade >= 70)
+        currentStudentLetterGrade = "C-";
+
+    else if (currentStudentGrade >= 67)
+        currentStudentLetterGrade = "D+";
+
+    else if (currentStudentGrade >= 63)
+        currentStudentLetterGrade = "D";
+
+    else if (currentStudentGrade >= 60)
+        currentStudentLetterGrade = "D-";
+
+最后一步是添加用于处理任何剩余分数的
+else
+
+若要创建
+else
+并应用于低于 60 的分数，请输入以下代码：
+else
+        currentStudentLetterGrade = "F";
+
+Program.cs 代码应与以下代码匹配：
+// initialize variables - graded assignments
+int currentAssignments = 5;
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96 };
+
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+int[] studentScores = new int[10];
+
+string currentStudentLetterGrade = "";
+
+// Display the Report Header
+Console.WriteLine("Student\t\tGrade\n");
+
+foreach (string name in studentNames)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+        // assign Sophia's scores to the studentScores array 
+        studentScores = sophiaScores;
+
+    else if (currentStudent == "Andrew")
+        // assign Andrew's scores to the studentScores array 
+        studentScores = andrewScores;
+
+    else if (currentStudent == "Emma")
+        // assign Emma's scores to the studentScores array 
+        studentScores = emmaScores;
+
+    else if (currentStudent == "Logan")
+        // assign Logan's scores to the studentScores array 
+        studentScores = loganScores;
+
+    // initialize/reset the sum of scored assignments
+    int sumAssignmentScores = 0;
+
+    // initialize/reset the calculated average of exam + extra credit scores
+    decimal currentStudentGrade = 0;
+
+    foreach (int score in studentScores)
+    {
+        // add the exam score to the sum
+        sumAssignmentScores += score;
+    }
+
+    currentStudentGrade = (decimal)(sumAssignmentScores) / currentAssignments;
+
+    if (currentStudentGrade >= 97)
+        currentStudentLetterGrade = "A+";
+
+    else if (currentStudentGrade >= 93)
+        currentStudentLetterGrade = "A";
+
+    else if (currentStudentGrade >= 90)
+        currentStudentLetterGrade = "A-";
+
+    else if (currentStudentGrade >= 87)
+        currentStudentLetterGrade = "B+";
+
+    else if (currentStudentGrade >= 83)
+        currentStudentLetterGrade = "B";
+
+    else if (currentStudentGrade >= 80)
+        currentStudentLetterGrade = "B-";
+
+    else if (currentStudentGrade >= 77)
+        currentStudentLetterGrade = "C+";
+
+    else if (currentStudentGrade >= 73)
+        currentStudentLetterGrade = "C";
+
+    else if (currentStudentGrade >= 70)
+        currentStudentLetterGrade = "C-";
+
+    else if (currentStudentGrade >= 67)
+        currentStudentLetterGrade = "D+";
+
+    else if (currentStudentGrade >= 63)
+        currentStudentLetterGrade = "D";
+
+    else if (currentStudentGrade >= 60)
+        currentStudentLetterGrade = "D-";
+
+    else
+        currentStudentLetterGrade = "F";
+
+    Console.WriteLine($"{name}\t\t{currentStudentGrade}\t?");
+}
+
+Console.WriteLine("Press the Enter key to continue");
+Console.ReadLine();
+
+
+请注意，应用程序是以非常逻辑的自上而下的方式组织的：
+a.
+将变量初始化并创建用作应用程序的数据源的数组。 你有提供学生分数的数组以及提供学生姓名的数组。 你还有一个名为
+studentScores
+的与学生无关的数组，可用于在计算成绩时保存任何学生的分数。
+b.
+你有一个
+Console.WriteLine()
+语句，用于将成绩报表的列标签写入控制台。
+c.
+你有一个遍历
+studentNames
+数组的外
+foreach
+循环，可提供针对每个学生重复执行的代码块。
+继续在外
+foreach
+循环的代码块内使用自上而下的方法组织代码：
+i.
+你有一个
+if
+语句用于评估当前学生的名称，例如
+if (currentStudent == "Sophia")
+。 当表达式的计算结果为
+true
+时，就将学生的分数数组分配给与学生无关的数组，例如：
+studentScores = sophiaScores;
+ii.
+声明计算学生成绩时所需的两个变量。 第一个变量
+sumAssignmentScores
+用于计算分配分数的总和。 第二个变量
+currentStudentGrade
+用于计算最终的数值分数。 使用值
+0
+将变量初始化。
+iii.
+你有一个
+foreach
+循环，用于循环访问
+studentScores
+以计算
+sumAssignmentScores
+的值。
+iv.
+可以通过用
+sumAssignmentScores
+除以成绩册中的分配数来计算
+currentStudentGrade
+。 成绩分配数保存在名为
+currentAssignments
+的变量中。
+v.
+你有一个
+if-elseif-else
+构造，用于根据
+currentStudentGrade
+的值分配字母成绩。
+vi.
+你有一个
+Console.WriteLine()
+语句，用于将学生姓名和成绩写入控制台，以便完成成绩报告。
+找到将学生姓名和成绩写入控制台的
+Console.WriteLine()
+语句。
+Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t?");
+请注意，仍需要在成绩报告中包含计算的字母成绩。
+若要在成绩报告中包括
+currentStudentLetterGrade
+的值，请按如下所示更新代码：
+Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}");
+
+最终代码如下： 
+// initialize variables - graded assignments
+int currentAssignments = 5;
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96 };
+
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+int[] studentScores = new int[10];
+
+string currentStudentLetterGrade = "";
+
+// Display the Report Header
+Console.WriteLine("Student\t\tGrade\n");
+
+foreach (string name in studentNames)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+        // assign Sophia's scores to the studentScores array 
+        studentScores = sophiaScores;
+
+    else if (currentStudent == "Andrew")
+        // assign Andrew's scores to the studentScores array 
+        studentScores = andrewScores;
+
+    else if (currentStudent == "Emma")
+        // assign Emma's scores to the studentScores array 
+        studentScores = emmaScores;
+
+    else if (currentStudent == "Logan")
+        // assign Logan's scores to the studentScores array 
+        studentScores = loganScores;
+
+    // initialize/reset the sum of scored assignments
+    int sumAssignmentScores = 0;
+
+    // initialize/reset the calculated average of exam + extra credit scores
+    decimal currentStudentGrade = 0;
+
+    foreach (int score in studentScores)
+    {
+        // add the exam score to the sum
+        sumAssignmentScores += score;
+    }
+
+    currentStudentGrade = (decimal)(sumAssignmentScores) / currentAssignments;
+
+    if (currentStudentGrade >= 97)
+        currentStudentLetterGrade = "A+";
+
+    else if (currentStudentGrade >= 93)
+        currentStudentLetterGrade = "A";
+
+    else if (currentStudentGrade >= 90)
+        currentStudentLetterGrade = "A-";
+
+    else if (currentStudentGrade >= 87)
+        currentStudentLetterGrade = "B+";
+
+    else if (currentStudentGrade >= 83)
+        currentStudentLetterGrade = "B";
+
+    else if (currentStudentGrade >= 80)
+        currentStudentLetterGrade = "B-";
+
+    else if (currentStudentGrade >= 77)
+        currentStudentLetterGrade = "C+";
+
+    else if (currentStudentGrade >= 73)
+        currentStudentLetterGrade = "C";
+
+    else if (currentStudentGrade >= 70)
+        currentStudentLetterGrade = "C-";
+
+    else if (currentStudentGrade >= 67)
+        currentStudentLetterGrade = "D+";
+
+    else if (currentStudentGrade >= 63)
+        currentStudentLetterGrade = "D";
+
+    else if (currentStudentGrade >= 60)
+        currentStudentLetterGrade = "D-";
+
+    else
+        currentStudentLetterGrade = "F";
+
+    Console.WriteLine($"{name}\t\t{currentStudentGrade}\t?");
+}
+
+Console.WriteLine("Press the Enter key to continue");
+Console.ReadLine();
+
+
+dotnet run输出： 
+Student         Grade
+
+Sophia          92.2    A-
+Andrew          89.6    B+
+Emma            85.6    B
+Logan           91.2    A-
+Press the Enter key to continue
+
+你的应用程序现在要成形了。 现在需要加入额外学分的分配。
+在一个代码分支中加入额外的学分  标题2
+在此任务中，要将应用程序更新为包含学生提交的可挣得额外学分的内容。 学生完成额外学分项目可挣得奖励分数，这可帮助提高他们的成绩。 教师根据学生提交的内容向你提供了每个学生的额外学分：
+Sophia：94、90
+Andrew：89
+Emma：89、89、89
+Logan：96
+你将使用这些额外学分，按照教师提出的应用程序要求来完成此任务。
+花一点时间考虑与额外学分分配相关的项目要求。
+此引导式项目模块的“准备”单元包括一个“项目概述”部分，其中包含以下要求：
+应用程序需要添加额外学分的分配。
+必须在学生的分数数组中包含额外学分分数。
+额外学分分配在应用于最终数值成绩时将占考试分数的 10%。
+在计算最终数值成绩之前，必须将额外学分分配分数加总到学生的考试总分中。
+按以下所示，在计算学生的最终数值分数和字母成绩时加入额外的学分：
+你的代码必须根据学生分数数组中的元素数量来检测额外的学分分配。
+在将额外的学分分数添加到考试成绩总和之前，你的代码必须将 10% 的权重系数应用于额外的学分分配。
+滚动到 Program.cs 文件顶部。
+若要将 Sophia 的额外学分分配分数添加到
+sophiaScores
+数组，请按如下所示更新代码：
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+同样更新其他几个同学成绩： 
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+
+向下滚动，找到用于对分配分数求和的内
+foreach
+循环。
+foreach (int score in studentScores)
+{
+    // add the exam score to the sum
+    sumAssignmentScores += score;
+}
+
+
+花一点时间考虑需要实现的更新。
+首先，考虑已知道的信息：
+已知
+foreach
+循环将按顺序循环访问数组的所有元素，而不考虑数组包含多少个元素。
+已知学生有五个考试分数，而你有一个相关的变量：
+int currentAssignments = 5;
+已知额外学分分数包含在数组的末尾。
+已知额外学分分数占考试分数的 10%。
+已知在计算学生的最终数值成绩之前，必须将额外学分分数添加到考试分数总和中。
+现在考虑需执行的操作：
+需要检测分数数组中的哪些分数是额外学分分数。
+需要调整任何额外学分分数的值，以使其值占考试分数的 10%。
+需要更新用于对学生分数求和的计算，以使总和包含额外学分分数。
+确定区分考试分数和额外学分分数所需的编码更新。
+已知额外学分分数列在五个考试分数之后。 换句话说，第一个额外学分分数将是分数数组中的第六个分数。 分数类型与数组元素数量之间的这种关系表明，
+foreach
+循环内需要一个计数器。 一旦计数器的值大于考试分数的数量，就知道当前分数是额外学分分数。
+下面是区分考试分数和额外学分分数时需要实现的内容：
+你需要在内
+foreach
+循环上方声明一个整数，用于对成绩分配进行计数。 可以将此变量命名为
+gradedAssignments
+需要在
+foreach
+循环内按
+递增
+gradedAssignments
+。 如果将
+gradedAssignments
+初始化为
+0
+，则可以在代码块顶部递增
+foreach
+计数器。
+需要一个
+if
+语句，用于评估计数器
+gradedAssignments
+是否大于考试成绩的数量。 用于保存考试分配数的变量名为
+currentAssignments
+。 由于现在除考试分配外还有额外学分分配，此名称可能会导致混淆。 应将变量名称从
+currentAssignments
+更改为
+examAssignments
+。 实现此名称更改后，可以使用
+if
+来评估
+(gradedAssignments <= examAssignments)
+将变量名称从
+currentAssignments
+更改为
+examAssignments
+更改变量名称时，需要确保更新应用程序中变量的所有实例。 在本例中有两个实例。
+Visual Studio Code 编辑器面板支持使用键盘快捷方式 Control + F 查找指定的文本
+。 Visual Studio Code 编辑器面板还支持使用键盘快捷方式 Control + H 来查找和替换指定的文本
+在用于对分配分数求和的
+foreach
+循环上方创建一个空白代码行。
+在空白代码行中，输入以下代码来声明名为
+gradedAssignments
+的整数变量并将其初始化为
+0
+// initialize/reset a counter for the number of assignments
+int gradedAssignments = 0;
+
+在用于对分配分数求和的
+foreach
+循环的代码块顶部创建一个空白代码行。
+在空白代码行上，输入以下代码，针对
+foreach
+循环的每次迭代，按
+1
+递增
+gradedAssignments
+gradedAssignments
+// increment the assignment counter
+gradedAssignments += 1;
+输入以下代码，创建用于计算表达式
+(gradedAssignments <= examAssignments)
+的
+if
+语句：
+if (gradedAssignments <= examAssignments)
+
+确定用于对学生分数求和的计算所需的编码更新。
+当
+if
+语句对
+(gradedAssignments <= examAssignments)
+的计算结果为
+true
+时，表明分数是考试分数，可以将其值加总到总和中。 如果表达式的计算结果不为
+true
+，表明分数是额外学分分数，需要先将其除以 10，然后才能将值加总到总和中。 使用构造
+if-else
+就完美了。
+请注意，当
+if
+语句对
+(gradedAssignments <= examAssignments)
+的计算结果为
+true
+时，现有公式
+sumAssignmentScores += score;
+就是要使用的正确计算。
+在
+sumAssignmentScores += score;
+下创建空白代码行。
+在空白代码行上，键入 else
+然后按 Enter 以构造
+if-else
+构造
+else
+部分。
+输入以下代码以创建向总和中加入额外学分分数的公式：
+// add the extra credit points to the sum - bonus points equal to 10% of an exam score
+sumAssignmentScores += score / 10;
+
+
+完整代码： 
+// initialize variables - graded assignments
+int examAssignments = 5;
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+int[] studentScores = new int[10];
+
+string currentStudentLetterGrade = "";
+
+// Write the Report Header to the console
+Console.WriteLine("Student\t\tGrade\n");
+
+foreach (string name in studentNames)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+       studentScores = sophiaScores;
+
+    else if (currentStudent == "Andrew")
+        studentScores = andrewScores;
+
+    else if (currentStudent == "Emma")
+        studentScores = emmaScores;
+
+    else if (currentStudent == "Logan")
+        studentScores = loganScores;
+
+    // initialize/reset the sum of scored assignments
+    int sumAssignmentScores = 0;
+
+    // initialize/reset the calculated average of exam + extra credit scores
+    decimal currentStudentGrade = 0;
+
+    // initialize/reset a counter for the number of assignment 
+    int gradedAssignments = 0;
+
+    // loop through the scores array and complete calculations for currentStudent
+    foreach (int score in studentScores)
+    {
+        // increment the assignment counter
+        gradedAssignments += 1;
+
+        if (gradedAssignments <= examAssignments)
+            // add the exam score to the sum
+            sumAssignmentScores += score;
+
+        else
+            // add the extra credit points to the sum - bonus points equal to 10% of an exam score
+            sumAssignmentScores += score / 10;
+    }
+
+    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
+
+    if (currentStudentGrade >= 97)
+        currentStudentLetterGrade = "A+";
+
+    else if (currentStudentGrade >= 93)
+        currentStudentLetterGrade = "A";
+
+    else if (currentStudentGrade >= 90)
+        currentStudentLetterGrade = "A-";
+
+    else if (currentStudentGrade >= 87)
+        currentStudentLetterGrade = "B+";
+
+    else if (currentStudentGrade >= 83)
+        currentStudentLetterGrade = "B";
+
+    else if (currentStudentGrade >= 80)
+        currentStudentLetterGrade = "B-";
+
+    else if (currentStudentGrade >= 77)
+        currentStudentLetterGrade = "C+";
+
+    else if (currentStudentGrade >= 73)
+        currentStudentLetterGrade = "C";
+
+    else if (currentStudentGrade >= 70)
+        currentStudentLetterGrade = "C-";
+
+    else if (currentStudentGrade >= 67)
+        currentStudentLetterGrade = "D+";
+
+    else if (currentStudentGrade >= 63)
+        currentStudentLetterGrade = "D";
+
+    else if (currentStudentGrade >= 60)
+        currentStudentLetterGrade = "D-";
+
+    else
+        currentStudentLetterGrade = "F";
+
+    //Console.WriteLine("Student\t\tGrade\tLetter Grade\n");
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}");
+}
+
+// required for running in VS Code (keeps the Output windows open to view results)
+Console.WriteLine("\n\rPress the Enter key to continue");
+Console.ReadLine();
+
+
+dotnet run 输出： 
+Student         Grade
+
+Sophia          95.8    A      
+Andrew          91.2    A-     
+Emma            90.4    A-     
+Logan           93      A      
+Press the Enter key to continue
+
+花点时间考虑以下项目要求：
+应用程序需能够支持在产生最小代码影响的情况下添加更多学生和分数。
+是否有任何关键的应用程序要求被忽略？
+检查确认数组和
+foreach
+循环的组合是否允许添加更多学生且无需重写全部代码。
+滚动到 Program.cs 应用程序的顶部，然后更新数组，如下所示：
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+int[] beckyScores = new int[] { 92, 91, 90, 91, 92, 92, 92 };
+int[] chrisScores = new int[] { 84, 86, 88, 90, 92, 94, 96, 98 };
+int[] ericScores = new int[] { 80, 90, 100, 80, 90, 100, 80, 90 };
+int[] gregorScores = new int[] { 91, 91, 91, 91, 91, 91, 91 };    
+
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan", "Becky", "Chris", "Eric", "Gregor" };
+
+向下滚动到 name
+foreach
+循环，然后找到以下代码行：
+if (currentStudent == "Sophia")
+    studentScores = sophiaScores;
+else if (currentStudent == "Andrew")
+    studentScores = andrewScores;
+else if (currentStudent == "Emma")
+    studentScores = emmaScores;
+else if (currentStudent == "Logan")
+    studentScores = loganScores;
+若要添加新学生，可将以下代码添加到选择结构的末尾：
+else if (currentStudent == "Becky")
+    studentScores = beckyScores;
+else if (currentStudent == "Chris")
+    studentScores = chrisScores;
+else if (currentStudent == "Eric")
+    studentScores = ericScores;
+else if (currentStudent == "Gregor")
+    studentScores = gregorScores;
+else
+    continue;
+
+最后输出： 
+Student         Grade
+
+Sophia          95.8    A
+Andrew          91.2    A-
+Emma            90.4    A-
+Logan           93      A
+Becky           94.8    A
+Chris           93.4    A
+Eric            93.4    A
+Gregor          94.6    A
+Press the Enter key to continue
+

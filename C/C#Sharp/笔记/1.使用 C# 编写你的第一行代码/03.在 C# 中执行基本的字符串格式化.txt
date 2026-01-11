@@ -1,0 +1,217 @@
+在 C# 中，转义字符序列以反斜杠
+\
+开头，后跟要转义的字符。 例如，
+\n
+序列将添加一个新行，而
+\t
+序列将添加一个制表符。
+
+以下代码使用转义字符序列来添加换行符和制表符：
+Console.WriteLine("Hello\nWorld!");
+Console.WriteLine("Hello\tWorld!");
+
+如果需要在文本字符串中插入双引号，该怎么办？ 如果不使用字符转义序列，就会令编译器混淆，因为它会认为你想要提前终止字符串， 而理解不到第二个双引号后面的字符的用途。
+
+Console.WriteLine("Hello "World"!");
+
+C# 代码编辑器会在
+World
+下显示红色波浪线。 但是，如果仍然尝试运行代码，则会看到以下输出：
+Error summary:
+  CS1003: Syntax error, ',' expected
+  CS0103: The name 'World' does not exist in the current context
+  CS1003: Syntax error, ',' expected
+要处理这种情况，请使用
+\"
+转义序列：
+如果运行上面的代码，将看到以下输出：
+Hello "World"!
+
+如果需要将反斜杠另作他用（例如显示文件路径），该怎么办？
+Console.WriteLine("c:\source\repos");
+出问题的是序列
+\s
+\r
+不会产生错误，因为它是回车符的有效转义序列。 不过，你不想在此上下文中使用回车符。
+要解决此问题，请使用
+\\
+显示单个反斜杠。
+Console.WriteLine("c:\\source\\repos");
+
+对反斜杠字符进行转义会生成你想要的输出：
+c:\source\repos
+
+Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ... \n");
+Console.WriteLine("Invoice: 1021\t\tComplete!");
+Console.WriteLine("Invoice: 1022\t\tComplete!");
+Console.Write("\nOutput Directory:\t");
+
+
+逐字字符串文本将保留所有空格和字符，而无需转义反斜杠。 要创建逐字字符串，请在文本字符串的前面使用
+@
+指令。
+Console.WriteLine(@"    c:\source\repos    
+        (this is where your code goes)");
+
+请注意，该字符串跨越两行，并且此 C# 指令生成的空格保留在以下输出中。
+c:\source\repos    
+        (this is where your code goes)
+
+
+Unicode 转义字符  标题2
+你还可使用
+\u
+转义序列在文本字符串中添加编码字符，然后使用四个字符的代码表示 Unicode (UTF-16) 中的某些字符。
+// Kon'nichiwa World
+Console.WriteLine("\u3053\u3093\u306B\u3061\u306F World!");
+
+注意
+此处有几个注意事项。 首先，某些控制台（例如 Windows 命令提示符）不会显示所有 Unicode 字符。 它将用问号字符代替这些字符。 另外，此处使用的示例是 UTF-16。 有些字符需要 UTF-32，因此需要不同的转义序列。 这一主题很复杂，该模块仅旨在向你展示可能的方法。 根据你的需求，可能需要花费大量时间来学习 Unicode 字符并在应用程序中加以运用。
+使用 unicode 转义字符来设置输出格式  标题3
+若要完成命令行工具原型，需要添加一个日语短语，该短语翻译为：“生成日语发票”。 然后，将显示一个逐字文本字符串，该字符串表示用户可以输入的命令。 你还将添加一些转义序列来进行格式设置。
+
+// To generate Japanese invoices:
+// Nihon no seikyū-sho o seisei suru ni wa:
+Console.Write("\n\n\u65e5\u672c\u306e\u8acb\u6c42\u66f8\u3092\u751f\u6210\u3059\u308b\u306b\u306f\uff1a\n\t");
+// User command to run an application
+Console.WriteLine(@"c:\invoices\app.exe -j");
+
+
+
+什么是字符串串联？  
+字符串串联是“程序员的表述”，指的是将两个或更多
+string
+值简单合并成一个新
+string
+值。 与相加不同，第二个值追加到第一个值的末尾，以此类推。 在下面的练习中，你将编写代码以将
+string
+值连接在一起。
+
+连接文本字符串和变量  标题3
+要将两个字符串连接在一起，请使用字符串连接运算符，即加号
++
+代码示例： 
+string firstName = "Bob";
+string message = "Hello " + firstName;
+Console.WriteLine(message);
+
+输出： 
+Hello Bob
+
+注意顺序 - 第一个字符串
+"Hello "
+是新字符串中的第一个，
+firstName
+变量中的值附加到它的末尾。
+
+连接多个变量和文本字符串 
+你可以在同一行代码中执行多个串联操作。
+
+代码示例： 
+string firstName = "Bob";
+string greeting = "Hello";
+string message = greeting + " " + firstName + "!";
+Console.WriteLine(message);
+
+现在通过合并多个变量和文本字符串来创建更复杂的消息。
+现在，运行代码。 你将在输出控制台中看到以下结果：
+Hello Bob!
+
+避免中间变量  标题3
+在前面的步骤中使用了额外的变量来保存通过串联操作生成的新字符串。 除非你有很好的理由这样做，否则你可以（并且应该）通过在需要时执行串联操作来避免使用中间变量。
+
+修改代码为： 
+string firstName = "Bob";
+string greeting = "Hello";
+Console.WriteLine(greeting + " " + firstName + "!");
+
+依然输出： 
+Hello Bob!
+
+
+总结： 
+下面是到目前为止你了解到的有关字符串串联的内容：
+通过字符串串联，可将较小的文字字符串和变量字符串合并成一个字符串。
+如果添加中间变量不会增加可读性，则避免创建中间变量。
+
+
+
+虽然字符串串联简单方便，但在需要将许多文本字符串和变量合并成带格式的单个消息的情况下，字符串内插越来越受欢迎
+什么是字符串内插？
+字符串内插通过使用“模板”和一个/多个内插表达式将多个值合并为单个文本字符串
+内插表达式
+由一个左大括号和一个右大括号符号
+{ }
+指示。 可将任何返回值的 C# 表达式置于大括号内。 当文本字符串以
+$
+字符为前缀时，该字符串将变为模板。
+换句话说，不是编写以下代码行：
+
+string message = greeting + " " + firstName + "!";
+可以将此代码行编写得更简洁：
+string message = $"{greeting} {firstName}!";
+在这个简单的示例中，你省去了几个按键。 你可以想象，在更复杂的操作中，字符串内插会简洁得多。 此外，很多人发现字符串内插语法更简洁、更易于阅读。
+在下面的练习中，你将使用字符串内插重写上述消息。
+使用字符串内插将文本字符串和变量值合并在一起 
+若要将两个字符串内插在一起，请创建一个文本字符串，并在字符串前面加上
+$
+符号。 文本字符串应包含至少一组大括号
+{}
+，且你会在这些字符内使用变量的名称。
+
+键入下面代码： 
+string firstName = "Bob";
+string message = $"Hello {firstName}!";
+Console.WriteLine(message);
+
+输出： 
+Hello Bob!
+
+修改代码： 
+int version = 11;
+string updateText = "Update to Windows";
+string message = $"{updateText} {version}";
+Console.WriteLine(message);
+
+输出结果： 
+Update to Windows 11
+
+避免中间变量 
+正如在上一个练习中操作的那样，你可以消除用来存储消息的临时变量。
+将之前编写的代码修改成以下代码：
+
+int version = 11;
+string updateText = "Update to Windows";
+Console.WriteLine($"{updateText} {version}!");
+
+输出结果还是： 
+Update to Windows 11!
+
+合并逐字文本和字符串内插  标题3
+假设你需要在模板中使用逐字文本。 可以同时使用逐字文本前缀符号
+@
+和字符串内插
+$
+符号。
+从前面的步骤中删除代码，并在 C# 代码编辑器中键入以下代码：
+string projectName = "First-Project";
+Console.WriteLine($@"C:\Output\{projectName}\Data");
+
+输出结果： 
+C:\Output\First-Project\Data
+
+在此示例中，
+$
+符号允许引用括号内的
+projectName
+变量，而
+@
+符号允许使用未转义的
+\
+字符。
+
+总结： 
+下面是到目前为止你了解到的有关字符串内插的内容：
+字符串内插可减少某些情况下所需的字符数，与字符串串联相比实现了改进。
+通过合并每个字符串的符号并将其用作字符串模板的前缀，可以合并字符串内插和逐字文本。
+

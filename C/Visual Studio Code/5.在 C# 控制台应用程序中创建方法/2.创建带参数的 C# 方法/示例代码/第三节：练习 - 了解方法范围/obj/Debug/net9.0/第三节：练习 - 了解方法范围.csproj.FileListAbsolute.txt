@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\bin\Debug\net9.0\第三节：练习 - 了解方法范围.exe
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\bin\Debug\net9.0\第三节：练习 - 了解方法范围.deps.json
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\bin\Debug\net9.0\第三节：练习 - 了解方法范围.runtimeconfig.json
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\bin\Debug\net9.0\第三节：练习 - 了解方法范围.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\bin\Debug\net9.0\第三节：练习 - 了解方法范围.pdb
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\obj\Debug\net9.0\第三节：练习 - 了解方法范围.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\obj\Debug\net9.0\第三节：练习 - 了解方法范围.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\obj\Debug\net9.0\第三节：练习 - 了解方法范围.AssemblyInfo.cs
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\obj\Debug\net9.0\第三节：练习 - 了解方法范围.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\obj\Debug\net9.0\第三节：练习 - 了解方法范围.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\obj\Debug\net9.0\refint\第三节：练习 - 了解方法范围.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\obj\Debug\net9.0\第三节：练习 - 了解方法范围.pdb
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\obj\Debug\net9.0\第三节：练习 - 了解方法范围.genruntimeconfig.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\第三节：练习 - 了解方法范围\obj\Debug\net9.0\ref\第三节：练习 - 了解方法范围.dll

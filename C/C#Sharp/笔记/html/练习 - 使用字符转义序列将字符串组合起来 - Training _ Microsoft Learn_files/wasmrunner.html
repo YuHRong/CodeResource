@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://try-prod.dot.net/wasmrunner -->
+<html lang="en" style="--blazor-load-percentage: 100%; --blazor-load-percentage-text: &quot;100%&quot;;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!--<base href="/wasmrunner/">--><base href=".">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link href="./app.css" rel="stylesheet">
+    <link href="./Microsoft.TryDotNet.WasmRunner.styles.css" rel="stylesheet">
+<!--!--><!--!--><!--!--><title>WasmRunner 9000 </title><!--!--><!--!--><!--!--></head>
+
+<body>
+    <div id="app"><!--!--><!--!--><!--!--><!--!--><div class="page" b-wxgkcfihmf=""><!--!--><!--!--><!--!--></div><!--!-->
+        <!--!--></div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="https://try-prod.dot.net/wasmrunner/" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="./blazor.webassembly.js.下载"></script>
+    <script>
+        window.setCodeRunner = (runnerAdapter) => {
+            console.log("configuring codeRunner interop.");
+            window.addEventListener("message", e => {
+                if (e.data && e.data.type === "wasmRunner-command") {
+                    runnerAdapter.invokeMethodAsync("RunAssembly", e.data.base64EncodedAssembly)
+                        .then(r => {
+                            if (r !== null) {
+                                window.postAndLog({
+                                    type: "wasmRunner-result",
+                                    result: r
+                                });
+                            }
+                        });
+                }
+            });
+            console.log("codeRunner interop setup completed.");
+            const element = document.createElement("DIV");
+            element.id = "wasmRunner-sentinel";
+            element.style.display = "none";
+            document.body.appendChild(element);
+            window.postAndLog({
+                type: "wasmRunner-configuration",
+                success: true
+            });
+        }
+
+        window.postAndLog = (message) => {
+            if (window.postMessageLogger) {
+                window.postMessageLogger(message);
+            }
+            if (window.parent) {
+                window.parent.postMessage(message, "*");
+                console.log(`[WASM_RUNNER_TO_PARENT_WINDOW] ${JSON.stringify(message)}`);
+            } else {
+                window.postMessage(message, "*");
+                console.log(`[WASM_RUNNER_TO_WINDOW] ${JSON.stringify(message)}`);
+            }
+
+        };
+
+        window.publishCodeRunnerStdOut = (message) => {
+            window.postAndLog({
+                type: 'wasmRunner-stdout',
+                message: message
+            });
+        };
+
+        window.publishCodeRunnerStdError = (message) => {
+            window.postAndLog({
+                type: 'wasmRunner-stderror',
+                message: message
+            });
+        };
+
+
+    </script>
+
+
+
+<div id="wasmRunner-sentinel" style="display: none;"></div></body></html>

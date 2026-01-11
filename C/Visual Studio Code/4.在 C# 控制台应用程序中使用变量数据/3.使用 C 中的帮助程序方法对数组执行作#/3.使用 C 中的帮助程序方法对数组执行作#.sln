@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.使用 C 中的帮助程序方法对数组执行作#", "3.使用 C 中的帮助程序方法对数组执行作#.csproj", "{5474E65C-F761-4392-CE77-4FC3FAE15E71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5474E65C-F761-4392-CE77-4FC3FAE15E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5474E65C-F761-4392-CE77-4FC3FAE15E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5474E65C-F761-4392-CE77-4FC3FAE15E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5474E65C-F761-4392-CE77-4FC3FAE15E71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A134C5CB-DD95-405A-A257-B13EB94EB3E9}
+	EndGlobalSection
+EndGlobal

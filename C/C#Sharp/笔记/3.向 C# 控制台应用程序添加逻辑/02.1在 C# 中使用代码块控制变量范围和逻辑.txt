@@ -1,0 +1,231 @@
+介绍： 
+选择和迭代语句使用代码块将应执行、跳过或循环访问的代码行组合在一起。 但这不是代码块的唯一用途。 代码块还可用于控制或限制变量可访问性。 变量“scope”是指可访问变量的应用程序部分。 了解代码块如何影响变量范围是计算机编程的重要组成部分。
+假设你正在处理大型应用程序，该应用程序使用嵌套迭代和选择语句来处理数组数据。 应用程序使用变量来帮助完成整个应用程序的常见任务。 某些变量在应用程序的不同部分中具有相同的目的，并且已尝试重复使用变量名称。 随着应用程序的增长，你开始看到计算的意外结果，以及报告未初始化或不存在的变量的错误。 需要改进用于声明和访问变量的方法，并且需要改进对变量范围的理解。
+在本模块中，你将声明变量，以便在代码块的边界内外使用。 在某些情况下，你将删除代码块，使代码更具可读性。 你将了解代码块如何影响变量的可访问性和可见性。
+在本模块结束时，你将能够更自信地使用代码块，了解它们如何影响代码的可见性和可访问性。
+学习目标 
+在本模块中，你将学习以下内容：
+了解在代码块内外声明和初始化变量的影响。
+改进
+if
+语句中的代码块，使其更具可读性。
+
+2.2
+练习 - 代码块和变量范围 
+代码块是定义执行路径的一个或多个 C# 语句。 代码块外部的语句会影响在运行时执行该代码块的时间、确定性和频率。 代码块的边界通常由大括号
+{}
+定义。
+除了会影响执行路径外，代码块还会影响变量的范围。 在本练习中检查的代码示例可帮助了解代码块与变量范围之间的关系。
+代码块影响变量声明的范围 
+变量范围是指变量对应用程序中其他代码的可见性
+。 局部变量只能在定义它的代码块内进行访问。 如果尝试在代码块外部访问变量，则将出现编译器错误。
+本单元的其余部分探讨了代码块与变量范围之间的关系。
+
+示例代码： 
+bool flag = true;
+if (flag)
+{
+    int value = 10;
+    Console.WriteLine($"Inside thecode block: {value}");
+}
+
+输出： 
+Inside the code block: 10
+
+这是预期的输出。 但如果要在
+value
+语句代码块外部访问变量
+if
+，该怎么办？
+在
+if
+语句代码块下方创建一个新代码行。
+在创建的空白代码行上，添加下面代码：
+Console.WriteLine($"Outside the code block: {value}");
+
+更新代码： 
+bool flag = true;
+if (flag)
+{
+    int value = 10;
+    Console.WriteLine($"Inside the code block: {value}");
+}
+Console.WriteLine($"Outside the code block: {value}");
+
+运行代码报错： 
+Program.cs(7,46): error CS0103: The name 'value' does not exist in the current context
+
+消息的
+Program.cs(7,46)
+部分会告知该错误与 Program.cs 文件中第 7 行（第 46 列）有关。
+之所以会生成此错误是因为在代码块内声明的变量只能在该代码块内访问（只能看到）。 由于在声明变量的代码块之外无法访问变量，因此无法从代码的第 7 行访问
+value
+在方法代码块中声明的变量称为
+局部变量
+。 查看讨论变量范围的文章时，可能会看到所使用的术语局部变量
+
+在代码块上方移动变量声明 
+要访问代码块内外的变量，需要在代码块之前（以上）声明变量，以便代码块外部的代码可以“看到”变量。
+更新上面代码： 
+bool flag = true;
+int value;
+
+if (flag)
+{
+    Console.WriteLine($"Inside the code block: {value}");
+}
+
+value = 10;
+Console.WriteLine($"Outside the code block: {value}");
+
+运行错误提示： 
+Program.cs(6,49): error CS0165: Use of unassigned local variable 'value'
+使用了未付直的局部变量
+
+该错误与代码块中的第 6 行相关联，因为
+value
+未取消初始化（尚未分配值）。 如果代码行
+value = 10;
+位于
+if
+语句代码块上方，则应用程序将正确编译，并且一切正常。 但由于
+value
+尚未初始化，因此无法在代码块内访问它。
+确保在尝试访问变量之前初始化变量将解决此问题。
+
+将变量初始化为变量声明的一部分  标题3
+要将
+value
+初始化为变量声明的一部分，更新代码为：
+bool flag = true;
+int value = 0;
+
+if (flag)
+{
+    Console.WriteLine($"Inside the code block: {value}");
+}
+
+value = 10;
+Console.WriteLine($"Outside the code block: {value}");
+
+运行输出：
+Inside the code block: 0
+Outside the code block: 10
+
+两个代码示例： 
+示例1： 
+// Code sample 1
+bool flag = true;
+int value;
+
+if (flag)
+{
+    value = 10;
+    Console.WriteLine($"Inside the code block: {value}");
+}
+
+Console.WriteLine($"Outside the code block: {value}");
+
+示例2： 
+// Code sample 2
+int value;
+
+if (true)
+{
+    value = 10;
+    Console.WriteLine($"Inside the code block: {value}");
+}
+
+Console.WriteLine($"Outside the code block: {value}");
+
+你可能认为这两个示例应始终生成相同的结果，但 C# 编译器会以不同的方式解释这两个代码示例。
+对于第一个代码示例，编译器会将
+flag
+解释为布尔变量，该变量可以赋值
+true
+或
+false
+。 编译器的结论是，如果
+flag
+为
+false
+，则在执行第二个
+value
+时时，将不会初始化
+Console.WriteLine()
+。 从本质上讲，编译器会考虑以下两个可能的代码执行路径：
+// path when flag = true
+int value;
+value = 10;
+Console.WriteLine($"Inside the code block: {value}");
+Console.WriteLine($"Outside the code block: {value}");
+和
+// path when flag = false
+int value;
+Console.WriteLine($"Outside the code block: {value}");
+由于编译器认为第二个路径是可能的（对于代码示例 1），因此它会在生成过程中生成错误消息。 此外，Visual Studio Code 中的代码编辑器会通过在
+value
+下显示红色波浪线（代码块下方 ）来向你发出此问题的警告。
+对于第二个代码示例，编译器的结论是将始终执行
+if
+语句代码块的内容（
+true
+始终为
+true
+）。 编译器将不会生成构建错误，因为它将第二个代码示例解释为具有单个执行路径，如下所示：
+int value;
+value = 10;
+Console.WriteLine($"Inside the code block: {value}");
+Console.WriteLine($"Outside the code block: {value}");
+
+总结： 
+下面是有关代码块的几个需要记住的重要事项：
+在代码块内声明变量时，其可见性对该代码块为本地，并且不能在代码块之外访问该变量。
+要确保变量在代码块内外都可见，必须在代码块前面（代码块外部和上方）声明该变量。
+确保在代码尝试访问变量之前初始化变量（对于所有可能的代码执行路径）。
+
+
+
+实现
+if
+包含单语句代码块的语句时，Microsoft建议你考虑以下约定：
+切勿使用单行窗体（例如：if（flag） Console.WriteLine（flag）;
+始终都可使用大括号，并且如果 if/else if/.../else 复合语句的任何块使用大括号，或者如果单个语句主体跨越多行，则必须使用大括号。
+仅当与 if/else if/.../else 复合语句关联的每个块的主体都放在一行上时，才可以省略大括号。
+若要检查大型 if-elseif-else 构造的可读性影响，请按如下所示更新代码：
+
+string name = "steve";
+if (name == "bob") Console.WriteLine("Found Bob");
+else if (name == "steve") Console.WriteLine("Found Steve");
+else Console.WriteLine("Found Chuck");
+运行结果： 
+Found Steve
+
+代码运行，但这些代码行密集且难以阅读。 你可能希望重新格式化代码，以在
+if
+else if
+和
+else
+语句后面插入换行符。
+将刚刚运行的代码与以下代码进行比较：
+string name = "steve";
+
+if (name == "bob")
+    Console.WriteLine("Found Bob");
+else if (name == "steve") 
+    Console.WriteLine("Found Steve");
+else
+    Console.WriteLine("Found Chuck");
+
+请注意，读取第二个代码示例要容易得多。
+以下是一些关于
+if
+语句代码块和可读性的重要事项：
+如果你意识到在
+if-elseif-else
+语句的代码块中只列出了一行代码，则可以删除代码块的大括号和空白字符。 Microsoft 建议对
+if-elseif-else
+语句的所有代码块一致地使用大括号（一致地存在或移除）。
+仅在移除代码块的大括号可以提高代码可读性时，才这样做。 始终都可包含大括号。
+仅当换行符使代码可读性更强时才删除换行符。 Microsoft表明，当每个语句放置在自己的代码行上时，代码将更具可读性。
+

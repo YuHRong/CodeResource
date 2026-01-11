@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\bin\Debug\net9.0\创建注释代码.exe
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\bin\Debug\net9.0\创建注释代码.deps.json
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\bin\Debug\net9.0\创建注释代码.runtimeconfig.json
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\bin\Debug\net9.0\创建注释代码.dll
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\bin\Debug\net9.0\创建注释代码.pdb
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\obj\Debug\net9.0\创建注释代码.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\obj\Debug\net9.0\创建注释代码.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\obj\Debug\net9.0\创建注释代码.AssemblyInfo.cs
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\obj\Debug\net9.0\创建注释代码.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\obj\Debug\net9.0\创建注释代码.dll
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\obj\Debug\net9.0\refint\创建注释代码.dll
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\obj\Debug\net9.0\创建注释代码.pdb
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\obj\Debug\net9.0\创建注释代码.genruntimeconfig.cache
+E:\C\Visual Studio Code\使用 C# 创建具有约定、空格和注释的易读代码\创建注释代码\obj\Debug\net9.0\ref\创建注释代码.dll

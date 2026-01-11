@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\练习空格\bin\Debug\net9.0\练习空格.exe
+E:\C\Visual Studio Code\练习空格\bin\Debug\net9.0\练习空格.deps.json
+E:\C\Visual Studio Code\练习空格\bin\Debug\net9.0\练习空格.runtimeconfig.json
+E:\C\Visual Studio Code\练习空格\bin\Debug\net9.0\练习空格.dll
+E:\C\Visual Studio Code\练习空格\bin\Debug\net9.0\练习空格.pdb
+E:\C\Visual Studio Code\练习空格\obj\Debug\net9.0\练习空格.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\练习空格\obj\Debug\net9.0\练习空格.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\练习空格\obj\Debug\net9.0\练习空格.AssemblyInfo.cs
+E:\C\Visual Studio Code\练习空格\obj\Debug\net9.0\练习空格.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\练习空格\obj\Debug\net9.0\练习空格.dll
+E:\C\Visual Studio Code\练习空格\obj\Debug\net9.0\refint\练习空格.dll
+E:\C\Visual Studio Code\练习空格\obj\Debug\net9.0\练习空格.pdb
+E:\C\Visual Studio Code\练习空格\obj\Debug\net9.0\练习空格.genruntimeconfig.cache
+E:\C\Visual Studio Code\练习空格\obj\Debug\net9.0\ref\练习空格.dll

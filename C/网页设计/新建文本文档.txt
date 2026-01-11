@@ -1,0 +1,63 @@
+在HTML文档中链接目录通常是指创建一个导航菜单，使用户可以通过点击链接跳转到页面中的不同部分。以下是一个基本的示例，演示了如何在HTML文档中创建一个目录链接。
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>文档目录示例</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ }
+ nav {
+ margin-bottom: 20px;
+ }
+ nav a {
+ margin-right: 15px;
+ text-decoration: none;
+ color: blue;
+ }
+ section {
+ margin-bottom: 50px;
+ }
+ </style>
+</head>
+<body>
+ <h1>文档目录示例</h1>
+ 
+ <!-- 目录 -->
+ <nav>
+ <a href="#section1">第一部分</a>
+ <a href="#section2">第二部分</a>
+ <a href="#section3">第三部分</a>
+ </nav>
+
+ <!-- 各个部分 -->
+ <section id="section1">
+ <h2>第一部分</h2>
+ <p>这是第一部分的内容。</p>
+ </section>
+
+ <section id="section2">
+ <h2>第二部分</h2>
+ <p>这是第二部分的内容。</p>
+ </section>
+
+ <section id="section3">
+ <h2>第三部分</h2>
+ <p>这是第三部分的内容。</p>
+ </section>
+</body>
+</html>
+```
+
+### 代码解释：
+1. **DOCTYPE声明**：声明文档类型，告知浏览器使用HTML5。
+2. **语言设置**：`<html lang="zh-CN">`指定文档语言为中文。
+3. **头部信息**：在`<head>`部分设置字符编码和视口信息，并定义标题和样式。
+4. **导航部分**：使用`<nav>`标签创建目录，内部包含多个链接，每个链接指向文档中的不同部分（使用`href`属性结合对应部分的`id`）。
+5. **每个部分**：使用`<section>`标签来创建实际的内容部分，并给每个部分一个唯一的`id`，这样就可以通过目录中的链接跳转。
+
+用户可以点击导航中的链接，快速跳转到对应的段落。这种方式可以改善用户体验，特别是在内容较多的网页中。

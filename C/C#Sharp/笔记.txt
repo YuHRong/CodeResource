@@ -1,0 +1,260 @@
+在 C# 中，转义字符序列以反斜杠
+\
+开头，后跟要转义的字符。 例如，
+\n
+序列将添加一个新行，而
+\t
+序列将添加一个制表符。
+以下代码使用转义字符序列来添加换行符和制表符：
+Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ... \n");
+Console.WriteLine("Invoice: 1021\t\tComplete!");
+Console.WriteLine("Invoice: 1022\t\tComplete!");
+Console.WriteLine("\nOutput Directory:\t");
+
+输出： 
+Hello
+World!
+Hello   World!
+
+使用
+\"
+转义序列可以把
+"
+输出到控制台。
+代码： 
+Console.WriteLine("Hello \"World\"!");
+输出： 
+Hello "World"!
+
+如果需要将反斜杠另作他用（例如显示文件路径），该怎么办？
+出问题的是序列
+\s
+和
+\r
+不会产生错误，因为它是回车符的有效转义序列。 不过，你不想在此上下文中使用回车符。
+要解决此问题，请使用
+\\
+显示单个反斜杠。
+代码： 
+Console.WriteLine("c:\\source\\repos");
+输出： 
+c:\source\repos
+
+若要创建命令行工具原型，请在编辑器中输入以下代码：
+代码： 
+Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ... \n");
+Console.WriteLine("Invoice: 1021\t\tComplete!");
+Console.WriteLine("Invoice: 1022\t\tComplete!");
+Console.WriteLine("\nOutput Directory:\t");
+输出： 
+Generating invoices for customer "Contoso Corp" ...
+
+Invoice: 1021           Complete!
+Invoice: 1022           Complete!
+
+Output Directory:
+
+逐字字符串文本将保留所有空格和字符，而无需转义反斜杠。 要创建逐字字符串，请在文本字符串的前面使用
+@指令。
+
+代码： 
+Console.WriteLine(@"    c:\source\repos    
+        (this is where your code goes)");
+输出： 
+c:\source\repos    
+        (this is where your code goes)
+
+
+在先前创建的代码下方添加以下代码行：
+Console.Write(@"c:\invoices");
+输出： 
+Generating invoices for customer "Contoso Corp" ...
+
+Invoice: 1021           Complete!
+Invoice: 1022           Complete!
+
+Output Directory:
+c:\invoices
+
+
+Unicode 转义字符  标题2
+你还可使用
+\u
+转义序列在文本字符串中添加编码字符，然后使用四个字符的代码表示 Unicode (UTF-16) 中的某些字符。
+
+代码
+// Kon'nichiwa World
+Console.WriteLine("\u3053\u3093\u306B\u3061\u306F World!");
+
+备注
+此处有几个注意事项。 首先，某些控制台（例如 Windows 命令提示符）不会显示所有 Unicode 字符。 它将用问号字符代替这些字符。 另外，此处使用的示例是 UTF-16。 有些字符需要 UTF-32，因此需要不同的转义序列。 这一主题很复杂，该模块仅旨在向你展示可能的方法。 根据你的需求，可能需要花费大量时间来学习 Unicode 字符并在应用程序中加以运用。
+使用 unicode 转义字符来设置输出格式  标题3
+若要完成命令行工具原型，需要添加一个日语短语，该短语翻译为：“生成日语发票”。 然后，将显示一个逐字文本字符串，该字符串表示用户可以输入的命令。 你还将添加一些转义序列来进行格式设置。
+将以下代码添加到应用程序：
+
+// To generate Japanese invoices:
+// Nihon no seikyū-sho o seisei suru ni wa:
+Console.Write("\n\n\u65e5\u672c\u306e\u8acb\u6c42\u66f8\u3092\u751f\u6210\u3059\u308b\u306b\u306f\uff1a\n\t");
+// User command to run an application
+Console.WriteLine(@"c:\invoices\app.exe -j");
+
+为了确保代码正确，请将它与以下内容进行比较：
+// To generate Japanese invoices:
+// Nihon no seikyū-sho o seisei suru ni wa:
+Console.Write("\n\n\u65e5\u672c\u306e\u8acb\u6c42\u66f8\u3092\u751f\u6210\u3059\u308b\u306b\u306f\uff1a\n\t");
+// User command to run an application
+Console.WriteLine(@"c:\invoices\app.exe -j");
+
+输出： 
+Generating invoices for customer "Contoso Corp" ...
+
+Invoice: 1021            Complete!
+Invoice: 1022            Complete!
+
+Output Directory:
+c:\invoices
+
+日本の請求書を生成するには：
+    c:\invoices\app.exe -j
+
+下面是到你目前为止所了解的文本字符串格式设置的相关内容：
+当需要在文本字符串中插入特殊字符时，请使用字符转义序列，例如制表符
+\t
+、换行符
+\n
+或双引号
+\"
+在所有其他情况下，需要使用反斜杠时，请对反斜杠
+\\
+使用转义字符。
+使用
+@
+指令创建逐字字符串文本，以将所有空白格式和反斜杠字符保留在字符串中。
+使用
+\u
+加上四个字符的代码来表示字符串中的 Unicode 字符 (UTF-16)。
+根据应用程序的不同，Unicode 字符可能无法正确打印。
+
+
+什么是字符串串联？ 
+字符串串联是“程序员的表述”，指的是将两个或更多string值简单合并成一个新string值。 
+与相加不同，第二个值追加到第一个值的末尾，以此类推。 在下面的练习中，你将编写代码以将string值连接在一起。
+
+string firstName = "Bob";
+string message = "Hello " + firstName;
+Console.WriteLine(message);
+输出得到
+Hello Bob
+
+注意顺序 - 第一个字符串
+"Hello "是新字符串中的第一个，
+firstName变量中的值附加到它的末尾。
+
+连接多个变量和文本字符串  标题3
+你可以在同一行代码中执行多个串联操作。
+
+string firstName = "Bob";
+string greeting = "Hello";
+string message = greeting + " " + firstName + "!";
+Console.WriteLine(message);
+输出得到： 
+Hello Bob!
+
+在前面的步骤中使用了额外的变量来保存通过串联操作生成的新字符串。 除非你有很好的理由这样做，否则你可以（并且应该）通过在需要时执行串联操作来避免使用中间变量。
+将之前编写的代码修改成以下代码：
+
+string firstName = "Bob";
+string greeting = "Hello";
+Console.WriteLine(greeting + " " + firstName + "!");
+
+
+下面是到目前为止你了解到的有关字符串串联的内容：
+通过字符串串联，可将较小的文字字符串和变量字符串合并成一个字符串。
+如果添加中间变量不会增加可读性，则避免创建中间变量。
+
+什么是字符串内插？ 
+字符串内插通过使用“模板”和一个或多个内插表达式将多个值合并到单个文本字符串中。
+内插表达式由
+左大括号符号和右大括号符号
+{ }
+指示。 可以将返回值的任何 C# 表达式放在大括号内。 文本字符串在以字符为前缀
+$时成为模板。
+换句话说，而不是编写以下代码行：
+string message = greeting + " " + firstName + "!";
+可以改为编写更简洁的代码行：
+string message = $"{greeting} {firstName}!";
+在此简单示例中，将保存几个击键。 可以想象在更复杂的作中可以多简明的字符串内插。 此外，许多人发现字符串内插语法更简洁且更易于阅读。
+
+使用字符串内插重写前面的消息。
+string firstName = "Bob";
+string message = $"Hello {firstName}!";
+Console.WriteLine(message);
+输出依然能得到。
+Hello Bob!
+对多个变量和文本字符串使用字符串内插 
+可以在同一代码行中执行多个内插作。
+int version = 11;
+string updateText = "Update to Windows";
+string message = $"{updateText} {version}";
+Console.WriteLine(message);
+输出： 
+Update to Windows 11
+
+避免中间变量 
+正如你在上一练习中所做的那样，可以消除临时变量来存储消息。
+代码： 
+int version = 11;
+string updateText = "Update to Windows";
+Console.WriteLine($"{updateText} {version}!");
+依然能得到输出： 
+Update to Windows 11
+合并逐字文本和字符串内插 
+假设需要在模板中使用逐字文本。 可以同时使用逐字文本前缀符号
+@
+和字符串内
+$
+插符号。
+string projectName = "First-Project";
+Console.WriteLine($@"C:\Output\{projectName}\Data");
+输出得到： 
+C:\Output\First-Project\Data
+在此示例中，符号
+$
+允许引用projectName大括号内的变量，而符号
+@
+允许使用未转义\字符。
+回顾  
+下面介绍了到目前为止已了解的字符串内插：
+字符串内插通过减少在某些情况下所需的字符数，改进了字符串串联。
+可以通过组合每个字符串的符号并将其用作字符串模板的前缀来组合字符串内插和逐字文本。
+
+用本章节内容输出以下信息
+View English output:
+  c:\Exercise\ACME\data.txt
+
+Посмотреть русский вывод:
+  c:\Exercise\ACME\ru-RU\data.txt
+
+string projectName = "ACME";
+
+string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
+Console.WriteLine($@"View English output:\nc:\Exercise\{projectName}\data.txt");
+Console.WriteLine($@"Посмотреть русский вывод:\n  c:\Exercise\{projectName}\ru-RU\data.txt");
+
+参考答案： 
+string projectName = "ACME";
+string englishLocation = $@"c:\Exercise\{projectName}\data.txt";
+Console.WriteLine($"View English output:\n\t{englishLocation}\n");
+
+string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
+string russianLocation = $@"c:\Exercise\{projectName}\ru-RU\data.txt";
+Console.WriteLine($"{russianMessage}:\n\t{russianLocation}\n");
+
+此代码表示“一个可能的解决方案
+”。 命名变量或使用的字符转义序列中可能存在一些变体。 可以使用
+Console.Write
+值而不是
+Console.WriteLine
+组合值，而不是使用多个变量。
+但是，只要代码遵循质询中的说明并生成所需的输出，恭喜！ 请继续进行下一个单元中的知识检查。
+

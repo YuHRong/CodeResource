@@ -1,0 +1,263 @@
+介绍： 
+C# 编程语言类似于任何人工书面或口语。 他们各自支持表达相同想法的不同方式。 在口语中，某些字词和短语比其他语言更具描述性、准确性或简洁性。 在 C# 编程语言中，有多种方法可以创建分支逻辑。 例如，使用
+if
+语句的选择和使用
+switch
+语句的选择。 根据应用程序的上下文，一种类型的选择语句可能比其他语句更具表现力和简洁性。
+假设正在处理广泛使用选择语句的应用程序。 在某些情况下，
+if-elseif-else
+构造用于生成易于阅读和维护的简洁表达代码。 在其他情况下，构造
+if-elseif-else
+会生成所需的结果，但难以读取和维护。 你一直负责查看代码并确定何时适合使用
+switch
+语句而不是
+if
+语句。
+在本模块中，你将研究
+switch
+语句的用法，去实现分支逻辑，作为
+if
+语句的替代。 你还将致力于将
+if-elseif-else
+构造转换为
+switch-case
+构造。
+
+语句
+switch
+是 C# 选择语句，提供分支构造的
+if-elseif-else
+替代方法。 在将单个值与已知匹配值列表进行对比时，该
+switch
+语句比
+if-elseif-else
+构造更具优势。
+请考虑以下方案：
+你正在研究与食物营养相关的应用程序。 代码的一部分处理水果。
+代码包含一个名为
+fruit
+的变量，用于保存不同类型的水果名称。
+你有一个列表，其中包含应用程序关注的 20 个水果。
+你希望根据分配给
+fruit
+的值对代码进行分支。
+在此方案中，可以使用
+switch
+语句为每种水果类型创建单独的分支。
+
+语句
+switch
+是 C# 选择语句，提供分支构造的
+if-elseif-else
+替代方法。 在将单个值与已知匹配值列表进行对比时，该
+switch
+语句比
+if-elseif-else
+构造更具优势。
+请考虑以下方案：
+你正在研究与食物营养相关的应用程序。 代码的一部分处理水果。
+代码包含一个名为
+fruit
+的变量，用于保存不同类型的水果名称。
+你有一个列表，其中包含应用程序关注的 20 个水果。
+你希望根据分配给
+fruit
+的值对代码进行分支。
+在此方案中，可以使用
+switch
+语句为每种水果类型创建单独的分支。
+switch 语句的工作原理是什么？
+该
+switch
+语句从可能的 switch 节列表中选择要执行的代码部分。 选定的 switch 部分是根据语句的匹配表达式的模式匹配来选择的
+
+请看以下代码示例，该示例显示了语句的基本结构
+
+switch (fruit)
+{
+    case "apple":
+        Console.WriteLine($"App will display information for apple.");
+        break;
+
+    case "banana":
+        Console.WriteLine($"App will display information for banana.");
+        break;
+
+    case "cherry":
+        Console.WriteLine($"App will display information for cherry.");
+        break;
+}
+
+匹配表达式（也称为
+switch 表达式
+）是在
+switch
+关键字后面的值，在这个例子中为
+(fruit)
+。 每个
+开关部分
+都由
+案例模式
+定义。 事例模式是使用关键字
+case
+后跟值构造的。 此示例中的第一种情况模式是：
+case "apple":
+。 事例模式是评价为
+true
+或
+false
+的布尔表达式。 每个 switch 节包含少量的代码行，如果事例模式与匹配表达式匹配，将执行这些代码行。 在此示例中，如果
+fruit
+被赋值为“apple”，则第一个情况模式将计算为
+true
+，并执行对应的 switch 语句块。
+switch 语句必须至少包含一个 switch 节，但通常包含三个或多个 switch 节。
+在以下情况下，使用开关是最合适的：
+你有一个要与许多可能值匹配的单个值（变量或表达式）。
+对于任何给定的匹配项，最多需要执行几行代码。
+备注
+这个
+switch
+语句的第一个示例是特意简单的，而你对语法的检查是简短的。 在研究下列部分中的一些更高级场景时，你将会考察
+switch
+语句的其他特性。
+是时候准备编码环境并开始开发自己的
+switch
+语句了。
+
+代码示例： 
+int employeeLevel = 200;
+string employeeName = "John Smith";
+
+string title = "";
+
+switch (employeeLevel)
+{
+    case 100:
+        title = "Junior Associate";
+        break;
+    case 200:
+        title = "Senior Associate";
+        break;
+    case 300:
+        title = "Manager";
+        break;
+    case 400:
+        title = "Senior Manager";
+        break;
+    default:
+        title = "Associate";
+        break;
+}
+
+Console.WriteLine($"{employeeName}, {title}");
+
+输出结果： 
+John Smith, Senior Associate
+
+请注意，该
+switch
+语句定义单个代码块。
+该
+switch
+语句定义包含 switch 节列表的单个代码块。
+switch
+关键字的右侧是一个用括号括起来的 switch 表达式
+请注意代码块中的 switch 部分列表。
+代码
+switch
+块包含
+开关部分
+的列表，每个部分都包含一个或多个开关标签。 此外，每个 switch 节都包含一个语句列表，如果标签等于 switch 语句顶部定义的 switch 表达式，将执行该列表。
+switch 表达式会从上到下依次与 case 标签进行比较，直到找到一个等于 switch 表达式的值。 如果标签都不匹配，将执行
+default
+case 的语句列表。 如果未包含默认值，控件将传输到 switch 语句的终结点。 每个标签必须提供与 switch 表达式中指定的类型匹配的值类型。
+备注
+可选
+default
+标签可以出现在 switch 部分列表中的任何位置。 但是，大多数开发人员选择将其放在最后一个位置，因为它更有意义（逻辑上）定位
+default
+为最终选项。 无论位置如何，
+default
+部分都将最后计算。
+在我们的示例中：
+switch 表达式为
+(employeeLevel)
+每个开关部分都有一个开关标签（
+case
+或
+default
+）。
+匹配的 switch 部分根据
+case: 200
+定义，因为
+employeeLevel = 200
+请注意，每个 switch 部分都与下一个 switch 部分分隔。
+只允许执行一个 switch 部分。 这意味着，执行一个 switch 部分不能“贯穿”执行到下一个 switch 部分。 使用
+break
+关键字是在进入下一部分之前结束 switch 部分的一种方法。 如果未使用
+break
+关键字（或
+return
+关键字），编译器将生成错误。
+
+
+更改级别变量的值以查看 switch 语句如何评估它
+修改
+employeeLevel的代码
+int employeeLevel = 201;
+现在输出为： 
+John Smith, Associate
+
+由于该
+employeeLevel
+标签与任何标签不匹配，因此
+default
+将匹配该标签。
+
+继续修改代码： 
+int employeeLevel = 100;
+string employeeName = "John Smith";
+
+string title = "";
+
+switch (employeeLevel)
+{
+    case 100:
+    case 200:
+        title = "Senior Associate";
+        break;
+    case 300:
+        title = "Manager";
+        break;
+    case 400:
+        title = "Senior Manager";
+        break;
+    default:
+        title = "Associate";
+        break;
+}
+
+Console.WriteLine($"{employeeName}, {title}");
+运行输出为： 
+John Smith, Senior Associate
+
+
+两个 case 标签
+100
+和
+200
+现在已与 switch 部分配对，该部分用于将头衔设置为字符串值
+Senior Associate
+
+总结
+以下是关于 switch 语句的主要要点：
+switch
+如果有一个值具有多个可能的匹配项，则使用该语句，每个匹配项都需要代码逻辑中的分支。
+可以使用通过
+case
+关键字定义的一个或多个标签来匹配单个包含代码逻辑的开关部分。
+使用可选的
+default
+关键字创建一个标签和一个 switch 语句，当没有其他 case 标签匹配时，此语句将被使用。
+

@@ -1,0 +1,4 @@
+﻿  ConsoleApplication1.cpp
+E:\C\Test\ConsoleApplication1\ConsoleApplication1.cpp(5,16): error C2001: 常量中有换行符
+E:\C\Test\ConsoleApplication1\ConsoleApplication1.cpp(5,16): error C2143: 语法错误: 缺少“;”(在“常数”的前面)
+E:\C\Test\ConsoleApplication1\ConsoleApplication1.cpp(7,2): error C2143: 语法错误: 缺少“;”(在“return”的前面)

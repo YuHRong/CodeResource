@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "复习", "复习.csproj", "{DC785859-E901-2BB8-D577-5A01BAD51A24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC785859-E901-2BB8-D577-5A01BAD51A24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC785859-E901-2BB8-D577-5A01BAD51A24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC785859-E901-2BB8-D577-5A01BAD51A24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC785859-E901-2BB8-D577-5A01BAD51A24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2817501-DC35-4848-9720-98220578784E}
+	EndGlobalSection
+EndGlobal

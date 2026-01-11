@@ -1,0 +1,734 @@
+第一节： 介绍
+
+方法能够对输入执行操作。 通过向方法传递参数，可以使用不同的输入值执行方法的任务。 使用方法参数可以扩展代码，同时使程序保持井然有序且可读。 如果你认为一种方法是接受输入并执行单个任务的黑匣子，则可以将大问题快速划分为可行的部分。
+假设你需要编写对不同输入集执行相同作的代码。 你可能有三个不同的数组，并且需要显示每个数组的内容。 可以创建接受
+DisplayArray
+单个数组作为输入并显示内容的方法。 可以调用相同的方法并提供不同的数组作为输入，而不是编写代码来显示每个单独的数组。
+参数可以使方法更可靠，同时仍执行相同的常规任务。 在本模块中，你将详细了解如何使用参数并巩固对方法的理解。
+
+学习目标
+通过学习本模块，你将能够：
+详细了解如何使用参数
+了解方法范围
+了解按引用和按值传递参数类型
+了解如何使用可选参数和命名参数
+
+
+第二节： 练习 - 在方法中使用参数
+
+创建方法时，通常需要提供一些信息供方法使用。 方法使用的信息称为参数。 可以根据需要提供任意数量的参数来完成其任务，或者根本不提供任何参数。
+术语“parameter”和“argument”通常可互换使用。 但是，“parameter”是指方法签名中的变量。 “argument”是调用方法时传递的值。
+
+向方法添加参数
+方法中的参数的工作方式类似于变量。 通过指定数据类型后跟参数名称来定义参数。 参数在方法签名中声明，参数的值由方法调用方提供，而不是在方法本身内初始化。 请考虑以下代码：
+
+CountTo(5);
+
+	void CountTo(int max) 
+	{
+		for (int i = 0; i < max; i++)
+		{
+			Console.Write($"{i}, ");
+		}
+	}
+
+在此示例中，该方法
+CountTo接受名为
+max的整数参数。 参数在方法的
+for循环中引用。 调用时
+CountTo
+，整数
+5
+将作为参数提供。
+
+在本练习中，你将了解如何创建和使用自己的方法参数。
+
+
+键入代码： 
+int[] schedule = {800, 1200, 1600, 2000};
+若要使用参数创建方法，请在新的空白行中输入以下代码：
+void DisplayAdjustedTimes(int[] times, int currentGMT, int newGMT) 
+{
+
+}
+
+请注意，参数的声明方式与声明变量的方式类似，使用数据类型后跟变量名称。 可以使用任何数据类型的参数，例如
+string
+bool
+int
+数组等！ 方法中的多个参数始终以逗号分隔。
+在
+DisplayAdjustedTimes
+方法中输入以下代码：
+int diff = 0;
+if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+{
+    Console.WriteLine("Invalid GMT");
+}
+
+请注意，你不必声明变量
+newGMT
+和
+currentGMT
+，因为它们已在方法签名中声明。 你也不会初始化变量，因为该方法假定调用方提供具有已分配值的这些参数。
+在此步骤中，将创建
+int diff
+存储时间差，然后检查提供的 GMT 值是否介于 -12 和 12 之间。 使用
+Math.Abs
+可提供数字的绝对值，因此如果 GMT 值大于 12，则其无效。
+
+若要计算时间差，请按如下所示更新
+DisplayAdjustedTimes
+方法：
+
+int diff = 0;
+if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+{
+    Console.WriteLine("Invalid GMT");
+}
+else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+{
+    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+} 
+else 
+{
+    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+}
+
+在此代码中，检查是否需要添加或减去 GMT 时区的绝对值以获取以小时为单位的差异。 如果 GMT 值共享相同的符号（两个正数或两个负数），则小时差等于两个数字之间的差值。 如果 GMT 值具有相反的符号，则差值等于两个数字的总和。 由于小时以数百表示，因此将结果乘以 100。
+
+若要显示结果，请在方法末尾
+DisplayAdjustedTimes
+输入以下代码：
+for (int i = 0; i < times.Length; i++) 
+{
+    int newTime = (times[i] + diff) % 2400;
+    Console.WriteLine($"{times[i]} -> {newTime}");
+}
+
+若要调用方法，请在变量声明后
+int[] schedule
+输入以下代码：
+
+DisplayAdjustedTimes(schedule, 6, -6);
+
+运行检查
+应输出： 
+800 -> 2000
+1200 -> 0
+1600 -> 400
+2000 -> 800
+
+
+总结： 
+下面介绍了到目前为止已了解的参数：
+信息可以以参数形式传递给方法。
+参数在方法签名中声明。
+多个参数用逗号分隔。
+方法可以接受变量或文本参数。
+
+
+
+第三节： 练习 - 了解方法范为
+
+for
+循环、
+if-else
+语句和方法都表示不同类型的代码块。 每个代码块都有自己的“范围”。 “Scope”是可访问特定数据的程序的区域。 在方法或任何代码块中声明的变量只能在该区域内访问。 随着程序变得更加复杂，此模式可帮助程序员一致地使用明确命名的变量并维护易于阅读的代码。
+在本练习中，你将使用不同类型的方法和变量来详细了解方法范围。
+
+
+测试变量范围
+在任何代码块之外声明的语句称为顶级语句。 在顶级语句中声明的变量称为“全局变量”。 全局变量不限于任何范围，并且可以在整个程序中的任意位置使用。 全局变量对于需要访问相同数据的不同方法非常有用。 但是，请务必注意不同范围中的变量名称。
+键入代码： 
+string[] students = {"Jenna", "Ayesha", "Carlos", "Viktor"};
+
+DisplayStudents(students);
+DisplayStudents(new string[] {"Robert","Vanya"});
+
+void DisplayStudents(string[] students) 
+{
+    foreach (string student in students) 
+    {
+        Console.Write($"{student}, ");
+    }
+    Console.WriteLine();
+}
+
+在此代码中，你将创建一个全局
+students
+数组，以及一个接受同名参数的方法
+DisplayStudents
+
+输出为： 
+Jenna, Ayesha, Carlos, Viktor, 
+Robert, Vanya,
+
+请注意，方法参数
+student
+优先于全局
+student
+数组。 必须仔细考虑想要使用的方法的全局变量。
+
+输入代码： 
+PrintCircleArea(12);
+
+void PrintCircleArea(int radius)
+{
+    double pi = 3.14159;
+    double area = pi * (radius * radius);
+    Console.WriteLine($"Area = {area}");
+}
+
+
+此代码计算并显示圆区。
+尝试通过更新代码来引用方法中的
+PrintCircleArea
+变量，如下所示：
+PrintCircleArea(12);
+double circumference = 2 * pi * radius;
+
+出现错误消息，告知你当前范围中不存在名称
+pi
+和
+radius
+。 这些变量仅存在于
+PrintCircleArea
+方法范围内。
+
+更新代码： 
+void PrintCircleCircumference(int radius)
+{
+    double pi = 3.14159;
+    double circumference = 2 * pi * radius;
+    Console.WriteLine($"Circumference = {circumference}");
+}
+
+由于变量
+pi
+设置为相同的固定值并在这两种方法中使用，因此此值非常适合用于全局变量。 在此示例中，
+radius
+不是全局变量，因此你可以调用具有不同值
+radius
+的方法，而无需每次更新变量。
+将代码更新为以下内容：
+
+double pi = 3.14159;
+
+void PrintCircleArea(int radius)
+{
+    double area = pi * (radius * radius);
+    Console.WriteLine($"Area = {area}");
+}
+
+void PrintCircleCircumference(int radius)
+{
+    double circumference = 2 * pi * radius;
+    Console.WriteLine($"Circumference = {circumference}");
+}
+
+现在，这两种方法都可以引用相同的值，
+pi
+而无需定义该值。 你可能已经猜到方法可以调用其他方法。 通常，只要方法在程序范围内定义，就可以在任意位置调用该方法。
+
+添加新方法代码： 
+double pi = 3.14159;
+PrintCircleInfo(12);
+PrintCircleInfo(24);
+
+void PrintCircleInfo(int radius) 
+{
+    Console.WriteLine($"Circle with radius {radius}");
+    PrintCircleArea(radius);
+    PrintCircleCircumference(radius);
+}
+
+
+在此代码中，你将创建一个新方法来
+PrintCircleInfo
+调用现有方法。
+radius
+的值也会被传递给每个方法。 创建模块化方法有助于使代码保持井然有序且易于阅读。
+
+输出结果： 
+Circle with radius 12
+Area = 452.38896
+Circumference = 75.39815999999999
+Circle with radius 24
+Area = 1809.55584
+Circumference = 150.79631999999998
+
+
+总结： 
+下面介绍了到目前为止已了解的方法范围：
+在方法内声明的变量只能访问该方法。
+在整个程序中都可以访问在顶级语句中声明的变量。
+方法无权访问在不同方法中定义的变量。
+方法可以调用其他方法。
+
+
+
+第四节： 练习 - 使用值和引用类型参数
+
+在 C# 中，变量可分为两种主要类型：值类型和引用类型。 这些类型描述变量如何存储其值。
+值类型，例如
+int
+bool
+float
+和
+double
+char
+直接包含值。 引用类型（如
+string
+array
+）和对象（如
+Random
+的实例）不会直接存储它们的值。 相反，引用类型存储其值所在的地址。
+
+按值传递和按引用传递的参数
+将参数传递给方法时，
+值
+类型变量的值将复制到方法中。 每个变量都有自己的值副本，因此不会修改原始变量。
+使用引用类型时，值的地址将传递到方法中。 传递给方法的变量引用该地址处的值，因此对该变量的操作会影响被另一个变量引用的值。
+注意
+请务必记住，
+string
+这是一个引用类型，
+但它是不可变的。 这意味着，一旦为其分配了值，便无法更改该值。 在 C# 中，当方法和运算符用于修改字符串时，返回的结果实际上是一个新的字符串对象。
+在本练习中，你将了解有关将引用和值类型参数传递到方法的详细信息。
+
+键入代码： 
+int a = 3;
+int b = 4;
+int c = 0;
+
+Multiply(a, b, c);
+Console.WriteLine($"global statement: {a} x {b} = {c}");
+
+void Multiply(int a, int b, int c) 
+{
+    c = a * b;
+    Console.WriteLine($"inside Multiply method: {a} x {b} = {c}");
+}
+
+变量
+a
+b
+和
+c
+传递给
+Multiply
+方法。 变量的值在方法执行过程中打印，并在方法完成后再次打印。
+整数是值类型，在传入方法时复制其值。 你认为
+c
+输出会是什么？
+运行结果： 
+inside Multiply method: 3 x 4 = 12
+global statement: 3 x 4 = 0
+
+请注意，
+c
+的值仅在
+Multiply
+方法中更改。 在方法之外，
+c
+保留其原始值。
+
+对按引用传递进行测试
+键入代码： 
+int[] array = {1, 2, 3, 4, 5};
+
+PrintArray(array);
+Clear(array);
+PrintArray(array);
+
+void PrintArray(int[] array) 
+{
+    foreach (int a in array) 
+    {
+        Console.Write($"{a} ");
+    }
+    Console.WriteLine();
+}
+
+void Clear(int[] array) 
+{
+    for (int i = 0; i < array.Length; i++) 
+    {
+        array[i] = 0;
+    }
+}
+代码开始于
+array
+被初始化以包含一些整数值。 使用
+PrintArray
+方法显示这些值。 该方法
+Clear
+在数组上调用，然后再次打印该数组。
+数组是引用类型。 引用类型将其值的地址存储在内存中。 你认为输出会是什么？
+
+运行结果： 
+1 2 3 4 5 
+0 0 0 0 0
+
+请注意，数组在
+Clear
+方法范围之外仍会更改。 发生这种情况是因为
+Clear
+该方法更新了存储在每个地址中的值。
+
+
+使用字符串进行测试
+早些时候，你了解到字符串是
+不可变
+类型。 尽管字符串是引用类型，但与数组不同，在分配字符串后，无法更改其值。 如果您使用过如
+string.Replace
+或
+string.ToUpper
+等方法，您可能已经注意到这一点。 在此任务中，你将了解如何更正使用字符串时发现的常见错误。
+
+键入代码： 
+string status = "Healthy";
+
+Console.WriteLine($"Start: {status}");
+SetHealth(status, false);
+Console.WriteLine($"End: {status}");
+
+void SetHealth(string status, bool isHealthy) 
+{
+    status = (isHealthy ? "Healthy" : "Unhealthy");
+    Console.WriteLine($"Middle: {status}");
+}
+
+运行结果： 
+Start: Healthy
+Middle: Unhealthy
+End: Healthy
+
+如果方法未输出状态，则可能假定该方法未正确执行。 而是创建了一个值为“不正常”的新字符串，然后在方法的作用域内被丢弃。
+若要更正此问题，可以改为使用
+SetHealth
+全局状态变量。
+更新代码： 
+string status = "Healthy";
+
+Console.WriteLine($"Start: {status}");
+SetHealth(false);
+Console.WriteLine($"End: {status}");
+
+void SetHealth(bool isHealthy) 
+{
+    status = (isHealthy ? "Healthy" : "Unhealthy");
+    Console.WriteLine($"Middle: {status}");
+}
+
+在此代码中，将使用新的字符串值覆盖全局
+status
+变量。
+
+运行结果： 
+Start: Healthy
+Middle: Unhealthy
+End: Unhealthy
+
+现在，已更新的字符串已捕获并正确存储。
+
+
+总结： 
+下面介绍了到目前为止已了解的值类型和引用类型参数：
+变量可以归类为值类型和引用类型。
+值类型直接包含值，引用类型存储值的地址。
+使用值类型参数的方法创建其自己的值副本。
+对数组参数执行更改的方法会影响原始输入数组。
+字符串是不可变引用类型。
+对字符串参数执行更改的方法不会影响原始字符串。
+
+
+
+第五节： 练习 - 具有可选参数的方法
+
+C Sharp 语言允许使用命名参数和可选参数。 这些类型的参数允许你选择要提供给方法的参数，因此你不限于方法签名中定义的结构。
+命名参数允许使用参数的名称而不是位置指定参数的值。 可选参数允许在调用该方法时省略这些参数。
+在本练习中，你将了解如何同时使用命名参数和可选参数。
+
+创建 RSVP 应用程序
+在此任务中，你将创建一个简短的应用程序，供来宾回复出席邀请以确认参加活动。 来宾将提供他们的聚会规模和任何过敏。 你还可以添加一个选项，将 RSVP 限制为只能通过邀请进入的来宾名单。
+键入代码： 
+string[] guestList = {"Rebecca", "Nadia", "Noor", "Jonte"};
+string[] rsvps = new string[10];
+int count = 0;
+
+void RSVP(string name, int partySize, string allergies, bool inviteOnly) 
+{
+    if (inviteOnly)
+    {
+        // search guestList before adding rsvp
+    }
+
+    rsvps[count] = $"Name: {name}, \tParty Size: {partySize}, \tAllergies: {allergies}";
+    count++;
+}
+
+void ShowRSVPs()
+{
+    Console.WriteLine("\nTotal RSVPs:");
+    for (int i = 0; i < count; i++)
+    {
+        Console.WriteLine(rsvps[i]);
+    }
+}
+
+在此代码中，你将创建变量来存储来宾列表和 rsvps。
+RSVP
+方法将来宾信息附加到列表中，
+ShowRSVPs
+方法使用制表符转义序列显示总 RSVP 以分隔来宾信息。
+在
+RSVP
+方法中输入以下代码以搜索来宾列表：
+
+if (inviteOnly)
+{
+    bool found = false;
+    foreach (string guest in guestList)
+    {
+        if (guest.Equals(name)) {
+            found = true;
+            break;
+        }
+    }
+    if (!found)
+    {
+        Console.WriteLine($"Sorry, {name} is not on the guest list");
+        return;
+    }
+}
+
+在此代码中，检查给定名称是否等于来宾列表中的任何名称。 如果找到匹配项，你将
+found
+设置为 true，并中断
+foreach
+循环。 如果
+found
+为 false，则显示一条消息，并使用
+return
+关键字终止该方法。
+通过在方法签名上方
+RSVP
+添加以下代码来调用方法：
+
+RSVP("Rebecca", 1, "none", true);
+RSVP("Nadia", 2, "Nuts", true);
+RSVP("Linh", 2, "none", false);
+RSVP("Tony", 1, "Jackfruit", true);
+RSVP("Noor", 4, "none", false);
+RSVP("Jonte", 2, "Stone fruit", false);
+ShowRSVPs();
+
+输出结果： 
+Sorry, Tony is not on the guest list
+
+Total RSVPs:
+Name: Rebecca,  Party Size: 1,  Allergies: none
+Name: Nadia,    Party Size: 2,  Allergies: Nuts
+Name: Linh,     Party Size: 2,  Allergies: none
+Name: Noor,     Party Size: 4,  Allergies: none
+Name: Jonte,    Party Size: 2,  Allergies: Stone fruit
+
+调用接受多个参数的方法时，了解参数表示的内容可能比较棘手。 使用命名参数可以提高代码的可读性。 使用命名参数时，需指定参数名称，然后跟随参数值。 在此任务中，你将练习使用命名参数。
+找到以下代码行：
+RSVP("Linh", 2, "none", false);
+更新方法调用，如下所示：
+RSVP(name: "Linh", partySize: 2, allergies: "none", inviteOnly: false);
+
+请注意，您需要提供参数名称，然后是冒号和数值。 此语法定义命名参数。 无需命名所有参数。 例如，以下语法也有效：
+RSVP("Linh", 2, allergies: "none", inviteOnly: false);
+RSVP("Linh", partySize: 2, "none", false);
+命名参数在与位置参数一起使用时有效（如果它们在正确的位置使用）。 命名参数也有效，只要它们后面不跟任何位置参数。 例如，包括
+"Linh"
+和
+2
+结尾将是无效的：
+RSVP(allergies: "none", inviteOnly: false, "Linh", 2);
+如果输入了此代码，将收到以下错误：
+Named argument 'allergies' is used out-of-position but is followed by an unnamed argument
+
+找到以下代码行：
+RSVP("Tony", 1, "Jackfruit", true);
+更新方法调用，如下所示：
+RSVP("Tony", inviteOnly: true, allergies: "Jackfruit",  partySize: 1);
+
+请注意，命名参数不必按原始顺序显示。 但是，未命名参数
+Tony
+是一个位置参数，并且必须出现在匹配的位置。
+保存并运行代码以观察以下输出：
+Sorry, Tony is not on the guest list
+
+Total RSVPs:
+Name: Rebecca,  Party Size: 1,  Allergies: none
+Name: Nadia,    Party Size: 2,  Allergies: Nuts
+Name: Linh,     Party Size: 2,  Allergies: none
+Name: Noor,     Party Size: 4,  Allergies: none
+Name: Jonte,    Party Size: 2,  Allergies: Stone fruit
+请注意，使用命名参数不会更改输出。
+
+
+
+声明可选参数
+为参数分配默认值时，参数变为可选。 如果从参数中省略可选参数，则当方法执行时将使用默认值。 在此步骤中，你将使
+partySize
+allergies
+和
+inviteOnly
+参数变为可选。
+若要定义可选参数，请按如下所示更新
+RSVP方法签名：
+
+void RSVP(string name, int partySize = 1, string allergies = "none", bool inviteOnly = true)
+
+请花点时间观察语法。 参数仍用逗号分隔，但参数
+partySize
+allergies
+和
+inviteOnly
+每个参数都分配给一个值。
+接下来，您需要更新对
+RSVP
+的调用，以应用可选参数。
+将代码更新为以下内容：
+
+RSVP("Rebecca");
+RSVP("Nadia", 2, "Nuts");
+RSVP(name: "Linh", partySize: 2, inviteOnly: false);
+RSVP("Tony", allergies: "Jackfruit", inviteOnly: true);
+RSVP("Noor", 4, inviteOnly: false);
+RSVP("Jonte", 2, "Stone fruit", false);
+
+
+在每个方法调用中，请注意，永远不会省略该名称。 调用方法时，必须始终包含所有必需的参数。 但是，可以省略任何可选参数。
+在此代码中，你从 Rebecca 的 rsvp 中删除了参数
+1, "none", true
+。 由于这些参数与默认值匹配，因此 Rebecca 的 rsvp 的结果相同。
+你从 Nadia 的 rsvp 中删除了
+inviteOnly
+该参数。 由于
+inviteOnly
+的默认值是
+true
+，因此Nadia的rsvp结果是相同的。
+你从 Tony 的 rsvp 中删除了
+partySize
+该参数。 如果 Tony 有邀请，则会在 RSVP 中使用默认值
+partySize
+你从 Linh 和 Noor 的 rsvps 中删除了
+allergies
+该参数。 他们的 rsvp 将显示“过敏”的默认值
+none
+保存并运行代码以观察以下输出：
+
+Sorry, Tony is not on the guest list
+
+Total RSVPs:
+Name: Rebecca,  Party Size: 1,  Allergies: none
+Name: Nadia,    Party Size: 2,  Allergies: Nuts
+Name: Linh,     Party Size: 2,  Allergies: none
+Name: Noor,     Party Size: 4,  Allergies: none
+Name: Jonte,    Party Size: 2,  Allergies: Stone fruit
+
+请注意，默认值用于代替省略的参数，例如
+partySize
+和
+allergies
+
+以下是您到目前为止所了解的关于可选参数和命名参数的内容：
+通过在方法签名中设置默认值，参数是可选的。
+命名参数使用参数名称指定，后跟冒号和参数值。
+组合命名参数和位置参数时，必须使用正确的参数顺序。
+
+
+
+第六节： 练习 - 完成显示电子邮件地址的挑战
+
+代码挑战将强化所学知识，有助于在继续操作之前增强自信。
+此挑战的重点是创建具有适当参数的方法，包括可选参数。
+显示电子邮件地址
+你的挑战是创建一个方法，为内部和外部员工显示正确的电子邮件地址。 你获得内部和外部员工姓名的列表。 员工的电子邮件地址由其用户名和公司域名组成。
+用户名格式是员工名字的前两个字符，后跟其姓氏。 例如，名为“Robert Bavin”的员工将拥有用户名“robavin”。 内部员工的域为“contoso.com”。
+在此挑战中，你将获得一些起始代码。 必须决定如何创建和调用方法来显示电子邮件地址。
+代码挑战：添加一个方法以显示电子邮件地址  标题2
+在您开始使用的代码中，有两个数组分别用于内部员工和外部员工。 请记住，内部员工的域是“contoso.com”，所有员工的用户名都是其名字的前两个字符，后跟完整的姓氏。
+你的挑战是创建一种方法来显示内部和外部员工的电子邮件地址。 该方法应包含外部员工的域名的可选参数。
+
+
+初始代码： 
+string[,] corporate = 
+{
+    {"Robert", "Bavin"}, {"Simon", "Bright"},
+    {"Kim", "Sinclair"}, {"Aashrita", "Kamath"},
+    {"Sarah", "Delucchi"}, {"Sinan", "Ali"}
+};
+
+string[,] external = 
+{
+    {"Vinnie", "Ashton"}, {"Cody", "Dysart"},
+    {"Shay", "Lawrence"}, {"Daren", "Valdes"}
+};
+
+string externalDomain = "hayworth.com";
+
+for (int i = 0; i < corporate.GetLength(0); i++) 
+{
+    // display internal email addresses
+}
+
+for (int i = 0; i < external.GetLength(0); i++) 
+{
+    // display external email addresses
+}
+
+更新代码以使用方法根据挑战规范显示电子邮件地址。
+使用你所学的关于可选参数的知识来完成更新。
+验证代码是否生成以下输出：
+robavin@contoso.com
+sibright@contoso.com
+kisinclair@contoso.com
+aakamath@contoso.com
+sadelucchi@contoso.com
+siali@contoso.com
+viashton@hayworth.com
+codysart@hayworth.com
+shlawrence@hayworth.com
+davaldes@hayworth.com
+
+
+参考答案： 
+string[,] corporate = 
+	{
+		{"Robert", "Bavin"}, {"Simon", "Bright"},
+		{"Kim", "Sinclair"}, {"Aashrita", "Kamath"},
+		{"Sarah", "Delucchi"}, {"Sinan", "Ali"}};
+
+	string[,] external = 
+	{
+		{"Vinnie", "Ashton"}, {"Cody", "Dysart"},
+		{"Shay", "Lawrence"}, {"Daren", "Valdes"}
+	};
+
+	string externalDomain = "hayworth.com";
+
+	for (int i = 0; i < corporate.GetLength(0); i++) 
+	{
+		DisplayEmail(first: corporate[i,0], last: corporate[i,1]);
+	}
+
+	for (int i = 0; i < external.GetLength(0); i++) 
+	{
+		DisplayEmail(first: external[i,0], last: external[i,1], domain: externalDomain);
+	}
+
+	void DisplayEmail(string first, string last, string domain = "contoso.com") 
+	{
+		string email = first.Substring(0, 2) + last;
+		email = email.ToLower();
+		Console.WriteLine($"{email}@{domain}");
+	}

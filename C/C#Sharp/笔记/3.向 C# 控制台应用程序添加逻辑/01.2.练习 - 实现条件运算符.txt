@@ -1,0 +1,36 @@
+什么是条件运算符？  标题2
+条件运算符
+计算布尔表达式，并根据布尔表达式的计算结果是 true 还是 false，返回两个结果之一
+?:
+。 条件运算符通常称为三元条件运算符
+其基本形式如下：
+<
+evaluate this condition
+> ? <
+if condition is true, return this value
+> : <
+if condition is false, return this value
+>
+
+代码示例： 
+int saleAmount = 1001;
+int discount = saleAmount > 1000 ? 100 : 50;
+Console.WriteLine($"Discount: {discount}");
+输出结果： 
+Discount: 100
+
+使用内联的条件运算符
+通过消除临时变量
+discount
+可以进一步压缩此代码。
+int saleAmount = 1001;
+// int discount = saleAmount > 1000 ? 100 : 50;
+
+Console.WriteLine($"Discount: {(saleAmount > 1000 ? 100 : 50)}");
+输出同上
+注意，必须将整个条件运算符语句括在括号中。 括号可确保运行时理解您的意图，即显示条件结果而不是评估条件 (saleAmount > 1000) 的结果。
+
+总结： 
+应该记住有关条件运算符的以下事实：
+可以使用条件运算符来减小代码的大小，但应确保生成的代码易于阅读。
+当需要返回基于二进制条件的值时，可以使用条件运算符。 当条件的计算结果为 true 时，代码将返回第一个选项，当条件的计算结果为 false 时，代码将返回第二个选项。

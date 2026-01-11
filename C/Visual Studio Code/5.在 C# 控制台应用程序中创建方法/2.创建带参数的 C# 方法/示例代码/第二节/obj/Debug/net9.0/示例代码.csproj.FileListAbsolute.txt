@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\bin\Debug\net9.0\示例代码.exe
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\bin\Debug\net9.0\示例代码.deps.json
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\bin\Debug\net9.0\示例代码.runtimeconfig.json
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\bin\Debug\net9.0\示例代码.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\bin\Debug\net9.0\示例代码.pdb
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\obj\Debug\net9.0\示例代码.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\obj\Debug\net9.0\示例代码.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\obj\Debug\net9.0\示例代码.AssemblyInfo.cs
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\obj\Debug\net9.0\示例代码.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\obj\Debug\net9.0\示例代码.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\obj\Debug\net9.0\refint\示例代码.dll
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\obj\Debug\net9.0\示例代码.pdb
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\obj\Debug\net9.0\示例代码.genruntimeconfig.cache
+E:\C\Visual Studio Code\5.在 C# 控制台应用程序中创建方法\2.创建带参数的 C# 方法\示例代码\obj\Debug\net9.0\ref\示例代码.dll

@@ -1,0 +1,14 @@
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\bin\Debug\net8.0\Starter.exe
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\bin\Debug\net8.0\Starter.deps.json
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\bin\Debug\net8.0\Starter.runtimeconfig.json
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\bin\Debug\net8.0\Starter.dll
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\bin\Debug\net8.0\Starter.pdb
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\obj\Debug\net8.0\Starter.GeneratedMSBuildEditorConfig.editorconfig
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\obj\Debug\net8.0\Starter.AssemblyInfoInputs.cache
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\obj\Debug\net8.0\Starter.AssemblyInfo.cs
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\obj\Debug\net8.0\Starter.csproj.CoreCompileInputs.cache
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\obj\Debug\net8.0\Starter.dll
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\obj\Debug\net8.0\refint\Starter.dll
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\obj\Debug\net8.0\Starter.pdb
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\obj\Debug\net8.0\Starter.genruntimeconfig.cache
+E:\C\Visual Studio Code\4向 C# 控制台应用程序添加逻辑\使用 C# 开发条件分支和循环结构\Guided-project-branching-looping-CSharp-main\GuidedProject\Starter\obj\Debug\net8.0\ref\Starter.dll

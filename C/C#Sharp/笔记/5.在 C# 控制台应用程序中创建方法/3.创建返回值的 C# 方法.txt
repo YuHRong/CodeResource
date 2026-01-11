@@ -1,0 +1,1094 @@
+第一节： 简介
+
+方法可以在执行它们的任务后提供返回值。 通过将参数和返回类型结合使用，可以创建接收输入、执行任务和提供输出的简化方法。 此格式使你能够在程序中有效地生成功能，同时保持代码的简洁和可读性。
+假设需要创建一个使用许多方法来对输入值执行计算的应用程序。 你需要一种方法来检索计算结果，并在整个程序中使用这些结果。 可以通过创建具有返回值的方法来实现此目的。
+考虑一款玩家必须与敌人作战的游戏。 游戏包含一些代码，用于确定每当调用
+Update()
+方法时某一角色是否被击中。 代码可能包含以下方法：
+
+void Update();
+
+int[] GetEnemyCoordinates(string enemyId);
+int[] GetDistanceFromHero(string enemyId);
+int[] GetHeroCoordinates();
+
+bool EnemyCanHitHero(string enemyId);
+int GetEnemyDamageOutput(string enemyId);
+void UpdateHeroHP(int damage);
+
+
+注意方法签名，你可以想象如何在整个程序中使用每个方法的输入和输出。 这些方法还提高了游戏代码的可靠性，因为每个方法都有可用于不同类型方案的返回值。
+从方法捕获返回值对于各种应用程序都非常有用。 在本模块中，你将详细了解方法执行和使用方法返回类型。
+
+在本模块中，你将：
+了解返回类型
+详细了解
+return
+关键字
+详细了解如何捕获方法返回值
+
+
+第二节： 练习 - 了解返回类型语法
+
+方法不仅可以执行操作，还可以返回值。 方法可以通过在方法签名中包含返回类型来返回值。 方法可以返回任何数据类型，也可以什么都不返回。 必须始终在方法名称之前指定返回类型。
+使用
+void
+作为返回类型意味着方法仅执行操作，不返回值。 例如：
+
+void PrintMessage(string message)
+
+使用数据类型（例如
+int
+string
+bool
+等）时，方法将执行操作，然后在完成时返回指定的类型。 在方法内，关键字
+return
+用于返回结果。 在
+void
+方法中，还可以使用
+return
+关键字来终止方法。
+在本练习中，你将了解有关使用
+return
+关键字的详细信息。
+
+使用方法计算总购买价格
+
+Contoso 购物中心正在进行超级促销！ 许多商品都有折扣价。 你将得到商品价格列表以及相应的折扣列表。 折扣以百分比形式表示，例如 50% = 0.5。 如果客户花费超过 30.00 美元，则他们收到总购买的 5.00 美元。 在此任务中，你将编写代码来计算客户的总花费。 让我们开始吧！
+键入代码： 
+
+double total = 0;
+double minimumSpend = 30.00;
+
+double[] items = {15.97, 3.50, 12.25, 22.99, 10.98};
+double[] discounts = {0.30, 0.00, 0.10, 0.20, 0.50};
+
+Console.WriteLine($"Total: ${total}");
+
+void GetDiscountedPrice(int itemIndex)
+{
+    // Calculate the discounted price of the item
+}
+
+void TotalMeetsMinimum()
+{
+    // Check if the total meets the minimum
+}
+
+void FormatDecimal(double input)
+{
+    // Format the double so only 2 decimal places are displayed
+}
+
+在此步骤中，你将设置程序需要的变量，并创建将用于执行任务以获取总购买价格的占位符方法。
+更改
+GetDiscountedPrice
+方法以返回
+double
+，方法是将代码更新为以下内容：
+
+double GetDiscountedPrice(int itemIndex)
+{
+    // Calculate the discounted price of the item
+}
+请注意，此方法会产生编译错误：
+not all code paths return a value
+。 具有返回类型的方法必须始终返回该类型的值。 让我们来修复此错误。
+
+double GetDiscountedPrice(int itemIndex)
+{
+    double result = items[itemIndex] * (1 - discounts[itemIndex]);
+    return result;
+}
+
+要从方法返回值，请在
+return
+关键字后添加值或表达式。 返回的值必须与方法签名中指定的数据类型相匹配。
+在此代码中，将计算
+itemIndex
+处商品的折扣价，然后返回结果。 但是，
+return
+关键字不限于返回变量或文本值。 让我们跳过变量，改为返回表达式。
+使用以下代码更新
+GetDiscountedPrice
+方法：
+
+由于代码
+items[itemIndex] * (1 - discounts[itemIndex])
+的计算结果为
+double
+值，因此，此
+return
+语句有效。
+
+更改
+TotalMeetsMinimum
+方法以返回
+bool
+，方法是将代码更新为以下内容：
+
+bool TotalMeetsMinimum()
+{
+    return total >= minimumSpend;
+}
+
+在此代码中，将返回计算结果为
+bool
+的比较结果。 从方法返回表达式是整理代码并提高可读性的好方法。
+
+更改
+FormatDecimal
+方法以返回
+string
+，方法是将代码更新为以下内容：
+
+string FormatDecimal(double input)
+{
+    return input.ToString().Substring(0, 5);
+}
+请注意，可以在
+return
+语句表达式中调用其他方法。 调用此方法时，执行控制会首先计算
+input.ToString
+，然后计算并返回子字符串值。
+return
+关键字的灵活性使你能够创建包含功能的短代码行。
+
+捕获返回值  标题3
+你的方法返回了值，现在可以捕获这些值并在其余代码中使用它们了。 使用从方法返回的结果，这是保持代码结构井井有条且易于阅读的好方法。 让我们来练习一下！
+在程序中找到以下代码行：
+Console.WriteLine($"Total: ${total}");
+将代码更新为以下内容：
+for (int i = 0; i < items.Length; i++)
+{
+    total += GetDiscountedPrice(i);
+}
+
+Console.WriteLine($"Total: ${total}");
+
+
+在此代码中，将使用
+for
+循环来获取所有打折商品价格的总和。 由于
+GetDiscountedPrice
+返回
+double
+值，可以使用该方法进行初始化或操作任何其他
+double
+变量。 在这种情况下，使用
+GetDiscountedPrice
+的结果来递增
+total
+
+在
+Console.WriteLine
+之前输入一个新的空白代码行，然后添加以下代码：
+if (TotalMeetsMinimum())
+{
+    total -= 5.00;
+}
+
+
+由于
+TotalMeetsMinimum
+返回
+bool
+值，因此，可以在
+if
+条件内调用该方法。 还可以在三元表达式中使用此方法，如下所示：
+total -= TotalMeetsMinimum() ? 5.00 : 0.00;
+
+使用
+FormatDecimal
+来格式化显示的购买价格，方式是按如下所示更新代码：
+
+Console.WriteLine($"Total: ${FormatDecimal(total)}");
+
+与之前的代码类似，
+FormatDecimal
+返回一个
+string
+值。 因此，可以调用该方法来代替使用字符串变量或文本。 在此代码中，执行控制会被传递给
+FormatDecimal
+以在计算
+Console.WriteLine
+之前计算结果。
+
+
+检查你的工作  标题2
+在此任务中，从集成终端运行应用程序，并验证代码是否正常工作。 现在就开始吧。
+最后代码： 
+double total = 0;
+double minimumSpend = 30.00;
+
+double[] items = {15.97, 3.50, 12.25, 22.99, 10.98};
+double[] discounts = {0.30, 0.00, 0.10, 0.20, 0.50};
+
+for (int i = 0; i < items.Length; i++)
+{
+    total += GetDiscountedPrice(i);
+}
+
+total -= TotalMeetsMinimum() ? 5.00 : 0.00;
+
+Console.WriteLine($"Total: ${FormatDecimal(total)}");
+
+double GetDiscountedPrice(int itemIndex)
+{
+    return items[itemIndex] * (1 - discounts[itemIndex]);
+}
+
+bool TotalMeetsMinimum()
+{
+    return total >= minimumSpend;
+}
+
+string FormatDecimal(double input)
+{
+    return input.ToString().Substring(0, 5);
+}
+
+运行结果： 
+Total: $44.58
+
+总结： 
+以下内容是到目前为止你对
+return
+关键字的了解：
+方法可以通过指定返回数据类型返回值，或者通过指定
+void
+来表示不返回值
+return
+关键字可与变量、文本和表达式配合使用
+从方法返回的值必须匹配指定的返回类型
+方法的调用方可以捕获并使用从方法返回的数据
+
+第三节： 练习 - 从方法返回数字
+
+你可能经常需要从方法返回数字，并将结果用于其他任务。 在此简短的练习中，练习返回
+int
+和
+double
+数据类型，并捕获返回值。
+
+创建返回整数的方法  标题2
+假设你要去越南，想要创建一个转换货币的简单程序。 可以假定当前汇率为
+1 USD = 23500 VND
+。 在此任务中，编写一个将 USD 转换为 VND 的方法。
+键入代码： 
+
+double usd = 23.73;
+int vnd = UsdToVnd(usd);
+
+Console.WriteLine($"${usd} USD = ${vnd} VND");
+
+int UsdToVnd(double usd) 
+{
+
+}
+
+在此步骤中，初始化两个变量以存储 USD 和 VND 值。 请注意，
+vnd
+初始化为
+UsdToVnd
+方法的结果。 该方法返回一个整数值，因为 VND 通常以整数表示。 若要显示币种转换的结果，使用
+Console.WriteLine
+
+接下来，添加代码以执行转换。 使用以下代码更新
+UsdToVnd
+方法：
+
+int UsdToVnd(double usd) 
+{
+    int rate = 23500;
+    return (int) (rate * usd);
+}
+
+如果省略返回结果中的强制转换，可看到以下错误：
+Cannot implicitly convert type 'double' to 'int'.
+
+发生这种情况的原因是编译器尝试强制转换返回的值以匹配方法签名中指定的数据类型。 然而，只有在转换不会导致数据丢失的情况下，隐式强制转换才可用。 返回值必须始终与方法签名中指定的数据类型匹配，因此在此例中，必须强制转换结果。
+
+运行结果： 
+$23.73 USD = $557655 VND
+如果代码显示意外结果，则需要查看代码以查找错误并进行更新。 再次运行代码以查看是否已解决问题。 继续更新和运行代码，直到代码生成预期结果。
+
+创建返回双精度数的方法  标题3
+接下来，创建一个将 VND 转换回 USD 的方法。
+
+在
+UsdToVnd
+方法的末尾创建新的空白代码行。
+添加代码：
+
+double VndToUsd(int vnd) 
+{
+
+}
+使用以下代码更新
+VndToUsd
+方法：
+
+double VndToUsd(int vnd) 
+{
+    double rate = 23500;
+    return vnd / rate;
+}
+
+在此例中，需要
+rate
+是
+double
+，否则编译器会使用整数除法并返回截断的
+int
+值。 USD 需要用十进制数表示。
+如果将
+rate
+设置为
+int
+而不是
+double
+，你会注意到编译器不会显示任何错误。 发生这种情况的原因是
+vnd / rate
+的值隐式强制转换为方法签名中指定的
+double
+数据类型。 创建返回数值的方法时，请务必在方法执行的操作中考虑数据类型。
+找到对
+Console.WriteLine
+的调用并追加新的空白代码行。 然后，输入以下代码以调用新方法并打印输出：
+Console.WriteLine($"${vnd} VND = ${VndToUsd(vnd)} USD");
+
+最终代码： 
+double usd = 23.73;
+int vnd = UsdToVnd(usd);
+
+Console.WriteLine($"${usd} USD = ${vnd} VND");
+Console.WriteLine($"${vnd} VND = ${VndToUsd(vnd)} USD");
+
+int UsdToVnd(double usd) 
+{
+    int rate = 23500;
+    return (int) (rate * usd);
+}
+
+double VndToUsd(int vnd) 
+{
+    double rate = 23500;
+    return vnd / rate;
+}
+
+运行结果： 
+$23.73 USD = $557655 VND
+$557655 VND = $23.73 USD
+
+
+知识检查： 
+1. 从以下语句返回什么数据类型： return 100 * 0.5; 
+int 类型 单选按钮  未选中 不可用
+decimal 类型 单选按钮  未选中 不可用
+正确答案: double 类型 单选按钮  已选中 不可用
+double   正确。 由于整数文本乘以双精度数，因而此代码行返回双精度数。
+2. 哪种类型的方法不需要包含  return  语句？
+string 方法 单选按钮  未选中 不可用
+正确答案: void 方法 单选按钮  已选中 不可用
+void   正确！  void   方法不需要使用  return   语句。
+数组方法 单选按钮  未选中 不可用
+
+
+
+第四节： 练习 - 从方法返回字符串
+你可能经常发现需要编写一个返回字符串的方法。 例如，你可能想要从一组数据中检索字符串，或者以某种方式修改字符串。 在本练习中，你将在练习常见面试问题时，获得一些使用方法字符串的经验。
+
+创建返回字符串的方法  标题3
+假设你是编码面试的候选人。 面试官要求你编写一个方法，用于在不使用
+string.Reverse
+的情况下反转字符串。 花点时间思考如何完成此任务。
+你可能已决定通过从字符串末尾循环访问来反转字符串。 可以使用临时字符串从尾到头存储每个字母。 让我们开始吧！
+键入代码： 
+string ReverseWord(string word) 
+{
+    string result = "";
+
+    return result;
+}
+
+方法需要循环访问给定的单词并更新结果。 为此，使用以下代码更新
+ReverseWord
+方法：
+string ReverseWord(string word) 
+{
+    string result = "";
+    for (int i = word.Length - 1; i >= 0; i--) 
+    {
+        result += word[i];
+    }
+    return result;
+}
+
+在此代码块中，使用
+word.Length - 1
+从单词末尾开始。 从长度中减去 1，因为数组索引从 0 开始，并且你需要避免访问超出边界的元素。 然后，将当前索引处的字母添加到
+result
+字符串中，然后向后移动索引。 你使用
+i >= 0
+，因为
+i
+在执行循环中的代码后更新，并且你希望确保包含第 0 个索引。
+
+
+测试代码
+编码时，经常检查工作非常重要。 在编码过程的早期查找和更正错误使你能够花费更多时间在正确的代码上构建，而不是调试一个大型程序。 经常检查工作也是一项编码面试官非常看重的技能。
+输入新的空白代码行。 然后，在
+ReverseWord
+方法上方输入以下代码，创建一些输入文本并调用方法：
+
+string input = "snake";
+
+Console.WriteLine(input);
+Console.WriteLine(ReverseWord(input));
+
+运行代码： 
+snake
+ekans
+
+创建在句子中反转单词的方法
+假设面试官问你一个后续问题。 他们希望你在给定句子中反转每个单词，保持每个单词的原始位置。 可以假设每个单词都用空格分隔。 例如，“string return type”将变为“gnirts nruter epyt”。 花点时间思考如何执行此任务。
+如果使用在上一个任务中编写的方法，你可能会意识到，可以使用此方法单独反转字符串中的每个单词。 可以创建新句子，并在反转时添加每个单词。 让我们开始吧！
+
+在当前程序的末尾创建新的空白代码行。 然后输入以下代码以创建新方法：
+
+string ReverseSentence(string input) 
+{
+    string result = "";
+
+    return result;
+}
+
+接下来，可以使用
+string.Split
+从字符串中提取单个单词。 将
+ReverseSentence
+方法更新为以下内容：
+
+string ReverseSentence(string input) 
+{
+    string result = "";
+    string[] words = input.Split(" ");
+
+    return result;
+}
+
+现在，你有权访问句子中的每个单词，你可以对每个单词使用
+ReverseWord
+方法并将其存储在
+result
+中。
+
+将
+ReverseSentence
+方法更新为以下内容：
+
+string ReverseSentence(string input) 
+{
+    string result = "";
+    string[] words = input.Split(" ");
+
+    foreach(string word in words) 
+    {
+        result += ReverseWord(word) + " ";
+    }
+
+    return result;
+}
+
+请注意如何在复合赋值运算符内调用
+ReverseWord
+方法。 在此代码中，从
+ReverseWord
+获取返回值并将其添加到
+result
+。 只要数据类型符合要求，就可以在需要方法的任何位置使用具有返回值的方法。
+在此代码中，每个反向单词都追加到结果中，并添加一个空格。 但是，这在反向句子的末尾留下了额外的一个空格。
+可以使用
+string.Trim
+删除末尾的额外空格。 将方法更新为以下代码：
+
+string ReverseSentence(string input) 
+{
+    string result = "";
+    string[] words = input.Split(" ");
+
+    foreach(string word in words) 
+    {
+        result += ReverseWord(word) + " ";
+    }
+
+    return result.Trim();
+}
+
+花点时间考虑此方法的返回结果。 一个方法可以在执行过程中使用其他方法，甚至可以在返回语句中使用其他方法，只要数据类型匹配即可。
+现在，你已准备好调用方法！
+
+
+检查你的工作
+在此任务中，从集成终端运行应用程序，并验证代码是否正常工作。 现在就开始吧。
+
+代码： string input = "there are snakes at the zoo";
+
+Console.WriteLine(input);
+Console.WriteLine(ReverseSentence(input));
+
+string ReverseSentence(string input) 
+{
+    string result = "";
+    string[] words = input.Split(" ");
+    foreach(string word in words) 
+    {
+        result += ReverseWord(word) + " ";
+    }
+    return result.Trim();
+}
+
+string ReverseWord(string word) 
+{
+    string result = "";
+    for (int i = word.Length - 1; i >= 0; i--) 
+    {
+        result += word[i];
+    }
+    return result;
+}
+
+运行结果： 
+there are snakes at the zoo
+ereht era sekans ta eht ooz
+
+
+
+第五节： 练习 - 从方法返回布尔值
+
+具有布尔值返回类型的方法可能很简单，但对于合并代码很有用。 可以调用返回
+bool
+值的方法来评估
+if
+语句、变量声明等任意位置的数据输入。 在本练习中，你将获得一些创建和使用布尔值返回类型方法的经验。
+
+创建返回布尔值的方法
+假设你是编码面试的候选人。 面试官要求你检查几个单词是否是回文词。 如果一个单词以正反顺序看相同，则它是回文词。 例如，单词
+racecar
+是一个回文。 让我们开始吧！
+
+键入代码： 
+string[] words = {"racecar" ,"talented", "deified", "tent", "tenet"};
+
+Console.WriteLine("Is it a palindrome?");
+foreach (string word in words) 
+{
+    Console.WriteLine($"{word}: {IsPalindrome(word)}");
+}
+
+此代码建立一些测试用例并引用名为
+IsPalindrome
+的方法。 单词和
+IsPalindrome
+方法的输出打印在
+Console.WriteLine
+语句中。
+输入新的空白代码行，然后通过输入以下代码来创建
+bool
+方法：
+
+bool IsPalindrome(string word) 
+{
+    return true;
+}
+
+思考如何检查一个单词是否是回文词。
+一种检查方法是对比单词的第一个和最后一个字母。 如果相同，则对比单词的第二个和倒数第二个字母。 如果对比到单词的中间，则所有的字母都已对比且相同。 如果有任意字母不相同，则该单词不是回文词。
+使用以下代码更新
+IsPalindrome
+方法：
+
+bool IsPalindrome(string word) 
+{
+    int start = 0;
+    int end = word.Length - 1;
+
+    while (start < end) 
+    {
+        if (word[start] != word[end]) 
+        {
+            return false;
+        }
+        start++;
+        end--;
+    }
+
+    return true;
+}
+
+请注意，变量
+start
+和
+end
+指向字符串中的第一个和最后一个字符。 对比到单词的中间时，循环中断；
+start
+和
+end
+指向同一个字符，即相互重叠时。 每当字符相同时，指针都会向中心移动。 如果不同，则该方法终止并返回
+false
+现在，你的方法成功检查了一个单词是否是回文词，并相应地返回了
+true
+或
+false
+
+运行结果： 
+Is it a palindrome?
+racecar: True
+talented: False
+deified: True
+tent: False
+tenet: True
+
+
+
+
+第六节： 练习 - 从方法返回数组
+
+在开发应用程序时，你经常需要生成和修改数据集。 方法可用于对数据执行操作，它们是用于自行生成数据集的特别强大的工具。 开发用于创建表示数据集的数组的方法有助于使代码可重用、保持井井有条和简化。 在本练习中，你将练习从方法返回数组。
+
+查找硬币进行找零
+假设你有一些不同面值的硬币。 你的任务是找到总和等于目标值的两个硬币。 在本练习中，可用的硬币用整数数组表示。 你需要在新数组中返回两个硬币的索引。 让我们开始吧！
+
+键入代码： 
+int[] TwoCoins(int[] coins, int target) 
+{
+    return  new int[0];
+}
+
+在没有找到两个硬币的情况下，方法将返回一个空数组。 花点时间来考虑返回结果的语法。 虽然可以创建一个变量来存储新的
+int[]
+数组并返回该变量，但
+return
+语句使你能够同时创建和返回值。
+可以通过多种方法解决此问题。 花点时间来考虑如何在一个数组中搜索两个总和等于给定值的数。
+
+在本练习中，将使用以下方法：
+a.
+从数组中选择一个数
+b.
+每次检查一个剩余的数字，看看它们加起来是否等于目标值
+c.
+找到匹配项后立即返回结果
+
+要检查数组中的每个数字，请使用以下代码更新
+TwoCoins
+方法：
+
+int[] TwoCoins(int[] coins, int target) 
+{
+    for (int curr = 0; curr < coins.Length; curr++) 
+    {
+        for (int next = curr + 1; next < coins.Length; next++) 
+        {
+
+        }
+    }
+
+    return  new int[0];
+}
+
+这里，
+curr
+代表一个固定的硬币索引，
+next
+代表后续的硬币索引。 你将尝试将每个
+next
+硬币与固定的
+curr
+硬币相加，看看它们是否等于目标值。
+接下来，添加逻辑以检查两个硬币之和是否等于目标值。 为此，请使用以下代码更新之前的
+for
+循环：
+
+for (int curr = 0; curr < coins.Length; curr++) 
+{
+    for (int next = curr + 1; next < coins.Length; next++) 
+    {
+        if (coins[curr] + coins[next] == target) 
+        {
+            return new int[]{curr, next};
+        }
+
+    }
+}
+
+在此代码中，你将检查数组中
+curr
+和
+next
+处的值之和是否等于目标值。 如果总和相等，你将创建一个数组来存储这些索引并返回它。 如果不相等，则可以忽略它们并继续检查。
+
+测试解决方案
+在此步骤中，你将测试代码以确保其正常运行。 首先，你将初始化一些变量来存储输入数据，然后调用该方法并打印结果。
+
+在
+TwoCoins
+方法签名上方创建一个新的空白代码行。 然后输入以下代码：
+
+int target = 60;
+int[] coins = new int[] {5, 5, 50, 25, 25, 10, 5};
+int[] result = TwoCoins(coins, target);
+
+回想一下，如果未找到零钱，
+TwoCoins
+方法将返回一个空数组。 在尝试打印
+result
+数组之前，需要检查数组大小。
+输入新的空白代码行。 然后输入以下代码：
+
+if (result.Length == 0) 
+{
+    Console.WriteLine("No two coins make change");
+} 
+else 
+{
+    Console.WriteLine($"Change found at positions {result[0]} and {result[1]}");
+}
+
+运行结果： 
+Change found at positions 2 and 5
+
+
+找到多对用于找零的硬币
+在此步骤中，你将扩展
+TwoCoins
+方法以查找总和等于目标值的更多硬币对。 在本练习中，最多可以找到五对。 这意味着返回类型将是 2D 数组而不是 1D 数组，你需要修改代码返回结果的方式。 让我们开始吧！
+将方法签名中的返回类型从
+int[]
+更改为
+int[,]
+，方法是将代码更新为以下内容：
+
+for (int next = curr + 1; next < coins.Length; next++) 
+{
+    if (coins[curr] + coins[next] == target) 
+    {
+        result[count, 0] = curr;
+        result[count, 1] = next;
+        count++;
+    }
+    if (count == result.GetLength(0)) 
+    {
+        return result;
+    }
+}
+
+最后，如果根本没有找到匹配项，或者找到的匹配项少于五个，你需要更新最终的返回语句以返回正确的结果。
+导航到
+return
+方法中的
+TwoCoins
+语句。 修改
+return
+语句以匹配以下代码：
+
+if (count == 0) 
+{
+    return new int[0,0];
+}
+return result;
+
+还可以使用三元运算符缩短此返回代码，如下所示：
+
+return (count == 0) ? new int[0,0] : result;
+
+重要
+return
+关键字的灵活性使你能够返回表达式的值，前提是结果与方法的指定返回类型匹配。
+此时，
+TwoCoins
+方法应匹配以下代码：
+
+int[,] TwoCoins(int[] coins, int target) 
+{
+    int[,] result = {{-1,-1},{-1,-1},{-1,-1},{-1,-1},{-1,-1}};
+    int count = 0;
+
+    for (int curr = 0; curr < coins.Length; curr++) 
+    {
+        for (int next = curr + 1; next < coins.Length; next++) 
+        {
+            if (coins[curr] + coins[next] == target) 
+            {
+                result[count, 0] = curr;
+                result[count, 1] = next;
+                count++;
+            }
+            if (count == result.GetLength(0)) 
+            {
+                return result;
+            }
+        }
+    }
+    return (count == 0) ? new int[0,0] : result;
+}
+
+
+捕获新的返回数组
+你的方法正返回一个 2D 数组，可以更新代码以检索和打印结果了。 由于结果数组元素被初始化为
+-1
+，因此，可以添加检查以打印所有硬币对，直到找到
+-1
+值为止。
+导航到定义
+target
+变量的程序的开头。 按如下所示修改代码：
+
+int target = 30;
+int[] coins = new int[] {5, 5, 50, 25, 25, 10, 5};
+int[,] result = TwoCoins(coins, target);
+
+接下来，将更新对
+Console.WriteLine
+的调用以正确打印
+result
+值。
+导航到
+Console.WriteLine
+调用。 更新代码以匹配以下内容：
+
+if (result.Length == 0) 
+{
+    Console.WriteLine("No two coins make change");
+} 
+else 
+{
+    Console.WriteLine("Change found at positions:");
+    for (int i = 0; i < result.GetLength(0); i++) 
+    {
+        if (result[i,0] == -1) 
+        {
+            break;
+        }
+        Console.WriteLine($"{result[i,0]},{result[i,1]}");
+    }
+}
+
+在这里，可以按原样保留空数组的检查，并在 for 循环中打印 2D 数组的值。 找到
+-1
+值时，将跳出循环，因为没有下一对了。
+
+最后代码： 
+int target = 30;
+int[] coins = new int[] {5, 5, 50, 25, 25, 10, 5};
+int[,] result = TwoCoins(coins, target);
+
+if (result.Length == 0) 
+{
+    Console.WriteLine("No two coins make change");
+} 
+else 
+{
+    Console.WriteLine("Change found at positions:");
+    for (int i = 0; i < result.GetLength(0); i++) 
+    {
+        if (result[i,0] == -1) 
+        {
+            break;
+        }
+        Console.WriteLine($"{result[i,0]},{result[i,1]}");
+    }
+}
+
+int[,] TwoCoins(int[] coins, int target) 
+{
+    int[,] result = {{-1,-1},{-1,-1},{-1,-1},{-1,-1},{-1,-1}};
+    int count = 0;
+
+    for (int curr = 0; curr < coins.Length; curr++) 
+    {
+        for (int next = curr + 1; next < coins.Length; next++) 
+        {    
+            if (coins[curr] + coins[next] == target) 
+            {
+                result[count, 0] = curr;
+                result[count, 1] = next;
+                count++;
+            }
+            if (count == result.GetLength(0)) 
+            {
+                return result;
+            }
+        }
+    }
+    return (count == 0) ? new int[0,0] : result;
+}
+
+输出结果： 
+Change found at positions:
+0,3
+0,4
+1,3
+1,4
+3,6
+
+接下来，将
+target
+的值更新为
+80
+的值：
+
+int target = 80;
+
+输出结果： 
+No two coins make change
+
+
+
+第七节： 练习
+
+
+在这些模块中，代码挑战将强化所学知识，有助于在继续操作之前增强自信。
+
+此挑战的重点是创建具有适当参数和返回类型的正确方法。
+
+骰子小游戏挑战
+你的挑战是设计一个小游戏。 该游戏应选择一个目标数字，该数字是介于 1 和 5（含）之间的随机数。 玩家必须掷出一个六面骰子。 玩家必须掷出一个大于目标数字的数字才算获胜。 每轮结束时，应询问玩家是否愿意再次玩游戏，游戏应相应地继续或终止。
+
+在此挑战中，你将获得一些起始代码。 必须确定要创建的方法、其参数及其返回类型。
+
+代码挑战：添加使游戏可玩的方法
+在开始的代码中，引用了两个不可用的方法：
+
+ShouldPlay：此方法应检索用户输入并确定用户是否要再次玩游戏
+WinOrLose：此方法应确定玩家是赢还是输
+还有两个未初始化的变量：
+
+target：1 和 5 之间的随机目标数字
+roll：随机掷六面骰的结果
+你的挑战是创建 ShouldPlay 和 WinOrLose 方法，并创建将 target 和 roll 设置为正确范围内的随机值的方法。 完成所有方法后，游戏应成功运行。
+
+确保在 Visual Studio Code 中打开了一个空的 Program.cs 文件。
+
+如有必要，请打开 Visual Studio Code，然后完成以下步骤，以在编辑器中准备 Program.cs 文件：
+
+在“文件”菜单中，选择“打开文件夹”。
+
+使用“打开文件夹”对话框导航到 CsharpProjects 文件夹，然后打开。
+
+在 Visual Studio Code 的“资源管理器”窗格中，选择“Program.cs”。
+
+在 Visual Studio Code“选择”菜单上，选择“全选”，然后按 Delete 键。
+
+将以下代码复制粘贴到“编辑器”面板中。
+
+c#
+Random random = new Random();
+
+Console.WriteLine("Would you like to play? (Y/N)");
+if (ShouldPlay()) 
+{
+    PlayGame();
+}
+
+void PlayGame() 
+{
+    var play = true;
+
+    while (play) 
+    {
+        var target;
+        var roll;
+
+        Console.WriteLine($"Roll a number greater than {target} to win!");
+        Console.WriteLine($"You rolled a {roll}");
+        Console.WriteLine(WinOrLose());
+        Console.WriteLine("\nPlay again? (Y/N)");
+
+        play = ShouldPlay();
+    }
+}
+更新代码以使用方法使游戏根据挑战规范运行。
+
+使用你学到的有关返回值和参数的知识来完成更新。
+
+验证游戏是否正常运行
+
+代码应生成如下所示的输出：
+
+Output
+Would you like to play? (Y/N)
+Y
+Roll a number greater than 1 to win!
+You rolled a 2
+You win!
+
+Play again? (Y/N)
+Y
+Roll a number greater than 4 to win!
+You rolled a 6
+You win!
+
+Play again? (Y/N)
+Y
+Roll a number greater than 1 to win!
+You rolled a 1
+You lose!
+
+Play again? (Y/N)
+N
+无论是遇到问题而需要查看解决方案，还是成功完成操作，都请继续查看此挑战的一种解决方案。
+
+
+
+参考代码： 
+Random random = new Random();
+
+Console.WriteLine("Would you like to play? (Y/N)");
+if (ShouldPlay()) 
+{
+    PlayGame();
+}
+
+bool ShouldPlay() 
+{
+    string response = Console.ReadLine();
+    return response.ToLower().Equals("y");
+}
+
+void PlayGame() 
+{
+    var play = true;
+
+    while (play) {
+        var target = GetTarget();
+        var roll = RollDice();
+
+        Console.WriteLine($"Roll a number greater than {target} to win!");
+        Console.WriteLine($"You rolled a {roll}");
+        Console.WriteLine(WinOrLose(roll, target));
+        Console.WriteLine("\nPlay again? (Y/N)");
+
+        play = ShouldPlay();
+    }
+}
+
+int GetTarget() 
+{
+    return random.Next(1, 6);
+}
+
+int RollDice() 
+{
+    return random.Next(1, 7);
+}
+
+string WinOrLose(int roll, int target) 
+{
+    if (roll > target) 
+    {
+        return "You win!";
+    }
+    return "You lose!";
+}

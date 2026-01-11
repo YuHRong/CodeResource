@@ -1,0 +1,604 @@
+第一节： 介绍
+
+方法是一个基本的编程概念。 它们提供代码可重用性、提高可读性并减小代码的大小。 方法有助于将复杂问题分解为模块化任务，并帮助组织代码。 了解方法后，即可开始在程序中开发更多功能！
+
+假设你是宠物动物园的事件协调员。 你必须定期协调不同学校的访问，并为几组学生组织动物访问。 你决定编写一个有助于规划学校访问的应用程序。 该应用程序将学生分成几个组，并给他们分配一组动物来参观。 学生在参观分配的动物后将轮换团体。 你决定随机排列动物的顺序，以便每个学校的参观都是独一无二的。
+
+本模块将指导你完成开发宠物动物园应用程序所需的步骤。 你的代码将使用方法规划三所学校的访问，随机排列动物的顺序，将学生分配到组，并显示结果。 你将使用接受参数和返回值的方法，并且还将包含一些可选参数。
+在本模块中，你将练习如何：
+使用方法执行特定任务
+创建接受必需参数和可选参数的方法
+使用从方法返回的值
+
+
+第二节： 
+你正在为 Contoso 小动物园开发一个应用程序，用于组织学校参观。 Contoso Petting Zoo 是 18 种不同种类的动物的家园。 在动物园，参观的学生被分配到组，每个组都有一组动物分配给它。 参观完他们的动物组后，学生将轮换组，直到他们看到该宠物动物园中的所有动物。
+默认情况下，学生分为 6 个组。 但是，有一些班级有少量或大量学生，因此必须相应地调整组数。 动物还应随机分配给每个组，以便保持体验的独特性。
+Contoso Petting Zoo 应用程序的设计规范如下所示：
+目前有三所参观学校
+学校 A 有六个访问组 （默认号码）
+学校 B 有三个来访的团体
+学校 C 有两个来访的团体
+对于每个访问学校，请执行以下任务
+将动物进行随机化处理
+将动物分配到正确的组数
+打印学校名称
+打印动物组
+
+键入代码： 
+using System;
+
+string[] pettingZoo = 
+{
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese", 
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws", 
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+
+
+第三节： 练习 - 使用方法来规划代码
+在开发过程的第一步中，你将开始通过伪代码规划应用程序。 你将确定完成任务所需的步骤和方法。 还需要考虑这些方法的输入和输出。 通过伪代码准备方法在任何编码任务中都是一个有用的步骤，可帮助你快速开发无 bug 代码。
+重要
+在开始本练习之前，需要先完成上一单元“准备”中的设置说明。
+
+将任务转换为伪代码
+在此任务中，你将将应用程序规范中定义的步骤转换为伪代码。 通过准备伪代码，开发完整的应用程序会变得更加容易。 让我们开始吧！
+
+- There will be three visiting schools
+    - School A has six visiting groups (the default number)
+    - School B has three visiting groups
+    - School C has two visiting groups
+
+- For each visiting school, perform the following tasks
+    - Randomize the animals
+    - Assign the animals to the correct number of groups
+    - Print the school name
+    - Print the animal groups
+
+首先，你将专注于为一所学校编写伪代码。 找出一所学校的代码时，可以轻松地将相同的逻辑应用于其他学校。
+在
+pettingZoo数组初始化下方插入一行新的空白代码。
+第一个任务是随机化动物。 在编辑器中输入以下代码，创建伪代码方法来随机化宠物动物园动物：
+// RandomizeAnimals();
+
+你不会填充任何逻辑来随机化动物。 现在，你将专注于整体规划应用程序。 可以假定此方法
+RandomizeAnimals()
+存在，并将正确随机化
+pettingZoo
+数组。
+接下来，创建一个伪代码方法来分配动物组。 在编辑器中输入以下代码：
+
+// AssignGroup();
+
+与以前一样，可以假设此方法正确地将动物分配到子集组，并继续执行下一个任务。
+
+可以轻松使用
+Console.Write
+打印学校名称。 在编辑器中输入以下代码：
+
+Console.WriteLine("School A");
+
+最后，需要打印动物组。 在编辑器中输入以下代码：
+
+// PrintGroup(group);
+
+请注意，你向此方法添加了参数。 你知道需要多次打印不同的动物组，因此可以使用一种方法将组作为输入参数来执行此任务。 花点时间考虑在伪代码中初始化
+group
+参数的位置。
+通过将
+group
+代码行更新为以下内容来分配
+AssignGroup
+参数：
+
+// var group = AssignGroup();
+
+既然你已经完成了常规任务的伪代码，可以花点时间来考虑一下变量
+group
+应该分配的数据类型。
+你希望将学校 A 的动物分配到六组。 你知道有18只动物。 你还知道动物是使用
+string
+表示的。 因此，可以使用包含 6 组三种动物的 2D 数组。
+
+通过将
+group
+代码行更新为以下内容，分配
+AssignGroup
+数据类型。
+
+// string[,] group = AssignGroup();
+
+不要将任何参数添加到
+AssignGroup
+默认组值为 6 的方法。
+
+代码： 
+using System;
+
+string[] pettingZoo = 
+{
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese", 
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws", 
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+// RandomizeAnimals();
+// string[,] group = AssignGroup();
+Console.WriteLine("School A");
+// PrintGroup(group);
+
+
+
+第四节： 练习 - 创建用于随机排列数组的方法
+
+在此步骤中，你将开发代码以完成第一个子任务，即随机化宠物动物园动物。 回想一下，你在伪代码中引用了一种方法
+RandomizeAnimals()
+
+随机化数组的元素似乎是一项艰巨的任务。 在开始之前，请花点时间考虑如何交换两个变量的值，
+a
+以及
+b
+
+如果立即分配
+a = b
+，将丢失原始值
+a
+，最终将包含两个等于
+b
+的变量。 你需要使用临时变量来存储
+a
+的值，然后才能覆盖它。 让我们使用此概念来开始你的任务。
+输入新的空白代码行，然后输入以下代码来定义
+RandomizeAnimals
+方法。
+
+void RandomizeAnimals() 
+{
+
+}
+
+对于此方法，不需要任何输入参数，因为将使用现有的全局
+pettingZoo
+变量。 此任务也不需要任何输入参数。 若要启动此方法，让我们编写一些代码来交换数组中的一些元素。
+
+在
+RandomizeAnimals()
+方法中输入以下代码：
+
+int i = 0;
+int r = 1;
+
+string temp = pettingZoo[i];
+pettingZoo[i] = pettingZoo[r];
+pettingZoo[r] = temp;
+
+在此代码中，你将暂时使用
+i
+和
+r
+表示数组中的一些随机索引。 然后，借助
+temp
+变量交换两个索引处的值。 请注意，使用
+temp
+可以如何防止我们在覆盖后丢失
+pettingZoo[i]
+的原始值。 接下来，我们将设置为
+r
+随机值，而不是
+1
+
+更新代码 
+Random random = new Random();
+
+int i = 0;
+int r = random.Next(pettingZoo.Length);
+
+string temp = pettingZoo[i];
+pettingZoo[i] = pettingZoo[r];
+pettingZoo[r] = temp;
+
+在此步骤中，你初始化了一个
+random
+对象来帮助我们生成随机数。 将
+r
+初始化为0和
+pettingZoo
+数组长度之间的一个随机整数。 这将确保你不会超出数组的边界。 可以将此代码应用于整个数组，以随机化所有元素。
+使用 for-循环 修改元素，方法是将代码更新为以下内容：
+
+Random random = new Random();
+
+for (int i = 0; i < pettingZoo.Length; i++) 
+{
+    int r = random.Next(pettingZoo.Length);
+
+    string temp = pettingZoo[i];
+    pettingZoo[i] = pettingZoo[r];
+    pettingZoo[r] = temp;
+}
+
+现在循环浏览数组中的每个元素，选择一个随机索引，并将其与当前元素交换。 但是，如果运行此代码并在
+pettingZoo
+上观察更改，你可能会注意到一些问题。 某些元素根本不交换，某些元素会多次交换。
+通过在数组中移动时更新范围，可以改进随机选择元素的分布。
+将代码更新为以下内容：
+
+int r = random.Next(i, pettingZoo.Length);
+
+在 for 循环中，每次迭代时，您需要更新随机选择的索引范围，以排除小于
+i
+的值。 这是因为在循环的先前迭代中，值小于
+i
+的索引已经被交换。
+通过移除起始
+RandomizeAnimals()
+字符，取消评论对
+//
+的调用。
+
+代码： 
+using System;
+
+string[] pettingZoo = 
+{
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese", 
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws", 
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+RandomizeAnimals();
+// string[,] group = AssignGroup();
+Console.WriteLine("School A");
+// PrintGroup(group);
+
+void RandomizeAnimals() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < pettingZoo.Length; i++) 
+    {
+        int r = random.Next(i, pettingZoo.Length);
+
+        string temp = pettingZoo[r];
+        pettingZoo[r] = pettingZoo[i];
+        pettingZoo[i] = temp;
+    }
+}
+
+
+添加
+foreach(string animal in pettingZoo) 
+{
+    Console.WriteLine(animal);
+}
+测试
+
+
+
+第五节： 练习 - 创建具有可选参数的方法
+
+在此步骤中，你将开发代码以完成另一个子任务，即将宠物动物园动物分配到组。 回想一下，你在伪代码中引用了一种方法
+AssignGroup()
+
+制定你的方法
+在此任务中，你将完成一个将宠物动物园动物分配到组的方法。 你将使用所了解的方法返回类型和参数来创建方法。 让我们开始吧！
+
+添加方法代码： 
+string[,] AssignGroup(int groups) 
+{
+
+}
+
+请记住，你决定此方法将返回一个 2D 数组。 组数也可以根据来访学校的大小而变化。 但是，默认组大小
+6
+为，因此应使此参数可选。
+
+将
+groups
+修改为可选参数，请按以下代码更新方法：
+
+string[,] AssignGroup(int groups = 6) 
+{
+
+}
+
+回想一下，通过为其分配默认值来定义可选参数。 应在任何可选参数之前先声明所需的参数。 接下来，将开始向代码添加逻辑。
+使用以下代码更新方法：
+
+string[,] AssignGroup(int groups = 6) 
+{
+    string[,] result = new string[groups, pettingZoo.Length/groups];
+
+    return result;
+}
+
+
+由于方法指定返回值，可以通过创建要返回的值来启动方法定义。 这样就可以继续添加逻辑，而不会出现编译时错误。
+请注意，您使用
+[groups, pettingZoo.Length/groups]
+来定义数组大小。
+groups
+表示要创建的动物组数。
+pettingZoo.Length/groups
+反映分配给每个组的动物数量。 例如，由于
+pettingZoo
+是 18 个元素的固定数组，因此学校 A 的 2D 数组大小为
+[6,3]
+接下来，你将将动物分配到每个组。
+
+使用以下嵌套
+for
+循环更新代码：
+
+string[,] AssignGroup(int groups = 6) 
+{
+    string[,] result = new string[groups, pettingZoo.Length/groups];
+
+    for (int i = 0; i < groups; i++) 
+    {
+        for (int j = 0; j < result.GetLength(1); j++) 
+        {
+
+        }
+    }
+
+    return result;
+}
+
+在此代码中，外部
+for
+循环循环遍历每个组。 内部
+for
+循环针对组应包含的动物数进行循环。 接下来，你需要分配动物。
+用以下代码更新你的
+for
+循环：
+
+
+int start = 0;
+
+for (int i = 0; i < groups; i++) 
+{
+    for (int j = 0; j < result.GetLength(1); j++) 
+    {
+        result[i,j] = pettingZoo[start++];
+    }
+}
+
+在此代码中，您定义
+start
+为
+pettingZoo
+的起始位置。 使用此标记，您可以逐个浏览数组
+pettingZoo
+元素，即使 for-循环 具有不同的循环次数。
+现在，你的方法将宠物动物园动物分配给指定的组数。 现在可以取消评论对
+AssignGroup
+的调用。
+请记住，由于省略可选参数，变量
+group
+将是 2D 数组
+[6,3]
+
+代码： 
+using System;
+
+string[] pettingZoo = 
+{
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese", 
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws", 
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+RandomizeAnimals();
+string[,] group = AssignGroup();
+Console.WriteLine("School A");
+// PrintGroup(group);
+
+void RandomizeAnimals() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < pettingZoo.Length; i++) 
+    {
+        int r = random.Next(i, pettingZoo.Length);
+
+        string temp = pettingZoo[r];
+        pettingZoo[r] = pettingZoo[i];
+        pettingZoo[i] = temp;
+    }
+}
+
+string[,] AssignGroup(int groups = 6) 
+{
+    string[,] result = new string[groups, pettingZoo.Length/groups];
+    int start = 0;
+
+    for (int i = 0; i < groups; i++) 
+    {
+        for (int j = 0; j < result.GetLength(1); j++) 
+        {
+            result[i,j] = pettingZoo[start++];
+        }
+    }
+
+    return result;
+}
+
+
+
+第六节： 练习 - 创建用于显示结果的方法
+
+在此步骤中，你将定义用于显示动物组结果的方法。 你还将完成其他来访学校的动物组作业。 让我们开始吧！
+
+键入代码制定PrintGroup方法
+void PrintGroup(string[,] group) 
+{
+
+}
+
+请记住，你确定此方法将采用 2D 数组作为输入。 现在，只需使用方法打印 2D 数组的内容。
+将以下代码添加到
+PrintGroup
+方法中：
+
+void PrintGroup(string[,] group)
+{
+    for (int i = 0; i < group.GetLength(0); i++) 
+    {
+        for (int j = 0; j < group.GetLength(1); j++) 
+        {
+            Console.Write($"{group[i,j]}  ");
+        }
+    }
+}
+
+在这里，你将用于
+GetLength(0)
+获取数组中的行数以及
+GetLength(1)
+列数。 然后，使用
+Console.Write
+动物之间的一些额外空间打印元素。 接下来，让我们添加一些帮助程序文本和新行来分隔组。
+使用以下代码更新方法：
+
+void PrintGroup(string[,] group) 
+{
+    for (int i = 0; i < group.GetLength(0); i++) 
+    {
+        Console.Write($"Group {i + 1}: ");
+        for (int j = 0; j < group.GetLength(1); j++) 
+        {
+            Console.Write($"{group[i,j]}  ");
+        }
+        Console.WriteLine();
+    }
+}
+
+验证输出类似： 
+School A
+Group 1: ducks  emus  rabbits  
+Group 2: lemurs  chickens  geese  
+Group 3: iguanas  macaws  alpacas  
+Group 4: goats  kangaroos  pigs  
+Group 5: capybaras  llamas  tortoises
+Group 6: sheep  ostriches  ponies
+
+请考虑需要为每个学校执行相同的任务。 差异将是学校的名称和组数。 这是使用这些参数的方法的绝佳机会。
+在方法调用上方
+RandomizeAnimals()
+创建新的空白代码行。 然后输入以下代码创建新的方法：
+
+void PlanSchoolVisit(string schoolName, int groups = 6)
+{
+    RandomizeAnimals();
+    string[,] group = AssignGroup();
+    Console.WriteLine("School A");
+    PrintGroup(group);
+}
+
+使用此代码，你可以为每个学校执行相同的任务。 此外，还设置为
+groups
+默认值
+6
+。 接下来，你将更新方法以使用输入值。
+使用以下代码更新方法：
+
+void PlanSchoolVisit(string schoolName, int groups = 6)
+{
+    RandomizeAnimals();
+    string[,] group = AssignGroup(groups);
+    Console.WriteLine(schoolName);
+    PrintGroup(group);
+}
+
+现在，你已准备好为每个学校调用此方法。
+在方法上方
+PlanSchoolVisit
+创建新的空白代码行。 然后输入以下代码：
+
+PlanSchoolVisit("School A");
+PlanSchoolVisit("School B", 3);
+PlanSchoolVisit("School C", 2);
+
+最后代码： 
+using System;
+
+string[] pettingZoo = 
+{
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese", 
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws", 
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+PlanSchoolVisit("School A");
+PlanSchoolVisit("School B", 3);
+PlanSchoolVisit("School C", 2);
+
+void PlanSchoolVisit(string schoolName, int groups = 6) 
+{
+    RandomizeAnimals(); 
+    string[,] group = AssignGroup(groups);
+    Console.WriteLine(schoolName);
+    PrintGroup(group);
+}
+
+void RandomizeAnimals() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < pettingZoo.Length; i++) 
+    {
+        int r = random.Next(i, pettingZoo.Length);
+
+        string temp = pettingZoo[r];
+        pettingZoo[r] = pettingZoo[i];
+        pettingZoo[i] = temp;
+    }
+}
+
+string[,] AssignGroup(int groups = 6) 
+{
+    string[,] result = new string[groups, pettingZoo.Length/groups];
+    int start = 0;
+
+    for (int i = 0; i < groups; i++) 
+    {
+        for (int j = 0; j < result.GetLength(1); j++) 
+        {
+            result[i,j] = pettingZoo[start++];
+        }
+    }
+
+    return result;
+}
+
+void PrintGroup(string[,] groups) 
+{
+    for (int i = 0; i < groups.GetLength(0); i++) 
+    {
+        Console.Write($"Group {i + 1}: ");
+        for (int j = 0; j < groups.GetLength(1); j++) 
+        {
+            Console.Write($"{groups[i,j]}  ");
+        }
+        Console.WriteLine();
+    }
+}
+
+输出类似： 
+School A
+Group 1: kangaroos  lemurs  pigs  
+Group 2: alpacas  sheep  chickens  
+Group 3: ducks  geese  capybaras  
+Group 4: ponies  iguanas  tortoises  
+Group 5: ostriches  llamas  rabbits  
+Group 6: macaws  goats  emus  
+School B
+Group 1: llamas  ducks  ponies  geese  chickens  goats
+Group 2: iguanas  capybaras  macaws  kangaroos  rabbits  sheep
+Group 3: lemurs  tortoises  alpacas  pigs  emus  ostriches
+School C
+Group 1: sheep  ducks  pigs  macaws  kangaroos  ostriches  rabbits  goats  lemurs
+Group 2: iguanas  capybaras  chickens  emus  tortoises  geese  ponies  alpacas  llamas
