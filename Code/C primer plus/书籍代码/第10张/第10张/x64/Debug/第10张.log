@@ -1,7 +1,2 @@
-﻿  10.13 ptr_ops.c
-E:\Code\C primer plus\书籍代码\第10张\10.13 ptr_ops.c(9,7): warning C4047: “=”:“int *”与“int (*)[5]”的间接级别不同
-E:\Code\C primer plus\书籍代码\第10张\10.13 ptr_ops.c(22,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int *”
-E:\Code\C primer plus\书籍代码\第10张\10.13 ptr_ops.c(22,9): warning C4313: "printf": 格式字符串中的 "%d" 与类型为 "int *" 的参数 1 冲突
-E:\Code\C primer plus\书籍代码\第10张\10.13 ptr_ops.c(7,39): warning C4101: “ptr5”: 未引用的局部变量
-E:\Code\C primer plus\书籍代码\第10张\10.13 ptr_ops.c(7,31): warning C4101: “ptr4”: 未引用的局部变量
-  第10张.vcxproj -> E:\Code\C primer plus\书籍代码\第10张\x64\Debug\第10张.exe
+﻿  10.14 arf.c
+  第10张.vcxproj -> E:\CodeResource\Code\C primer plus\书籍代码\第10张\x64\Debug\第10张.exe
