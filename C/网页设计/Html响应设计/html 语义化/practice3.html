@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Event Hub</title>
+</head>
+
+<body>
+
+    <!-- 1. 应该有一个 header 元素。 -->
+    <header>
+        <!-- 2. 内部应该有一个 h1 (Event Hub) 和一个 nav 元素。 -->
+        <h1>Event Hub</h1>
+        <nav>
+            <!-- 3. nav 内部有一个无序列表 (ul) 包含两个项目 (li)。 -->
+            <ul>
+                <!-- 4. 第一个项目链接到 #upcoming-events -->
+                <li><a href="#upcoming-events">Upcoming Events</a></li>
+                <!-- 4. 第二个项目链接到 #past-events -->
+                <li><a href="#past-events">Past Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 5. 应该有一个 main 元素 -->
+    <main>
+        
+        <!-- 6. main 内部有两个 section 元素。 -->
+        
+        <!-- 7. 第一个 section 元素的 id 为 upcoming-events -->
+        <section id="upcoming-events">
+            <!-- 8. 内容：h2 (Upcoming Events) 和 两个 article 要素 -->
+            <h2>Upcoming Events</h2>
+
+            <!-- 第一个 upcoming event -->
+            <article>
+                <h3>Tech Summit 2025</h3>
+                <p>The premier conference for developers and tech enthusiasts. Join us for keynotes and workshops.</p>
+                <p>Date: October 15, 2025</p>
+            </article>
+
+            <!-- 第二个 upcoming event -->
+            <article>
+                <h3>Community Meetup Q4</h3>
+                <p>A casual gathering to network with local professionals and discuss industry trends.</p>
+                <p>Date: December 5, 2025</p>
+            </article>
+        </section>
+
+        <!-- 9. 第二个 section 元素的 id 为 past-events -->
+        <section id="past-events">
+            <!-- 10. 内容：h2 (Past Events) 和 两个 article 要素 -->
+            <h2>Past Events</h2>
+
+            <!-- 第一个 past event -->
+            <article>
+                <h3>Annual Innovation Day</h3>
+                <p>A deep dive into emerging technologies showcased by our top innovators.</p>
+                <p>Date: May 20, 2024</p>
+                <!-- 10. 添加图片 -->
+                <img src="https://cdn.freecodecamp.org/curriculum/labs/past-event1.jpg" alt="A crowded auditorium listening to a presentation.">
+            </article>
+
+            <!-- 第二个 past event -->
+            <article>
+                <h3>Web Standards Workshop</h3>
+                <p>An intensive workshop focusing on the latest developments in HTML and CSS.</p>
+                <p>Date: March 10, 2024</p>
+                <!-- 10. 添加图片 -->
+                <img src="https://cdn.freecodecamp.org/curriculum/labs/past-event2.jpg" alt="People working together at tables during a workshop.">
+            </article>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
