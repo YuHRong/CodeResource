@@ -1,6 +1,0 @@
-﻿  练习8OTW.c
-E:\Code\C语言\Project1\练习8OTW.c(7,6): error C2084: 函数“void two(void)”已有主体
-      E:\Code\C语言\Project1\练习8OTW.c(3,6):
-      参见“two”的前一个定义
-  
-E:\Code\C语言\Project1\练习8OTW.c(13,2): warning C4013: “one”未定义；假设外部返回 int
