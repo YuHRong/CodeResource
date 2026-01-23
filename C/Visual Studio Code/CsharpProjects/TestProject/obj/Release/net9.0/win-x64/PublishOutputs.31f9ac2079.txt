@@ -1,2 +1,0 @@
-E:\C\Visual Studio Code\CsharpProjects\TestProject\bin\Release\net9.0\win-x64\publish\TestProject.pdb
-E:\C\Visual Studio Code\CsharpProjects\TestProject\bin\Release\net9.0\win-x64\publish\TestProject.exe

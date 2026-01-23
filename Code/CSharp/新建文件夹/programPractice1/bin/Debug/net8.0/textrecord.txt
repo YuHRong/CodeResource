@@ -1,4 +1,0 @@
-abcdefg,
-cdefgab
-1234567
-Do Re Mi Fa Sol La Si

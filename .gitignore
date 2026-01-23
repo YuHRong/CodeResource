@@ -2,10 +2,13 @@
 
 # 忽略所有 .vs 目录（包括子目录中的 .vs 目录）
 .vs/
+
+# 忽略的文件目录
 x64/
 chinese-poetry/
 ChatLab/
 radeo/
+GitResource/
 
 # 忽略所有中间文件和编译产物
 *.ipch

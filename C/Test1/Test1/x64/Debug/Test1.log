@@ -1,3 +1,0 @@
-﻿  Test.c
-D:\C\Test1\Test.c(5,16): warning C4305: “初始化”: 从“double”到“float”截断
-  Test1.vcxproj -> D:\C\Test1\x64\Debug\Test1.exe

@@ -1,4 +1,0 @@
-﻿  源.c
-E:\Code\C语言\06.c 语言的数组\C 语言字符数组和字符串\源.c(4,9): warning C4047: “函数”:“const char *const ”与“int (__cdecl *)(const char *const ,...)”的间接级别不同
-E:\Code\C语言\06.c 语言的数组\C 语言字符数组和字符串\源.c(4,9): warning C4024: “printf”: 形参和实参 1 的类型不同
-  C 语言字符数组和字符串.vcxproj -> E:\Code\C语言\06.c 语言的数组\C 语言字符数组和字符串\x64\Debug\C 语言字符数组和字符串.exe
