@@ -1,0 +1,268 @@
+﻿//MyShape.cs 源文件 用于定义图形类 作为其它图形的基类
+using MyMessage;
+using MyShape;
+using System;
+
+namespace MyShape
+{
+ public class Shape
+ {
+  public virtual void Draw() {; } //虚方法 用于图形绘制
+  public virtual int GetArea()
+  {
+   return 0; //虚方法 用于计算图形面积
+  }
+ }
+}
+
+//rect.cs 源文件 用于定义矩形类和正方形类
+using System;
+
+namespace MyShape
+{
+ public class Rectangle : Shape //定义矩形类
+ {
+  protected int a;
+  protected int b; //矩形的边长
+
+  public Rectangle(int va, int vb)
+  {
+   a = va;
+   b = vb;
+  }
+
+  public override int GetArea()
+  //重载虚方法 计算矩形面积
+  {
+   int area = a * b;
+   return area;
+  }
+
+  public override void Draw() //重载虚方法 在屏幕上绘制矩形
+  {
+   Console.WriteLine("Rectangle:");
+   Console.WriteLine("* * * * *");
+   Console.WriteLine("*       *");
+   Console.WriteLine("*       *");
+   Console.WriteLine("* * * * *");
+  }
+ }
+
+ public class Square : Rectangle
+ //定义正方形类
+ {
+  public Square(int va) : base(va, va)
+  {; }
+
+  public override void Draw() //重载 绘制正方形
+  {
+   Console.WriteLine("Square");
+   Console.WriteLine("* * * * *");
+   Console.WriteLine("*       *");
+   Console.WriteLine("*       *");
+   Console.WriteLine("*       *");
+   Console.WriteLine("* * * * *");
+  }
+ }
+}
+
+//triangle.cs 源文件 用于三角形
+using System;
+
+namespace MyShape
+{
+ //定义普通三角形 作为其它三角形的基类
+ public class Triangle : Shape
+ {
+  protected int a;
+  protected int b;
+  //空航
+  protected int c;
+
+  public Triangle(int va, int vb, int vc)
+  {
+   a = va;
+   b = vb;
+   c = vc;
+  }
+
+  public override int GetArea()
+  {
+   int s = (a + b + c) / 2;
+   int area = (int)
+   (Math.Sqrt(s * (s - a) * (s - b) * (s - c)));
+   return area;
+  }
+ }
+
+ //定义直角三角形
+ public class RectTriangle : Triangle
+ {
+  new protected int a;
+  new protected int b;
+
+  public RectTriangle(int va, int vb) : base(va, vb, (int)(Math.Sqrt(va * va + vb * vb)))
+  {
+   a = va;
+   b = vb;
+  }
+
+  public override int GetArea()
+  {
+   int area = (int)(a * b / 2);
+   return area;
+  }
+
+  public override void Draw()
+  {
+   Console.WriteLine("RectTriangle");
+   Console.WriteLine("*");
+   Console.WriteLine("* *");
+   Console.WriteLine("* * ");
+   Console.WriteLine("* * *");
+  }
+ }
+
+ //空航
+ //定义等腰直角三角形
+ public class RectEqualTriangle : RectTriangle
+ {
+  new protected int a;
+
+  public RectEqualTriangle(int va) : base(va, va)
+  {
+   a = va;
+  }
+
+  public override int GetArea()
+  {
+   int area = (int)(a * a / 2);
+   return area;
+  }
+
+  public override void Draw()
+  {
+   Console.WriteLine("RectEqualTriangle");
+   Console.WriteLine("*");
+   Console.WriteLine("* *");
+   Console.WriteLine("* * ");
+   Console.WriteLine("*   *");
+   Console.WriteLine("* * * * *");
+  }
+ }
+}
+
+//Mymessage.cs 源文件 用于定义程序显示的一些信息
+using System;
+
+namespace MyMessage
+{
+ public class Message
+ {
+  public void Begin()
+  {
+   Console.WriteLine("***********       ***********");
+   Console.WriteLine("*         *     *         *");
+   Console.WriteLine("********** *   * * **********");
+   Console.WriteLine("*         * * *   *         *");
+   Console.WriteLine("*         *   *   *         *");
+   Console.WriteLine("*         ** **   *");
+   Console.WriteLine("*           ** *   *");
+   Console.WriteLine("*             * *   *");
+   Console.WriteLine("*               *");
+   Console.WriteLine("*                 *");
+   Console.WriteLine("*                   *");
+   Console.WriteLine("*     SHAPE GAME    *");
+   Console.WriteLine("***********************************");
+  }
+
+  public bool Ask()
+  {
+   Console.WriteLine("Press 0 to exit the game");
+   Console.WriteLine("Press any other key to continue the game");
+   Console.WriteLine();
+   int c = Console.Read();
+   if (c == 48)
+    return false;
+   return true;
+  }
+ }
+}
+
+//client.cs 客户程序
+using System;
+using MyShape;
+using MyMessage;
+
+class ClientTest
+{
+ public static void Main()
+ {
+  int score = 1000; //总分
+  int win; //每一局赢取的分数
+  int choice; //随机获得的图形号
+  int bet; //每一局下的注
+  string s;
+  Shape sp = new Shape();
+  Random ran = new Random();
+  Message msg = new Message();
+  msg.Begin();
+
+  while (true)
+  {
+   if (!msg.Ask()) break;
+   Console.WriteLine("Your Score: {0}", score);
+   Console.WriteLine("Enter your bet: ");
+   Console.ReadLine();
+   s = Console.ReadLine(); //如果 押注的输入不正确 进行异常处理 并默认下注为 100 分
+   try
+   {
+    bet = s.ToInt32();
+   }
+   catch
+   {
+    bet = 100;
+   }
+
+   if (bet < score)
+    score -= bet;
+   else
+   {
+    bet = score;
+    score = 0;
+   }
+   Console.WriteLine("Remain Score: {0}", score);
+   win = 0;
+   for (int i = 0; i < 3; i++)
+   {
+    choice = ran.Next() % 4; //随机数发生器
+    switch (choice)
+    {
+     case 0:
+      sp = new RectTriangle(5, 4);
+      goto end;
+     case 1:
+      sp = new RectEqualTriangle(5);
+      goto end;
+     case 2:
+      sp = new Rectangle(5, 4);
+      goto end;
+     case 3:
+      sp = new Square(5);
+    }
+   end: //利用多态性 计算得分
+    sp.Draw();
+    win += sp.GetArea() * (i + 1) * bet / 100;
+    Console.WriteLine("Your win: {0}", win);
+   }
+   score += win;
+   Console.WriteLine("Your Score: {0}", score);
+
+   if (score < 100)
+   {
+    Console.WriteLine("Your remain score is not enough to play");
+    break;
+   }
+  }
+ }
+}
