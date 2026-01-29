@@ -9,6 +9,7 @@ chinese-poetry/
 ChatLab/
 radeo/
 GitResource/
+SQLServer/
 
 # 忽略所有中间文件和编译产物
 *.ipch

@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "第三章", "第3章\第三
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "第16张", "第16张\第16张.csproj", "{07B9CEED-56BF-4554-9E34-A52C98403688}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "第17张", "第17张\第17张.csproj", "{FD4AD748-FC40-4402-8992-16CA4B6F1FF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{07B9CEED-56BF-4554-9E34-A52C98403688}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07B9CEED-56BF-4554-9E34-A52C98403688}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07B9CEED-56BF-4554-9E34-A52C98403688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD4AD748-FC40-4402-8992-16CA4B6F1FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD4AD748-FC40-4402-8992-16CA4B6F1FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD4AD748-FC40-4402-8992-16CA4B6F1FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD4AD748-FC40-4402-8992-16CA4B6F1FF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
