@@ -33,6 +33,7 @@
    this.listView1 = new System.Windows.Forms.ListView();
    this.btnPlay = new System.Windows.Forms.Button();
    this.btnStop = new System.Windows.Forms.Button();
+   this.listBox1 = new System.Windows.Forms.ListBox();
    this.SuspendLayout();
    // 
    // btnOpen
@@ -78,11 +79,21 @@
    this.btnStop.Text = "停止";
    this.btnStop.UseVisualStyleBackColor = true;
    // 
+   // listBox1
+   // 
+   this.listBox1.FormattingEnabled = true;
+   this.listBox1.ItemHeight = 12;
+   this.listBox1.Location = new System.Drawing.Point(8, 8);
+   this.listBox1.Name = "listBox1";
+   this.listBox1.Size = new System.Drawing.Size(120, 88);
+   this.listBox1.TabIndex = 4;
+   // 
    // Form1
    // 
    this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
    this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
    this.ClientSize = new System.Drawing.Size(800, 450);
+   this.Controls.Add(this.listBox1);
    this.Controls.Add(this.btnStop);
    this.Controls.Add(this.btnPlay);
    this.Controls.Add(this.listView1);
@@ -101,6 +112,7 @@
   private System.Windows.Forms.ListView listView1;
   private System.Windows.Forms.Button btnPlay;
   private System.Windows.Forms.Button btnStop;
+  private System.Windows.Forms.ListBox listBox1;
  }
 }
 
