@@ -15,7 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="11.27 copy3.c">
+    <None Include="2.md" />
+    <None Include="1.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="3.md" />
+    <None Include="4.md" />
+    <None Include="5.md" />
+    <None Include="6.md" />
+    <None Include="7.md" />
+    <None Include="8.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="8.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
