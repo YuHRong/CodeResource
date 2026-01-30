@@ -15,12 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ProgramingPractice.md">
-      <Filter>资源文件</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="8.c">
+    <ClCompile Include="2-1.pun.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

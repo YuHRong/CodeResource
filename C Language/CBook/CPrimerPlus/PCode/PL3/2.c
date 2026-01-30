@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int main(void) {
-	char a = 66;
+	char a = 69;
 
 	printf("%c", a);
 

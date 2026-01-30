@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
 int main(void)
@@ -7,7 +8,7 @@ int main(void)
  double waterquart, number;
 
  printf("Enter water quart please:");
- scanf_s("%lf", &waterquart);
+ scanf("%lf", &waterquart);
  number = (quart * waterquart) / watermolecule;
  printf("WaterMoleclues is %.2e\n", number);
 
