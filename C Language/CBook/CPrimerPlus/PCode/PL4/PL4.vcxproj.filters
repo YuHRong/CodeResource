@@ -20,7 +20,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2.c">
+    <ClCompile Include="3.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
