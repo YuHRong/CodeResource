@@ -1,2 +1,0 @@
-console.WriteLine
-    ("hello world")£»
