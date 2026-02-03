@@ -38,7 +38,7 @@ class Program
  }
 
  // 写入方法
- static void WriteToFile()
+  static void WriteToFile()
  {
   Console.WriteLine("请输入要保存的文本");     // 提示输入
 
