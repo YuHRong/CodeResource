@@ -15,6 +15,7 @@ int main(void)
 
  printf("请输入你的姓名:\n");
  scanf("%s", name);
+
  printf("%s 你的升高是: %.3f 英尺，你的升高是 %.3f 米\n", name, highInc / 12.0, highCm / 100.0);
 
   return 0;
