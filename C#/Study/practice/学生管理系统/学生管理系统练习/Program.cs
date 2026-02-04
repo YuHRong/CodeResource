@@ -6,6 +6,7 @@ class Program
 {
  static List<(string name, string course, int score)> studentsInformation;
 
+ //main函数
  static void Main(string[] args)
  {
   //初始化全局列表
@@ -38,7 +39,7 @@ class Program
     case "1":
      GradeInquiry1();
      break;
-    case "4":
+    case "3":
      DeleteStudent();
      break;
     case "0":
@@ -158,7 +159,7 @@ class Program
  //显示内存中的 studentInformation方法
  static void GradeInquiry1()
  {
-  Console.WriteLine("\n=== 所有学生成绩（内存中的数据）===");
+  Console.WriteLine("\n个学生成绩如下:");
 
   if (studentsInformation.Count == 0)
   {
@@ -169,7 +170,7 @@ class Program
   for(int i = 0; i < studentsInformation.Count; i++)
   {
    var student = studentsInformation[i];
-   Console.WriteLine($"{i + 1}. 姓名:{student.name},课程:{student.course},成绩:{student.score}");
+   Console.WriteLine($"{i + 1}. 姓名:{student.name},课程:{student.course},成绩:{student.score}。");
   }
 
   Console.WriteLine("按回车返回主菜单...");
@@ -221,7 +222,7 @@ static void LoadDataFromFile()
      writer.WriteLine($"{student.name},{student.course},{student.score}");
     }
    }
-   Console.WriteLine("文件已修改。");
+   //Console.WriteLine("文件已修改。");
   }
   catch (Exception)
   {
@@ -283,21 +284,23 @@ static void LoadDataFromFile()
   Console.WriteLine($"\n将要删除：{studentToDelete.name} - {studentToDelete.course} - {studentToDelete.score}");
   Console.Write("确定删除吗？(Y/N): ");
 
-  string confirm = Console.ReadLine().ToUpper();
-  if(confirm !="y" || confirm != "YES")
-  {
-   Console.WriteLine("删除操作已取消。");
-   return;
-  }
+  string confirm = Console.ReadLine().ToUpper() ?? "";
 
   //执行删除
-  studentsInformation.RemoveAt(choice - 1);
+  if (confirm == "Y" || confirm == "YES")
+  {
+   studentsInformation.RemoveAt(choice - 1);
 
-  //覆盖文件保存
-  SaveCoverFile();
+   //覆盖文件保存
+   SaveCoverFile();
 
-  Console.WriteLine("删除成功！\n按回车返回菜单。");
-  Console.ReadLine();
+   Console.WriteLine("删除成功！文件以修改。\n按回车返回主菜单。");
+   Console.ReadLine();
+  }
+  else
+  {
+   Console.WriteLine("删除取消。\n");
+  }
  }
 
  //修改方法
