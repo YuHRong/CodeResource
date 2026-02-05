@@ -1,0 +1,226 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+#define NAMESIZE 20
+#define MAXSTUDENTS 50
+#define SCORESIZE 3
+
+// 定义学生结构体（需要在函数声明前定义）
+struct Student {
+ int id;                    // 学号
+ char name[NAMESIZE];       // 姓名
+ float scores[SCORESIZE];   // 三门成绩
+ float total;               // 总分
+ float average;             // 平均分
+ char grade;                // 等级
+};
+
+// 函数声明（提前告诉编译器这些函数的存在）
+void inputStudents(struct Student students[], int* count);
+void displayStudents(struct Student students[], int count);
+void calculateScore(struct Student students[], int count);
+void searchStudent(struct Student students[], int count);
+
+int main(void)
+{
+ struct Student students[MAXSTUDENTS];  // 学生数组
+ int studentCount = 0;                  // 当前学生数量
+ int choice;
+
+ // 菜单循环
+ do {
+  printf("\n=================== 学生成绩管理系统 ===================\n");
+  printf("1. 添加学生信息\n");
+  printf("2. 显示所有学生信息\n");
+  printf("3. 计算成绩统计\n");
+  printf("4. 查找学生\n");
+  printf("5. 退出系统\n");
+  printf("请选择功能 (1-5): ");
+  scanf("%d", &choice);
+  printf("=====================================================\n");
+
+  switch (choice) {
+  case 1:
+   inputStudents(students, &studentCount);  // 传递数组和count的地址
+   break;
+  case 2:
+   displayStudents(students, studentCount);  // 传递数组和count
+   break;
+  case 3:
+   calculateScore(students, studentCount);
+   break;
+  case 4:
+   searchStudent(students, studentCount);
+   break;
+  case 5:
+   printf("感谢使用，程序退出！\n");
+   break;
+  default:
+   printf("输入错误，请重新选择 (1-5)！\n");
+  }
+ } while (choice != 5);
+
+ return 0;
+}
+
+// 添加学生信息函数
+void inputStudents(struct Student students[], int* count)
+{
+ // 检查是否已满
+ if (*count >= MAXSTUDENTS) {
+  printf("学生人数已满，无法继续添加！\n");
+  return;
+ }
+
+ int i = *count;  // 当前要添加的学生索引
+
+ printf("\n--- 添加第 %d 个学生信息 ---\n", i + 1);
+
+ // 自动生成学号（例如：1001, 1002, 1003...）
+ students[i].id = 1001 + i;
+ printf("学号: %d\n", students[i].id);
+
+ // 输入姓名
+ printf("请输入姓名: ");
+ scanf("%s", students[i].name);
+
+ // 输入三门成绩
+ printf("请输入三门成绩 (用空格分隔): ");
+ for (int j = 0; j < SCORESIZE; j++) {
+  scanf("%f", &students[i].scores[j]);
+ }
+
+ // 暂时不计算总分和平均分，在计算功能中统一处理
+ students[i].total = 0;
+ students[i].average = 0;
+ students[i].grade = ' ';
+
+ (*count)++;  // 学生数量加1
+ printf("添加成功！\n");
+}
+
+// 显示所有学生信息函数
+void displayStudents(struct Student students[], int count)
+{
+ if (count == 0) {
+  printf("当前没有学生信息，请先添加学生！\n");
+  return;
+ }
+
+ printf("\n=============== 所有学生信息 ===============\n");
+ printf("序号\t学号\t姓名\t\t成绩1\t成绩2\t成绩3\t总分\t平均分\t等级\n");
+ printf("-----------------------------------------------------------------------------\n");
+
+ for (int i = 0; i < count; i++) {
+  printf("%d\t", i + 1);                      // 序号
+  printf("%d\t", students[i].id);             // 学号
+  printf("%-10s\t", students[i].name);        // 姓名（左对齐）
+
+  // 显示三门成绩
+  for (int j = 0; j < SCORESIZE; j++) {
+   printf("%.1f\t", students[i].scores[j]);
+  }
+
+  // 显示总分和平均分（如果已计算）
+  if (students[i].total > 0) {
+   printf("%.1f\t%.1f\t", students[i].total, students[i].average);
+   printf("%c\n", students[i].grade);      // 等级
+  }
+  else {
+   printf("未计算\t未计算\t未评定\n");
+  }
+ }
+ printf("=============================================\n");
+}
+
+// 计算成绩等级函数（辅助函数）
+char calculateGrade(float average) {
+ if (average >= 90) return 'A';
+ else if (average >= 80) return 'B';
+ else if (average >= 70) return 'C';
+ else if (average >= 60) return 'D';
+ else return 'F';
+}
+
+// 计算成绩统计函数
+void calculateScore(struct Student students[], int count)
+{
+ if (count == 0) {
+  printf("没有学生数据可以计算！\n");
+  return;
+ }
+
+ printf("\n正在计算成绩统计...\n");
+
+ float classTotal = 0;  // 班级总分（用于计算班级平均分）
+
+ // 计算每个学生的总分、平均分和等级
+ for (int i = 0; i < count; i++) {
+  // 计算个人总分
+  float sum = 0;
+  for (int j = 0; j < SCORESIZE; j++) {
+   sum += students[i].scores[j];
+  }
+  students[i].total = sum;
+
+  // 计算个人平均分
+  students[i].average = sum / SCORESIZE;
+  classTotal += students[i].average;
+
+  // 计算等级
+  students[i].grade = calculateGrade(students[i].average);
+
+  printf("学生 %s: 总分=%.1f, 平均分=%.1f, 等级=%c\n",
+   students[i].name, students[i].total, students[i].average, students[i].grade);
+ }
+
+ // 计算班级平均分
+ float classAverage = classTotal / count;
+ printf("\n班级平均分: %.1f\n", classAverage);
+ printf("成绩计算完成！\n");
+}
+
+// 查找学生函数（按姓名查找）
+void searchStudent(struct Student students[], int count)
+{
+ if (count == 0) {
+  printf("没有学生数据可以查找！\n");
+  return;
+ }
+
+ char searchName[NAMESIZE];
+ printf("\n请输入要查找的学生姓名: ");
+ scanf("%s", searchName);
+
+ int found = 0;  // 标记是否找到
+
+ for (int i = 0; i < count; i++) {
+  if (strcmp(students[i].name, searchName) == 0) {
+   printf("\n找到学生信息:\n");
+   printf("学号: %d\n", students[i].id);
+   printf("姓名: %s\n", students[i].name);
+   printf("成绩: ");
+   for (int j = 0; j < SCORESIZE; j++) {
+    printf("%.1f ", students[i].scores[j]);
+   }
+   printf("\n");
+
+   if (students[i].total > 0) {
+    printf("总分: %.1f\n", students[i].total);
+    printf("平均分: %.1f\n", students[i].average);
+    printf("等级: %c\n", students[i].grade);
+   }
+   else {
+    printf("提示: 成绩尚未计算，请先选择功能3进行计算\n");
+   }
+
+   found = 1;
+   break;  // 找到一个就退出循环
+  }
+ }
+
+ if (!found) {
+  printf("未找到姓名为 %s 的学生！\n", searchName);
+ }
+}
