@@ -18,5 +18,8 @@
     <ClCompile Include="5.13 addemup.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="5.3 golf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
