@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\PL5\8.c">
+    <ClCompile Include="9.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
