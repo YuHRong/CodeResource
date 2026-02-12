@@ -1,20 +1,23 @@
 #include<stdio.h>
-#include<string.h>
-
 int main(void)
 {
  char ch[26];
- ch[0] = 'a';
+ 
+ int i = 0;
 
- for (int i = 1; i < 26; i++)
+ while (i < 26)
  {
   ch[i] = 'a' + i;
+  i++;
  }
- for(int i = 0; i < 26; i++)
+
+ i = 0;
+ while (i < 26)
  {
   printf("%c ", ch[i]);
+  i++;
  }
- printf("\n");
+   printf("\n");
 
  return 0;
 }

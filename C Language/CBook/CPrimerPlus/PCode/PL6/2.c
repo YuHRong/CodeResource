@@ -2,7 +2,7 @@
 
 int main(void)
 {
- //int i, j;
+ int i, j;
 
  for (int i = 1; i <= 5; i++)
  {
@@ -12,5 +12,6 @@ int main(void)
   }
   printf("\n");
  }
+
  return 0;
 }
