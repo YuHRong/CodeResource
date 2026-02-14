@@ -123,10 +123,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="2.c" />
+    <None Include="ProgramingPractice.md" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ProgramingPractice.md" />
+    <ClCompile Include="5.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

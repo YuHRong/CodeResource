@@ -2,6 +2,5 @@
 
 int main(void)
 {
- int ch = 48;
- printf("%c\n", ch);
+ printf("hello world!\n");
 }

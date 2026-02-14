@@ -14,23 +14,4 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="word.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="line.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="justify.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="word.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="line.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
 </Project>
