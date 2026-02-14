@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="guess2.c">
+    <ClCompile Include="poker.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
