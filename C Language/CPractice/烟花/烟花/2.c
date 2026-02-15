@@ -43,7 +43,7 @@ static int availableColors[COLOR_COUNT] = {
 // 春节祝福语
 static const char* springFestivalMessages[MAX_MESSAGES] = {
     "新春快乐！",
-    "马年大吉！",
+    "马年吉祥！",
     "万事如意！",
     "恭喜发财！",
     "阖家幸福！",
@@ -172,7 +172,7 @@ static void showWelcomeScreen(void) {
  printf("            ★★★★★★★★★★★★★★★★★★★★★★★★★\n\n");
 
  SetConsoleTextAttribute(hConsole, 11); // 浅蓝色
- printf("                马年大吉！欢迎观看烟花表演！\n\n");
+ printf("                马年吉祥！欢迎观看烟花表演！\n\n");
 
  SetConsoleTextAttribute(hConsole, 15); // 白色
  printf("                       点击开始...\n");  // 移除了emoji
@@ -483,7 +483,7 @@ static void renderDisplay(void) {
 
  // 显示祝福语和状态
  SetConsoleTextAttribute(hConsole, 14);  // 黄色
- printf("马年大吉！新春快乐！");
+ printf("马年吉祥！新春快乐！");
 
  // 显示鞭炮区域标识
  SetConsoleTextAttribute(hConsole, 12);  // 红色
@@ -663,7 +663,7 @@ int main(void) {
 
  // 恢复控制台设置
  system("cls");
- printf("烟花表演结束！感谢观看！马年大吉！\n");
+ printf("烟花表演结束！感谢观看！马年吉祥！\n");
 
  return 0;
 }
