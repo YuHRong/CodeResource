@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="parta.c">
+    <ClCompile Include="s_and_r.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="partb.c">
+    <ClCompile Include="r_drive1.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
