@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="12.11-13\diceroll.c" />
+    <ClCompile Include="12.11-13\manydice.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="12.11-12\diceroll.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
