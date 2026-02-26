@@ -15,16 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="12.11-13\manydice.c">
+    <ClCompile Include="12.14 dyn_arr.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="12.11-13\diceroll.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="12.11-12\diceroll.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
