@@ -1,0 +1,54 @@
+// 什么是 JavaScript 中的字符串，什么是字符串不可变性
+/*
+在 JavaScript 中，字符串是用来表示文本数据的一串字符。 字符串与数值、布尔、 null  和 
+undefined   一样，是编程语言中的原始数据类型之一。
+要在 JavaScript 中创建字符串，可以使用单引号（ ' ）或双引号（ " ）。
+下面是创建两个保存字符串值的变量的示例：
+*/
+let singleQuotes = 'this is a string';
+console.log(singleQuotes); // 输出: this is a string
+let doubleQuotes = "This is also a string";
+console.log(doubleQuotes); // 输出: This is also a string
+/*字符串不可变性是指一旦创建了一个字符串，就不能修改它的内容。 如果需要更改字符串，必须创建一个新的字符串。
+例如：
+*/
+let originalString = "Hello";
+// 尝试修改字符串的第一个字符
+originalString[0] = "h";
+console.log(originalString); // 输出: Hello (字符串未改变)
+// 或者
+let developer = "Jessica";
+console.log(developer); // 输出: Jessica
+// 创建一个新的字符串来替换原来的字符串
+developer = "Quincy";
+console.log(developer); // 输出: Quincy (原来的字符串 "Jessica" 没有改变)   
+
+// 什么是字符串连接，如何用变量连接字符串
+/*
+字符串连接是将两个或多个字符串组合成一个新的字符串的过程。 在 JavaScript 中，可以使用加号（ + ）运算符来连接字符串。
+例如：
+*/
+
+let firstName = "John";
+let lastName = "Doe";
+
+let fullName = firstName + " " + lastName;
+console.log(fullName)// 输出: John Doe
+
+/*
+如果需要添加或追加到现有字符串，则可以使用  +=   操作符。 当你想在一个字符串的基础上逐渐添加更多文字时，这很有帮助。
+例如：
+*/
+let greeting = ' Hello';
+greeting += ', john';
+
+console.log(greeting); // 输出: Hello, John
+
+// 另一种连接字符串的方式是使用 concat()   方法。
+
+let str1 = 'Hello';
+let str2 = 'World';
+
+let result = str1.concat(' ', str2);
+    console.log(result); // 输出: Hello World
+
