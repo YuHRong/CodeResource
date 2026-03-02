@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="指针作为参数.c">
+    <ClCompile Include="maxmin.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
