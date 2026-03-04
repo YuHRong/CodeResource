@@ -1,0 +1,347 @@
+# HTML 表单和表单复习
+
+## HTML 表单元素和属性
+
+### form 元素 
+
+ 用于创建供用户输入的 `HTML` 表单。
+
+#### action 属性
+
+ 用于指定发送表单数据的`URL`。
+
+#### method 属性
+
+ 用于指定发送表单数据时使用的 `HTTP` 方法。最常见的方法是 `GET`和 `POST`。 
+
+
+`<`form `method`=`"`value-goes-here`"` action`=`"`url-goes-here`"`>
+
+`<!--` inputs go inside here `-->`
+
+
+`<`/form`>`
+
+
+### input 元素
+
+ 用于创建用户输入字段。
+
+#### type 属性 
+
+用于指定输入字段的类型。例如 `text`、 `email`、 `number`、 `radio`、 `checkbox`等。
+
+#### placeholder 属性
+
+ 用于向用户显示`提示`，告诉他们在输入框中输入什么内容。
+
+#### value  属性 
+
+ 用于指定输入值。如果输入具有 `button`类型， `value` 属性可用于`设置按钮`文本。
+
+#### name 属性
+
+ 用于为输入字段指定`名称`，在提交表单数据时作为`按键`。对于`单选按钮`，如果它们相同的 `name`可以将它们组合在一起，因此一次只能`选择`组中的一个选项。
+
+#### size 属性
+
+ 用于显示用户定义在输入时应的字符数。
+
+#### min 属性 
+
+ 可与 `number`等输入类型一起使用，指定输入字段中允许的`简单。`
+
+#### max 属性
+
+ 可与 `number`等输入类型一起使用，指定输入`字段中`允许的顶部。
+
+#### minlength 属性
+
+ 用于指定输入字段所需的最少字符数。
+
+#### maxlength 属性
+
+ 用于指定输入字段中允许的最大字符数。
+
+#### required 属性
+
+用于指定在提交表单前必须填写输入字段。
+
+#### disabled 属性
+
+ 用于指定禁止某些输入框。
+
+#### readonly 属性
+
+ 用于指定输入字段为注释。 
+
+`<!--` Text input `-->`
+
+
+`<`input  
+
+`type`=`"`text`"`
+
+`id`=`"`name`"`
+
+name`=`"`name`"
+
+placeholder`=`"`e.g. Quincy Larson`"  
+
+size`=`"`20`"
+
+minlength`=`"`5`"
+
+maxlength`=`"`30`"
+
+required
+
+
+/>
+
+`<!--` Number input `-->`
+
+
+`<`input  
+
+type`=`"`number`"
+
+id`=`"`quantity`"
+
+name`=`"`quantity`"
+
+min`=`"`2`"
+
+max`=`"`10`"
+
+disabled
+
+/>
+
+`<!--` Button `-->`
+
+
+`<`input `type`=`"`button`"` value`=`"`Show Alert`"` />
+
+
+#### label 属性
+
+ 用于为输入字段创建标签。
+
+#### for 属性
+
+ 用于指定标签所针对的`输入字段`。
+
+#### 隐式关联
+
+通过将输入字段包装在 `label`元素内部，可以将输入与标签关联起来。 
+
+<`form` action`=`"`"`>
+
+<`label`>
+
+Full Name:
+
+<`input` type`=`"`text`" `/>`
+
+</`label`>
+
+
+</`form`>
+
+
+### 显示关联:  输入可通过使用 `label`元素上的 `for`属性与标签关联。 
+
+<`form` action`=`"`"`>
+
+<`label` for`=`"`email`"`>`Email Address: `<`/label`>`
+
+<`input` type`=`"`email`" `id`=`"`email`"` />
+
+
+<`/form`>
+
+
+###  button元素
+
+用于创建一个可点击的`按钮`。按钮还可以有一个 `type` 属性，用于控制按钮激活时的行为。 `submit`,  `reset`,  `button`. 
+
+<button type="button">Show Form</button>
+
+
+<`button` type`=`"`submit`"`>`Submit `Form`<`/button`>
+
+
+<`button` type`=`"`reset`"`>`Reset Form`<`/button`>
+
+
+### fieldset元素
+
+用于将相关输入连接在一起。
+
+### legend元素
+
+用于添加说明输入组的标题。 
+
+<!-- `Radio group` -->
+
+
+<`fieldset`>
+
+<`legend`>`Was this your first time at our hotel?`<`/legend`>
+
+
+<`label` for`=`"`yes-option`"`>`Yes`<`/label`>
+
+<`input` id`=`"`yes-option`" `type`=`"`radio`"` name`=`"`hotel-stay`"` value`=`"`yes`"` />
+
+  <`label` for`=`"`no-option`"`>`No`<`/label`>`
+
+  <`input` id`=`"`no-option`" `type`=`"`radio`"` name`=`"`hotel-stay`" `value`=`"`no`"` />
+
+
+<`/fieldset`>
+
+<!-- `Checkbox` group `-->`
+
+
+<`fieldset`>
+
+<`legend`>
+
+    Why did you choose to stay at our hotel? (Check all that apply)
+
+<`/legend`>
+
+<`label` for`=`"`location`"`>`Location`<`/label`>`
+
+<`input` type`=`"`checkbox`" `id`=`"`location`"` name`=`"`location`" `value`=`"`location`"` />
+
+<`label` for`=`"`price`"`>`Price`<`/label`>`
+
+<`input` type`=`"`checkbox`" `id`=`"`price`" `name`=`"`price`" `value`=`"`price`"` />
+
+
+<`/fieldset`>
+
+
+### 焦点状态
+
+指用户点击或选中输入字段后，字段一个激活状态。
+
+## 使用 HTML 表格元素和属性
+
+### 表格元素
+
+ 用于创建 `HTML` 表格。
+### 表头 (  `thead`) 元素 
+
+ 用于分组`HTML`表中的标题内容。
+### 表格行（ `tr`）元素
+
+用于在 `HTML` 表格中创建一行。
+
+表头单元格（ `th`）元素
+
+用于在 HTML 表格中创建表头单元格。
+
+### 表体（ `tbody`）元素
+
+用于在 `HTML` 表格中对正文内容进行分组。
+
+### 表格数据单元格（ `td`）元素
+
+用于在 `HTML` 表格中创建数据单元格。
+
+### 表脚（ `tfoot`）元素
+
+用于在 `HTML` 表格中对表脚内容进行分组。
+
+### caption元素
+
+用于为 `HTML` 表格添加标题。
+
+### colspan元素
+
+用于指定表格单元格跨列数。 
+
+<`table`>
+
+<`caption`>`Exam Grades`<`/caption`>
+
+<`thead`>
+
+<`tr`>
+
+<`th`>`Last Name`<`/th`>
+
+<`th`>`First Name`<`/th`>
+
+<`th`>`Grade`<`/th`>
+
+<`/tr`>
+
+<`/thead`>
+
+<`tbody`>
+
+<`tr`>
+
+<`td`>`Davis`<`/td`>
+
+<`td`>`Alex`<`/td`>
+
+<`td`>`54`<`/td`>
+
+<`/tr`>
+
+<`tr`>
+
+<`td`>`Doe`<`/td`>
+
+<`td`>`Samantha`<`/td`>
+
+<`td`>`92`<`/td`>
+
+<`/tr`>
+
+<`tr`>
+
+<`td`>`Rodriguez`<`/td`>
+
+<`td`>`Marcus`<`/td`>
+
+<`td`>`88`<`/td`>
+
+<`/tr`>
+
+<`/tbody`>
+
+<`tfoot`>
+
+<`tr`>
+
+<`td` colspan`=`"`2`"`>`Average Grade`<`/td`>`
+
+<`td`>`78`<`/td`>
+
+<`/tr`>
+
+<`/tfoot`>
+
+<`/table`>
+
+
+## 使用 HTML 工具
+
+###  HTML校验器
+
+一种检查`HTML`代码语法以确保其有效性的工具。
+
+### DOM检查器
+
+一个可以检查和修改网页`HTML`结构的工具。
+
+### 开发者工具
+
+一套直接内置于浏览器中的`网络开发工具`，可帮助您`调试`、`配置`和`分析网页`。
