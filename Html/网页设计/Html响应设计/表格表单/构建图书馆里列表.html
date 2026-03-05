@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书信息表</title>
+    
+</head>
+<body>
+
+    <h1>图书信息列表</h1>
+
+    <table>
+        <!-- 1. 创建一个 table 元素 -->
+
+        <!-- 2. 表中有一个一行的表头元素 -->
+        <thead>
+            <tr>
+                <!-- 3. 表头元素中的行有四个表标题元素 -->
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Publication Year</th>
+            </tr>
+        </thead>
+
+        <!-- 4. 表中有一个至少是五行的表体元素 -->
+        <tbody>
+            <tr>
+                <!-- 5. 表体中的每一行都应该有四个表数据元素 -->
+                <td>The Hitchhiker's Guide to the Galaxy</td>
+                <td>Douglas Adams</td>
+                <td>Science Fiction</td>
+                <td>1979</td>
+            </tr>
+            <tr>
+                <td>Pride and Prejudice</td>
+                <td>Jane Austen</td>
+                <td>Romance</td>
+                <td>1813</td>
+            </tr>
+            <tr>
+                <td>1984</td>
+                <td>George Orwell</td>
+                <td>Dystopian Fiction</td>
+                <td>1949</td>
+            </tr>
+            <tr>
+                <td>To Kill a Mockingbird</td>
+                <td>Harper Lee</td>
+                <td>Southern Gothic</td>
+                <td>1960</td>
+            </tr>
+            <tr>
+                <td>The Great Gatsby</td>
+                <td>F. Scott Fitzgerald</td>
+                <td>Tragedy</td>
+                <td>1925</td>
+            </tr>
+            <!-- 你可以根据需要添加更多行 -->
+        </tbody>
+
+        <!-- 6. 表格应该有一个一行的表脚元素 -->
+        <tfoot>
+            <tr>
+                <!-- 7. 表脚元素中的行包含一个表格数据单元格元素，横跨四列 -->
+                <td colspan="4">Total Books: 5</td> <!-- N 替换为图书数量 -->
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>
