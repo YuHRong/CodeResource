@@ -126,7 +126,7 @@
     <None Include="ProgramingPractice.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="7.c" />
+    <ClCompile Include="8.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
