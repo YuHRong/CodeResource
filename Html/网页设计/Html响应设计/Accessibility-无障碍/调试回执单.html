@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Donation Form</title>
+</head>
+<body>
+ <h1>Donation Form</h1>
+ <form>
+ <label for="full-name">Full Name:</label>
+ <input type="text" name="name" id="full-name" required>
+
+ <label for="email-address">Email Address:</label>
+ <input type="email" name="email" id="email-address" required>
+
+ <label for="donation-amount">Donation Amount ($):</label>
+ <input type="number" name="amount" id="donation-amount" min="1" step="0.01" required>
+
+ <div class="checkbox-group">
+ <input type="checkbox" name="newsletter" id="subscribe">
+ <label for="subscribe" style="display: inline; margin: 0; font-weight: normal;">
+ Subscribe to our newsletter
+ </label>
+ </div>
+
+ <input type="submit" value="Donate Now">
+ </form>
+</body>
+</html>
