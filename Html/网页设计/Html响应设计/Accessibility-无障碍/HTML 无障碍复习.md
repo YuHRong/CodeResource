@@ -161,7 +161,7 @@ role`=`"`tab`"`、 `role`=`"`menu`"` 和  `role`=`"`alert`"`。`
 
 <`label` for`=`"`password`"`>`Password:`<`/label`>`
 
-<`input` type`=`"`password`" `id`=`"`password`"` aria-describedby`=`"`password-help`" `/>`
+<`input` type`=`"`password`" `id`=`"`password`"` aria-describedby`=`"`password-help`" />`
 
 <`p` id`=`"`password-help`"`>`Your password must be at least 8 characters long.`<`/p`>`
 
