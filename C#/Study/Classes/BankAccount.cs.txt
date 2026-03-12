@@ -55,18 +55,23 @@ public class BankAccount
 
     private List<Transaction> _allTransactions = new List<Transaction>();
 
-public string GetAccountHistory()
-{
-    var report = new System.Text.StringBuilder();
-
-    decimal balance = 0;
-    report.AppendLine("Date\t\tAmount\tBalance\tNote");
-    foreach (var item in _allTransactions)
+    public string GetAccountHistory()
     {
-        balance += item.Amount;
-        report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{item.Notes}");
+        var report = new System.Text.StringBuilder();
+
+        decimal balance = 0;
+        report.AppendLine("Date\t\tAmount\tBalance\tNote");
+        foreach (var item in _allTransactions)
+        {
+            balance += item.Amount;
+            report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{item.Notes}");
+        }
+
+        return report.ToString();
     }
 
-    return report.ToString();
-}
+    public virtual void PerformMonthEndTransactions()
+    {
+        
+    }
 }
