@@ -249,6 +249,23 @@ class Program
             }
         }
 
+        // Use the FileStream class to perform low-level file I/O operations
 
+        // Create a filepath for the filestream.txt file
+        string fileStreamPath = Path.Combine(currentDirectory, "filestream.txt");
+
+        // Prepare transaction data from customer accounts
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine("TransactionId,TransactionType,TransactionDate,TransactionTime,PriorBalance,TransactionAmount,SourceAccountNumber,TargetAccountNumber,Description"); ;
+
+        foreach (var account in customer.Accounts)
+        {
+            foreach (var transaction in account.Transactions)
+            {
+                // Append transaction data to the StringBuilder object
+                sb.AppendLine($"{transaction.TransactionId},{transaction.TransactionType},{transaction.TransactionDate},{transaction.TransactionTime},{transaction.PriorBalance:F2},{transaction.TransactionAmount:F2},{transaction.SourceAccountNumber},{transaction.TargetAccountNumber},{transaction.Description}");
+            }
+        }
+        Console.WriteLine($"\n\nUse the FileStream class to perform file I/O operations.");
     }
 }
