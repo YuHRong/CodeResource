@@ -661,7 +661,7 @@ System.Text.Json
 
 - 使用`JsonObjectCreationHandlingAttribute`特性在类型或属性级别批注。 如果在类型级别设置属性并将其属性`Handling`设置为`Populate`，则行为仅适用于可能填充的属性（例如，值类型必须具有 setter）。如果希望类型范围的首选项，`Populate`但想要从该行为中排除一个或多个属性，则可以在类型级别添加属性，并在属性级别再次添加属性以替代继承的行为。 此模式显示在以下代码中。
 
-    // Type-level preference is Populate.
+    `// Type-level preference is Populate.
     [JsonObjectCreationHandling(JsonObjectCreationHandling.Populate)]
     class B
     {
@@ -669,7 +669,7 @@ System.Text.Json
         [JsonObjectCreationHandling(JsonObjectCreationHandling.Replace)]
         public List<int> Numbers1 { get; } = [1, 2, 3];
         public List<int> Numbers2 { get; set; } = [1, 2, 3];
-    }
+    }`
 
 - 设置为`JsonSerializerOptions.PreferredObjectCreationHandling`指定全局首选项。
 
@@ -693,4 +693,270 @@ System.Text.Json
             Console.WriteLine($"Name: {customer.Name}, Age: {customer.Age}, Address: {customer.Address}");
         }
     }
+
+## 管理复杂对象的序列化和反序列化
+
+使用复杂对象时，`JsonSerializerOptions`可以使用类和数据传输对象（DTO）来避免处理问题。 复杂对象通常包含嵌套结构、特殊数据类型，或需要特定配置才能有效处理序列化和反序列化。 该`JsonSerializerOptions`类提供可以自定义的各种属性来解决这些挑战。 例如，属性可用于添加自定义转换器、启用不区分大小写的属性匹配或处理 null 值。
+另一方面，DTO 充当中介对象，用于简化应用程序不同层之间的数据传输，确保数据的结构和类型一致且易于管理。
+通过利用`JsonSerializerOptions`和 DTO，开发人员可以实现更复杂的 JavaScript 对象表示法（JSON）数据的更可靠、更高效的序列化和反序列化，从而更轻松地处理和集成到其应用程序中。
+
+### 使用 JsonSerializerOptions 类帮助序列化复杂对象
+
+该`JsonSerializerOptions`是命名空间`System.Text.Json`的一部分，提供配置 JSON 序列化和反序列化行为的方法。 它允许自定义序列化过程的各个方面，例如如何处理属性、如何管理引用以及处理特殊数据类型的方式。
+
+`JsonSerializerOptions`类在处理复杂对象时非常有用，因为它提供了处理嵌套结构、循环引用和其他序列化挑战的选项。
+他包含以下属性： 
+
+- MaxDepth：此属性设置读取或写入 JSON 时允许的最大深度。 它可以帮助防止深层嵌套对象出现问题，这些对象可能会导致堆栈溢出或性能问题。
+- ReferenceHandler：此属性允许指定在序列化和反序列化期间如何处理对对象的引用。 处理循环引用或复杂对象图时，它很有用。
+
+帮助序列化和反序列化复杂对象的另一个属性是
+`Converters`。 此属性允许添加自定义转换器来处理特定类型或复杂对象。 例如，可以为包含嵌套对象或复杂属性的类创建自定义转换器。
+
+### 使用 JsonSerializerOptions.ReferenceHandler 属性
+
+该`ReferenceHandler`属性用于指定在序列化和反序列化期间如何处理对对象的引用。 处理可能包含循环引用或共享引用的复杂对象图时，这特别有用。
+
+当两个或多个对象相互引用时，将发生循环引用。最后会导致堆栈溢出错误。`示例：`
+
+    public class Person
+    {
+        public string Name { get; set; }
+        public List<Pet> Pets { get; set; }
+    }
+
+    public class Pet
+    {
+        public string Name { get; set; }
+        public Person Owner { get; set; }
+    }
+
+在此示例中，  `Person`  类具有对象列表  `Pet`  ，每个  `Pet`  对象都有对其所有者（`the Person`）的引用。在序列化或反序列化对象时，这会创建循环引用。
+
+使用默认设置序列化 `Person` 对象会导致 `JsonExceptio`n 循环引用。 若要处理此问题，可以使用 `ReferenceHandler` 类的属性`JsonSerializerOptions`。
+
+    var options = new JsonSerializerOptions
+    {
+        ReferenceHandler = ReferenceHandler.Preserve,
+        WriteIndented = true
+    };
+
+    var person = new Person
+    {
+        Name = "John",
+        Pets = new List<Pet>
+        {
+            new Pet { Name = "Fido", Owner = null },
+            new Pet { Name = "Whiskers", Owner = null }
+        }
+    };
+
+    person.Pets[0].Owner = person;
+    person.Pets[1].Owner = person;
+
+    var json = JsonSerializer.Serialize(person, options);
+    Console.WriteLine(json);
+
+    /*
+
+    OUTPUT (with WriteIndented = true):
+     
+    {
+      "$id": "1",
+      "Name": "John",
+      "Pets": {
+        "$id": "2",
+        "$values": [
+          {
+            "$id": "3",
+            "Name": "Fido",
+            "Owner": {
+              "$ref": "1"
+            }
+          },
+          {
+            "$id": "4",
+            "Name": "Whiskers",
+            "Owner": {
+              "$ref": "1"
+            }
+          }
+        ]
+      }
+    }
+
+    */
+
+在此示例中，该`ReferenceHandler.Preserve`选项用于处理循环引用。 序列化程序在 JSON 输出中包含一个`$id`属性来表示引用，允许它正确反序列化。
+反序列化时，`ReferenceHandler.Preserve`该选项还可确保正确还原引用，从而防止创建重复的对象。
+
+    var deserializedPerson = JsonSerializer.Deserialize<Person>(json, options);
+    Console.WriteLine($"Name: {deserializedPerson.Name}");
+
+    foreach (var pet in deserializedPerson.Pets)
+    {
+        Console.WriteLine($"Pet Name: {pet.Name}, Owner: {pet.Owner.Name}");
+    }
+
+    /*
+
+    OUTPUT:
+     
+    Name: John
+    Pet Name: Fido, Owner: John
+    Pet Name: Whiskers, Owner: John
+
+    */
+
+在此示例中，反`Person`序列化对象与原始对象具有相同的引用，从而保留与`Person`对象之间的关系`Pet`。
+
+### 使用数据传输对象来帮助序列化和反序列化复杂对象
+
+在需要序列化和反序列化复杂对象的方案中，通常使用数据传输对象。
+DTO 具有以下优势：
+
+- 简化的数据结构：DTO 可以通过平展嵌套对象或删除不必要的属性来简化数据结构。 这样就可以更轻松地序列化和反序列化数据，而无需处理复杂的对象图。
+- 选择性序列化：DTO 允许控制序列化输出中包含的属性。 这有助于减小序列化数据的大小并提高性能。
+- 分离：DTO 将数据结构与业务逻辑分离，以便更轻松地管理和维护代码。 这种关注点的分离还使更改序列化格式更容易，而不会影响应用程序的其余部分。
+- 数据协定：DTO 充当数据协定，定义序列化和反序列化的数据的结构。 这样，可以更轻松地确保应用程序的不同部分或不同应用程序之间的一致性和兼容性。
+- 互作性：DTO 可以帮助确保数据结构与其他系统或服务兼容，从而更轻松地与外部 API 或服务集成。
+- 版本控制：DTO 可以帮助管理数据结构的版本控制，从而能够改进数据模型，而无需中断现有客户端或服务。
+- 安全性：DTO 可以通过限制内部数据结构的公开来帮助提高安全性。 通过使用 DTO，可以控制序列化和反序列化哪些属性，从而减少公开敏感信息的风险。
+- 性能：DTO 可以通过减少通过网络传输的数据量来提高性能。 通过使用 DTO，只能序列化所需的属性，减少序列化数据的大小并提高性能。
+
+#### 创建和使用 DTO 进行序列化
+
+下面是有关如何在 C# 中创建和使用 DTO 进行序列化的分步指南：
+
+- 定义 DTO：创建仅包含要序列化的属性和方法结果的类。
+- 将原始对象映射到 DTO：创建将原始对象映射到 DTO 的方法。 此方法从原始对象中提取必要的数据并填充 DTO。
+- 序列化 DTO：使用`JsonSerializer`类将 DTO 序列化为 JSON 字符串。
+- 反序列化 DTO：使用`JsonSerializer`类将 JSON 字符串反序列化回 DTO。
+- 将 DTO 映射回原始对象：创建将 DTO 映射回原始对象的方法。 此方法从 DTO 中提取数据并填充原始对象。
+
+下面示例演示如何创建和使用 DTO 对复杂对象的序列化和反序列化：
+
+    using System;
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
+
+
+    public class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
+    public class Company
+    {
+        public string Name { get; set; }
+        public List<Employee> Employees { get; set; }
+
+        // Constructor to initialize the Employees list
+        public Company(Employee employee)
+        {
+            Name = "Contoso Ltd";
+            Employees = new List<Employee> { employee };
+        }
+    }
+
+    public class Employee
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public int EmployeeId { get; set; }
+        public double Salary { get; set; }
+        public List<Person> Dependents { get; set; }
+        public List<Person> EmergencyContacts { get; set; }
+
+        // Constructor to initialize the lists
+        public Employee()
+        {
+            Dependents = new List<Person>();
+            EmergencyContacts = new List<Person>();
+        }
+    }
+
+    public class EmployeeDTO
+    {
+        public string Name { get; set; }
+        public int EmployeeId { get; set; }
+
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            // Create an Employee object
+            Employee employee = new Employee
+            {
+                Name = "Elize Harmsen",
+                Age = 35,
+                Gender = "Female",
+                Address = "123 Main St",
+                Email = "elize@example.com",
+                EmployeeId = 101,
+                Salary = 75000,
+                Dependents = new List<Person>
+                {
+                    new Person { Name = "Peter Zammit", Age = 35 }
+                },
+                EmergencyContacts = new List<Person>
+                {
+                    new Person { Name = "Anette Thomsen", Age = 40 }
+                }
+            };
+
+            // Create a Company object with the Employee
+            Company company = new Company(employee);
+
+            // Map Employee to EmployeeDTO
+            EmployeeDTO employeeDTO = new EmployeeDTO
+            {
+                Name = employee.Name,
+                EmployeeId = employee.EmployeeId
+            };
+
+            // Serialize EmployeeDTO to JSON
+            string json = JsonSerializer.Serialize(employeeDTO);
+            Console.WriteLine("Serialized EmployeeDTO:");
+            Console.WriteLine(json);
+
+            // Deserialize JSON back to EmployeeDTO
+            EmployeeDTO deserializedEmployeeDTO = JsonSerializer.Deserialize<EmployeeDTO>(json);
+
+            // Use the deserialized object to create a new Employee object
+            Employee newEmployee = new Employee
+            {
+                Name = deserializedEmployeeDTO.Name,
+                EmployeeId = deserializedEmployeeDTO.EmployeeId
+            };
+
+            // Use the newEmployee.EmployeeId to find the original Employee object in the Company
+            Employee foundEmployee = company.Employees.Find(e => e.EmployeeId == newEmployee.EmployeeId);
+            if (foundEmployee != null)
+            {
+                Console.WriteLine("Found Employee:");
+                Console.WriteLine($"Name: {foundEmployee.Name}");
+                Console.WriteLine($"Age: {foundEmployee.Age}");
+                Console.WriteLine($"Gender: {foundEmployee.Gender}");
+                Console.WriteLine($"Email: {foundEmployee.Email}");
+                Console.WriteLine($"EmployeeId: {foundEmployee.EmployeeId}");
+                Console.WriteLine($"Salary: {foundEmployee.Salary}");
+                Console.WriteLine($"Dependents: {string.Join(", ", foundEmployee.Dependents.Select(d => d.Name))}");
+                Console.WriteLine($"Emergency Contacts: {string.Join(", ", foundEmployee.EmergencyContacts.Select(ec => ec.Name))}");
+            }
+            else
+            {
+                Console.WriteLine("Employee not found in the company.");
+            }
+        }
+    }
+
+在此示例中，将`EmployeeDTO`创建类来表示类的`Employee`简化版本。 该`EmployeeDTO`类仅包含序列化所需的属性。 该`Employee`类包含 DTO 中不包含的其他属性。 该`Company`类包含对象列表`Employee`。 `Main`方法演示如何创建对象`Employee`，将其`EmployeeDTO`映射到 DTO，将 DTO 序列化为 JSON，然后将其反序列化回 DTO。 最后，它演示如何使用反序列化的 DTO 查找`Employee`原始`Company`对象。
+此方法允许你控制序列化过程，并避免复杂的对象图出现问题。 通过使用 DTO，可以简化数据结构，并确保序列化输出中仅包含必要的属性。
 
