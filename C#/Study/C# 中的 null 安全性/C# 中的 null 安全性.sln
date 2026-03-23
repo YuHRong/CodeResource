@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C# 中的 null 安全性", "C# 中的 null 安全性.csproj", "{6B943B28-5E86-187A-EB64-87DFF488D76A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B943B28-5E86-187A-EB64-87DFF488D76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B943B28-5E86-187A-EB64-87DFF488D76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B943B28-5E86-187A-EB64-87DFF488D76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B943B28-5E86-187A-EB64-87DFF488D76A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D33BE4FD-BFF7-42AB-93C0-AB6B2D9A7514}
+	EndGlobalSection
+EndGlobal

@@ -103,6 +103,5 @@ class Program
 
         // TASK 3: Step 4 - Display the number of transactions processed
  Console.WriteLine($"\nNumber of transactions processed: {transactions.Count}");
-
     }
 }

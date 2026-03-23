@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{284B0C48-6525-F3F5-CD5D-7841BD44174A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Starter", "Starter", "{5D6F351A-6629-B7F4-AAEF-5AAE92D8C891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Files_M3", "Solution\Files_M3.csproj", "{20A2B5FA-5BA1-CD48-AD47-96B6ED199024}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Files_M3", "Starter\Files_M3.csproj", "{24B63E16-AE4D-18DF-48F6-215AAC2E2599}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20A2B5FA-5BA1-CD48-AD47-96B6ED199024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A2B5FA-5BA1-CD48-AD47-96B6ED199024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A2B5FA-5BA1-CD48-AD47-96B6ED199024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A2B5FA-5BA1-CD48-AD47-96B6ED199024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24B63E16-AE4D-18DF-48F6-215AAC2E2599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24B63E16-AE4D-18DF-48F6-215AAC2E2599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24B63E16-AE4D-18DF-48F6-215AAC2E2599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24B63E16-AE4D-18DF-48F6-215AAC2E2599}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{20A2B5FA-5BA1-CD48-AD47-96B6ED199024} = {284B0C48-6525-F3F5-CD5D-7841BD44174A}
+		{24B63E16-AE4D-18DF-48F6-215AAC2E2599} = {5D6F351A-6629-B7F4-AAEF-5AAE92D8C891}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2657CD18-D404-4095-88F8-41F7D5EF3B5B}
+	EndGlobalSection
+EndGlobal

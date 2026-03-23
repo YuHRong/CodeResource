@@ -959,4 +959,4 @@ DTO 具有以下优势：
 
 在此示例中，将`EmployeeDTO`创建类来表示类的`Employee`简化版本。 该`EmployeeDTO`类仅包含序列化所需的属性。 该`Employee`类包含 DTO 中不包含的其他属性。 该`Company`类包含对象列表`Employee`。 `Main`方法演示如何创建对象`Employee`，将其`EmployeeDTO`映射到 DTO，将 DTO 序列化为 JSON，然后将其反序列化回 DTO。 最后，它演示如何使用反序列化的 DTO 查找`Employee`原始`Company`对象。
 此方法允许你控制序列化过程，并避免复杂的对象图出现问题。 通过使用 DTO，可以简化数据结构，并确保序列化输出中仅包含必要的属性。
-
+管理复杂对象的序列化和反序列化
