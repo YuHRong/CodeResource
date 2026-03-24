@@ -1,0 +1,8 @@
+{
+  "$id": "1",
+  "AccountNumber": 16624364,
+  "CustomerId": "0019070358",
+  "Balance": 9800,
+  "AccountType": "Savings",
+  "InterestRate": 0.02
+}
