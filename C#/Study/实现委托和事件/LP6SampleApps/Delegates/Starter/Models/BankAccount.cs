@@ -182,7 +182,6 @@ public class BankAccount : IBankAccount
  {
   _transactions.Add(transaction);
   callback?.Invoke(transaction); // Invoke the callback if provided
-
  }
  // Method to remove a transaction from the account
  public void RemoveTransaction(Transaction transaction)

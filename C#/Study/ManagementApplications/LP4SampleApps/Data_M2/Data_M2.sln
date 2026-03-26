@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{284B0C48-6525-F3F5-CD5D-7841BD44174A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Starter", "Starter", "{5D6F351A-6629-B7F4-AAEF-5AAE92D8C891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_M2", "Solution\Data_M2.csproj", "{284E0AD3-1EA1-34C8-5FFF-729A40C4E368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_M2", "Starter\Data_M2.csproj", "{A13B181C-6C34-C440-2A12-B044E2BC8F58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{284E0AD3-1EA1-34C8-5FFF-729A40C4E368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{284E0AD3-1EA1-34C8-5FFF-729A40C4E368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{284E0AD3-1EA1-34C8-5FFF-729A40C4E368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{284E0AD3-1EA1-34C8-5FFF-729A40C4E368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13B181C-6C34-C440-2A12-B044E2BC8F58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13B181C-6C34-C440-2A12-B044E2BC8F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13B181C-6C34-C440-2A12-B044E2BC8F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13B181C-6C34-C440-2A12-B044E2BC8F58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{284E0AD3-1EA1-34C8-5FFF-729A40C4E368} = {284B0C48-6525-F3F5-CD5D-7841BD44174A}
+		{A13B181C-6C34-C440-2A12-B044E2BC8F58} = {5D6F351A-6629-B7F4-AAEF-5AAE92D8C891}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B97FE1B-7484-4DDD-A418-27E5EDD7C639}
+	EndGlobalSection
+EndGlobal
