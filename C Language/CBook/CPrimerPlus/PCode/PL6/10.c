@@ -17,6 +17,7 @@ int main(void) {
   printf("The sums of the squares from %d to %d is %d\n", lower * lower, upper * upper, sum);
   // 提示用户再次输入
   printf("Enter next set of limits:");
+
  }
 
  printf("Done");
