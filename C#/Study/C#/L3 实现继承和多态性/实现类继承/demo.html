@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markdown 代码块复制按钮演示</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; line-height: 1.6; }
+    pre { background: #f6f8fa; border: 1px solid #d1d5da; border-radius: 6px; padding: 12px; position: relative; }
+    .copy-code-button { background: #0366d6; border: none; color: white; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Markdown 代码块复制按钮演示</h1>
+  <p>这是一个渲染后的代码块示例，点击右上角按钮即可复制代码内容。</p>
+  <pre><code>function greet(name) {
+  return `你好，${name}!`;
+}
+
+console.log(greet('世界'));
+</code></pre>
+  <script src="Copy.js"></script>
+</body>
+</html>
