@@ -12,6 +12,7 @@ GitResource/
 SQLServer/
 ProgramBook/
 mslearn-create-razor-pages-aspnet-core/
+samples/
 
 # 忽略所有中间文件和编译产物
 *.ipch

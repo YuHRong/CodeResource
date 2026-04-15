@@ -1,3 +1,4 @@
+
 using System;
 
 namespace Reuse_M2;
@@ -12,7 +13,7 @@ public class BankAccount : IBankAccount
     public static double OverdraftRate { get; private set; }
     public static double MaxOverdraftFee { get; private set; }
 
-    public int AccountNumber { get; }
+   public int AccountNumber { get; }
     public string CustomerId { get; }
     public double Balance { get; internal set; } = 0;
     public string AccountType { get; set; } = "Checking";
