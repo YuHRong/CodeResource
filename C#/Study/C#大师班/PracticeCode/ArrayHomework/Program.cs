@@ -8,7 +8,7 @@ try
  int input = int.Parse(Console.ReadLine());
 
  if (input >= 1 && input <= 3)
-  Console.WriteLine(firstName[input - 1]);
+  Console.WriteLine(firstName[input - 1] + "。");
  else
   Console.WriteLine("请输入1 到 3进行选择");
 }
