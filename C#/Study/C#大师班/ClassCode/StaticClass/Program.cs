@@ -1,0 +1,4 @@
+﻿
+using StaticClass;
+
+UserMessage.ApplicationStartMessage();
