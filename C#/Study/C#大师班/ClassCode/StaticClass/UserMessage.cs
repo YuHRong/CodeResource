@@ -12,10 +12,10 @@ public class UserMessage
 
   int hoursDay = DateTime.Now.Hour;
   //hoursDay = 22;
-  Console.WriteLine(hoursDay);
+  //Console.WriteLine(hoursDay);
   if (hoursDay < 12)
    Console.WriteLine("Good Morning!");
-  else if (hoursDay < 19)
+  else if (hoursDay < 18)
    Console.WriteLine("Good Afternoon!");
   else
    Console.WriteLine("Good Evening!");
