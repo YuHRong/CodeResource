@@ -25,3 +25,13 @@ def hello():
 def calculate_sum(a, b):
     print(a + b)
 calculate_sum(3, 1)
+
+my_sum = calculate_sum(3, 1)
+print(my_sum) # None
+
+def calculate_sum(a, b) :
+
+    return a +  b
+
+my_sum = calculate_sum(3, 1)
+print(my_sum) # 4

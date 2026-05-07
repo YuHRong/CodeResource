@@ -16,7 +16,7 @@ def my_func():
 
 def outer_func():
     msg = 'Hello there!'
-    
+
     res = ""   # Declare res in the enclosing scope
     def inner_func():
         nonlocal res  # Allow modification of an enclosing variable
