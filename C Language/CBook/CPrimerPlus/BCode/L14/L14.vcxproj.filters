@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="14.3 friend.c">
+    <ClCompile Include="14.4 friends.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
