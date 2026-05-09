@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework2", "PracticeCode\H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticClass", "ClassCode\StaticClass\StaticClass.csproj", "{3643E99F-3BB7-4F07-84B3-A83888C02B2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantiatedClassesDeme", "ClassCode\InstantiatedClassesDeme\InstantiatedClassesDeme.csproj", "{2F791CD2-5033-49B1-9670-22DFAD53D69A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{3643E99F-3BB7-4F07-84B3-A83888C02B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3643E99F-3BB7-4F07-84B3-A83888C02B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3643E99F-3BB7-4F07-84B3-A83888C02B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F791CD2-5033-49B1-9670-22DFAD53D69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F791CD2-5033-49B1-9670-22DFAD53D69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F791CD2-5033-49B1-9670-22DFAD53D69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F791CD2-5033-49B1-9670-22DFAD53D69A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
