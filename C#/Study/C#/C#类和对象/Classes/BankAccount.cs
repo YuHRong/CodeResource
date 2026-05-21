@@ -1,9 +1,12 @@
 ﻿
 namespace Classes;
 
+
 public class BankAccount
 {
  private static int s_accountnumberSeed = 1234567890;
+
+ public virtual void PerformMonthEndTransactions() { }
 
  public string Number { get; }
  public string Owner { get; set; }
@@ -29,14 +32,18 @@ public class BankAccount
   report.AppendLine("Date\t\tAmount\tBalance\tNote");
   foreach (var item in _allTransactions)
   {
-balance+=item.Amount;
-report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{item.Notes}");
+   balance += item.Amount;
+   report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{item.Notes}");
   }
 
   return report.ToString();
  }
 
- public BankAccount(string name, decimal initialBalance)
+ private readonly decimal _minimumBalance;
+
+ public BankAccount(string name, decimal initialBalance) : this(name, initialBalance, 0) { }
+
+ public BankAccount(string name, decimal initialBalance, decimal minimumBalance)
  {
   // this.Owner = name;
   // this.Balance = initialBalance;
@@ -45,7 +52,9 @@ report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{
   s_accountnumberSeed++;
 
   Owner = name;
-  MakeDeposit(initialBalance, DateTime.Now, "Initial balance");
+  _minimumBalance = minimumBalance;
+  if (initialBalance > 0)
+   MakeDeposit(initialBalance, DateTime.Now, "Initial balance");
  }
 
  private List<Transaction> _allTransactions = new List<Transaction>();
@@ -62,15 +71,23 @@ report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{
 
  public void MakeWithdrawal(decimal amount, DateTime date, string note)
  {
-  if (amount <= 0)
-  {
-   throw new ArgumentOutOfRangeException(nameof(amount), "Amount of withdrawal must be positive");
-  }
-  if (Balance - amount < 0)
+  ArgumentOutOfRangeException.ThrowIfNegativeOrZero(amount);
+  Transaction? overdraftTransaction = CheckWithdrawalLimit(Balance - amount < _minimumBalance);
+  Transaction? withdrawal = new(-amount, date, note);
+  _allTransactions.Add(withdrawal);
+  if (overdraftTransaction != null)
+   _allTransactions.Add(overdraftTransaction);
+ }
+
+ protected virtual Transaction? CheckWithdrawalLimit(bool isOverdrawn)
+ {
+  if (isOverdrawn)
   {
    throw new InvalidOperationException("Not sufficient funds for this withdrawal");
   }
-  var withdrawal = new Transaction(-amount, date, note);
-  _allTransactions.Add(withdrawal);
+  else
+  {
+        return default;
+  }
  }
 }
