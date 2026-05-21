@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantiatedClassesDeme", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "betterGuestBook", "PracticeCode\betterGuestBook\betterGuestBook.csproj", "{CCF8C018-917A-4271-A86C-E22661DEFD28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "继承演示", "ClassCode\继承演示\继承演示.csproj", "{CDE700B4-16AF-4A76-8FC5-7EAF3D88F0D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{CCF8C018-917A-4271-A86C-E22661DEFD28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCF8C018-917A-4271-A86C-E22661DEFD28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCF8C018-917A-4271-A86C-E22661DEFD28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDE700B4-16AF-4A76-8FC5-7EAF3D88F0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDE700B4-16AF-4A76-8FC5-7EAF3D88F0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDE700B4-16AF-4A76-8FC5-7EAF3D88F0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDE700B4-16AF-4A76-8FC5-7EAF3D88F0D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

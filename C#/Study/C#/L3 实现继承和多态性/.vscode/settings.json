@@ -1,8 +1,0 @@
-{
-  "markdown-preview-enhanced.customScript": [
-    "./实现类继承/Copy.js"
-  ],
-  "markdown-preview-enhanced.enableScriptExecution": true,
-  "markdown-preview-enhanced.previewTheme": "github-light.css",
-  "markdown-preview-enhanced.openPreviewInNewEditor": true
-}
