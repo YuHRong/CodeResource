@@ -19,7 +19,7 @@ Console.WriteLine(item.ToString());
 // Use the inherited Update method to change the title of the
 // ChangeRequest object.
 change.Update("Change the Design of the Base Class",
-    new TimeSpan(4, 0, 0));
+          new TimeSpan(4, 0, 0));
 
 // ChangeRequest inherits WorkItem's override of ToString.
 Console.WriteLine(change.ToString());
@@ -28,3 +28,4 @@ Console.WriteLine(change.ToString());
     1 - Fix Bugs
         2 - Change the Design of the Base Class
 */
+
