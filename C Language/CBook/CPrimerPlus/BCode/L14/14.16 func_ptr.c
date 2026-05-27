@@ -33,7 +33,6 @@ int main(void)
    case 'l': pfun = ToLower;     break;
    case 't': pfun = Transpose;     break;
    case 'o': pfun = Dummy;     break;
-   default: continue;
    }
    strcpy(copy, line);       // 为 show() 函数拷贝一份
    show(pfun, copy);         // 根据用户的选择，使用选定的函数
