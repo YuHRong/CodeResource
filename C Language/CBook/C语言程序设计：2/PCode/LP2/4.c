@@ -11,7 +11,7 @@ int main(void)
  printf("Enter an amount: ");
  scanf("%f", &amount);
  addedTax = amount + amount * TAX;
- printf("with tax added: %.2f", addedTax);
+ printf("with tax added: $%.2f", addedTax);
 
  return 0;
 }
