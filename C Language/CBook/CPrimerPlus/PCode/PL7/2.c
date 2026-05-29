@@ -5,7 +5,7 @@
 int main(void) {
  int ch;
  int count = 0;
-
+ 
  printf("Please input chars (# to quit):\n");
  // ÅÐ¶Ï¶Áµ½#×Ö·ûÍ£Ö¹
  while ((ch = getchar()) != '#') {
