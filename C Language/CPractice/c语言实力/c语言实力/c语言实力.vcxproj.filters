@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="5.2.date.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="5.1.broker.c">
+    <ClCompile Include="12.1_使用灵石变量交换两个数的值.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

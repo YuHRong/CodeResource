@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="5.2.date.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="5.1.broker.c">
+    <ClCompile Include="3.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
