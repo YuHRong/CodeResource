@@ -3,7 +3,7 @@
 #include<stdio.h>
 
 int main(void)
-{
+
 double num1, num2, value;
 
  printf("请输入第一个数： ");
