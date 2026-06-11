@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="24.4_使用地堆求两个数的最大公约数.c">
+    <ClCompile Include="25.2_通过最大公约数计算最小公倍数.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
