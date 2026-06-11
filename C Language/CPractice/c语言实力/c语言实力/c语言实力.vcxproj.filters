@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="22_输出惩罚口诀表.c">
+    <ClCompile Include="24.4_使用地堆求两个数的最大公约数.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
