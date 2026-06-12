@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="26.2_使用地堆求阶乘.c">
+    <ClCompile Include="27.4输出大写或小写字母.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
