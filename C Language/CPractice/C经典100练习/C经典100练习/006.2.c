@@ -1,3 +1,4 @@
+// 用 * 号输出字母 C!
 #include <stdio.h>
 int main() {
  // 定义字符图形

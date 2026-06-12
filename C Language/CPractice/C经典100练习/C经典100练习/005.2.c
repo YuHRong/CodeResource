@@ -1,3 +1,4 @@
+// 输入三个整数 x、y、z，请把这三个数由小到大输出。
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 void s(int *a, int *b);
