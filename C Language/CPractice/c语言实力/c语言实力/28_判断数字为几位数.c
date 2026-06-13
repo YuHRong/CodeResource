@@ -10,8 +10,7 @@ int main(void) {
 
  while (n != 0) {
   // n = n/10
-  n
-   /= 10;
+  n /= 10;
   count++;
  }
  printf("数字是 %d 位数。", count);

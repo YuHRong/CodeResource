@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="28_判断数字为几位数.c">
+    <ClCompile Include="31.3_使用函数判断两束之间的素数.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
