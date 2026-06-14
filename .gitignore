@@ -24,9 +24,6 @@ samples/
 *.user
 *.sdf
 *.vspscc
-*.csproj
-*.sln
-*.zip
 
 # 如果你使用 C# 或 .NET，通常还需要忽略这些
 **/bin/
