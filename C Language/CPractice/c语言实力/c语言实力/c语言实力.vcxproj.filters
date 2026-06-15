@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="31.3_使用函数判断两束之间的素数.c">
+    <ClCompile Include="35.3_乘法运算格式打印表格.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
