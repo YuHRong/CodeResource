@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="35.3_乘法运算格式打印表格.c">
+    <ClCompile Include="37_计算一个数为两个素数之和.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
