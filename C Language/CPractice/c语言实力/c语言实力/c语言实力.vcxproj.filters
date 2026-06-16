@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="37_计算一个数为两个素数之和.c">
+    <ClCompile Include="40.2_八进制与二进制相互转换-八进制转换为二进制.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
