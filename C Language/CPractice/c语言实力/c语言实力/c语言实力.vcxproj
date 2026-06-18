@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="40.2_八进制与二进制相互转换-八进制转换为二进制.c" />
+    <ClCompile Include="46_查找数组中的最小元素值.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
