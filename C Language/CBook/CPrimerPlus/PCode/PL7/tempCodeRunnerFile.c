@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-#define BASE_PAY 10    // »ù±¾¹¤×Ê 10 ÃÀÔª/Ğ¡Ê±
-#define OVER40HOURS 40 // ¼Ó°à³¬¹ı 40 Ğ¡Ê±
-#define OVER40TIME 1.5 // ¼Ó°à³¬¹ı 40 Ğ¡Ê±Îª 1.5 ±¶
-#define AMT1 300       // Ç° 300 ÃÀÔª
-#define AMT2 150       // Ğø 150 ÃÀÔª
-#define RATE1 0.15     // Ç°300ÃÀÔªµÄË°ÂÊ15%
-#define RATE2 0.20     // Ğø150ÃÀÔªµÄË°ÂÊÎª20%
-#define RATE3 0.25     // ÓàÏÂµÄË°ÂÊÎª25%
+#define BASE_PAY 10    // åŸºæœ¬å·¥èµ„ 10 ç¾å…ƒ/å°æ—¶
+#define OVER40HOURS 40 // åŠ ç­è¶…è¿‡ 40 å°æ—¶
+#define OVER40TIME 1.5 // åŠ ç­è¶…è¿‡ 40 å°æ—¶ä¸º 1.5 å€
+#define AMT1 300       // å‰ 300 ç¾å…ƒ
+#define AMT2 150       // ç»­ 150 ç¾å…ƒ
+#define RATE1 0.15     // å‰300ç¾å…ƒçš„ç¨ç‡15%
+#define RATE2 0.20     // ç»­150ç¾å…ƒçš„ç¨ç‡ä¸º20%
+#define RATE3 0.25     // ä½™ä¸‹çš„ç¨ç‡ä¸º25%
 
 int main(void)
 {
@@ -17,7 +17,7 @@ int main(void)
  printf("Enter the number of hours worked this week: ");
  scanf("%lf", &hours);
 
- // ¼ÆËã¹¤×Ê×Ü¶î
+ // è®¡ç®—å·¥èµ„æ€»é¢
  if (hours <= OVER40HOURS)
  {
   wages = hours * BASE_PAY;
@@ -40,7 +40,7 @@ int main(void)
   taxes = AMT1 * RATE1 + AMT2 * RATE2 + (wages - AMT1 - AMT2) * RATE3;
  }
 
- // ¼ÆËã½øÊÕÈë
+ // è®¡ç®—è¿›æ”¶å…¥
  income = wages - taxes;   
 
  printf("wages: $%.2f, taxes: $%.2f, income: $%.2f\n", wages, taxes, income);

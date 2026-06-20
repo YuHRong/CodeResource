@@ -1,8 +1,9 @@
-#define _CRT_SECURE_NO_WARNINGS
+ #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
 int main(void) {
  int n, remainder, originalInteger, reversedInteger = 0;
+
 
  printf("输入一个整数： ");
  scanf("%d", &n);
@@ -19,11 +20,12 @@ int main(void) {
  if (originalInteger == reversedInteger)
  {
   printf("%d 是回文数\n", originalInteger);
+
  }
  else
  {
   printf("%d 不是回文数\n", originalInteger);
  }
-
+      
  return 0;
 }
