@@ -6,7 +6,7 @@ int main()
 {
  int rows;
 
- cout << "请输入行数： ";
+ cout << "输入行数： ";
  cin >> rows;
 
  for (int i = 1; i <= rows; ++i) {
