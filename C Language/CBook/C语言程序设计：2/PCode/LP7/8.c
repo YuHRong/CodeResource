@@ -1,15 +1,36 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
+#include <stdio.h>
+#include <ctype.h>
 
 int main(void)
 {
- int hour, minute, mins_since_midnight;
+ int hour, minute, mins_since_midnight, offset;
+ char ch;
 
- printf("Please enter a time(hh:mm): ");
- scanf("%2d :%2d", &hour, &minute);
+ printf("Please enter a 12 hour time: ");
+ scanf("%2d :%2d %c", &hour, &minute, &ch);
 
- mins_since_midnight = (hour * 60) + minute;
+ /* Create an offset to add to the hour if time is PM */
+ offset = (toupper(ch) == 'P' ? 12 : 0);
 
+ /* Handle two cases for 12 AM/PM
+  * If hour input was 12, and offset is 12(PM), set hour to 0 so we can add offset 12
+  * If hour input was 12, and offset is 0(AM), set hour to 0 so we can add offset 0 */
+ hour = (hour == 12 ? 0 : hour);
+
+ printf("Time in 24 hour format: %.2d:%.2d\n", hour + offset, minute);
+ mins_since_midnight = ((offset + hour) * 60) + minute;
+
+ /*Format for closest departure calculation:
+  * if (input minutes since midnight < (departure hours * departure minutes)
+  * + ((next departure time - current departure time) / 2)
+  *
+  * For departure difference times that are odd, division is floored
+  * In this case a comparison of <= is used.
+  *
+  * For departure difference times that are even, a halfway time is
+  * equally close to both departures. In this case a comparsion of < is used
+  * as I assume that the next flight is closer due to rounding up.
+  */
  if (mins_since_midnight <= ((8 * 60) + (103 / 2)))
   printf("Closest departure time is 8:00 AM., arriving at 10:16 AM");
  else if (mins_since_midnight < ((9 * 60) + 43) + (96 / 2))

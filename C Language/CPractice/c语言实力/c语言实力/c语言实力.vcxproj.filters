@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="30_判断回文数.c">
+    <ClCompile Include="52_使用指针访问数组元素.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
