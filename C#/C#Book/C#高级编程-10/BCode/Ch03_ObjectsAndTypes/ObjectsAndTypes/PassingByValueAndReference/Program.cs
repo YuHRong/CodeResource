@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 
-
+ 
 public class A
 {
  public int X { get; set; }

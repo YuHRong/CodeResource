@@ -1,32 +1,18 @@
+// 瀛楃�︿覆澶嶅埗
+// 浣跨敤 strcpy() 灏嗕竴涓�鍙橀噺鐨勫瓧绗︿覆澶嶅埗鍒板彟澶栦竴涓�鍙橀噺涓�銆�
+
 #include <stdio.h>
- 
-int main()
+#include <string.h>
+
+int main(void)
 {
-    int n, i ;
-    
-unsigned long long factorial = 1 ;
- 
-    
-printf("输入一个整数: ") ;
-    
-scanf("%d",&n) ;
- 
-    
-// 如果输入是负数，显示错误
-    if (n < 0)
-        printf("Error! 负数没有阶乘jiechen") ;
- 
-    
-else
-    {
-        for(i=1; i<=n; ++i)
-        {
-            factorial *= i;              // factorial = factorial*i;
-        }
-        printf("%d! = %llu", n, factorial) ;
-    
-}
- 
-    
-return 0;
+ char str1[1000], str2[1000];
+
+ memset(str2, '\0', sizeof(str2));
+ strcpy(str1, "This is a string\n");
+ strcpy(str2, str1);
+
+ printf("鏈€缁堢殑鐩�鏍囧瓧绗︿覆锛� %s\n", str2);
+
+ return 0;
 }

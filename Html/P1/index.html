@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe List</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card">
+      <div>
+        <p class="eyebrow">Recipe List</p>
+        <h1>Quick recipe manager</h1>
+        <p>Add your favorite recipes, view them in a clean list, and remove items with one click.</p>
+      </div>
+      <form id="recipe-form" class="recipe-form">
+        <label>
+          Recipe name
+          <input id="recipe-name" type="text" placeholder="e.g. Lemon Pasta" required />
+        </label>
+        <label>
+          Description
+          <textarea id="recipe-description" rows="3" placeholder="Describe the recipe" required></textarea>
+        </label>
+        <button type="submit" class="btn-primary">Add Recipe</button>
+      </form>
+    </section>
+
+    <section class="list-card">
+      <div class="list-header">
+        <h2>Recipes</h2>
+        <span id="recipe-count" class="badge">0</span>
+      </div>
+      <ul id="recipe-list" class="recipe-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
