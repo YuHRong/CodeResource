@@ -27,11 +27,11 @@ int main(void)
     }
 
     if ((isspace(ch) || ispunct(ch)) && isWord)
-     isWord  = false;
+      isWord = false;
   }
 
-      printf("\nThere are %ld words and %ld character.\n", wordCount, charCount);
-    printf("The average number of letters in a word are %.2f", 1.0 * charCount  / wordCount);
+  printf("\nThere are %ld words and %ld character.\n", wordCount, charCount);
+  printf("The average number of letters in a word are %.2f", 1.0 * charCount / wordCount);
 
-      return 0;
+  return 0;
 }

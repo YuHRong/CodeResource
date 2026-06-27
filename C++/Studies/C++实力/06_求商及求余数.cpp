@@ -1,4 +1,4 @@
-// »ñÈ¡ÓÃ»§ÊäÈëµÄÁ½¸öÊı²¢ÇóÉÌºÍÓàÊı´òÓ¡ÔÚÆÁÄ»ÉÏ
+// ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½
 #include<iostream>
 
 using namespace std;
@@ -6,15 +6,15 @@ using namespace std;
 int main() {
  int divisor, dividend, quotient, remaimder;
 
- cout << "ÊäÈë±»³ıÊı£º ";
+ cout << "ï¿½ï¿½ï¿½ë±»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ";
  cin >> dividend;
- cout << "ÊäÈë³ıÊı£º ";
+ cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ";
  cin >> divisor;
 
  quotient = dividend / divisor;
  remaimder = dividend % divisor;
 
- cout << endl << dividend << " ³ıÒÔ " << divisor << " µÈÓÚ " << quotient << "\nÓà " << remaimder << endl;
+ cout << endl << dividend << " ï¿½ï¿½ï¿½ï¿½ " << divisor << " ï¿½ï¿½ï¿½ï¿½ " << quotient << "\nï¿½ï¿½ " << remaimder << endl;
 
  return 0;
 }

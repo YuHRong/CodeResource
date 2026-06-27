@@ -1,4 +1,4 @@
-// Ê¹ÓÃº¯ÊýÊµÏÖ¼òµ¥¼ÆËãÆ÷
+// Ê¹ï¿½Ãºï¿½ï¿½ï¿½Êµï¿½Ö¼òµ¥¼ï¿½ï¿½ï¿½ï¿½ï¿½
 #include <iostream>
 
 using namespace std;
@@ -22,7 +22,7 @@ double divid(double n1, double n2)
 {
  if (n2 == 0)
  {
-  cout << "Error: ³ýÊý²»ÄÜÎª 0";
+  cout << "Error: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª 0";
   return 0;
  }
  else
@@ -36,11 +36,11 @@ int main()
  char op;
  double n1, n2, result;
 
- cout << "ÊäÈëµÚÒ»¸öÊý£º ";
+ cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ";
  cin >> n1;
- cout << "ÊäÈëÔËËã·û£¨+¡¢-¡¢*¡¢/£©£º ";
+ cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½-ï¿½ï¿½*ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ";
  cin >> op;
- cout << "ÊäÈëµÚ¶þ¸öÊý£º ";
+ cout << "ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ";
  cin >> n2;
 
  switch (op)
@@ -58,7 +58,7 @@ int main()
   result = divid(n1, n2);
   break;
  default:
-  cout << "Error: ÔËËã·û´íÎó" << endl;
+  cout << "Error: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
   break;
  }
 

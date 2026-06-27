@@ -32,6 +32,7 @@
    openFileDialog1 = new OpenFileDialog();
    btnOpen = new Button();
    btnExit = new Button();
+   listBox = new ListBox();
    SuspendLayout();
    // 
    // lblMessage
@@ -65,12 +66,23 @@
    btnExit.TabIndex = 3;
    btnExit.Text = "退出";
    btnExit.UseVisualStyleBackColor = true;
+   btnExit.Click += btnExit_Click;
+   // 
+   // listBox
+   // 
+   listBox.FormattingEnabled = true;
+   listBox.ItemHeight = 17;
+   listBox.Location = new Point(0, 0);
+   listBox.Name = "listBox";
+   listBox.Size = new Size(120, 89);
+   listBox.TabIndex = 4;
    // 
    // Form1
    // 
    AutoScaleDimensions = new SizeF(7F, 17F);
    AutoScaleMode = AutoScaleMode.Font;
    ClientSize = new Size(800, 450);
+   Controls.Add(listBox);
    Controls.Add(btnExit);
    Controls.Add(btnOpen);
    Controls.Add(lblMessage);
@@ -86,5 +98,6 @@
   private OpenFileDialog openFileDialog1;
   private Button btnOpen;
   private Button btnExit;
+  private ListBox listBox;
  }
 }

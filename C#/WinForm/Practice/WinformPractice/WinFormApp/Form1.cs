@@ -11,36 +11,27 @@ namespace WinFormApp
 
   private void btnOpen_Click(object sender, EventArgs e)
   {
-   //dialog.Multiselect = true;     // 确定可以多选文件
-   //dialog.Title = "请选择文件夹";
-   //dialog.Filter = "所有文件 (*.*)*.*";
-   //dialog.InitialDirectory = Application.StartupPath;      // 初始目录为 .exe 所在目录
-   var fileContent = string.Empty;
-   var filePath = string.Empty;
-
-   using (OpenFileDialog dialog = new OpenFileDialog())
+   ListBox listBoxFiles = new ListBox();
+   if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
    {
-    //openFileDialog.InitialDirectory = "c:\\";
-    dialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-    dialog.FilterIndex = 2;
-    dialog.RestoreDirectory = true;
-
-if(dialog.ShowDialog() == DialogResult.OK)
+    try
     {
-     // 获取指定文件的路径
-     filePath = dialog.FileName;
-
-     //将文件内容读入 Stream
-     var fileStream = dialog.OpenFile();
-
-     using(StreamReader reader = new StreamReader(fileStream))
-     {
-      fileContent = reader.ReadToEnd();
-     }
+     var path = openFileDialog1.FileName;
+     // 将文件按行读取并显示到 ListBox 中
+     var lines = System.IO.File.ReadAllLines(path);
+     listBoxFiles.Items.Clear();
+     listBoxFiles.Items.AddRange(lines);
+    }
+    catch (System.Exception ex)
+    {
+     System.Windows.Forms.MessageBox.Show("无法读取文件: " + ex.Message);
     }
    }
+  }
 
-
+  private void btnExit_Click(object sender, EventArgs e)
+  {
+   Close();
   }
  }
 }

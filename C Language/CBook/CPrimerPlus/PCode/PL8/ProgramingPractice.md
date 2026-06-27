@@ -13,15 +13,12 @@
 7． 修改第7章的编程练习8，用字符代替数字标记菜单的选项。用q 代替5作为结束输入的标记。 
 
 8． 编写一个程序，显示一个提供加法、减法、乘法、除法的菜单。获得用户选择的选项后，程序提示用户输入两个数字，然后执行用户刚才选择的操作。该程序只接受菜单提供的选项。程序使用float 类型的变量储存用户输入的数字，如果用户输入失败，则允许再次输入。进行除法运算时，如果用户输入0 作为第2个数（除数），程序应提示用户重新输入一个新值。该程序的一个运行示例如下：  
-
-
 Enter the operation of your choice:  
 a. add           s. subtract  
 m. multiply      d. divide  
 q. quit  
 a     
-Enter first number: 22     
-.4  
+Enter first number: 22.4  
 Enter second number: one     
 one is not an number.  
 Please enter a number, such as 2.5, -1.78E8, or 3: 1     
@@ -41,3 +38,4 @@ m. multiply      d. divide
 q. quit  
 q     
 Bye.  
+
