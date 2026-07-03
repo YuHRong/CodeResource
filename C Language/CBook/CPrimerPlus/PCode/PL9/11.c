@@ -29,7 +29,6 @@ int main(void)
  printf("Enter an integer: \n");
  while (scanf("%d", &n) == 1)
  {
-
   fibonacci(n);
 
   printf("Enter next an integer(q to quit): \n");
