@@ -6,7 +6,7 @@ int main(void)
  int urn[5] = { 100, 200, 300, 400, 500 };
  int* ptr1, * ptr2, * ptr3, * ptr4, * ptr5;
  ptr1 = urn;       //  把一个地址赋给指针
- ptr2 = &urn;       // 把一个地址赋给指针
+ ptr2 = &urn[2];       // 把一个地址赋给指针
 
  // 解引用指针,以及获得指针的地址
  printf("pointer value, dereferenced pointer, pointer address:\n");

@@ -1,45 +1,23 @@
-/* rain.c  -- 计算每年的总降水量、年平均降水量和5年中每月的平均降水量 */
-#include <stdio.h>
-
-#define MONTHS 12 // 每年的月数
-#define YEARS 5   // 年数
+#include<stdio.h>
 
 int main(void)
 {
- // 用2010~2014年的降水量数据初始化数组
- const float rain[YEARS][MONTHS] =
-     {
-         {4.3, 4.3, 4.3, 3.0, 2.0, 1.2, 0.2, 0.2, 0.4, 2.4, 3.5, 6.6},
-         {8.5, 8.2, 1.2, 1.6, 2.4, 0.0, 5.2, 0.9, 0.3, 0.9, 1.4, 7.3},
-         {9.1, 8.5, 6.7, 4.3, 2.1, 0.8, 0.2, 0.2, 1.1, 2.3, 6.1, 8.4},
-         {7.2, 9.9, 8.4, 3.3, 1.2, 0.8, 0.4, 0.0, 0.6, 1.7, 4.3, 6.2},
-         {7.6, 5.6, 3.8, 2.8, 3.8, 0.2, 0.0, 0.0, 0.0, 1.3, 2.6, 5.2}};
+ int m = 10;
+ int n, o;
+ int * z;
+ z = &m;
 
- int year, month;
- float subtot, total;
 
- printf(" YEAR    RAINFALL  (inches)\n");
+ printf("z stores the address of m = %p\n", (void*)z);
+ printf("*z stores the value of m = %d\n", *z);
 
- for (year = 0, total = 0; year < YEARS; year++)
- { // 每一年，个月的总降水量的总和
-  for (month = 0, subtot = 0; month < MONTHS; month++)
-   subtot += rain[year][month];
-  printf("%5d %15.1f\n", 2010 + year, subtot);
-  total += subtot; // 五年的总降水量
- }
- printf("\nThe yearly average is %.1f inches.\n\n", total / YEARS);
+ printf("&m is the address of m = %p\n", (void*)&m);
 
- printf("MONTHLY AVARAGES:\n\n");
- printf(" Jan  Feb   Mar  Apr  May  Jun  Jul  Aug  Sup  Oct ");
- printf(" Nov   Dec\n");
+ printf("&n stores the address of n = %p\n", (void*)&n);
 
- for (month = 0; month < MONTHS; month++)
- { // 每个月，五年的总降水量
-  for (year = 0, subtot = 0; year < YEARS; year++)
-   subtot += rain[year][month];
-  printf("%4.1f ", subtot / YEARS);
- }
- printf("\n");
+ printf("&o stores the address of o = %p\n", (void*)&o);
+
+ printf("&z stores the address of z = %p\n", (void*)&z);
 
  return 0;
 }
