@@ -1,4 +1,8 @@
-﻿string? line;
+﻿// Find Longest Word in String
+// Write a C# program to find the longest word in a string.
+// 
+
+string? line;
 
 Console.WriteLine("Input a string: ");
 line = Console.ReadLine();

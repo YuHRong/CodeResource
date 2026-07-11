@@ -1,4 +1,8 @@
-﻿int num = 500;
+﻿// Sum of First 500 Primes
+// Write a C# program to compute the sum of the first 500 prime numbers.
+// 
+
+int num = 500;
 
 // Console.WriteLine("Enter a integer: ");
 // num = Convert.ToInt32(Console.ReadLine());
