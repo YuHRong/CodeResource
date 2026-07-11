@@ -1,0 +1,23 @@
+// Write a in C++ program to find the size of fundamental data types.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+ cout << "Find Size of fundamental data types :" << endl;
+ cout << "------------------------------------------\n";
+
+ cout << "The sizeof(char) is : " << sizeof(char) << " bytes\n";
+ cout << "The sizeof(short) is : " << sizeof(short) << " bytes\n";
+ cout << "The sizeof(int) is : " << sizeof(int) << " bytes" << endl;
+ cout << "The sizeof(long) is : " << sizeof(long) << " bytes" << endl;
+ cout << "The sizeof(long long) is : " << sizeof(long long) << " bytes" << endl;
+ cout << "The sizeof(float) is : " << sizeof(float) << " bytes" << endl;
+ cout << "The sizeof(double) is : " << sizeof(double) << " bytes" << endl;
+ cout << "The sizeof(long double) is : " << sizeof(long double) << " bytes" << endl;
+ cout << "The sizeof(bool) is : " << sizeof(bool) << " bytes\n";
+
+ return 0;
+}
