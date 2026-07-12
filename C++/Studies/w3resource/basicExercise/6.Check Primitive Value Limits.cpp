@@ -1,0 +1,35 @@
+// Write a C++ program that checks whether primitive values cross the limit.
+
+#include <iostream> // 包含输入输出流头文件
+
+using namespace std; // 使用标准命名空间
+
+int main() // main 函数的开始
+{
+ cout << "\n\n Check whether the primitive values crossing the limits or not :\n"; // 输出一条消息，提示检查基本类型值
+ cout << "--------------------------------------------------------------------\n"; // 输出一条分隔线
+
+ // 声明并初始化各种基本数据类型变量
+ char gender = 'F';                    // char 类型用于单个字符，使用单引号
+ bool isEmployed = true;               // bool 类型存储 true（非零）或 false（0）
+ unsigned short numOfsons = 2;         // 无符号短整型，范围通常是 [0, 65535]
+ short yearOfAppt = 2009;              // 短整型，范围通常是 [-32768, 32767]
+ unsigned int YearlyPackage = 1500000; // 无符号整型，范围通常是 [0, 4294967295]
+ double height = 79.48;                // 双精度浮点型，带有小数部分
+ float gpa = 4.69f;                    // 单精度浮点型，需要后缀 'f'
+ long totalDrawan = 12047235L;         // 长整型，需要后缀 'L'
+ long long balance = 995324987LL;      // 长长整型，需要后缀 'LL'
+
+ // 输出变量的值
+ cout << " The Gender is : " << gender << endl;
+ cout << " Is she married? : " << isEmployed << endl;
+ cout << " Number of sons she has : " << numOfsons << endl;
+ cout << " Year of her appointment : " << yearOfAppt << endl;
+ cout << " Salary for a year : " << YearlyPackage << endl;
+ cout << " Height is : " << height << endl;
+ cout << " GPA is " << gpa << endl;
+ cout << " Salary drawn up to : " << totalDrawan << endl;
+ cout << " Balance till : " << balance << endl;
+
+ return 0; // 返回 0 表示程序成功执行
+} // main 函数的结束
