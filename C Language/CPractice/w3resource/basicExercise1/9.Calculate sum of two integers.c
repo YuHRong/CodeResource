@@ -1,6 +1,6 @@
 // Write a C program that accepts two integers from the user and calculates the sum of the two integers.
 
-#include <stdio.h>
+// #include <stdio.h>
 
 int main (void)
 {
