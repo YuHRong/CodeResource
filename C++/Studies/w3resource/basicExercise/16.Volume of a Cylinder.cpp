@@ -1,0 +1,28 @@
+// Write a C++ program that calculates the volume of a cylinder.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+ cout << "Calculate the volume of a cylinder :" << endl;
+ cout << "-----------------------------------------" << endl;
+
+ double radius;     // 申明保存圆柱半径的变量
+ double height;     // 申明保存圆柱高的变量
+ double volume = 0; // 申明保存体积的变量
+
+ cout << "Input the radius of the cylinder : ";
+ cin >> radius;
+
+ cout << "Input the height of the cylinder : ";
+ cin >> height;
+
+ volume = (3.14 * (radius * radius)) * height;
+
+ cout << "The volume of a cylinder is : " << volume;
+ cout << endl;
+
+ return 0;
+}

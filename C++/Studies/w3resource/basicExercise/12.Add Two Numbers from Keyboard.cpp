@@ -1,0 +1,24 @@
+// Write a C++ program to add two numbers and accept them from the keyboard.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+ // 申明两个双精度浮点数变量
+ double n1, n2;
+
+ cout << "Sum of two numbers : " << endl;
+ cout << "-------------------------" << endl;
+
+ cout << "Input 1st number : ";
+ cin >> n1;
+
+ cout << "Input 2nd number : ";
+ cin >> n2;
+
+ cout << "The sum of the numbers is : " << n1 + n2 << endl;
+
+ return 0;
+}

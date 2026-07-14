@@ -1,0 +1,30 @@
+// Write a C++ program to find the Area and Perimeter of a Rectangle.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+ double length;        // 申明保存举行长的变量
+ double width;         // 申明保存举行宽的变量
+ double area = 0;      // 申明保存举行面积 变量
+ double perimeter = 0; // 申明保存周长的变量
+
+ cout << "Find the Area and Perimeter of a Rectangle :" << endl;
+ cout << "-------------------------------------------------" << endl;
+
+ cout << "Input the length of the rectangle : " << endl;
+ cin >> length;
+ cout << "Input the width of the rectangle : " << endl;
+ cin >> width;
+
+ area = length * width;
+ perimeter = (length + width) * 2;
+
+ cout << "The area of the rectangle is : " << area << endl;
+ cout << "The perimeter of the rectangle is : " << perimeter << endl;
+ cout << endl;
+
+ return 0;
+}
