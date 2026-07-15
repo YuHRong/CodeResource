@@ -1,6 +1,0 @@
-hello CP
-hello C__++
-hello CSharp
-python
-java
-javaScript

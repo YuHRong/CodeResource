@@ -79,7 +79,7 @@ if (l >= 1 && l <= n)
  // 检查文件
  if (File.Exists(fileName))
  {
-  // 读取文件中的所有hh
+  // 读取文件中的所有行
   string[] lines = File.ReadAllLines(fileName);
 
   // 将指定行写入控制台
