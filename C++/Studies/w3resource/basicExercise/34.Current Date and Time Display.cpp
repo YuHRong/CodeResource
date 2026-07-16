@@ -1,0 +1,57 @@
+// Write a C++ program to display the current date and time.
+
+#include <iostream>
+#include <ctime>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+ // 声明一个time_t变量并为其分配当前时间
+ time_t t = time(NULL);
+
+ // 创建指向tm结构的指针并获取本地时间
+ tm *tPtr = localtime(&t);
+
+ cout << "Display the Current Date and Time :\n";
+ cout << "----------------------------------------\n";
+ // 输出当前日期和时间的不同组成部分
+ // 显示秒
+ cout << "Seconds = " << (tPtr->tm_sec) << endl;
+
+ // 显示分
+ cout << "Minutes = " << (tPtr->tm_min) << endl;
+
+ // 显示小时
+ cout << "hours = " << (tPtr->tm_hour) << endl;
+
+ // 显示月份中的第几天
+ cout << "day of month = " << (tPtr->tm_mday) << endl;
+
+ // 显示一年中的月份
+ cout << "month of year = " << (tPtr->tm_mon) + 1 << endl;
+
+ // 显示年
+ cout << "year = " << (tPtr->tm_year) + 1900 << endl;
+
+ // 显示工作日
+ cout << "weekday = " << (tPtr->tm_wday) << endl;
+
+ // 显示一年中的哪一天
+ cout << "day of year = " << (tPtr->tm_yday) << endl;
+
+ // 显示夏令时
+ cout << " daylight savings = " << (tPtr->tm_isdst) << endl;
+ cout << endl;
+
+ // 格式化显示当前日期和时间
+ // 显示当前日期
+ cout << "Current Date: " << (tPtr->tm_mday) << "/" << (tPtr->tm_mon) + 1 << "/" << (tPtr->tm_year) + 1900 << endl;
+
+ // 显示当前时间
+ cout << "Current Time: " << (tPtr->tm_hour) << ":" << (tPtr->tm_min) << ":" << (tPtr->tm_sec) << endl;
+ cout << endl;
+
+ return 0;
+}
