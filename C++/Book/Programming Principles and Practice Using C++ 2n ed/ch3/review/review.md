@@ -50,3 +50,5 @@ cout << "Hello, " << first_name << "!\n";
 - `布尔字面值常量`：表示布尔型的常量。
 - `指针字面值常量`：表示空指针的常量。
 
+11. What is a variable? 
+
