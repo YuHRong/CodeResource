@@ -1,9 +1,9 @@
-# --- VS/VS Code 缓存和配置 ---
+# --- VS/VS Code 缓存和配�? ---
 
-# 忽略所有 .vs 目录（包括子目录中的 .vs 目录）
+# 忽略所�? .vs 目录（包括子目录中的 .vs 目录�?
 .vs/
 
-# 忽略的文件目录
+# 忽略的文件目�?
 x64/
 chinese-poetry/
 ChatLab/
@@ -25,6 +25,7 @@ samples/
 *.sdf
 *.vspscc
 
-# 如果你使用 C# 或 .NET，通常还需要忽略这些
+# 如果你使�? C# �? .NET，通常还需要忽略这�?
 **/bin/
 **/obj
+C#/Study/C# �е� null ��ȫ��/mslearn-csharp-null-safety
