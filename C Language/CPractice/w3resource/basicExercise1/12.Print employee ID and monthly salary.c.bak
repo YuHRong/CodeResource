@@ -4,26 +4,26 @@
 
 int main(void)
 {
- char employee_id[11];          // ç”³æ˜å­˜å‚¨å‘˜å·¥ ID å˜é‡ï¼Œæœ€å¤§åªèƒ½å­˜å‚¨ 10
- int work_hours;                // ç”³æ˜å·¥ä½œæ—¶é—´å˜é‡
- float amount_hours, total = 0; // ç”³æ˜æ¯å°æ—¶çš„é‡‘é¢ä»¥åŠæ€»é‡‘é¢å˜é‡ï¼Œå°†æ€»é‡‘é¢èµ‹å€¼0
+ char employee_id[11];          // ÉêÃ÷´æ´¢Ô±¹¤ ID ±äÁ¿£¬×î´óÖ»ÄÜ´æ´¢ 10
+ int work_hours;                // ÉêÃ÷¹¤×÷Ê±¼ä±äÁ¿
+ float amount_hours, total = 0; // ÉêÃ÷Ã¿Ğ¡Ê±µÄ½ğ¶îÒÔ¼°×Ü½ğ¶î±äÁ¿£¬½«×Ü½ğ¶î¸³Öµ0
 
- // æç¤ºç”¨æˆ·è¾“å…¥å‘˜å·¥ ID
+ // ÌáÊ¾ÓÃ»§ÊäÈëÔ±¹¤ ID
  printf("Input the Employees ID(Max. 10 chars): ");
  scanf("%s", &employee_id);
 
- // æç¤ºç”¨æˆ·è¾“å…¥æ¯å¤©å·¥ä½œæ—¶é—´
+ // ÌáÊ¾ÓÃ»§ÊäÈëÃ¿Ìì¹¤×÷Ê±¼ä
  printf("Input the working hrs: ");
  scanf("%d", &work_hours);
 
- // æç¤ºç”¨æˆ·è¾“å…¥æ¯å°æ—¶æ‰€è·å¾—çš„é‡‘é¢
+ // ÌáÊ¾ÓÃ»§ÊäÈëÃ¿Ğ¡Ê±Ëù»ñµÃµÄ½ğ¶î
  printf("Salary amount/hr: ");
  scanf("%f", &amount_hours);
 
- // è®¡ç®—æ€»é‡‘é¢
+ // ¼ÆËã×Ü½ğ¶î
  total = work_hours * amount_hours;
 
- // æ‰“å°å‘˜å·¥ID,æ‰“å°æ€»é‡‘é¢
+ // ´òÓ¡Ô±¹¤ID,´òÓ¡×Ü½ğ¶î
  printf("Employees ID = %s\n", employee_id);
  printf("Salary = U$ %.2f\n", total);
 

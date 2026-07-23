@@ -4,7 +4,7 @@
 
 int main()
 {
- int n[5], odd_sum = 0; // åˆå§‹åŒ–å­˜å‚¨äº”ä¸ªæ•°å­—çš„æ•°å­— nï¼Œåˆå§‹åŒ–å¥‡æ•°å’Œ odd_sum ä¸º 0
+ int n[5], odd_sum = 0; // ³õÊ¼»¯´æ´¢Îå¸öÊı×ÖµÄÊı×Ö n£¬³õÊ¼»¯ÆæÊıºÍ odd_sum Îª 0
 
  printf("Input the first number: ");
  scanf("%d", &n[0]);
@@ -19,8 +19,8 @@ int main()
 
  for (int i = 0; i < 5; i++)
  {
-  if ((n[i] % 2) != 0) // æ£€æŸ¥è¾“å…¥çš„æ•°å­—æ˜¯å¦ä¸ºå¥‡æ•°
-   odd_sum += n[i];    // å¦‚æœä¸ç­‰äº 0ï¼Œ åˆ™ odd_sum += n[i]
+  if ((n[i] % 2) != 0) // ¼ì²éÊäÈëµÄÊı×ÖÊÇ·ñÎªÆæÊı
+   odd_sum += n[i];    // Èç¹û²»µÈÓÚ 0£¬ Ôò odd_sum += n[i]
  }
 
  printf("Sum of all odd values: %d\n", odd_sum);

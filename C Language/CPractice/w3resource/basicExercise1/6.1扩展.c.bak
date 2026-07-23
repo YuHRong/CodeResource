@@ -1,21 +1,21 @@
-// å†™ä¸€ä¸ªCè¯­è¨€ç¨‹åºæ¥è®¡ç®—ç»™å®šåŠå¾„çš„åœ†çš„å‘¨é•¿å’Œé¢ç§¯ã€‚
+// Ğ´Ò»¸öCÓïÑÔ³ÌĞòÀ´¼ÆËã¸ø¶¨°ë¾¶µÄÔ²µÄÖÜ³¤ºÍÃæ»ı¡£
 
 
 #include <stdio.h>
 
 int main(void)
 {
- float radius;            // ç”¨äºä¿å­˜åŸåŠå¾„çš„å˜é‡
- float area, perimeter; // ç”¨äºå­˜å‚¨åŸå‘¨é•¿å’Œé¢ç§¯çš„å˜é‡
+ float radius;            // ÓÃÓÚ±£´æÔ­°ë¾¶µÄ±äÁ¿
+ float area, perimeter; // ÓÃÓÚ´æ´¢Ô­ÖÜ³¤ºÍÃæ»ıµÄ±äÁ¿
 
  printf("Please enter the radius of the Circle\n");
 scanf("%f", &radius);
 
- // è®¡ç®—åŸçš„å‘¨é•¿
+ // ¼ÆËãÔ­µÄÖÜ³¤
  perimeter = 2 * 3.14 * radius;
  printf("Perimeter of the Circle = %f inches\n", perimeter);
 
- // è®¡ç®—åŸçš„é¢ç§¯
+ // ¼ÆËãÔ­µÄÃæ»ı
  area = 3.14 * radius * radius;
  printf("Area of the Circle = %f square inches\n", area);
 

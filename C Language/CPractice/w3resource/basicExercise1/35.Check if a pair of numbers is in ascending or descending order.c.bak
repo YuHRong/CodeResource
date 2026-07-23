@@ -1,8 +1,8 @@
 // Write a C program to check if two numbers in a pair are in ascending order or descending order.
 /*
-鑾峰彇涓や釜杈撳叆鐨勫�硷紝
-濡傛灉绗竴涓暟澶т簬绗簩涓暟锛屽垯浠栨槸闄嶅簭
-濡傛灉绗竴涓暟灏忎簬绗簩涓暟锛屽垯浠栨槸鍗囧簭
+获取两个输入的值，
+如果第一个数大于第二个数，则他是降序
+如果第一个数小于第二个数，则他是升序
 */
 
 #include <stdio.h>

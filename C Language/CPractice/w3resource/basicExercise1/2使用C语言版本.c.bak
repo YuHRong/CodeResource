@@ -1,9 +1,9 @@
-// å†™ä¸€ä¸ªCç¨‹åºï¼Œè·å–ä½ æ­£åœ¨ä½¿ç”¨çš„Cç‰ˆæœ¬ã€‚
+// Ğ´Ò»¸öC³ÌĞò£¬»ñÈ¡ÄãÕıÔÚÊ¹ÓÃµÄC°æ±¾¡£
 #include <stdio.h>
 
 int main(void)
 {
-// æ£€æŸ¥ C æ ‡å‡†ç‰ˆæœ¬
+// ¼ì²é C ±ê×¼°æ±¾
 #if defined(__STDC_VERSION__)
     #if __STDC_VERSION__ >= 202500L
         printf("We are using C2y (experimental next-gen C standard, __STDC_VERSION__ = %ldL)!\n", __STDC_VERSION__);
@@ -23,7 +23,7 @@ int main(void)
         printf("We are using C89/C90 (with __STDC_VERSION__ defined as %ldL)!\n", __STDC_VERSION__);
     #endif
 #else
-    // åœ¨æœ€åŸå§‹çš„ C89/C90 æ ‡å‡†ä¸­ï¼Œ__STDC_VERSION__ å®å°šæœªè¢«å®šä¹‰
+    // ÔÚ×îÔ­Ê¼µÄ C89/C90 ±ê×¼ÖĞ£¬__STDC_VERSION__ ºêÉĞÎ´±»¶¨Òå
     printf("We are using C89/C90! (__STDC_VERSION__ is not defined)\n");
 #endif
 

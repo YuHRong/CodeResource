@@ -1,0 +1,15 @@
+{
+ "terminal.integrated.profiles.windows": {
+   "PowerShell": {
+       "path": "powershell.exe",
+       "args": ["-NoExit", "chcp 65001"],
+       "icon": "terminal-powershell"
+   },
+   "Command Prompt": {
+       "path": ["${env:windir}\\System32\\cmd.exe"],
+       "args": ["/K", "chcp 65001"],
+       "icon": "terminal-cmd"
+   }
+},
+"terminal.integrated.defaultProfile.windows": "PowerShell"
+}

@@ -1,24 +1,24 @@
 // Write a C program to calculate the average mathematics marks of some students. Input 0 (excluding to calculate the average) or a negative value to terminate the input process.
 /*
-ÉêÃ÷Ò»¸ö´æ´¢Ñ§Éú³É¼¨µÄÊı×é£¬
-ÉêÃ÷Ò»¸ö´æ´¢³É¼¨×ÜºÍµÄ±äÁ¿£¬
-ÉêÃ÷Ò»¸öÓÃÓÚ¼ÆÊı¿¼ÊÔ´ÎÊıµÄ±äÁ¿£¬
-ÉêÃ÷Ò»¸ö´æ´¢Æ½¾ù³É¼¨µÄ±äÁ¿£¬
-ÒÔÉÏ±äÁ¿ÓÃÓÚ¼ÆËãÆ½¾ù³É¼¨¡£
-Ê¹ÓÃÑ­»·±ãÀûÊäÈë³É¼¨£¬
-Ê¹ÓÃ scanf() º¯Êı»ñÈ¡³É¼¨£¬ÊäÈë0ÍË³ö
+ç”³æ˜ä¸€ä¸ªå­˜å‚¨å­¦ç”Ÿæˆç»©çš„æ•°ç»„ï¼Œ
+ç”³æ˜ä¸€ä¸ªå­˜å‚¨æˆç»©æ€»å’Œçš„å˜é‡ï¼Œ
+ç”³æ˜ä¸€ä¸ªç”¨äºè®¡æ•°è€ƒè¯•æ¬¡æ•°çš„å˜é‡ï¼Œ
+ç”³æ˜ä¸€ä¸ªå­˜å‚¨å¹³å‡æˆç»©çš„å˜é‡ï¼Œ
+ä»¥ä¸Šå˜é‡ç”¨äºè®¡ç®—å¹³å‡æˆç»©ã€‚
+ä½¿ç”¨å¾ªç¯ä¾¿åˆ©è¾“å…¥æˆç»©ï¼Œ
+ä½¿ç”¨ scanf() å‡½æ•°è·å–æˆç»©ï¼Œè¾“å…¥0é€€å‡º
 */
 
 #include <stdio.h>
 
-#define SIZE 50 // Êı×é´óĞ¡
+#define SIZE 50 // æ•°ç»„å¤§å°
 
 int main()
 {
- // ÉêÃ÷³É¼¨Ïà¹Ø±äÁ¿Îª float ÀàĞÍ
+ // ç”³æ˜æˆç»©ç›¸å…³å˜é‡ä¸º float ç±»å‹
  float grade[SIZE];
  float gradeSum = 0.0, avgGrade = 0.0;
- int count = 0; // ³õÊ¼»¯¼ÆÊı±äÁ¿Îª 0
+ int count = 0; // åˆå§‹åŒ–è®¡æ•°å˜é‡ä¸º 0
 
  printf("Input Mathematics marks (0 to terminate): \n");
 
@@ -26,7 +26,7 @@ int main()
  {
   if (count == SIZE)
   {
-   printf("¿¼ÊÔ´ÎÊıÉÏÏŞ\n");
+   printf("è€ƒè¯•æ¬¡æ•°ä¸Šé™\n");
    break;
   }
 
@@ -34,7 +34,7 @@ int main()
 
   if (j != 1)
   {
-   printf("ÊäÈë´íÎó£¡ÇëÊäÈëÓĞĞ§³É¼¨");
+   printf("è¾“å…¥é”™è¯¯ï¼è¯·è¾“å…¥æœ‰æ•ˆæˆç»©");
    while (getchar() != '\n' && getchar() != EOF)
     ;
    continue;
@@ -46,7 +46,7 @@ int main()
   }
   else
   {
-   gradeSum += grade[count]; // Í³¼Æ³É¼¨×ÜºÍ
+   gradeSum += grade[count]; // ç»Ÿè®¡æˆç»©æ€»å’Œ
    count++;
   }
  }
@@ -57,7 +57,7 @@ int main()
   printf("Average marks in Mathematics: %.2f\n", avgGrade);
  }
  else
-  printf("Ã»ÓĞ¿¼ÊÔ³É¼¨£¬ÎŞ·¨¼ÆËã³É¼¨\n");
+  printf("æ²¡æœ‰è€ƒè¯•æˆç»©ï¼Œæ— æ³•è®¡ç®—æˆç»©\n");
 
  return 0;
 }

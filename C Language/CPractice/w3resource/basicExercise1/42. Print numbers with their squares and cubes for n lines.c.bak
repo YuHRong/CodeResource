@@ -1,7 +1,7 @@
 // Write a C program to print a number, its square and cube, starting with 1 and printing n lines. Accept the number of lines (n, integer) from the user.
 /*
- 鐢虫槑涓�涓瓨鍌ㄨ緭鍏ヨ鐨勫彉閲忥紝
-鍦ㄥ惊鐜唴閮ㄦ墦鍗板钩鏂瑰拰绔嬫柟
+ 申明一个存储输入行的变量，
+在循环内部打印平方和立方
 */
 
 #include <stdio.h>

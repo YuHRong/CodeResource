@@ -9,7 +9,7 @@ int main()
  printf("Input an intger: ");
  int j = scanf("%d", &n);
 
- // æ£€æŸ¥æ˜¯å¦è¾“å…¥äº†ä¸€ä¸ªæ•´æ•°
+ // ¼ì²éÊÇ·ñÊäÈëÁËÒ»¸öÕûÊı
  if (j != 1)
  {
   printf("Error: Input error\n");

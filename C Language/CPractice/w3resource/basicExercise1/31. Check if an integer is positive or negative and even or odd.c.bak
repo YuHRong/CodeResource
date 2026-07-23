@@ -9,25 +9,25 @@ int main()
  printf("Input an integer:");
  int i = scanf("%d", &n);
 
- // æ£€æŸ¥è¾“å…¥çš„æ˜¯å¦æ˜¯æ•°å­—
+ // ¼ì²éÊäÈëµÄÊÇ·ñÊÇÊý×Ö
  if (i != 1)
  {
   printf("Error: Enter intger, please\n");
-  return 1; // å¦‚æžœä¸æ˜¯æ•°å­—æŠ¥é”™å¹¶é€€å‡ºç¨‹åº
+  return 1; // Èç¹û²»ÊÇÊý×Ö±¨´í²¢ÍË³ö³ÌÐò
  }
 
  if (n == 0)
  {
   printf("Even\n");
  }
- else if ((n % 2) == 0) // åˆ¤æ–­æ­£å¶æ•°ä»˜å¶æ•°
+ else if ((n % 2) == 0) // ÅÐ¶ÏÕýÅ¼Êý¸¶Å¼Êý
  {
   if (n > 0)
    printf("Positive even\n");
   else
    printf("Negative even\n");
  }
- else // åˆ¤æ–­æ­£æ­£å¥‡æ•°ä»˜å¥‡æ•°
+ else // ÅÐ¶ÏÕýÕýÆæÊý¸¶ÆæÊý
  {
   if (n > 0)
    printf("Positive odd\n");

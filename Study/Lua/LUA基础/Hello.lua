@@ -1,3 +1,6 @@
+a = 3.3;
+b = 6.6;
 
-#!/usr/local/bin/ lua
-print("Hello World!")
+sum = a * b;
+
+print(a," * ",b,"的结果为",sum)

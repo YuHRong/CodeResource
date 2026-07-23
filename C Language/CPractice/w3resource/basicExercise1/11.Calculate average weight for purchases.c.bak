@@ -4,10 +4,10 @@
 
 int main(void)
 {
- float weight_1, weight_2; // ç”³æ˜å­˜å‚¨è´­ä¹°çš„é‡é‡
- float item_1, item_2;     // ç”³æ˜å­˜å‚¨è´­ä¹°æ¬¡æ•°å˜é‡
- float total = 0;          // ç”³æ˜å­˜å‚¨æ€»è´­ä¹°é‡é‡å˜é‡
- float avg = 0;            // ç”³æ˜å­˜å‚¨å¹³å‡é‡é‡å˜é‡
+ float weight_1, weight_2; // ÉêÃ÷´æ´¢¹ºÂòµÄÖØÁ¿
+ float item_1, item_2;     // ÉêÃ÷´æ´¢¹ºÂò´ÎÊı±äÁ¿
+ float total = 0;          // ÉêÃ÷´æ´¢×Ü¹ºÂòÖØÁ¿±äÁ¿
+ float avg = 0;            // ÉêÃ÷´æ´¢Æ½¾ùÖØÁ¿±äÁ¿
 
  printf("Weight - item1: ");
  scanf("%f", &weight_1);
