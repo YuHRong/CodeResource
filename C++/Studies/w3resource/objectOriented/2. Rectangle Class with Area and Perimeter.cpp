@@ -9,20 +9,20 @@ private:
  double width;
 
 public:
- // ¹¹Ôìº¯Êı
+ // æ„é€ å‡½æ•°
  Rectangle(double len, double wid) : length(len), width(wid) {}
 
- // ¼ÆËãÃæ»ıº¯Êı
+ // è®¡ç®—é¢ç§¯å‡½æ•°
  double calculateArea()
  {
-  // ¼ÆËã¾ÙĞĞÃæ»ı¹«Ê½
+  // è®¡ç®—ä¸¾è¡Œé¢ç§¯å…¬å¼
   return length * width;
  }
 
- // ¼ÆËã¾ÙĞĞÖÜ³¤º¯Êı
+ // è®¡ç®—ä¸¾è¡Œå‘¨é•¿å‡½æ•°
  double calculatePerimeter()
  {
-  // ¼ÆËãÖÜ³¤¹«Ê½
+  // è®¡ç®—å‘¨é•¿å…¬å¼
   return (length + width) * 2;
  }
 };
@@ -31,23 +31,23 @@ int main()
 {
  double length, width;
 
- // »ñÈ¡rectangle µÄ³¤¶ÈºÍ¿í¶È
+ // è·å–rectangle çš„é•¿åº¦å’Œå®½åº¦
  std::cout << "Please enter the rectangles length: ";
  std::cin >> length;
  std::cout << "Please enter the rectangles width: ";
  std::cin >> width;
 
- // ´´½¨¾ßÓĞÖÜ³¤ºÍ¿í¶ÈµÄ rectangle ¶ÔÏó
+ // åˆ›å»ºå…·æœ‰å‘¨é•¿å’Œå®½åº¦çš„ rectangle å¯¹è±¡
  Rectangle rectangle(length, width);
 
- // Ê¹ÓÃ rectangle ¶ÔÏó¼ÆËã¾ÙĞĞµÄÃæ»ı
+ // ä½¿ç”¨ rectangle å¯¹è±¡è®¡ç®—ä¸¾è¡Œçš„é¢ç§¯
  double area = rectangle.calculateArea();
- // ´òÓ¡¼ÆËãºóµÄÃæ»ı
+ // æ‰“å°è®¡ç®—åçš„é¢ç§¯
  std::cout << "Area : " << area << std::endl;
 
- // ¼ÆËãÖÜ³¤
+ // è®¡ç®—å‘¨é•¿
  double perimeter = rectangle.calculatePerimeter();
- // ÏÔÊ¾¼ÆËãºóµÄÖÜ³¤
+ // æ˜¾ç¤ºè®¡ç®—åçš„å‘¨é•¿
  std::cout << "Perimeter : " << perimeter << std::endl;
 
  return 0;

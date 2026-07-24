@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
- // 鐢虫槑涓や釜鍙岀簿搴︽诞鐐规暟鍙橀噺
+ // 申明两个双精度浮点数变量
  double n1, n2;
 
  cout << "Sum of two numbers : " << endl;

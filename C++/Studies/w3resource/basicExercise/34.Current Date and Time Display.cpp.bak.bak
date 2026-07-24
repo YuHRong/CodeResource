@@ -8,48 +8,48 @@ using namespace std;
 
 int main()
 {
- // å£°æ˜ä¸€ä¸ªtime_tå˜é‡å¹¶ä¸ºå…¶åˆ†é…å½“å‰æ—¶é—´
+ // ÉùÃ÷Ò»¸ötime_t±äÁ¿²¢ÎªÆä·ÖÅäµ±Ç°Ê±¼ä
  time_t t = time(NULL);
 
- // åˆ›å»ºæŒ‡å‘tmç»“æ„çš„æŒ‡é’ˆå¹¶è·å–æœ¬åœ°æ—¶é—´
+ // ´´½¨Ö¸Ïòtm½á¹¹µÄÖ¸Õë²¢»ñÈ¡±¾µØÊ±¼ä
  tm *tPtr = localtime(&t);
 
  cout << "Display the Current Date and Time :\n";
  cout << "----------------------------------------\n";
- // è¾“å‡ºå½“å‰æ—¥æœŸå’Œæ—¶é—´çš„ä¸åŒç»„æˆéƒ¨åˆ†
- // æ˜¾ç¤ºç§’
+ // Êä³öµ±Ç°ÈÕÆÚºÍÊ±¼äµÄ²»Í¬×é³É²¿·Ö
+ // ÏÔÊ¾Ãë
  cout << "Seconds = " << (tPtr->tm_sec) << endl;
 
- // æ˜¾ç¤ºåˆ†
+ // ÏÔÊ¾·Ö
  cout << "Minutes = " << (tPtr->tm_min) << endl;
 
- // æ˜¾ç¤ºå°æ—¶
+ // ÏÔÊ¾Ğ¡Ê±
  cout << "hours = " << (tPtr->tm_hour) << endl;
 
- // æ˜¾ç¤ºæœˆä»½ä¸­çš„ç¬¬å‡ å¤©
+ // ÏÔÊ¾ÔÂ·İÖĞµÄµÚ¼¸Ìì
  cout << "day of month = " << (tPtr->tm_mday) << endl;
 
- // æ˜¾ç¤ºä¸€å¹´ä¸­çš„æœˆä»½
+ // ÏÔÊ¾Ò»ÄêÖĞµÄÔÂ·İ
  cout << "month of year = " << (tPtr->tm_mon) + 1 << endl;
 
- // æ˜¾ç¤ºå¹´
+ // ÏÔÊ¾Äê
  cout << "year = " << (tPtr->tm_year) + 1900 << endl;
 
- // æ˜¾ç¤ºå·¥ä½œæ—¥
+ // ÏÔÊ¾¹¤×÷ÈÕ
  cout << "weekday = " << (tPtr->tm_wday) << endl;
 
- // æ˜¾ç¤ºä¸€å¹´ä¸­çš„å“ªä¸€å¤©
+ // ÏÔÊ¾Ò»ÄêÖĞµÄÄÄÒ»Ìì
  cout << "day of year = " << (tPtr->tm_yday) << endl;
 
- // æ˜¾ç¤ºå¤ä»¤æ—¶
+ // ÏÔÊ¾ÏÄÁîÊ±
  cout << " daylight savings = " << (tPtr->tm_isdst) << endl;
  cout << endl;
 
- // æ ¼å¼åŒ–æ˜¾ç¤ºå½“å‰æ—¥æœŸå’Œæ—¶é—´
- // æ˜¾ç¤ºå½“å‰æ—¥æœŸ
+ // ¸ñÊ½»¯ÏÔÊ¾µ±Ç°ÈÕÆÚºÍÊ±¼ä
+ // ÏÔÊ¾µ±Ç°ÈÕÆÚ
  cout << "Current Date: " << (tPtr->tm_mday) << "/" << (tPtr->tm_mon) + 1 << "/" << (tPtr->tm_year) + 1900 << endl;
 
- // æ˜¾ç¤ºå½“å‰æ—¶é—´
+ // ÏÔÊ¾µ±Ç°Ê±¼ä
  cout << "Current Time: " << (tPtr->tm_hour) << ":" << (tPtr->tm_min) << ":" << (tPtr->tm_sec) << endl;
  cout << endl;
 

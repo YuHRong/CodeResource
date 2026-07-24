@@ -10,11 +10,11 @@ int main()
  cout << "Calculate the volume of a sphere :" << endl;
  cout << "---------------------------------------" << endl;
 
- // 鐢虫槑 pi 鐨勫彉閲忎负 3.1415926
+ // 申明 pi 的变量为 3.1415926
  double pi = 3.1415926;
- // 鐢虫槑鍗婂緞鍙橀噺
+ // 申明半径变量
  double radius;
- double v = 0; // 鍒濆鍖栦綋绉彉閲忎负 0
+ double v = 0; // 初始化体积变量为 0
 
  cout << "Input the radius of a sphere : ";
  cin >> radius;

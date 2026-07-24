@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
- int i, sum = 0; // ç”³æ˜ä¸¤ä¸ªæ•´æ•°å˜é‡å¹¶åˆå§‹åŒ– sum ä¸º 0
+ int i, sum = 0; // ÉêÃ÷Á½¸öÕûÊı±äÁ¿²¢³õÊ¼»¯ sum Îª 0
 
  cout << "Find the first 10 natural numbers:" << endl;
  cout << "---------------------------------------" << endl;
@@ -17,8 +17,8 @@ int main()
  {
   cout << i << " ";
 
-  // å°†ä» 1 å¼€å§‹çš„ i é™„åŠ ç»™ sum
-  sum += i; // ç­‰åŒäº sum = sum + i;
+  // ½«´Ó 1 ¿ªÊ¼µÄ i ¸½¼Ó¸ø sum
+  sum += i; // µÈÍ¬ÓÚ sum = sum + i;
  }
  cout << "\n\nThe sum of first 10 natural numbers: " << sum << endl;
  cout << endl;

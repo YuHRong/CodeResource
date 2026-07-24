@@ -7,8 +7,8 @@ using namespace std;
 
 int main()
 {
- double side;       // ç”³æ˜ä¸€ä¸ªå­˜å‚¨ç«‹æ–¹ä½“è¾¹é•¿çš„å˜é‡
- double volume = 0; // ç”³æ˜å­˜å‚¨ä½“ç§¯çš„å˜é‡
+ double side;       // ÉêÃ÷Ò»¸ö´æ´¢Á¢·½Ìå±ß³¤µÄ±äÁ¿
+ double volume = 0; // ÉêÃ÷´æ´¢Ìå»ıµÄ±äÁ¿
 
  cout << "Calculate the volume of a cube : " << endl;
  cout << "---------------------------------------" << endl;

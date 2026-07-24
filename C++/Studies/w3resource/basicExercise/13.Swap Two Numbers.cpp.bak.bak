@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
- // ç”³æ˜ä¸¤ä¸ªå˜é‡å­˜å‚¨æ•°å­—ï¼Œç”³æ˜ä¸€ä¸ªä¸­é—´å˜é‡
+ // ÉêÃ÷Á½¸ö±äÁ¿´æ´¢Êı×Ö£¬ÉêÃ÷Ò»¸öÖĞ¼ä±äÁ¿
  double n1, n2, t;
 
  cout << "\n\n Swap two numbers :\n"; // Outputting a message indicating swapping of two numbers

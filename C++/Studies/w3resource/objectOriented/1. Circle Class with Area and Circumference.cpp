@@ -1,56 +1,56 @@
 // Write a C++ program to implement a class called Circle that has private member variables for radius. Include member functions to calculate the circle's area and circumference.
 
 #include <iostream>
-#include <cmath> // °üº¬ÊıÑ§Í·ÎÄ¼ş
+#include <cmath> // åŒ…å«æ•°å­¦å¤´æ–‡ï¿½?
 
-const double PI = 3.14159; // ½« PI µÄÖµÉèÖÃÎª³£Á¿
+const double PI = 3.14159; // ï¿½? PI çš„å€¼è®¾ç½®ä¸ºå¸¸é‡
 
-class Circle // ¶¨ÒåÃûÎª Circle µÄÀà
+class Circle // å®šä¹‰åä¸º Circle çš„ç±»
 {
 private:
  double radius;
 
 public:
- // ¹¹Ôìº¯Êı£¬ÓÃÓÚ³õÊ¼»¯¾ßÓĞÔ­°ë¾¶µÄ¶ÔÏó
+ // ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ë¾¶ï¿½Ä¶ï¿½ï¿½ï¿½
  Circle(double rad) : radius(rad) {}
 
- // ¼ÆËã Circle Ãæ»ıµÄº¯Êı
+  // ï¿½ï¿½ï¿½ï¿½ Circle ï¿½ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½
  double calculateArea()
  {
-  // ¼ÆËãÔ²Ãæ»ıµÄ¹«Ê½
+  // ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½Ê½
   return PI * pow(radius, 2);
  }
 
- // ¼ÆËãÔ²ÖÜ³¤µÄº¯Êı
+ // ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ü³ï¿½ï¿½Äºï¿½ï¿½ï¿½
  double calculateCircumference()
  {
-  // ¼ÆËãÔ²ÖÜ³¤µÄ¹«Ê½
+  // ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ü³ï¿½ï¿½Ä¹ï¿½Ê½
   return 2 * PI * radius;
  }
 };
 
 int main()
 {
- // ´´½¨ Circle ¶ÔÏó
+ // ï¿½ï¿½ï¿½ï¿½ Circle ï¿½ï¿½ï¿½ï¿½
  double radius;
  std::cout << "Input the radius of the circle: ";
- std::cin >> radius; // ÊäÈë°ë¾¶
+ std::cin >> radius; // è¾“å…¥åŠå¾„
 
- // ´´½¨¾ßÓĞ¸ø¶¨°ë¾¶µÄ Circle ¶ÔÏó
+ // åˆ›å»ºå…·æœ‰ç»™å®šåŠå¾„ï¿½? Circle å¯¹è±¡
  Circle circle(radius);
 
- // ¼ÆËã²¢ÏÔÊ¾Ô²µÄÃæ»ı
- // Ê¹ÓÃ circle ¶ÔÏó¼ÆËãÔ²µÄÃæ»ı
+ // è®¡ç®—å¹¶æ˜¾ç¤ºåœ†çš„é¢ï¿½?
+ // ä½¿ç”¨ circle å¯¹è±¡è®¡ç®—åœ†çš„é¢ç§¯
  double area = circle.calculateArea();
 
- // Êä³ö¼ÆËãºóµÄÃæ»ı
+ // è¾“å‡ºè®¡ç®—åçš„é¢ç§¯
  std::cout << "Area : " << area << std::endl;
 
- // ¼ÆËã²¢ÏÔÊ¾Ô²µÄÖÜ³¤
- // Ê¹ÓÃ  circle ¶ÔÏó¼ÆËãÔ²µÄÖÜ³¤
+ // è®¡ç®—å¹¶æ˜¾ç¤ºåœ†çš„å‘¨ï¿½?
+ // ä½¿ç”¨  circle å¯¹è±¡è®¡ç®—åœ†çš„å‘¨é•¿
  double circumference = circle.calculateCircumference();
 
- // Êä³ö¼ÆËãºóµÄÖÜ³¤
+ // è¾“å‡ºè®¡ç®—åçš„å‘¨é•¿
  std::cout << "Circumference: " << circumference << std::endl;
 
  return 0;

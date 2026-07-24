@@ -6,10 +6,10 @@ using namespace std;
 
 int main()
 {
- double length;        // ç”³æ˜ä¿å­˜ä¸¾è¡Œé•¿çš„å˜é‡
- double width;         // ç”³æ˜ä¿å­˜ä¸¾è¡Œå®½çš„å˜é‡
- double area = 0;      // ç”³æ˜ä¿å­˜ä¸¾è¡Œé¢ç§¯ å˜é‡
- double perimeter = 0; // ç”³æ˜ä¿å­˜å‘¨é•¿çš„å˜é‡
+ double length;        // ÉêÃ÷±£´æ¾ÙĞĞ³¤µÄ±äÁ¿
+ double width;         // ÉêÃ÷±£´æ¾ÙĞĞ¿íµÄ±äÁ¿
+ double area = 0;      // ÉêÃ÷±£´æ¾ÙĞĞÃæ»ı ±äÁ¿
+ double perimeter = 0; // ÉêÃ÷±£´æÖÜ³¤µÄ±äÁ¿
 
  cout << "Find the Area and Perimeter of a Rectangle :" << endl;
  cout << "-------------------------------------------------" << endl;

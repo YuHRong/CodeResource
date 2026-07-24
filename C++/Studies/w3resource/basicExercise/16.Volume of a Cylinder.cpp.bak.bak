@@ -9,9 +9,9 @@ int main()
  cout << "Calculate the volume of a cylinder :" << endl;
  cout << "-----------------------------------------" << endl;
 
- double radius;     // ç”³æ˜ä¿å­˜åœ†æŸ±åŠå¾„çš„å˜é‡
- double height;     // ç”³æ˜ä¿å­˜åœ†æŸ±é«˜çš„å˜é‡
- double volume = 0; // ç”³æ˜ä¿å­˜ä½“ç§¯çš„å˜é‡
+ double radius;     // ÉêÃ÷±£´æÔ²Öù°ë¾¶µÄ±äÁ¿
+ double height;     // ÉêÃ÷±£´æÔ²Öù¸ßµÄ±äÁ¿
+ double volume = 0; // ÉêÃ÷±£´æÌå»ıµÄ±äÁ¿
 
  cout << "Input the radius of the cylinder : ";
  cin >> radius;

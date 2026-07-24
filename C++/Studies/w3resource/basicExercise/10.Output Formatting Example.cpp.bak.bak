@@ -10,16 +10,16 @@ int main()
  cout << "\n\n Formatting the output :\n"; // Outputting a message to indicate formatted output
  cout << "----------------------------\n"; // Outputting a separator line
 
- // ç”¨ pi åˆå§‹åŒ– åŒç²¾åº¦æµ®ç‚¹æ•°
+ // ÓÃ pi ³õÊ¼»¯ Ë«¾«¶È¸¡µãÊı
  double pi = 3.14159265;
 
- // è®¾ç½®å°æ•°ç‚¹ä¸º 4
+ // ÉèÖÃĞ¡ÊıµãÎª 4
  cout << fixed << setprecision(4);
 
- // ç”¨å››ä½å°æ•°æ˜¾ç¤º pi
+ // ÓÃËÄÎ»Ğ¡ÊıÏÔÊ¾ pi
  cout << "The value of pi : " << pi << endl;
 
- // æ˜¾ç¤ºå°æ•°ç‚¹åå®½åº¦ä¸º 8 çš„ pi
+ // ÏÔÊ¾Ğ¡Êıµãºó¿í¶ÈÎª 8 µÄ pi
  cout << "The value of pi 4 decimal place of total width 8   : |" << setw(8) << pi << "|" << endl;
 
  cout << " The value of pi 4 decimal place of total width 10  : |" << setw(10) << pi << "|" << endl; // Displaying 'pi' with 4 decimal places and a width of 10
