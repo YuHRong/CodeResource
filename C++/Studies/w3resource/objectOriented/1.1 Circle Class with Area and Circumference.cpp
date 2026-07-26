@@ -11,10 +11,10 @@ private:
  double radius;
 
 public:
- // ���캯�������ڳ�ʼ������ԭ�뾶�Ķ���
+ // 构造函数
  Circle(double rad) : radius(rad) {}
 
-  // ���� Circle ����ĺ���
+ // ���� Circle ����ĺ���
  double calculateArea()
  {
   // ����Բ����Ĺ�ʽ
