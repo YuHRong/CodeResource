@@ -24,4 +24,3 @@ bool TestIncreasingSequence(int[] int_seq)
 Console.WriteLine(TestIncreasingSequence(new int[] { 1, 3, 5, 6, 9 }));  // Output: True
 Console.WriteLine(TestIncreasingSequence(new int[] { 0, 10 }));         // Output: True
 Console.WriteLine(TestIncreasingSequence(new int[] { 1, 3, 1, 3 }));    // Output: False
-
