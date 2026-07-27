@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37328.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTimeExercise", "DateTimeExercise\DateTimeExercise.csproj", "{00B59407-2B1B-4C1A-B2C0-400642C71213}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p1", "p1\p1.csproj", "{528016FB-B5B3-4AED-AD22-A0CCAF8F6541}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p2", "p2\p2.csproj", "{F39BDD02-A370-4C85-B45C-DABA9A7F34F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00B59407-2B1B-4C1A-B2C0-400642C71213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B59407-2B1B-4C1A-B2C0-400642C71213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B59407-2B1B-4C1A-B2C0-400642C71213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B59407-2B1B-4C1A-B2C0-400642C71213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{528016FB-B5B3-4AED-AD22-A0CCAF8F6541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{528016FB-B5B3-4AED-AD22-A0CCAF8F6541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{528016FB-B5B3-4AED-AD22-A0CCAF8F6541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{528016FB-B5B3-4AED-AD22-A0CCAF8F6541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39BDD02-A370-4C85-B45C-DABA9A7F34F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39BDD02-A370-4C85-B45C-DABA9A7F34F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39BDD02-A370-4C85-B45C-DABA9A7F34F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39BDD02-A370-4C85-B45C-DABA9A7F34F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14AB6BA3-8A6D-4BC7-A027-003D341DE2FA}
+	EndGlobalSection
+EndGlobal
