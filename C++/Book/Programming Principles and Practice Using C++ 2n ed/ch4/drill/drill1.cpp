@@ -1,5 +1,6 @@
 // 1. Write a program that consists of a while-loop that (each time around the loop) reads in two ints and then prints them. Exit the program when a terminating '|' is entered.
 // 5. Change the program so that it writes out the numbers are almost equal after writing out which is the larger and the smaller if the two numbers differ by less than 1.0/100.
+
 #include "std_lib_facilities.h"
 
 int main()

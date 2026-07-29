@@ -6,7 +6,7 @@
 int main(void)
 {
  int n;
- float *element; // Ö¸Ïò´æ´¢ÔªËØµÄ¸¡µãÀàĞÍµÄÖ¸Õë
+ float *element; // æŒ‡å‘å­˜å‚¨å…ƒç´ çš„æµ®ç‚¹ç±»å‹çš„æŒ‡é’ˆ
 
  printf("\n\n Pointer : Find the largest element using Dynamic Memory Allocation :\n");
  printf("-------------------------------------------------------------------------\n");
@@ -14,29 +14,29 @@ int main(void)
  printf(" Input total number of elements (1 to 100): ");
  scanf("%d", &n);
 
- // Îª¡°n¡±¸öÔªËØ·ÖÅäÄÚ´æ
+ // ä¸ºâ€œnâ€ä¸ªå…ƒç´ åˆ†é…å†…å­˜
  element = (float *)calloc(n, sizeof(float));
  if (element == NULL)
  {
-  // Èç¹ûÄÚ´æ·ÖÅäÊ§°Ü
+  // å¦‚æœå†…å­˜åˆ†é…å¤±è´¥
   printf(" No memory is allocated.");
   exit(0);
  }
  printf("\n");
 
- // ÊäÈë'n'¸öÊı×Ö²¢½«Æä¶¯Ì¬´æ´¢ÔÚ·ÖÅäµÄÄÚ´æÖĞ
+ // è¾“å…¥'n'ä¸ªæ•°å­—å¹¶å°†å…¶åŠ¨æ€å­˜å‚¨åœ¨åˆ†é…çš„å†…å­˜ä¸­
  for (int i = 0; i < n; ++i)
  {
   printf("Number %d", i + 1);
   scanf("%f", element + i);
  }
 
- // ÔÚ¡°n¡±¸öÔªËØÖĞÕÒµ½×î´óµÄÔªËØ
+ // åœ¨â€œnâ€ä¸ªå…ƒç´ ä¸­æ‰¾åˆ°æœ€å¤§çš„å…ƒç´ 
  for (int i = 1; i < n; ++i)
  {
   if (*element < *(element + i))
   {
-   // ½«×î´óµÄÔªËØ´æ´¢ÔÚµÚÒ»¸öÄÚ´æÎ»ÖÃ
+   // å°†æœ€å¤§çš„å…ƒç´ å­˜å‚¨åœ¨ç¬¬ä¸€ä¸ªå†…å­˜ä½ç½®
    *element = *(element + i);
   }
  }

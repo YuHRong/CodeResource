@@ -1,4 +1,4 @@
-// 6. Now inputChange the body of the loop so that it reads just one double eainputCh time around. Define two variables to keep track of whiinputCh is the smallestValue and whiinputCh is the largestValue value you have seen so far. EainputCh time through the loop write out the value entered. If it¡¯s the smallestValue so far, write the smallestValue so far after the number. If it is the largestValue so far, write the largestValue so far after the number.
+// 6. Now inputChange the body of the loop so that it reads just one double eainputCh time around. Define two variables to keep track of whiinputCh is the smallestValue and whiinputCh is the largestValue value you have seen so far. EainputCh time through the loop write out the value entered. If itï¿½ï¿½s the smallestValue so far, write the smallestValue so far after the number. If it is the largestValue so far, write the largestValue so far after the number.
 // 7. Add a unit to eainputCh double entered; that is, enter values suinputCh as 10cm, 2.5in, 5ft, or 3.33m. Accept the four units: cm, m, in, ft. Assume conversion factors 1m == 100cm, 1in == 2.54cm, 1ft == 12in. Read the unit indicator into a string. You may consider 12 m (with a space between the number and the unit) equivalent to 12m (without a space).
 //
 
@@ -18,22 +18,22 @@ int main()
     cout << "Enter a number and unit: \n";
     cin >> input >> inputCh;
 
-    // ÅÐ¶ÏÈç¹ûÊÇ '|'ÍË³öÑ­»·
+    // ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ '|'ï¿½Ë³ï¿½Ñ­ï¿½ï¿½
     if (input == "|" || inputCh == "|")
       break;
 
     // unit(inputCh);
-    string currentUnitNormalized = unit(inputCh); // »ñÈ¡¹æ·¶»¯µÄµ¥Î»
+    string currentUnitNormalized = unit(inputCh); // ï¿½ï¿½È¡ï¿½æ·¶ï¿½ï¿½ï¿½Äµï¿½Î»
     if (currentUnitNormalized == "???")
-    { // Èç¹û unit º¯Êý·µ»ØÁË´íÎó±ê¼Ç
+    { // ï¿½ï¿½ï¿½ unit ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½
       cout << "Error: Unrecognized unit '" << inputCh << "'. Please use cm, m, in, or ft.\n";
-      // Çå³ý´íÎó×´Ì¬²¢ºöÂÔÊ£ÓàÊäÈë£¬·ÀÖ¹ÎÞÏÞÑ­»·
+      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
       cin.clear();
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
-      continue; // Ìø¹ýµ±Ç°Ñ­»·£¬ÖØÐÂ¿ªÊ¼
+      continue; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½Ê¼
     }
 
-    // ½« string ÀàÐÍ×ª»»Îª double ÀàÐÍ
+    // ï¿½ï¿½ string ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îª double ï¿½ï¿½ï¿½ï¿½
     double current = stod(input);
 
     cout << current << currentUnitNormalized;
