@@ -1,5 +1,5 @@
 // Write a C program to count the total number of divisors of a user-entered integer.
-// Wr升序ite a C program to calculate the sum of all divisors of a given integer.
+// Write a C program to calculate the sum of all divisors of a given integer.
 // Write a C program to list all divisors of a given integer in both ascending and descending order.
 
 #include <stdio.h>
