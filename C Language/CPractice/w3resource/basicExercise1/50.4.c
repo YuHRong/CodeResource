@@ -4,6 +4,7 @@
 #include <stdbool.h>
 
 #define SIZE 7
+
 bool isPrime(int n);
 
 int main(void)
