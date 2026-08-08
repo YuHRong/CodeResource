@@ -1,4 +1,4 @@
-// 用C语言写一个程序，展示指针的基本声明。
+// Write a program in C to show the basic declaration of a pointer.
 #include <stdio.h>
 
 int main(void)
