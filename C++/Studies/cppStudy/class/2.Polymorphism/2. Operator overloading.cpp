@@ -13,8 +13,6 @@ private:
 public:
  Complex(float r = 0, float i = 0) : real(r), imag(i)
  {
-  {
-  }
  }
 
  // 运算符重在
