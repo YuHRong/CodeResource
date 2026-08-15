@@ -1,6 +1,5 @@
 ﻿// Write a program in C# Sharp to count the total number of words in a string.
 
-
 int word = 1;    // 初始化字符串单词统计变量，假设等于 1
 Console.WriteLine("Inputh the string : ");
 string? str = Console.ReadLine();
