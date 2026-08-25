@@ -1,7 +1,5 @@
 ﻿//Write a C# program to implement a method that takes an integer as input and throws an exception if the number is negative. Handle the exception in the calling code.
 
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
 try
 {
  Console.WriteLine("Input an integer: ");
