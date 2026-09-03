@@ -2,7 +2,6 @@
 
 double radius, perimeter, area; ;
 
-
 Console.Write("Input the radius of the circle :");
 radius = Convert.ToDouble(Console.ReadLine());
 
