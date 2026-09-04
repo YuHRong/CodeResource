@@ -1,6 +1,4 @@
-﻿// Write a C# Sharp program to sort array elements in descending order.
-
-// Write a C# Sharp program to sort elements of an array in ascending order.
+﻿// Write a C# Sharp program to sort elements of an array in ascending order.
 
 const int len = 100;
 int[] arr = new int[len];
