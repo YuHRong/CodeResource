@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\GridSpotStatus.cs" />
     <Compile Include="models\GridSpotModel.cs" />
     <Compile Include="models\PlayInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BattleshipLightLibrary.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,6 @@ namespace BattleshipLightLibrary.models
   public string SpotLetter { get; set; }
   public int SpotNumber { get; set; }
   public int MyProperty { get; set; }
+  public GridSpotStatus status { get; set; }
  }
 }
