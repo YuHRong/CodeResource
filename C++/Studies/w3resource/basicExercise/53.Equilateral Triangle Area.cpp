@@ -1,3 +1,5 @@
+// Write a C++ program to calculate the area of an equilateral triangle.
+
 #include <iostream>
 #include <cmath>
 

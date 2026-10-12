@@ -42,7 +42,6 @@ public class Program
 
   // 调用 TrackStruct 方法传递newStruct实例（由于按值传递，不会修改原始实例）
   TrackStruct(nS);
-
   // 调用TrackClass方法传递newClass实例（由于通过引用传递，将修改原始实例）
   TrackClass(nC);
 
